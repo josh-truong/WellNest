@@ -15,9 +15,10 @@ struct ProfileIconView: View {
         }) {
             Image(systemName: "person.circle.fill")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .foregroundColor(.gray)
-                .frame(width:36, height:36)
+                .clipShape(Circle())
+                .frame(width:40, height:40)
         }
         .padding()
         .sheet(isPresented: $enableProfileModal) {

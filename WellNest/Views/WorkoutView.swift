@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct WorkoutView: View {
+    @State private var tasks: [WorkoutTask] = []
     var body: some View {
         NavigationView {
-            Text("Workout Plans")
-                .navigationTitle("Workout")
+            VStack {
+                AddWorkoutTaskView(tasks: $tasks)
+                    .padding()
+                WorkoutTaskView(tasks: $tasks)
+            }
+            .navigationTitle("Workout")
+                .toolbarProfileIcon()
         }
-        
     }
 }
 

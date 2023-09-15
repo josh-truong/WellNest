@@ -10,8 +10,10 @@ import SwiftUI
 struct MealView: View {
     var body: some View {
         NavigationView {
-            Text("Welcome to Meal Plans")
-                .navigationTitle("Nutrition")
+            ScrollView {
+            }
+            .navigationTitle("Nutrition")
+                .toolbarProfileIcon()
         }
         
     }

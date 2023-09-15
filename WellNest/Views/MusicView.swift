@@ -10,8 +10,10 @@ import SwiftUI
 struct MusicView: View {
     var body: some View {
         NavigationView {
-            Text("Workout music")
-                .navigationTitle("Music")
+            ScrollView {
+            }
+            .navigationTitle("Music")
+                .toolbarProfileIcon()
         }
         
     }

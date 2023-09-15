@@ -17,6 +17,11 @@
 		8DA4E4B12AB3F89D00971E19 /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B02AB3F89D00971E19 /* MusicView.swift */; };
 		8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */; };
 		8DA4E4B92AB40B4200971E19 /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */; };
+		8DA4E4BE2AB505B800971E19 /* ProfileIconToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4BD2AB505B800971E19 /* ProfileIconToolbarModifier.swift */; };
+		8DA4E4C22AB5086E00971E19 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA4E4C12AB5086E00971E19 /* SwiftUIIntrospect */; };
+		8DA4E4C42AB50FBD00971E19 /* AddWorkoutTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4C32AB50FBD00971E19 /* AddWorkoutTaskView.swift */; };
+		8DA4E4C62AB50FDE00971E19 /* WorkoutTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4C52AB50FDE00971E19 /* WorkoutTask.swift */; };
+		8DA4E4C82AB5121D00971E19 /* WorkoutTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4C72AB5121D00971E19 /* WorkoutTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,10 @@
 		8DA4E4B02AB3F89D00971E19 /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 		8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconView.swift; sourceTree = "<group>"; };
 		8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
+		8DA4E4BD2AB505B800971E19 /* ProfileIconToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconToolbarModifier.swift; sourceTree = "<group>"; };
+		8DA4E4C32AB50FBD00971E19 /* AddWorkoutTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutTaskView.swift; sourceTree = "<group>"; };
+		8DA4E4C52AB50FDE00971E19 /* WorkoutTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTask.swift; sourceTree = "<group>"; };
+		8DA4E4C72AB5121D00971E19 /* WorkoutTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA4E4C22AB5086E00971E19 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +73,7 @@
 		8D4C243C2AB350260008447E /* WellNest */ = {
 			isa = PBXGroup;
 			children = (
+				8DA4E4BC2AB5058C00971E19 /* ViewModifier */,
 				8DA4E4A92AB3F40400971E19 /* ViewModels */,
 				8DA4E4A82AB3F3EF00971E19 /* Models */,
 				8DA4E4A72AB3F3E300971E19 /* Views */,
@@ -91,6 +102,8 @@
 				8DA4E4B02AB3F89D00971E19 /* MusicView.swift */,
 				8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */,
 				8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */,
+				8DA4E4C32AB50FBD00971E19 /* AddWorkoutTaskView.swift */,
+				8DA4E4C72AB5121D00971E19 /* WorkoutTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +111,7 @@
 		8DA4E4A82AB3F3EF00971E19 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8DA4E4C52AB50FDE00971E19 /* WorkoutTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +121,14 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8DA4E4BC2AB5058C00971E19 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				8DA4E4BD2AB505B800971E19 /* ProfileIconToolbarModifier.swift */,
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +147,9 @@
 			dependencies = (
 			);
 			name = WellNest;
+			packageProductDependencies = (
+				8DA4E4C12AB5086E00971E19 /* SwiftUIIntrospect */,
+			);
 			productName = WellNest;
 			productReference = 8D4C243A2AB350260008447E /* WellNest.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +178,9 @@
 				Base,
 			);
 			mainGroup = 8D4C24312AB350260008447E;
+			packageReferences = (
+				8DA4E4C02AB5086E00971E19 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+			);
 			productRefGroup = 8D4C243B2AB350260008447E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,11 +208,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D4C24402AB350260008447E /* ContentView.swift in Sources */,
+				8DA4E4C42AB50FBD00971E19 /* AddWorkoutTaskView.swift in Sources */,
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
+				8DA4E4BE2AB505B800971E19 /* ProfileIconToolbarModifier.swift in Sources */,
 				8DA4E4B92AB40B4200971E19 /* ProfileModalView.swift in Sources */,
+				8DA4E4C62AB50FDE00971E19 /* WorkoutTask.swift in Sources */,
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
 				8DA4E4AD2AB3F66A00971E19 /* WorkoutView.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* MusicView.swift in Sources */,
+				8DA4E4C82AB5121D00971E19 /* WorkoutTaskView.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
 				8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */,
 			);
@@ -385,6 +417,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8DA4E4C02AB5086E00971E19 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8DA4E4C12AB5086E00971E19 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8DA4E4C02AB5086E00971E19 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8D4C24322AB350260008447E /* Project object */;
 }

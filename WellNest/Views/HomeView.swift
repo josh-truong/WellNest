@@ -10,13 +10,11 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            Text("Home Page")
-                .navigationTitle("Home")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        ProfileIconView()
-                    }
-                }
+            ScrollView {
+
+            }
+            .navigationTitle("Home")
+                .toolbarProfileIcon()
         }
     }
 }
