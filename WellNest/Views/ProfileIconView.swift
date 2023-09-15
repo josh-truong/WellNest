@@ -1,0 +1,33 @@
+//
+//  ProfileIconView.swift
+//  WellNest
+//
+//  Created by Joshua Truong on 9/14/23.
+//
+
+import SwiftUI
+
+struct ProfileIconView: View {
+    @State private var enableProfileModal = false
+    var body: some View {
+        Button(action: {
+            enableProfileModal = true
+        }) {
+            Image(systemName: "person.circle.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.gray)
+                .frame(width:36, height:36)
+        }
+        .padding()
+        .sheet(isPresented: $enableProfileModal) {
+            ProfileModalView()
+        }
+    }
+}
+
+struct ProfileIconView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileIconView()
+    }
+}
