@@ -12,8 +12,7 @@ struct MusicView: View {
         NavigationView {
             ScrollView {
             }
-            .navigationTitle("Music")
-                .toolbarProfileIcon()
+            .toolbarNavBar("Music")
         }
         
     }

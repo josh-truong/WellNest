@@ -7,19 +7,25 @@
 
 import SwiftUI
 
-struct ProfileIconToolbarModifier: ViewModifier {
+struct NavbarToolbarModifier: ViewModifier {
+    var title: String
     func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     ProfileIconView()
                 }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text(title)
+                        .font(.system(size:40))
+                }
             }
     }
 }
 
 extension View {
-    func toolbarProfileIcon() -> some View {
-        self.modifier(ProfileIconToolbarModifier())
+    func toolbarNavBar(_ title: String) -> some View {
+        self.modifier(NavbarToolbarModifier(title: title))
     }
 }

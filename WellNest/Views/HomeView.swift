@@ -13,8 +13,7 @@ struct HomeView: View {
             ScrollView {
 
             }
-            .navigationTitle("Home")
-                .toolbarProfileIcon()
+            .toolbarNavBar("Home")
         }
     }
 }

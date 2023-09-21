@@ -12,8 +12,7 @@ struct MealView: View {
         NavigationView {
             ScrollView {
             }
-            .navigationTitle("Nutrition")
-                .toolbarProfileIcon()
+            .toolbarNavBar("Nutrition")
         }
         
     }

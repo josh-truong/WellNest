@@ -6,18 +6,22 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct WorkoutView: View {
-    @State private var tasks: [WorkoutTask] = []
+    @ObservedObject private var viewModel = WorkoutViewModel()
+
     var body: some View {
         NavigationView {
-            VStack {
-                AddWorkoutTaskView(tasks: $tasks)
-                    .padding()
-                WorkoutTaskView(tasks: $tasks)
+            List(viewModel.exerciseData) { exercise in
+                LazyVStack(alignment: .leading) {
+                    ExerciseItem(exercise: exercise.data)
+                }
             }
-            .navigationTitle("Workout")
-                .toolbarProfileIcon()
+            .task {
+                await viewModel.searchExercises(term: "dumbbell")
+            }
+            .toolbarNavBar("Workout")
         }
     }
 }
