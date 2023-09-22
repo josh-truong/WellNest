@@ -16,7 +16,7 @@ struct ContentView: View {
                     Text("Home")
                 }
              
-            WorkoutView()
+            WorkoutView(viewModel: WorkoutViewModel(apiService: APIService()))
                 .tabItem{
                     Image(systemName: "bolt")
                     Text("Workout")

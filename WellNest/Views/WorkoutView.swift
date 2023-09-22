@@ -9,25 +9,35 @@ import SwiftUI
 import Foundation
 
 struct WorkoutView: View {
-    @ObservedObject private var viewModel = WorkoutViewModel()
-
+    @ObservedObject var viewModel: WorkoutViewModel
+    @State private var searchText = "dumbbell"
     var body: some View {
         NavigationView {
-            List(viewModel.exerciseData) { exercise in
-                LazyVStack(alignment: .leading) {
-                    ExerciseItem(exercise: exercise.data)
+            VStack {
+                List {
+                    ForEach(viewModel.exerciseDataByCategory.keys.sorted(), id: \.self) { key in
+                        WorkoutCategory(viewModel: viewModel, label: key, exercises: viewModel.exerciseDataByCategory[key]!.exercises)
+                    }
                 }
+                .toolbarNavBar("Workout")
+                
+                Spacer()
+                HStack {
+                    TextField("Search a workout", text: $searchText)
+                    Button("Search", systemImage: "arrow.up") {
+                        Task { @MainActor in
+                            await viewModel.searchExercises(term: searchText)
+                        }
+                    }
+                }
+                .padding()
             }
-            .task {
-                await viewModel.searchExercises(term: "dumbbell")
-            }
-            .toolbarNavBar("Workout")
         }
     }
 }
 
 struct Workout_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutView()
+        WorkoutView(viewModel: WorkoutViewModel(apiService: APIService()))
     }
 }

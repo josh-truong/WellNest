@@ -7,11 +7,28 @@
 
 import Foundation
 
+struct WgerEndpoint {
+    let url: URL
+}
+
 enum WgerEndpoints {
     static let baseURL = "https://wger.de"
     static let apiV2 = "/api/v2"
-    static func getExerciseSearch(term: String) -> String {
+    static func getExerciseSearchEndpoint(term: String) -> WgerEndpoint {
         let encodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        return "\(baseURL)\(apiV2)/exercise/search/?language=en&term=\(encodedTerm)"
+        let url = parseURL(string: "\(baseURL)\(apiV2)/exercise/search/?language=en&term=\(encodedTerm)")
+        return WgerEndpoint(url: url)
+    }
+    
+    static func getExerciseBaseEndpoint(baseId: Int) -> WgerEndpoint {
+        let url: URL = parseURL(string: "\(baseURL)\(apiV2)/exercise-base/\(baseId)")
+        return WgerEndpoint(url: url)
+    }
+    
+    private static func parseURL(string: String) -> URL {
+        guard let url = URL(string: string) else {
+            fatalError("Invalid URL: \(string)")
+        }
+        return url
     }
 }

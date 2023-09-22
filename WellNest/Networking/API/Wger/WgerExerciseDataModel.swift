@@ -7,22 +7,30 @@
 
 import Foundation
 
-struct WgerExerciseDataModel: Codable, Identifiable {
-    var id: Int { return UUID().hashValue }
-    let suggestions: [WGERExerciseSuggestion]
+struct WgerExerciseDataModel: Codable {
+    let suggestions: [WgerExerciseSuggestion]
 }
 
-struct WGERExerciseSuggestion: Codable, Identifiable {
+struct WgerExerciseSuggestion: Codable, Identifiable {
     var id: Int { return UUID().hashValue }
     let value: String
-    let data: WGERExerciseDetail
+    let data: WgerExerciseDetail
 }
 
-struct WGERExerciseDetail: Codable {
+struct WgerExerciseDetail: Codable, Identifiable {
     let id: Int
-    let base_id: Int
+    let baseId: Int
     let name: String
     let category: String
     let image: String?
-    let image_thumbnail: String?
+    let imageThumbnail: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case baseId = "base_id"
+        case name
+        case category
+        case image
+        case imageThumbnail = "image_thumbnail"
+    }
 }
