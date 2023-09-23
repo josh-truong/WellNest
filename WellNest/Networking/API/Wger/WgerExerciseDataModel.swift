@@ -8,16 +8,16 @@
 import Foundation
 
 struct WgerExerciseDataModel: Codable {
-    let suggestions: [WgerExerciseSuggestion]
+    let suggestions: [WgerExerciseSuggestionModel]
 }
 
-struct WgerExerciseSuggestion: Codable, Identifiable {
+struct WgerExerciseSuggestionModel: Codable, Identifiable {
     var id: Int { return UUID().hashValue }
     let value: String
-    let data: WgerExerciseDetail
+    let data: WgerExerciseDetailModel
 }
 
-struct WgerExerciseDetail: Codable, Identifiable {
+struct WgerExerciseDetailModel: Codable, Identifiable {
     let id: Int
     let baseId: Int
     let name: String

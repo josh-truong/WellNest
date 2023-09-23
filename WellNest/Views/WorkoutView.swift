@@ -9,14 +9,14 @@ import SwiftUI
 import Foundation
 
 struct WorkoutView: View {
-    @ObservedObject var viewModel: WorkoutViewModel
+    @ObservedObject var viewModel: ExerciseViewModel
     @State private var searchText = "dumbbell"
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     ForEach(viewModel.exerciseDataByCategory.keys.sorted(), id: \.self) { key in
-                        WorkoutCategory(viewModel: viewModel, label: key, exercises: viewModel.exerciseDataByCategory[key]!.exercises)
+                        ExerciseCategoryView(viewModel: viewModel, label: key, exercises: viewModel.exerciseDataByCategory[key]!.exercises)
                     }
                 }
                 .toolbarNavBar("Workout")
@@ -25,7 +25,7 @@ struct WorkoutView: View {
                 HStack {
                     TextField("Search a workout", text: $searchText)
                     Button("Search", systemImage: "arrow.up") {
-                        Task { @MainActor in
+                        Task { 
                             await viewModel.searchExercises(term: searchText)
                         }
                     }
@@ -38,6 +38,6 @@ struct WorkoutView: View {
 
 struct Workout_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutView(viewModel: WorkoutViewModel(apiService: APIService()))
+        WorkoutView(viewModel: ExerciseViewModel(apiService: APIService()))
     }
 }

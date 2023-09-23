@@ -6,7 +6,7 @@
 //
 import Foundation
 
-class WorkoutViewModel: ObservableObject {
+class ExerciseViewModel: ObservableObject {
     @Published var exerciseData = [WgerExerciseSuggestion]()
     @Published var exerciseDataByCategory = [String: WgerExerciseCategory]()
     @Published var exerciseBase = [WgerExerciseBaseModel]()
@@ -17,13 +17,16 @@ class WorkoutViewModel: ObservableObject {
         self.apiService = apiService
     }
     
+    @MainActor
     func searchExercises(term: String) async {
         Task {
             do {
+                print("Requesting - \(term)")
                 let endpoint = WgerEndpoints.getExerciseSearchEndpoint(term: term)
                 let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
                 let decodedData = try JSONDecoder().decode(WgerExerciseDataModel.self, from: data)
                 exerciseData = decodedData.suggestions
+                print("Finished - \(term)")
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
@@ -31,20 +34,24 @@ class WorkoutViewModel: ObservableObject {
         exerciseDataByCategory = groupExerciseDataDetailsByCategory()
     }
     
+    @MainActor
     func getExerciseBase(exercise: WgerExerciseDetail) async {
         Task {
             do {
+                print("Requesting - \(exercise.name)")
                 let endpoint = WgerEndpoints.getExerciseBaseEndpoint(baseId: exercise.baseId)
                 let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
                 let decodedData = try JSONDecoder().decode(WgerExerciseBaseModel.self, from: data)
                 exerciseBase = [decodedData]
+                print("Finished - \(exercise.name)")
             } catch {
                 print("Error: \(error.localizedDescription)")
-                print("\(error)")
+                print("Details:\n\(error)")
             }
         }
     }
     
+    @MainActor
     private func groupExerciseDataDetailsByCategory() -> [String: WgerExerciseCategory] {
         var categories = [String: WgerExerciseCategory]()
         for data in exerciseData {
