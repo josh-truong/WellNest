@@ -19,7 +19,7 @@ struct WgerExerciseSuggestionModel: Codable, Identifiable {
 
 struct WgerExerciseDetailModel: Codable, Identifiable {
     let id: Int
-    let baseId: Int
+    var baseId: Int
     let name: String
     let category: String
     let image: String?
@@ -32,5 +32,24 @@ struct WgerExerciseDetailModel: Codable, Identifiable {
         case category
         case image
         case imageThumbnail = "image_thumbnail"
+    }
+    
+    init() {
+        self.id = -1
+        self.baseId = -1
+        self.name = "unknown"
+        self.category = "unknown"
+        self.image = ""
+        self.imageThumbnail = ""
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
+        self.baseId = try container.decodeIfPresent(Int.self, forKey: .baseId) ?? -1
+        self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "unknown"
+        self.category = try container.decodeIfPresent(String.self, forKey: .category) ?? "unknown"
+        self.image = try container.decodeIfPresent(String.self, forKey: .image)
+        self.imageThumbnail = try container.decodeIfPresent(String.self, forKey: .imageThumbnail)
     }
 }
