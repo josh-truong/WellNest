@@ -9,7 +9,7 @@ import Foundation
 
 class ExerciseCategoryViewModel : ObservableObject {
     @Published var selectedExercise: WgerExerciseDetailModel = WgerExerciseDetailModel()
-    @Published var exerciseBase = [WgerExerciseBaseModel]()
+    @Published var exerciseBase: WgerExerciseBaseModel?
     
     private let apiService: APIService
     
@@ -23,11 +23,17 @@ class ExerciseCategoryViewModel : ObservableObject {
             print("Requesting - \(selectedExercise.name)")
             let endpoint = WgerEndpoints.getExerciseBaseEndpoint(baseId: selectedExercise.baseId)
             let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            exerciseBase = [try JSONDecoder().decode(WgerExerciseBaseModel.self, from: data)]
+            exerciseBase = try JSONDecoder().decode(WgerExerciseBaseModel.self, from: data)
             print("Finished - \(selectedExercise.name)")
         } catch {
             print("Error: \(error.localizedDescription)")
             print("Details:\n\(error)")
         }
+    }
+    
+    @MainActor
+    func reset() {
+        selectedExercise = WgerExerciseDetailModel()
+        exerciseBase = nil
     }
 }

@@ -18,10 +18,10 @@ struct ExerciseDetailView: View {
             Text("\(viewModel.selectedExercise.category)")
             Text("\(viewModel.selectedExercise.image ?? "")")
             Text("\(viewModel.selectedExercise.imageThumbnail ?? "")")
-
+            
             Spacer()
 
-            if let base = viewModel.exerciseBase.first {
+            if let base = viewModel.exerciseBase {
                 Text("Exercise ID: \(base.id)")
                 Text("Exercise UUID: \(base.uuid)")
                 Text("Created: \(base.created)")
@@ -44,6 +44,7 @@ struct ExerciseDetailView: View {
                 }
             }
         }
+        .onDisappear { viewModel.reset() }
         .padding()
     }
 }

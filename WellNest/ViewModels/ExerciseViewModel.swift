@@ -30,7 +30,6 @@ class ExerciseViewModel: ObservableObject {
         }
     }
     
-    @MainActor
     private func groupExerciseDataDetailsByCategory(exercises: [WgerExerciseSuggestionModel]) -> [String: WgerExerciseCategory] {
         var categories = [String: WgerExerciseCategory]()
         for data in exercises {
