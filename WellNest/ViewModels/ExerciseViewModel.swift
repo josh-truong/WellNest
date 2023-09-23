@@ -7,9 +7,8 @@
 import Foundation
 
 class ExerciseViewModel: ObservableObject {
-    @Published var exerciseData = [WgerExerciseSuggestionModel]()
-    @Published var exerciseDataByCategory = [String: WgerExerciseCategory]()
-    @Published var exerciseBase = [WgerExerciseBaseModel]()
+    @Published var exerciseDictionary = [String: WgerExerciseCategory]()
+    @Published var searchExerciseTerm: String = "dumbbell"
     
     private let apiService: APIService
     
@@ -18,43 +17,23 @@ class ExerciseViewModel: ObservableObject {
     }
     
     @MainActor
-    func searchExercises(term: String) async {
+    func searchExercises() async {
         do {
-            print("Requesting - \(term)")
-            let endpoint = WgerEndpoints.getExerciseSearchEndpoint(term: term)
+            print("Requesting - \(searchExerciseTerm)")
+            let endpoint = WgerEndpoints.getExerciseSearchEndpoint(term: searchExerciseTerm)
             let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            let decodedData = try JSONDecoder().decode(WgerExerciseDataModel.self, from: data)
-            exerciseData = decodedData.suggestions
-            print("Finished - \(term)")
+            let parsedData = try JSONDecoder().decode(WgerExerciseDataModel.self, from: data)
+            exerciseDictionary = groupExerciseDataDetailsByCategory(exercises: parsedData.suggestions)
+            print("Finished - \(searchExerciseTerm)")
         } catch {
             print("Error: \(error.localizedDescription)")
         }
-        exerciseDataByCategory = groupExerciseDataDetailsByCategory()
     }
     
     @MainActor
-    func getExerciseBase(exercise: WgerExerciseDetailModel) async -> WgerExerciseBaseModel {
-        var parsedData = WgerExerciseBaseModel()
-
-        do {
-            print("Requesting - \(exercise.name)")
-            let endpoint = WgerEndpoints.getExerciseBaseEndpoint(baseId: exercise.baseId)
-            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            parsedData = try JSONDecoder().decode(WgerExerciseBaseModel.self, from: data)
-            exerciseBase = [parsedData]
-            print("Finished - \(exercise.name)")
-        } catch {
-            print("Error: \(error.localizedDescription)")
-            print("Details:\n\(error)")
-        }
-        return parsedData
-    }
-
-    
-    @MainActor
-    private func groupExerciseDataDetailsByCategory() -> [String: WgerExerciseCategory] {
+    private func groupExerciseDataDetailsByCategory(exercises: [WgerExerciseSuggestionModel]) -> [String: WgerExerciseCategory] {
         var categories = [String: WgerExerciseCategory]()
-        for data in exerciseData {
+        for data in exercises {
             let category = data.data.category
             if !categories.keys.contains(category) {
                 categories[category] = WgerExerciseCategory(name: category, exercises: [])
