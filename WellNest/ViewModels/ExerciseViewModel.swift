@@ -8,7 +8,7 @@ import Foundation
 
 class ExerciseViewModel: ObservableObject {
     @Published var exerciseDictionary = [String: WgerExerciseCategory]()
-    @Published var searchExerciseTerm: String = "dumbbell"
+    @Published var searchExerciseTerm: String = ""
     
     private let apiService: APIService
     

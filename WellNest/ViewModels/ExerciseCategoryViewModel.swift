@@ -33,7 +33,6 @@ class ExerciseCategoryViewModel : ObservableObject {
     
     @MainActor
     func reset() {
-        selectedExercise = WgerExerciseDetailModel()
         exerciseBase = nil
     }
 }

@@ -19,11 +19,11 @@ struct ExerciseView: View {
                         ExerciseCategoryView(exerciseVM: viewModel, exerciseCategoryVM: ExerciseCategoryViewModel(apiService: APIService()),label: key, exercises: viewModel.exerciseDictionary[key]!.exercises)
                     }
                 }
-                .toolbarNavBar("Workout")
+                .toolbarNavBar("Exercise")
                 
                 Spacer()
                 HStack {
-                    TextField("Search a workout", text: $viewModel.searchExerciseTerm)
+                    TextField("Search an exercise", text: $viewModel.searchExerciseTerm)
                     Button("Search", systemImage: "arrow.up") {
                         Task {
                             await viewModel.searchExercises()
