@@ -12,12 +12,14 @@
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
 		8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */; };
 		8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseModel.swift */; };
+		8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */; };
+		8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */; };
 		8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243D2AB350260008447E /* WellNestApp.swift */; };
 		8D4C24402AB350260008447E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243F2AB350260008447E /* ContentView.swift */; };
 		8D4C24422AB350260008447E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24412AB350260008447E /* Assets.xcassets */; };
 		8D4C24452AB350260008447E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24442AB350260008447E /* Preview Assets.xcassets */; };
 		8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AA2AB3F56000971E19 /* HomeView.swift */; };
-		8DA4E4AD2AB3F66A00971E19 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AC2AB3F66A00971E19 /* WorkoutView.swift */; };
+		8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */; };
 		8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AE2AB3F6E200971E19 /* MealView.swift */; };
 		8DA4E4B12AB3F89D00971E19 /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B02AB3F89D00971E19 /* MusicView.swift */; };
 		8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */; };
@@ -37,13 +39,15 @@
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
 		8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseBaseModel.swift; sourceTree = "<group>"; };
+		8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryViewModel.swift; sourceTree = "<group>"; };
+		8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseData.swift; sourceTree = "<group>"; };
 		8D4C243A2AB350260008447E /* WellNest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WellNest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4C243D2AB350260008447E /* WellNestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellNestApp.swift; sourceTree = "<group>"; };
 		8D4C243F2AB350260008447E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D4C24412AB350260008447E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4C24442AB350260008447E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8DA4E4AA2AB3F56000971E19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8DA4E4AC2AB3F66A00971E19 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		8DA4E4AE2AB3F6E200971E19 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 		8DA4E4B02AB3F89D00971E19 /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 		8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D43D7BD2ABE8E2B0022F711 /* ExerciseView */ = {
+			isa = PBXGroup;
+			children = (
+				8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */,
+				8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */,
+				8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */,
+			);
+			path = ExerciseView;
+			sourceTree = "<group>";
+		};
+		8D43D7C02ABEAD720022F711 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
 		8D4C24312AB350260008447E = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +110,7 @@
 		8D4C243C2AB350260008447E /* WellNest */ = {
 			isa = PBXGroup;
 			children = (
+				8D43D7C02ABEAD720022F711 /* TestData */,
 				8DDC05A12ABC396400287D4F /* Networking */,
 				8DDC05A02ABC392A00287D4F /* Service */,
 				8DA4E4BC2AB5058C00971E19 /* ViewModifier */,
@@ -113,15 +136,13 @@
 		8DA4E4A72AB3F3E300971E19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D43D7BD2ABE8E2B0022F711 /* ExerciseView */,
 				8DA4E4AA2AB3F56000971E19 /* HomeView.swift */,
-				8DA4E4AC2AB3F66A00971E19 /* WorkoutView.swift */,
 				8DA4E4AE2AB3F6E200971E19 /* MealView.swift */,
 				8DA4E4B02AB3F89D00971E19 /* MusicView.swift */,
 				8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */,
 				8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */,
 				8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */,
-				8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */,
-				8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */,
+				8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -268,9 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */,
 				8D4C24402AB350260008447E /* ContentView.swift in Sources */,
 				8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */,
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
+				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
 				8DA4E4BE2AB505B800971E19 /* NavbarToolbarModifier.swift in Sources */,
 				8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */,
@@ -280,7 +304,7 @@
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
-				8DA4E4AD2AB3F66A00971E19 /* WorkoutView.swift in Sources */,
+				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* MusicView.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseDataModel.swift in Sources */,
