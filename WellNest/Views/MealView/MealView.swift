@@ -29,7 +29,7 @@ struct MealView: View {
                 Spacer()
                 if let ingredients = viewModel.ingredients?.results {
                     List(ingredients, id: \.self) { ingredient in
-                        Text(ingredient.name ?? "")
+                        Text(ingredient.name)
                             .onTapGesture {
                                 selectedIngredient = ingredient
                                 showModal = true

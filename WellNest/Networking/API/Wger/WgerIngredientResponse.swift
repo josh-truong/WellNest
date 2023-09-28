@@ -8,10 +8,10 @@
 import Foundation
 
 struct WgerIngredientResponse: Codable {
-    let count: Int?
-    let next: String?
+    let count: Int
+    let next: String
     let previous: String?
-    let results: [WgerIngredientResult]?
+    let results: [WgerIngredientResult]
     
     init() {
         self.count = -1
@@ -24,7 +24,7 @@ struct WgerIngredientResponse: Codable {
 struct WgerIngredientResult: Codable, Identifiable, Hashable {
     let id: Int
     let uuid: UUID
-    let code: String
+    let code: String?
     let name: String
     let created: String
     let creationDate: String
@@ -32,17 +32,17 @@ struct WgerIngredientResult: Codable, Identifiable, Hashable {
     let energy: Int
     let protein: String
     let carbohydrates: String
-    let carbohydratesSugar: String
+    let carbohydratesSugar: String?
     let fat: String
-    let fatSaturated: String
-    let fibres: String
-    let sodium: String
-    let license: Int
-    let licenseTitle: String
-    let licenseObjectURL: String
-    let licenseAuthor: String
-    let licenseAuthorURL: String
-    let licenseDerivativeSourceURL: String
+    let fatSaturated: String?
+    let fibres: String?
+    let sodium: String?
+    let license: Int?
+    let licenseTitle: String?
+    let licenseObjectURL: String?
+    let licenseAuthor: String?
+    let licenseAuthorURL: String?
+    let licenseDerivativeSourceURL: String?
     let language: Int
     
     enum CodingKeys: String, CodingKey {
