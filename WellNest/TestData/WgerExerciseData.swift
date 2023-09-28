@@ -10,7 +10,7 @@ import Foundation
 class WgerExerciseData {
     private let decoder: JSONDecoder = JSONDecoder()
     
-    func getWgerExerciseDetail() -> WgerExerciseDetailModel {
+    func getWgerExerciseDetail() -> WgerExerciseDetail {
         let jsonData = """
         {
             "id": 210,
@@ -22,9 +22,9 @@ class WgerExerciseData {
         }
         """.data(using: .utf8)!
         do {
-            return try decoder.decode(WgerExerciseDetailModel.self, from: jsonData)
+            return try decoder.decode(WgerExerciseDetail.self, from: jsonData)
         } catch {
-            return WgerExerciseDetailModel()
+            return WgerExerciseDetail()
         }
     }
 }

@@ -15,13 +15,24 @@ enum WgerEndpoints {
     static let baseURL = "https://wger.de"
     static let apiV2 = "/api/v2"
     static func getExerciseSearchEndpoint(term: String) -> WgerEndpoint {
-        let encodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        let url = parseURL(string: "\(baseURL)\(apiV2)/exercise/search/?language=en&term=\(encodedTerm)")
+        let processed = term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        let url = parseURL(string: "\(baseURL)\(apiV2)/exercise/search/?language=en&term=\(processed)")
         return WgerEndpoint(url: url)
     }
     
     static func getExerciseBaseEndpoint(baseId: Int) -> WgerEndpoint {
         let url: URL = parseURL(string: "\(baseURL)\(apiV2)/exercise-base/\(baseId)")
+        return WgerEndpoint(url: url)
+    }
+    
+    static func getIngredientsEndpoint() -> WgerEndpoint {
+        let url: URL = parseURL(string: "\(baseURL)\(apiV2)/ingredient/")
+        return WgerEndpoint(url: url)
+    }
+    
+    static func getIngredientSearchEndpoint(term: String) -> WgerEndpoint {
+        let processed = term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        let url: URL = parseURL(string: "\(baseURL)\(apiV2)/ingredient/search/?language=en&term=\(processed)")
         return WgerEndpoint(url: url)
     }
     

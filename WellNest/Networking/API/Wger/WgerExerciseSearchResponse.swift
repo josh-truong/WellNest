@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct WgerExerciseDataModel: Codable {
-    let suggestions: [WgerExerciseSuggestionModel]
+struct WgerExerciseSearchResponse: Codable {
+    let suggestions: [WgerExerciseSuggestion]
 }
 
-struct WgerExerciseSuggestionModel: Codable, Identifiable {
+struct WgerExerciseSuggestion: Codable, Identifiable {
     var id: Int { return UUID().hashValue }
     let value: String
-    let data: WgerExerciseDetailModel
+    let data: WgerExerciseDetail
 }
 
-struct WgerExerciseDetailModel: Codable, Identifiable {
+struct WgerExerciseDetail: Codable, Identifiable {
     let id: Int
     var baseId: Int
     let name: String
@@ -25,7 +25,7 @@ struct WgerExerciseDetailModel: Codable, Identifiable {
     let image: String?
     let imageThumbnail: String?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case baseId = "base_id"
         case name

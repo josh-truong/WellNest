@@ -10,29 +10,38 @@ import Foundation
 
 struct ExerciseView: View {
     @ObservedObject var viewModel: ExerciseViewModel
+    @State private var searchTerm: String = ""
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(viewModel.exerciseDictionary.keys.sorted(), id: \.self) { key in
-                        ExerciseCategoryView(exerciseVM: viewModel, exerciseCategoryVM: ExerciseCategoryViewModel(apiService: APIService()),label: key, exercises: viewModel.exerciseDictionary[key]!.exercises)
+            VStack() {
+                if let categories = viewModel.exerciseDictionary, !categories.isEmpty {
+                    List {
+                        ForEach(categories.keys.sorted(), id: \.self) { key in
+                            ExerciseCategoryView(exerciseVM: viewModel, exerciseCategoryVM: ExerciseCategoryViewModel(apiService: APIService()),label: key, exercises: categories[key]!.exercises)
+                        }
                     }
+                    .listStyle(GroupedListStyle())
                 }
-                .toolbarNavBar("Exercise")
+                else {
+                    Spacer()
+                    Text("Nothing To See Here")
+                }
                 
                 Spacer()
                 HStack {
-                    TextField("Search an exercise", text: $viewModel.searchExerciseTerm)
+                    TextField("Search an exercise", text: $searchTerm)
                     Button("Search", systemImage: "arrow.up") {
                         Task {
-                            await viewModel.searchExercises()
+                            await viewModel.searchExercises(term: searchTerm)
                         }
                     }
                 }
                 .padding()
             }
+            .toolbarNavBar("Exercise")
         }
+        .onDisappear { viewModel.reset() }
     }
 }
 

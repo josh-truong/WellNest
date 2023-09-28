@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WgerExerciseBaseModel: Codable {
+struct WgerExerciseBaseResponse: Codable {
     let id: Int
     let uuid: UUID
     let created: String

@@ -11,13 +11,19 @@
 		8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */; };
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
 		8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */; };
-		8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseModel.swift */; };
+		8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */; };
 		8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */; };
 		8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */; };
 		8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243D2AB350260008447E /* WellNestApp.swift */; };
 		8D4C24402AB350260008447E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243F2AB350260008447E /* ContentView.swift */; };
 		8D4C24422AB350260008447E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24412AB350260008447E /* Assets.xcassets */; };
 		8D4C24452AB350260008447E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24442AB350260008447E /* Preview Assets.xcassets */; };
+		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
+		8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08A2AC617D50062D566 /* MealViewModel.swift */; };
+		8D9EF08E2AC61D720062D566 /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = 8D9EF08D2AC61D720062D566 /* SHSearchBar */; };
+		8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */; };
+		8D9EF0952AC62D430062D566 /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0942AC62D430062D566 /* IngredientDetailView.swift */; };
+		8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */; };
 		8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AA2AB3F56000971E19 /* HomeView.swift */; };
 		8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */; };
 		8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AE2AB3F6E200971E19 /* MealView.swift */; };
@@ -29,7 +35,7 @@
 		8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05992ABC2C0500287D4F /* Constants.swift */; };
 		8DDC059F2ABC344D00287D4F /* ResizableAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */; };
 		8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05A82ABC3AB700287D4F /* WgerEndpoints.swift */; };
-		8DDC05AB2ABC3E0E00287D4F /* WgerExerciseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05AA2ABC3E0E00287D4F /* WgerExerciseDataModel.swift */; };
+		8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05AA2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift */; };
 		8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05AC2ABC3E7100287D4F /* APIService.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +44,7 @@
 		8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseCategory.swift; sourceTree = "<group>"; };
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
 		8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
-		8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseBaseModel.swift; sourceTree = "<group>"; };
+		8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseBaseResponse.swift; sourceTree = "<group>"; };
 		8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryViewModel.swift; sourceTree = "<group>"; };
 		8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseData.swift; sourceTree = "<group>"; };
 		8D4C243A2AB350260008447E /* WellNest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WellNest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +52,11 @@
 		8D4C243F2AB350260008447E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D4C24412AB350260008447E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4C24442AB350260008447E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
+		8D9EF08A2AC617D50062D566 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
+		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
+		8D9EF0942AC62D430062D566 /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
+		8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientData.swift; sourceTree = "<group>"; };
 		8DA4E4AA2AB3F56000971E19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		8DA4E4AE2AB3F6E200971E19 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
@@ -56,7 +67,7 @@
 		8DDC05992ABC2C0500287D4F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableAsyncImage.swift; sourceTree = "<group>"; };
 		8DDC05A82ABC3AB700287D4F /* WgerEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerEndpoints.swift; sourceTree = "<group>"; };
-		8DDC05AA2ABC3E0E00287D4F /* WgerExerciseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseDataModel.swift; sourceTree = "<group>"; };
+		8DDC05AA2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseSearchResponse.swift; sourceTree = "<group>"; };
 		8DDC05AC2ABC3E7100287D4F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DA4E4C22AB5086E00971E19 /* SwiftUIIntrospect in Frameworks */,
+				8D9EF08E2AC61D720062D566 /* SHSearchBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */,
+				8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */,
 			);
 			path = TestData;
 			sourceTree = "<group>";
@@ -133,12 +146,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8D9EF0912AC62CE90062D566 /* MealView */ = {
+			isa = PBXGroup;
+			children = (
+				8DA4E4AE2AB3F6E200971E19 /* MealView.swift */,
+				8D9EF0942AC62D430062D566 /* IngredientDetailView.swift */,
+			);
+			path = MealView;
+			sourceTree = "<group>";
+		};
 		8DA4E4A72AB3F3E300971E19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D9EF0912AC62CE90062D566 /* MealView */,
 				8D43D7BD2ABE8E2B0022F711 /* ExerciseView */,
 				8DA4E4AA2AB3F56000971E19 /* HomeView.swift */,
-				8DA4E4AE2AB3F6E200971E19 /* MealView.swift */,
 				8DA4E4B02AB3F89D00971E19 /* MusicView.swift */,
 				8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */,
 				8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */,
@@ -160,6 +182,7 @@
 			children = (
 				8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */,
 				8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */,
+				8D9EF08A2AC617D50062D566 /* MealViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -208,8 +231,10 @@
 			isa = PBXGroup;
 			children = (
 				8DDC05A82ABC3AB700287D4F /* WgerEndpoints.swift */,
-				8DDC05AA2ABC3E0E00287D4F /* WgerExerciseDataModel.swift */,
-				8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseModel.swift */,
+				8DDC05AA2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift */,
+				8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */,
+				8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */,
+				8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */,
 			);
 			path = Wger;
 			sourceTree = "<group>";
@@ -232,6 +257,7 @@
 			name = WellNest;
 			packageProductDependencies = (
 				8DA4E4C12AB5086E00971E19 /* SwiftUIIntrospect */,
+				8D9EF08D2AC61D720062D566 /* SHSearchBar */,
 			);
 			productName = WellNest;
 			productReference = 8D4C243A2AB350260008447E /* WellNest.app */;
@@ -263,6 +289,7 @@
 			mainGroup = 8D4C24312AB350260008447E;
 			packageReferences = (
 				8DA4E4C02AB5086E00971E19 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				8D9EF08C2AC61D720062D566 /* XCRemoteSwiftPackageReference "SHSearchBar" */,
 			);
 			productRefGroup = 8D4C243B2AB350260008447E /* Products */;
 			projectDirPath = "";
@@ -291,14 +318,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */,
+				8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */,
 				8D4C24402AB350260008447E /* ContentView.swift in Sources */,
+				8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */,
+				8D9EF0952AC62D430062D566 /* IngredientDetailView.swift in Sources */,
 				8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */,
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
 				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
 				8DA4E4BE2AB505B800971E19 /* NavbarToolbarModifier.swift in Sources */,
 				8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */,
-				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseModel.swift in Sources */,
+				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */,
 				8DA4E4B92AB40B4200971E19 /* ProfileModalView.swift in Sources */,
 				8DDC059F2ABC344D00287D4F /* ResizableAsyncImage.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
@@ -306,8 +336,10 @@
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
 				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
+				8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* MusicView.swift in Sources */,
-				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseDataModel.swift in Sources */,
+				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
+				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
 				8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */,
 				8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */,
@@ -515,6 +547,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8D9EF08C2AC61D720062D566 /* XCRemoteSwiftPackageReference "SHSearchBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Blackjacx/SHSearchBar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 		8DA4E4C02AB5086E00971E19 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
@@ -526,6 +566,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8D9EF08D2AC61D720062D566 /* SHSearchBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D9EF08C2AC61D720062D566 /* XCRemoteSwiftPackageReference "SHSearchBar" */;
+			productName = SHSearchBar;
+		};
 		8DA4E4C12AB5086E00971E19 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8DA4E4C02AB5086E00971E19 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;

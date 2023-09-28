@@ -7,8 +7,7 @@
 import Foundation
 
 class ExerciseViewModel: ObservableObject {
-    @Published var exerciseDictionary = [String: WgerExerciseCategory]()
-    @Published var searchExerciseTerm: String = ""
+    @Published var exerciseDictionary: [String: WgerExerciseCategory]? = nil
     
     private let apiService: APIService
     
@@ -17,20 +16,25 @@ class ExerciseViewModel: ObservableObject {
     }
     
     @MainActor
-    func searchExercises() async {
+    func searchExercises(term: String) async {
         do {
-            print("Requesting - \(searchExerciseTerm)")
-            let endpoint = WgerEndpoints.getExerciseSearchEndpoint(term: searchExerciseTerm)
+            print("Requesting - \(term)")
+            let endpoint = WgerEndpoints.getExerciseSearchEndpoint(term: term)
             let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            let parsedData = try JSONDecoder().decode(WgerExerciseDataModel.self, from: data)
+            let parsedData = try JSONDecoder().decode(WgerExerciseSearchResponse.self, from: data)
             exerciseDictionary = groupExerciseDataDetailsByCategory(exercises: parsedData.suggestions)
-            print("Finished - \(searchExerciseTerm)")
+            print("Finished - \(term)")
         } catch {
             print("Error: \(error.localizedDescription)")
         }
     }
     
-    private func groupExerciseDataDetailsByCategory(exercises: [WgerExerciseSuggestionModel]) -> [String: WgerExerciseCategory] {
+    @MainActor
+    func reset() {
+        
+    }
+    
+    private func groupExerciseDataDetailsByCategory(exercises: [WgerExerciseSuggestion]) -> [String: WgerExerciseCategory] {
         var categories = [String: WgerExerciseCategory]()
         for data in exercises {
             let category = data.data.category

@@ -21,7 +21,7 @@ struct ContentView: View {
                     Image(systemName: "bolt")
                     Text("Exercise")
                 }
-            MealView()
+            MealView(viewModel: MealViewModel(apiService: APIService()))
                 .tabItem{
                     Image(systemName: "leaf")
                     Text("Nutrition")

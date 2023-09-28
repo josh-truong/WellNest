@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "shsearchbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Blackjacx/SHSearchBar.git",
+      "state" : {
+        "revision" : "0caa8c053f5ec481ffc8a5b31db7e8ecd326be39",
+        "version" : "2.1.0"
+      }
+    },
+    {
       "identity" : "swiftui-introspect",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/siteline/swiftui-introspect",

@@ -10,5 +10,5 @@ import Foundation
 struct WgerExerciseCategory : Identifiable {
     var id: Int { return UUID().hashValue }
     var name: String
-    var exercises: [WgerExerciseDetailModel]
+    var exercises: [WgerExerciseDetail]
 }
