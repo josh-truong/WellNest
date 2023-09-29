@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D207C322AC6A9AF0010954E /* DefaultIngredientView.swift */; };
+		8D207C352AC6AA040010954E /* DefaultIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */; };
 		8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */; };
 		8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */; };
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D207C322AC6A9AF0010954E /* DefaultIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientView.swift; sourceTree = "<group>"; };
+		8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientViewModel.swift; sourceTree = "<group>"; };
 		8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseCategory.swift; sourceTree = "<group>"; };
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				8DA4E4AE2AB3F6E200971E19 /* MealView.swift */,
 				8D9EF0942AC62D430062D566 /* IngredientDetailView.swift */,
+				8D207C322AC6A9AF0010954E /* DefaultIngredientView.swift */,
 			);
 			path = MealView;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */,
 				8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */,
 				8D9EF08A2AC617D50062D566 /* MealViewModel.swift */,
+				8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -335,10 +341,12 @@
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
 				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
+				8D207C352AC6AA040010954E /* DefaultIngredientViewModel.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* MusicView.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
+				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
 				8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */,

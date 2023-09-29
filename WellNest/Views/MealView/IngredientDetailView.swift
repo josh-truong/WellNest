@@ -8,27 +8,25 @@
 import SwiftUI
 
 struct IngredientDetailView: View {
-    @Binding var ingredient: WgerIngredientResult?
+    @Binding var ingredient: WgerIngredientResult
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Ingredient Detail").font(.largeTitle)
-            if let item = ingredient {
-                Text("ID: \(item.id)")
-                Text("Name: \(item.name)")
-                Text("Code: \(item.code ?? "N/A")")
-                Text("Energy: \(item.energy)")
-                Text("Protein: \(item.protein)")
-                Text("Carbohydrates: \(item.carbohydrates)")
-                Text("Carbohydrates Sugar: \(item.carbohydratesSugar ?? "N/A")")
-                Text("Fat: \(item.fat)")
-                Text("Fat Saturated: \(item.fatSaturated ?? "N/A")")
-                Text("Fibres: \(item.fibres ?? "N/A")")
-                Text("Sodium: \(item.sodium ?? "N/A")")
-                Text("License Title: \(item.licenseTitle ?? "N/A")")
-                Text("License Author: \(item.licenseAuthor ?? "N/A")")
-                Text("Language: \(item.language)")
-            }
+            Text("ID: \(ingredient.id)")
+            Text("Name: \(ingredient.name)")
+            Text("Code: \(ingredient.code ?? "N/A")")
+            Text("Energy: \(ingredient.energy)")
+            Text("Protein: \(ingredient.protein)")
+            Text("Carbohydrates: \(ingredient.carbohydrates)")
+            Text("Carbohydrates Sugar: \(ingredient.carbohydratesSugar ?? "N/A")")
+            Text("Fat: \(ingredient.fat)")
+            Text("Fat Saturated: \(ingredient.fatSaturated ?? "N/A")")
+            Text("Fibres: \(ingredient.fibres ?? "N/A")")
+            Text("Sodium: \(ingredient.sodium ?? "N/A")")
+            Text("License Title: \(ingredient.licenseTitle ?? "N/A")")
+            Text("License Author: \(ingredient.licenseAuthor ?? "N/A")")
+            Text("Language: \(ingredient.language)")
         }
         .padding()
     }

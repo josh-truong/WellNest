@@ -1,13 +1,6 @@
-//
-//  WgerIngredientResponse.swift
-//  WellNest
-//
-//  Created by Joshua Truong on 9/28/23.
-//
-
 import Foundation
 
-struct WgerIngredientResponse: Codable {
+struct WgerIngredientResponse: Codable, Equatable {
     let count: Int
     let next: String
     let previous: String?
@@ -21,8 +14,8 @@ struct WgerIngredientResponse: Codable {
     }
 }
 
-struct WgerIngredientResult: Codable, Identifiable, Hashable {
-    let id: Int
+struct WgerIngredientResult: Codable, Hashable {
+    var id: Int
     let uuid: UUID
     let code: String?
     let name: String
@@ -68,5 +61,30 @@ struct WgerIngredientResult: Codable, Identifiable, Hashable {
         case licenseAuthorURL = "license_author_url"
         case licenseDerivativeSourceURL = "license_derivative_source_url"
         case language
+    }
+    
+    init() {
+        self.id = UUID().hashValue
+        self.uuid = UUID()
+        self.code = nil
+        self.name = ""
+        self.created = ""
+        self.creationDate = ""
+        self.lastUpdate = ""
+        self.energy = 0
+        self.protein = ""
+        self.carbohydrates = ""
+        self.carbohydratesSugar = nil
+        self.fat = ""
+        self.fatSaturated = nil
+        self.fibres = nil
+        self.sodium = nil
+        self.license = nil
+        self.licenseTitle = nil
+        self.licenseObjectURL = nil
+        self.licenseAuthor = nil
+        self.licenseAuthorURL = nil
+        self.licenseDerivativeSourceURL = nil
+        self.language = 0
     }
 }

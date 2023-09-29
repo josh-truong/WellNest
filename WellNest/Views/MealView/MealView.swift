@@ -10,7 +10,7 @@ import SwiftUI
 struct MealView: View {
     @ObservedObject var viewModel: MealViewModel
     @State private var searchTerm: String = "Ribeye"
-    @State private var selectedIngredient: WgerIngredientResult? 
+    @State private var selectedIngredient = WgerIngredientResult()
     @State private var showModal = false
     
     var body: some View {
@@ -27,26 +27,20 @@ struct MealView: View {
                 .padding()
             
                 Spacer()
-                if let ingredients = viewModel.ingredients?.results {
-                    List(ingredients, id: \.self) { ingredient in
-                        Text(ingredient.name)
-                            .onTapGesture {
-                                selectedIngredient = ingredient
-                                showModal = true
+                if !viewModel.ingredientSuggestions.isEmpty {
+                    List {
+                        ForEach(viewModel.ingredientSuggestions, id: \.self.id) { result in
+                            HStack {
+                                Text(result.data.name)
                             }
-                    }
-                    .sheet(isPresented: $showModal) {
-                        IngredientDetailView(ingredient: $selectedIngredient)
+                        }
                     }
                 }
-                
+                else {
+                    //DefaultIngredientView(viewModel: DefaultIngredientViewModel())
+                }
             }
             .toolbarNavBar("Nutrition")
-        }
-        .onAppear {
-            Task {
-                await viewModel.getIngredientPlaceholder()
-            }
         }
     }
 }

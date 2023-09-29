@@ -11,7 +11,7 @@ struct WgerExerciseSearchResponse: Codable {
     let suggestions: [WgerExerciseSuggestion]
 }
 
-struct WgerExerciseSuggestion: Codable, Identifiable {
+struct WgerExerciseSuggestion: Codable {
     var id: Int { return UUID().hashValue }
     let value: String
     let data: WgerExerciseDetail
@@ -35,21 +35,11 @@ struct WgerExerciseDetail: Codable, Identifiable {
     }
     
     init() {
-        self.id = -1
+        self.id = UUID().hashValue
         self.baseId = -1
         self.name = "unknown"
         self.category = "unknown"
         self.image = ""
         self.imageThumbnail = ""
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1
-        self.baseId = try container.decodeIfPresent(Int.self, forKey: .baseId) ?? -1
-        self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "unknown"
-        self.category = try container.decodeIfPresent(String.self, forKey: .category) ?? "unknown"
-        self.image = try container.decodeIfPresent(String.self, forKey: .image)
-        self.imageThumbnail = try container.decodeIfPresent(String.self, forKey: .imageThumbnail)
     }
 }
