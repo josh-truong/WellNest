@@ -37,7 +37,7 @@ struct MealView: View {
                     }
                 }
                 else {
-                    //DefaultIngredientView(viewModel: DefaultIngredientViewModel())
+                    DefaultIngredientView(viewModel: DefaultIngredientViewModel())
                 }
             }
             .toolbarNavBar("Nutrition")
