@@ -10,20 +10,32 @@ import CoreLocation
 
 // Reference
 // https://coledennis.medium.com/tutorial-connecting-core-location-to-a-swiftui-app-dc62563bd1de
+// https://www.youtube.com/watch?v=4IlNA4xNM3k
 class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus?
-    var locationManager = CLLocationManager()
+    @Published var coordinate: CLLocationCoordinate2D?
+    private var locationManager = CLLocationManager()
     
     override init() {
         super.init()
+        setupLocationManager()
+    }
+    
+    func setupLocationManager() {
         locationManager.delegate = self
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.showsBackgroundLocationIndicator = true
+    }
+    
+    func requestLocationUpdate() {
+        locationManager.startUpdatingLocation()
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse:  // Location services are available.
             authorizationStatus = .authorizedWhenInUse
-            locationManager.requestLocation()
+            requestLocationUpdate()
             break
             
         case .restricted, .denied:  // Location services currently unavailable.
@@ -44,6 +56,7 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
         if let location = locations.last {
             print("Latitude: \(location.coordinate.latitude)")
             print("Longitude: \(location.coordinate.longitude)")
+            coordinate = location.coordinate
         }
     }
     
