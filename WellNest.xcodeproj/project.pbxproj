@@ -20,6 +20,7 @@
 		8D4C24402AB350260008447E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243F2AB350260008447E /* ContentView.swift */; };
 		8D4C24422AB350260008447E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24412AB350260008447E /* Assets.xcassets */; };
 		8D4C24452AB350260008447E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24442AB350260008447E /* Preview Assets.xcassets */; };
+		8D5BEC4D2AD4ED980059A5C8 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08A2AC617D50062D566 /* MealViewModel.swift */; };
 		8D9EF08E2AC61D720062D566 /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = 8D9EF08D2AC61D720062D566 /* SHSearchBar */; };
@@ -56,6 +57,7 @@
 		8D4C243F2AB350260008447E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D4C24412AB350260008447E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4C24442AB350260008447E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08A2AC617D50062D566 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		8D4C24312AB350260008447E = {
 			isa = PBXGroup;
 			children = (
+				8D5BEC4B2AD4ED5D0059A5C8 /* Manager */,
 				8DDC05982ABC2BF000287D4F /* Constants */,
 				8D4C243C2AB350260008447E /* WellNest */,
 				8D4C243B2AB350260008447E /* Products */,
@@ -148,6 +151,14 @@
 				8D4C24442AB350260008447E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D5BEC4B2AD4ED5D0059A5C8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		8D9EF0912AC62CE90062D566 /* MealView */ = {
@@ -326,6 +337,7 @@
 				8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */,
 				8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */,
 				8D4C24402AB350260008447E /* ContentView.swift in Sources */,
+				8D5BEC4D2AD4ED980059A5C8 /* LocationDataManager.swift in Sources */,
 				8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */,
 				8D9EF0952AC62D430062D566 /* IngredientDetailView.swift in Sources */,
 				8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */,
@@ -485,6 +497,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WellNest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data to tell you your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -513,6 +527,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WellNest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data to tell you your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
