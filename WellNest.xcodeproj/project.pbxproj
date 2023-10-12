@@ -21,6 +21,12 @@
 		8D4C24422AB350260008447E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24412AB350260008447E /* Assets.xcassets */; };
 		8D4C24452AB350260008447E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24442AB350260008447E /* Preview Assets.xcassets */; };
 		8D5BEC4D2AD4ED980059A5C8 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */; };
+		8D6D55652AD63D0200B9BA7F /* GeoLocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55642AD63D0200B9BA7F /* GeoLocationDetailsView.swift */; };
+		8D6D55672AD65D4700B9BA7F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55662AD65D4700B9BA7F /* LocationService.swift */; };
+		8D6D55702AD665FB00B9BA7F /* GeoConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D556F2AD665FB00B9BA7F /* GeoConnectView.swift */; };
+		8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55712AD6660D00B9BA7F /* GeoConnectViewModel.swift */; };
+		8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55732AD7277600B9BA7F /* GeoConnectModel.swift */; };
+		8D6D55762AD7CD4700B9BA7F /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08A2AC617D50062D566 /* MealViewModel.swift */; };
 		8D9EF08E2AC61D720062D566 /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = 8D9EF08D2AC61D720062D566 /* SHSearchBar */; };
@@ -59,6 +65,13 @@
 		8D4C24442AB350260008447E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		8D5BEC4E2AD5050C0059A5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D6D55642AD63D0200B9BA7F /* GeoLocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationDetailsView.swift; sourceTree = "<group>"; };
+		8D6D55662AD65D4700B9BA7F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		8D6D556F2AD665FB00B9BA7F /* GeoConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoConnectView.swift; sourceTree = "<group>"; };
+		8D6D55712AD6660D00B9BA7F /* GeoConnectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoConnectViewModel.swift; sourceTree = "<group>"; };
+		8D6D55732AD7277600B9BA7F /* GeoConnectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoConnectModel.swift; sourceTree = "<group>"; };
+		8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
+		8D6D55772AD7D6F000B9BA7F /* WellNest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WellNest.entitlements; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08A2AC617D50062D566 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
@@ -131,6 +144,7 @@
 		8D4C243C2AB350260008447E /* WellNest */ = {
 			isa = PBXGroup;
 			children = (
+				8D6D55772AD7D6F000B9BA7F /* WellNest.entitlements */,
 				8D5BEC4E2AD5050C0059A5C8 /* Info.plist */,
 				8D43D7C02ABEAD720022F711 /* TestData */,
 				8DDC05A12ABC396400287D4F /* Networking */,
@@ -183,6 +197,8 @@
 				8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */,
 				8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */,
 				8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */,
+				8D6D55642AD63D0200B9BA7F /* GeoLocationDetailsView.swift */,
+				8D6D556F2AD665FB00B9BA7F /* GeoConnectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */,
+				8D6D55732AD7277600B9BA7F /* GeoConnectModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +219,7 @@
 				8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */,
 				8D9EF08A2AC617D50062D566 /* MealViewModel.swift */,
 				8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */,
+				8D6D55712AD6660D00B9BA7F /* GeoConnectViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -226,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				8DDC05AC2ABC3E7100287D4F /* APIService.swift */,
+				8D6D55662AD65D4700B9BA7F /* LocationService.swift */,
+				8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -346,10 +366,14 @@
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
 				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
+				8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */,
+				8D6D55652AD63D0200B9BA7F /* GeoLocationDetailsView.swift in Sources */,
 				8DA4E4BE2AB505B800971E19 /* NavbarToolbarModifier.swift in Sources */,
 				8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */,
+				8D6D55702AD665FB00B9BA7F /* GeoConnectView.swift in Sources */,
 				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */,
 				8DA4E4B92AB40B4200971E19 /* ProfileModalView.swift in Sources */,
+				8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */,
 				8DDC059F2ABC344D00287D4F /* ResizableAsyncImage.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
@@ -363,8 +387,10 @@
 				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
+				8D6D55762AD7CD4700B9BA7F /* PushNotificationService.swift in Sources */,
 				8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */,
 				8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */,
+				8D6D55672AD65D4700B9BA7F /* LocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WellNest/WellNest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WellNest/Preview Content\"";
@@ -507,6 +534,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,6 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WellNest/WellNest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WellNest/Preview Content\"";
@@ -538,6 +567,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
