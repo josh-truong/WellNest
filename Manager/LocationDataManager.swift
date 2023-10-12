@@ -13,7 +13,9 @@ import CoreLocation
 // https://www.youtube.com/watch?v=4IlNA4xNM3k
 class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus?
-    @Published var coordinate: CLLocationCoordinate2D?
+    @Published var currentCoord: CLLocationCoordinate2D?
+    @Published var previousCoord = [CLLocationCoordinate2D]()
+    
     private var locationManager = CLLocationManager()
     
     override init() {
@@ -25,6 +27,8 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
         locationManager.delegate = self
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = true
+        locationManager.distanceFilter = 10
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     func requestLocationUpdate() {
@@ -54,9 +58,9 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            print("Latitude: \(location.coordinate.latitude)")
-            print("Longitude: \(location.coordinate.longitude)")
-            coordinate = location.coordinate
+            currentCoord = location.coordinate
+            previousCoord.append(location.coordinate)
+            //print("\(location.coordinate)")
         }
     }
     
