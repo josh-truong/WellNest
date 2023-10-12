@@ -21,10 +21,9 @@ class MealViewModel : ObservableObject {
         do {
             print("Requesting - \(term)")
             let endpoint = WgerEndpoints.getIngredientSearchEndpoint(term: term)
-            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            let parsedData = try JSONDecoder().decode(WgerIngredientSearchResponse.self, from: data)
-            ingredientSuggestions = parsedData.suggestions
-            print(parsedData)
+            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientSearchResponse.self)
+            ingredientSuggestions = data.suggestions
+            print(data)
             print("Finished - \(term)")
         } catch {
             print(error)
