@@ -1,5 +1,6 @@
 **Upcoming App Enhancements:**
 
+- [Object Recognition Blog with SwiftUI](https://posturenet.app/blog/object-recognition-with-coreml-vision-and-swiftui-on-ios/)
 - Integration with the [OpenFoodFacts API](https://openfoodfacts.github.io/openfoodfacts-server/api/):
   - Capture image and get information about the food
   - Barcode scanning functionality
