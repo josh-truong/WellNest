@@ -10,23 +10,68 @@ import SwiftUI
 struct ExerciseCategoryView: View {
     @ObservedObject var exerciseVM: ExerciseViewModel
     @ObservedObject var exerciseCategoryVM: ExerciseCategoryViewModel
+    @ObservedObject var notificationViewModel = PushNotificationService()
+    
     var label: String
     var exercises: [WgerExerciseDetail]
     
-    @State private var showModal = false
-        
+    @State private var showExerciseModal = false
+    @State private var showNotificationModal = false
+    @State private var notificationTime = Date()
+    
     var body: some View {
         DisclosureGroup(label) {
             ForEach(exercises) { exercise in
-                Text(exercise.name)
-                    .onTapGesture {
+                HStack {
+                    Button(action: {
                         exerciseCategoryVM.selectedExercise = exercise
-                        showModal = true
+                        showExerciseModal = true
+                    }) {
+                        Text(exercise.name)
+                            .foregroundStyle(.black)
                     }
+
+                    Spacer()
+                    
+                    Button(action: {
+                        exerciseCategoryVM.selectedExercise = exercise
+                        showNotificationModal = true
+                    }) {
+                        Image(systemName: "bell")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                    }
+                }
             }
         }
-        .sheet(isPresented: $showModal) {
+        .sheet(isPresented: $showExerciseModal) {
             ExerciseDetailView(viewModel: exerciseCategoryVM)
+        }
+        .sheet(isPresented: $showNotificationModal) {
+            VStack {
+                Text("Notification Permission Status:")
+                    .font(.title)
+
+                if notificationViewModel.isPermissionGranted {
+                    Text("Permission Granted")
+                        .foregroundColor(.green)
+                } else {
+                    Text("Permission Denied")
+                        .foregroundColor(.red)
+                }
+
+                DatePicker("Select Notification Time", selection: $notificationTime, displayedComponents: [.hourAndMinute])
+                    .labelsHidden()
+                
+                Button("Schedule Notification") {
+                    notificationViewModel.scheduleNotification(
+                        title: "\(exerciseCategoryVM.selectedExercise.category) Workout Reminder",
+                        body: exerciseCategoryVM.selectedExercise.name,
+                        time: notificationTime
+                    )
+                }
+            }
         }
     }
 }
