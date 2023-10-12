@@ -20,9 +20,8 @@ class ExerciseViewModel: ObservableObject {
         do {
             print("Requesting - \(term)")
             let endpoint = WgerEndpoints.getExerciseSearchEndpoint(term: term)
-            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            let parsedData = try JSONDecoder().decode(WgerExerciseSearchResponse.self, from: data)
-            exerciseDictionary = groupExerciseDataDetailsByCategory(exercises: parsedData.suggestions)
+            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerExerciseSearchResponse.self)
+            exerciseDictionary = groupExerciseDataDetailsByCategory(exercises: data.suggestions)
             print("Finished - \(term)")
         } catch {
             print("Error: \(error.localizedDescription)")

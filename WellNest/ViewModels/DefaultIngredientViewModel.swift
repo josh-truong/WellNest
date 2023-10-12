@@ -20,10 +20,9 @@ class DefaultIngredientViewModel: ObservableObject {
         do {
             print("Requesting Default Ingredients")
             let endpoint = WgerEndpoints.getIngredientsEndpoint()
-            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            let parsedData = try JSONDecoder().decode(WgerIngredientResponse.self, from: data)
-            defaultIngredients = parsedData
-            print(parsedData)
+            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientResponse.self)
+            defaultIngredients = data
+            print(data)
             print("Finished Default Ingredients")
         } catch {
             print("Error: \(error.localizedDescription)")

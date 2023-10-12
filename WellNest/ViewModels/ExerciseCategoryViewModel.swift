@@ -22,8 +22,8 @@ class ExerciseCategoryViewModel : ObservableObject {
         do {
             print("Requesting - \(selectedExercise.name)")
             let endpoint = WgerEndpoints.getExerciseBaseEndpoint(baseId: selectedExercise.baseId)
-            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint)
-            exerciseBase = try JSONDecoder().decode(WgerExerciseBaseResponse.self, from: data)
+            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerExerciseBaseResponse.self)
+            exerciseBase = data
             print("Finished - \(selectedExercise.name)")
         } catch {
             print("Error: \(error.localizedDescription)")
