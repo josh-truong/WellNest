@@ -17,6 +17,7 @@ struct ExerciseCategoryView: View {
     
     @State private var showExerciseModal = false
     @State private var showNotificationModal = false
+    @State private var confirm = false
     @State private var notificationTime = Date()
     
     var body: some View {
@@ -61,7 +62,7 @@ struct ExerciseCategoryView: View {
                         .foregroundColor(.red)
                 }
 
-                DatePicker("Select Notification Time", selection: $notificationTime, displayedComponents: [.hourAndMinute])
+                DatePicker("Select Notification Time", selection: $notificationTime, displayedComponents: [.date, .hourAndMinute])
                     .labelsHidden()
                 
                 Button("Schedule Notification") {
@@ -70,6 +71,12 @@ struct ExerciseCategoryView: View {
                         body: exerciseCategoryVM.selectedExercise.name,
                         time: notificationTime
                     )
+                    confirm = true
+                }
+                
+                if confirm {
+                    Text("Will notify at \(notificationTime)")
+                        .foregroundColor(.green)
                 }
             }
         }
