@@ -1,0 +1,13 @@
+Features TOdos:
+- [OpenFoodFacts API](https://openfoodfacts.github.io/openfoodfacts-server/api/)
+  - Capture image and get information about the food
+  - Barscan?
+- Sync friends health activity with firebase
+  - Caloric consumption
+  - Current location
+  - Current routes of everyone
+  - Heartrate beat
+- Better ui/ux
+- Add music service spotify/apple music
+- [Vision Framework](https://developer.apple.com/documentation/vision/)
+- Push notifications
