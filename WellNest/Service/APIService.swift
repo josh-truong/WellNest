@@ -17,7 +17,7 @@ class APIService {
             case decodingError
         }
     
-    func makeWgerGETRequest(endpoint: WgerEndpoint) async throws -> Data {
+    func makeWgerGETRequest<T: Decodable>(endpoint: WgerEndpoint, responseType: T.Type) async throws -> T {
         var request = URLRequest(url: endpoint.url)
         
         request.setValue("Token \(Constants.wger_api_key)", forHTTPHeaderField: "Authorization")
@@ -28,7 +28,8 @@ class APIService {
             throw APIError.invalidResponse
         }
         
-        return data;
+        let decodedData = try JSONDecoder().decode(T.self, from: data)
+        return decodedData;
     }
 }
 
