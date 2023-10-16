@@ -1,4 +1,10 @@
+# WellNest
+
+WellNest is an application project that seeks to create a comprehensive health and fitness platform. The primary goal is to encourage social engagement and data sharing among users. Users can connect with friends to synchronize various health metrics such as location, heart rate, and workout plans. The app also features a comprehensive database for exercises and food, as well as a calorie calculator for dietary intake. It aims to provide a one-stop solution for individuals seeking to maintain a healthier lifestyle by promoting social interaction, data tracking, and access to a wide array of health and fitness resources. 
+
 **Upcoming App Enhancements:**
+
+The final project will be the WellNest app that I've been working on so far. 
 
 - [Object Recognition Blog with SwiftUI](https://posturenet.app/blog/object-recognition-with-coreml-vision-and-swiftui-on-ios/)
 - Integration with the [OpenFoodFacts API](https://openfoodfacts.github.io/openfoodfacts-server/api/):
