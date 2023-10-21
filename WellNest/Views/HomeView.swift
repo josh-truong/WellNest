@@ -14,20 +14,22 @@ struct HomeView: View {
     @ObservedObject var viewModel: GeoConnectViewModel = GeoConnectViewModel()
     
     var body: some View {
-//        switch locationDataManager.authorizationStatus {
-//        case .authorizedWhenInUse:  // Location services are available.
+        switch locationDataManager.authorizationStatus {
+        case .authorizedWhenInUse:  // Location services are available.
 //            if let currentCoord = locationDataManager.currentCoord {
-//                GeoConnectView(origin: currentCoord)
+//                GeoConnectView(vm: viewModel)
 //            }
-//        case .restricted, .denied:  // Location services currently unavailable.
-//            Text("Current location data was restricted or denied.")
-//        case .notDetermined:        // Authorization not determined yet.
-//            Text("Finding your location...")
-//            ProgressView()
-//        default:
-//            ProgressView()
-//        }
-        GeoConnectView(vm: viewModel)
+            GeoConnectView(vm: viewModel)
+        case .restricted, .denied:  // Location services currently unavailable.
+            //Text("Current location data was restricted or denied.")
+            NoLocationView()
+        case .notDetermined:        // Authorization not determined yet.
+            Text("Finding your location...")
+            ProgressView()
+        default:
+            ProgressView()
+        }
+        
     }
 }
 

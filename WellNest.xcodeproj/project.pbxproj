@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D207C322AC6A9AF0010954E /* DefaultIngredientView.swift */; };
 		8D207C352AC6AA040010954E /* DefaultIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */; };
+		8D299EB92ADFB215004F04A3 /* SlidingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D299EB82ADFB215004F04A3 /* SlidingButtonView.swift */; };
+		8D34EDDE2ADEE95E00D33637 /* NoLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */; };
 		8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */; };
 		8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */; };
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
@@ -20,6 +22,8 @@
 		8D4C24402AB350260008447E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243F2AB350260008447E /* ContentView.swift */; };
 		8D4C24422AB350260008447E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24412AB350260008447E /* Assets.xcassets */; };
 		8D4C24452AB350260008447E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24442AB350260008447E /* Preview Assets.xcassets */; };
+		8D5A5E222AE37CF000AF9521 /* LikeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A5E212AE37CEF00AF9521 /* LikeButtonView.swift */; };
+		8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A5E232AE385A700AF9521 /* UserProfileView.swift */; };
 		8D5BEC4D2AD4ED980059A5C8 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */; };
 		8D6D55652AD63D0200B9BA7F /* GeoLocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55642AD63D0200B9BA7F /* GeoLocationDetailsView.swift */; };
 		8D6D55672AD65D4700B9BA7F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55662AD65D4700B9BA7F /* LocationService.swift */; };
@@ -51,6 +55,8 @@
 /* Begin PBXFileReference section */
 		8D207C322AC6A9AF0010954E /* DefaultIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientView.swift; sourceTree = "<group>"; };
 		8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientViewModel.swift; sourceTree = "<group>"; };
+		8D299EB82ADFB215004F04A3 /* SlidingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingButtonView.swift; sourceTree = "<group>"; };
+		8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLocationView.swift; sourceTree = "<group>"; };
 		8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseCategory.swift; sourceTree = "<group>"; };
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
@@ -63,6 +69,8 @@
 		8D4C243F2AB350260008447E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D4C24412AB350260008447E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4C24442AB350260008447E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D5A5E212AE37CEF00AF9521 /* LikeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonView.swift; sourceTree = "<group>"; };
+		8D5A5E232AE385A700AF9521 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		8D5BEC4E2AD5050C0059A5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D6D55642AD63D0200B9BA7F /* GeoLocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationDetailsView.swift; sourceTree = "<group>"; };
@@ -104,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D34EDDC2ADEE8E400D33637 /* ContentUnavailableView */ = {
+			isa = PBXGroup;
+			children = (
+				8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */,
+			);
+			path = ContentUnavailableView;
+			sourceTree = "<group>";
+		};
 		8D43D7BD2ABE8E2B0022F711 /* ExerciseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +206,7 @@
 		8DA4E4A72AB3F3E300971E19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D34EDDC2ADEE8E400D33637 /* ContentUnavailableView */,
 				8D9EF0912AC62CE90062D566 /* MealView */,
 				8D43D7BD2ABE8E2B0022F711 /* ExerciseView */,
 				8DA4E4AA2AB3F56000971E19 /* HomeView.swift */,
@@ -199,6 +216,9 @@
 				8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */,
 				8D6D55642AD63D0200B9BA7F /* GeoLocationDetailsView.swift */,
 				8D6D556F2AD665FB00B9BA7F /* GeoConnectView.swift */,
+				8D299EB82ADFB215004F04A3 /* SlidingButtonView.swift */,
+				8D5A5E212AE37CEF00AF9521 /* LikeButtonView.swift */,
+				8D5A5E232AE385A700AF9521 /* UserProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D34EDDE2ADEE95E00D33637 /* NoLocationView.swift in Sources */,
 				8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */,
 				8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */,
 				8D4C24402AB350260008447E /* ContentView.swift in Sources */,
@@ -364,6 +385,7 @@
 				8D9EF0952AC62D430062D566 /* IngredientDetailView.swift in Sources */,
 				8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */,
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
+				8D5A5E222AE37CF000AF9521 /* LikeButtonView.swift in Sources */,
 				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
 				8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */,
@@ -378,12 +400,14 @@
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
+				8D299EB92ADFB215004F04A3 /* SlidingButtonView.swift in Sources */,
 				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
 				8D207C352AC6AA040010954E /* DefaultIngredientViewModel.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* MusicView.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
+				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
 				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
@@ -521,12 +545,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WellNest/WellNest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WellNest/Preview Content\"";
+				DEVELOPMENT_TEAM = 4V2A3544C7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WellNest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WellNest;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data to tell you your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -540,8 +568,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.joshktruong.WellNest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshktruong.wellnest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -554,12 +583,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WellNest/WellNest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WellNest/Preview Content\"";
+				DEVELOPMENT_TEAM = 4V2A3544C7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WellNest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WellNest;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data to tell you your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -573,8 +606,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.joshktruong.WellNest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshktruong.wellnest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
