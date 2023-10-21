@@ -20,7 +20,6 @@ struct WgerIngredientResult: Codable, Hashable {
     let code: String?
     let name: String
     let created: String
-    let creationDate: String
     let lastUpdate: String
     let energy: Int
     let protein: String
@@ -44,7 +43,6 @@ struct WgerIngredientResult: Codable, Hashable {
         case code
         case name
         case created
-        case creationDate = "creation_date"
         case lastUpdate = "last_update"
         case energy
         case protein
@@ -69,7 +67,6 @@ struct WgerIngredientResult: Codable, Hashable {
         self.code = nil
         self.name = ""
         self.created = ""
-        self.creationDate = ""
         self.lastUpdate = ""
         self.energy = 0
         self.protein = ""

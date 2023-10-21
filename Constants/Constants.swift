@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    static let wger_api_key = "cb4aa00140d0126b7a1deb212dd9044e272c75a2"
+    static let wger_api_key = "11aad655a872593313fb64e596d9d4a44f90be9e"
 }

@@ -22,7 +22,6 @@ class DefaultIngredientViewModel: ObservableObject {
             let endpoint = WgerEndpoints.getIngredientsEndpoint()
             let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientResponse.self)
             defaultIngredients = data
-            print(data)
             print("Finished Default Ingredients")
         } catch {
             print("Error: \(error.localizedDescription)")

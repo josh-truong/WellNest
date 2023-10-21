@@ -11,11 +11,11 @@ class APIService {
     static let shared = APIService()
     
     enum APIError: Error {
-            case invalidURL
-            case requestFailed
-            case invalidResponse
-            case decodingError
-        }
+        case invalidURL
+        case requestFailed
+        case invalidResponse
+        case decodingError
+    }
     
     func makeWgerGETRequest<T: Decodable>(endpoint: WgerEndpoint, responseType: T.Type) async throws -> T {
         var request = URLRequest(url: endpoint.url)
@@ -23,7 +23,6 @@ class APIService {
         request.setValue("Token \(Constants.wger_api_key)", forHTTPHeaderField: "Authorization")
         
         let (data, response) = try await URLSession.shared.data(from: request.url!)
-        
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw APIError.invalidResponse
         }
@@ -32,5 +31,3 @@ class APIService {
         return decodedData;
     }
 }
-
-

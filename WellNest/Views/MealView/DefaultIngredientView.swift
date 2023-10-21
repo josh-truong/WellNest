@@ -34,5 +34,5 @@ struct DefaultIngredientView: View {
 }
 
 #Preview {
-    DefaultIngredientView(viewModel: DefaultIngredientViewModel())
+    DefaultIngredientView()
 }
