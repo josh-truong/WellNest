@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct MusicView: View {
+struct FriendsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
             }
-            .toolbarNavBar("Music")
+            .toolbarNavBar("Friends")
         }
         
     }
@@ -20,6 +20,6 @@ struct MusicView: View {
 
 struct MusicView_Previews: PreviewProvider {
     static var previews: some View {
-        MusicView()
+        FriendsView()
     }
 }

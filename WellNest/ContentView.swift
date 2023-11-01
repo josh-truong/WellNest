@@ -25,13 +25,12 @@ struct ContentView: View {
                     Image(systemName: "leaf")
                     Text("Nutrition")
                 }
-            MusicView()
+            FriendsView()
                 .tabItem{
-                    Image(systemName: "music.note")
-                    Text("Music")
+                    Image(systemName: "person.2.fill")
+                    Text("Friends")
                 }
         }
-        .padding()
     }
 }
 
