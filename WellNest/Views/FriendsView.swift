@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FriendsView: View {
+    var db: FirebaseManager = FirebaseManager()
     var body: some View {
         NavigationView {
             ScrollView {

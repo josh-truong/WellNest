@@ -8,29 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem{
-                    Image(systemName: "house")
-                    Text("Home")
-                }
-            ExerciseView(viewModel: ExerciseViewModel(apiService: APIService()))
-                .tabItem{
-                    Image(systemName: "bolt")
-                    Text("Exercise")
-                }
-            MealView(viewModel: MealViewModel(apiService: APIService()))
-                .tabItem{
-                    Image(systemName: "leaf")
-                    Text("Nutrition")
-                }
-            FriendsView()
-                .tabItem{
-                    Image(systemName: "person.2.fill")
-                    Text("Friends")
-                }
+        Group {
+            if (viewModel.userSession != nil) {
+                ProfileView()
+            } else {
+                LoginView()
+            }
         }
+//        TabView {
+//            HomeView()
+//                .tabItem{
+//                    Image(systemName: "house")
+//                    Text("Home")
+//                }
+//            ExerciseView(viewModel: ExerciseViewModel(apiService: APIService()))
+//                .tabItem{
+//                    Image(systemName: "bolt")
+//                    Text("Exercise")
+//                }
+//            MealView(viewModel: MealViewModel(apiService: APIService()))
+//                .tabItem{
+//                    Image(systemName: "leaf")
+//                    Text("Nutrition")
+//                }
+//            FriendsView()
+//                .tabItem{
+//                    Image(systemName: "person.2.fill")
+//                    Text("Friends")
+//                }
+//        }
     }
 }
 
