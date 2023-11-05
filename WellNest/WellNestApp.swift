@@ -7,24 +7,20 @@
 
 import SwiftUI
 import FirebaseCore
-//
-//class AppDelegate : NSObject, UIApplicationDelegate {
-//    func application(_ application: UIApplication,
-//                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//        FirebaseApp.configure()
-//        return true;
-//    }
-//}
+
+class AppDelegate : NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true;
+    }
+}
 
 @main
 struct WellNestApp: App {
-    // @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @StateObject var viewModel = AuthViewModel()
-    
-    init() {
-        FirebaseApp.configure()
-    }
     
     var body: some Scene {
         WindowGroup {
