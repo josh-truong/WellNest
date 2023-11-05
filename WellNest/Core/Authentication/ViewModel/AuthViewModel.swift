@@ -78,4 +78,22 @@ class AuthViewModel : ObservableObject {
         
         print("DEBUG: Current user is \(String(describing: self.currentUser))")
     }
+    
+    func updateEmail(email: String) async throws {
+        do {
+            try await Auth.auth().currentUser?.updateEmail(to: email)
+            await fetchUser()
+        } catch {
+            print("DEBUG: Failed to update email with error \(error.localizedDescription)")
+        }
+    }
+    
+    func updatePassword(password: String) async throws {
+        do {
+            try await Auth.auth().currentUser?.updatePassword(to: password)
+            await fetchUser()
+        } catch {
+            print("DEBUG: Failed to update password with error \(error.localizedDescription)")
+        }
+    }
 }
