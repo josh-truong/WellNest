@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D156A132AF7241300E22283 /* UpdateEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A122AF7241300E22283 /* UpdateEmailView.swift */; };
+		8D156A152AF73D6300E22283 /* UpdatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */; };
 		8D1B0D6D2AF346B200B43D7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1B0D6C2AF346B200B43D7B /* GoogleService-Info.plist */; };
 		8D1B0D702AF349C200B43D7B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1B0D6F2AF349C200B43D7B /* FirebaseAnalytics */; };
 		8D1B0D722AF349C200B43D7B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1B0D712AF349C200B43D7B /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -99,6 +101,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D156A122AF7241300E22283 /* UpdateEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailView.swift; sourceTree = "<group>"; };
+		8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordView.swift; sourceTree = "<group>"; };
 		8D1B0D6C2AF346B200B43D7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D207C322AC6A9AF0010954E /* DefaultIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientView.swift; sourceTree = "<group>"; };
 		8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientViewModel.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		8D2450A92AF37E4A00CA248F /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				8D4C243F2AB350260008447E /* ContentView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -260,6 +265,8 @@
 			children = (
 				8D2450AA2AF37E9C00CA248F /* LoginView.swift */,
 				8D2450AF2AF3864500CA248F /* RegistrationView.swift */,
+				8D156A122AF7241300E22283 /* UpdateEmailView.swift */,
+				8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,7 +332,6 @@
 				8DA4E4A82AB3F3EF00971E19 /* Models */,
 				8DA4E4A72AB3F3E300971E19 /* Views */,
 				8D4C243D2AB350260008447E /* WellNestApp.swift */,
-				8D4C243F2AB350260008447E /* ContentView.swift */,
 				8D4C24412AB350260008447E /* Assets.xcassets */,
 				8D4C24432AB350260008447E /* Preview Content */,
 			);
@@ -594,6 +600,7 @@
 				8DA4E4BE2AB505B800971E19 /* NavbarToolbarModifier.swift in Sources */,
 				8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */,
 				8D6D55702AD665FB00B9BA7F /* GeoConnectView.swift in Sources */,
+				8D156A132AF7241300E22283 /* UpdateEmailView.swift in Sources */,
 				8D2450B22AF38ABC00CA248F /* ProfileView.swift in Sources */,
 				8D2450B62AF38E6F00CA248F /* User.swift in Sources */,
 				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */,
@@ -608,6 +615,7 @@
 				8D207C352AC6AA040010954E /* DefaultIngredientViewModel.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */,
+				8D156A152AF73D6300E22283 /* UpdatePasswordView.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
 				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
