@@ -40,7 +40,7 @@ struct LoginView: View {
                 
                 Button {
                     Task {
-                        try await viewModel.signIn(withEmail: email, password: password)
+                        await viewModel.signIn(withEmail: email, password: password)
                     }
                 } label: {
                     HStack {

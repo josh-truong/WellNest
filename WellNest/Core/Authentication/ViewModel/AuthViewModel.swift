@@ -14,6 +14,7 @@ protocol AuthenticationFormProtocol {
 
 @MainActor
 class AuthViewModel : ObservableObject {
+    private var manager: AuthenticationService = AuthenticationService.shared
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     
@@ -25,22 +26,20 @@ class AuthViewModel : ObservableObject {
         }
     }
     
-    func signIn(withEmail email: String, password: String) async throws {
+    func signIn(withEmail email: String, password: String) async {
         do {
-            let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            self.userSession = result.user
+            self.userSession = try await manager.signIn(withEmail: email, password: password)
             await fetchUser()
         } catch {
             print("DEBUG: Failed to log in with error \(error.localizedDescription)")
         }
     }
     
-    
-    func createUser(withEmail email: String, fullname: String, password: String) async throws {
+    func createUser(withEmail email: String, fullname: String, password: String) async {
         do {
-            let result = try await Auth.auth().createUser(withEmail: email, password: password)
-            self.userSession = result.user
-            let user = User(id: result.user.uid, fullname: fullname, email: email)
+            let result = try await manager.createUser(withEmail: email, password: password)
+            self.userSession = result
+            let user = User(id: result.uid, fullname: fullname, email: email)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
@@ -51,7 +50,7 @@ class AuthViewModel : ObservableObject {
     
     func signOut() {
         do {
-            try Auth.auth().signOut()
+            try manager.signOut()
             self.userSession = nil
             self.currentUser = nil
         } catch {
@@ -59,15 +58,16 @@ class AuthViewModel : ObservableObject {
         }
     }
     
-    func deleteAccount() {
-        let user = Auth.auth().currentUser
-        user?.delete { error in
-            if let error = error {
-                print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
-            } else {
-                self.userSession = nil
-                self.currentUser = nil
-            }
+    func deleteAccount() async {
+        
+        do {
+            let user = try manager.getAuthenticatedUser()
+            try await manager.deleteAccount(user: user)
+            
+            self.userSession = nil
+            self.currentUser = nil
+        } catch {
+            print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
         }
     }
     
@@ -79,18 +79,20 @@ class AuthViewModel : ObservableObject {
         print("DEBUG: Current user is \(String(describing: self.currentUser))")
     }
     
-    func updateEmail(email: String) async throws {
+    func updateEmail(email: String) async {
         do {
-            try await Auth.auth().currentUser?.updateEmail(to: email)
+            let user = try manager.getAuthenticatedUser()
+            manager.updateEmail(user: user, to: email)
             await fetchUser()
         } catch {
             print("DEBUG: Failed to update email with error \(error.localizedDescription)")
         }
     }
     
-    func updatePassword(password: String) async throws {
+    func updatePassword(password: String) async {
         do {
-            try await Auth.auth().currentUser?.updatePassword(to: password)
+            let user = try manager.getAuthenticatedUser()
+            try await manager.updatePassword(user: user, to: password)
             await fetchUser()
         } catch {
             print("DEBUG: Failed to update password with error \(error.localizedDescription)")

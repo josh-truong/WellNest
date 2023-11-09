@@ -2,7 +2,7 @@
 //  User.swift
 //  WellNest
 //
-//  Created by Joshua Truong on 11/2/23.
+//  Created by Joshua Truong on 11/8/23.
 //
 
 import Foundation
@@ -21,8 +21,4 @@ struct User: Identifiable, Codable {
         
         return ""
     }
-}
-
-extension User {
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Lucyna Kushinada", email: "david.martinez@rebecca.maine")
 }
