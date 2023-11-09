@@ -22,7 +22,8 @@ struct ProfileIconView: View {
         }
         .padding()
         .sheet(isPresented: $enableProfileModal) {
-            ProfileModalView()
+            //ProfileModalView()
+            ProfileSettingView()
         }
     }
 }

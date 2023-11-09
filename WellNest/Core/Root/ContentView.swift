@@ -12,33 +12,32 @@ struct ContentView: View {
     var body: some View {
         Group {
             if (viewModel.userSession != nil) {
-                ProfileSettingView()
+                TabView {
+                    HomeView()
+                        .tabItem{
+                            Image(systemName: "house")
+                            Text("Home")
+                        }
+                    ExerciseView(viewModel: ExerciseViewModel(apiService: APIService()))
+                        .tabItem{
+                            Image(systemName: "bolt")
+                            Text("Exercise")
+                        }
+                    MealView(viewModel: MealViewModel(apiService: APIService()))
+                        .tabItem{
+                            Image(systemName: "leaf")
+                            Text("Nutrition")
+                        }
+                    FriendsView()
+                        .tabItem{
+                            Image(systemName: "person.2.fill")
+                            Text("Friends")
+                        }
+                }
             } else {
                 LoginView()
             }
         }
-//        TabView {
-//            HomeView()
-//                .tabItem{
-//                    Image(systemName: "house")
-//                    Text("Home")
-//                }
-//            ExerciseView(viewModel: ExerciseViewModel(apiService: APIService()))
-//                .tabItem{
-//                    Image(systemName: "bolt")
-//                    Text("Exercise")
-//                }
-//            MealView(viewModel: MealViewModel(apiService: APIService()))
-//                .tabItem{
-//                    Image(systemName: "leaf")
-//                    Text("Nutrition")
-//                }
-//            FriendsView()
-//                .tabItem{
-//                    Image(systemName: "person.2.fill")
-//                    Text("Friends")
-//                }
-//        }
     }
 }
 
