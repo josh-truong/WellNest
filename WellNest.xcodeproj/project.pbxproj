@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D0407C82AFD61DC0067AB17 /* ReauthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0407C72AFD61DC0067AB17 /* ReauthenticationView.swift */; };
+		8D0407D02AFD64C10067AB17 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0407CF2AFD64C10067AB17 /* TodoView.swift */; };
+		8D0407D22AFD65FE0067AB17 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0407D12AFD65FE0067AB17 /* Priority.swift */; };
+		8D0407D42AFD69AC0067AB17 /* TodosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0407D32AFD69AC0067AB17 /* TodosSection.swift */; };
 		8D156A132AF7241300E22283 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A122AF7241300E22283 /* UpdateProfileView.swift */; };
 		8D156A152AF73D6300E22283 /* UpdatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */; };
 		8D156A172AFC2FD100E22283 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A162AFC2FD100E22283 /* ProfileView.swift */; };
@@ -97,6 +101,7 @@
 		8DA4E4B92AB40B4200971E19 /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */; };
 		8DA4E4BE2AB505B800971E19 /* NavbarToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4BD2AB505B800971E19 /* NavbarToolbarModifier.swift */; };
 		8DA4E4C22AB5086E00971E19 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA4E4C12AB5086E00971E19 /* SwiftUIIntrospect */; };
+		8DBE06AE2AFD6D08006D445D /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBE06AD2AFD6D08006D445D /* TodoViewModel.swift */; };
 		8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05992ABC2C0500287D4F /* Constants.swift */; };
 		8DDC059F2ABC344D00287D4F /* ResizableAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */; };
 		8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05A82ABC3AB700287D4F /* WgerEndpoints.swift */; };
@@ -105,6 +110,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D0407C72AFD61DC0067AB17 /* ReauthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticationView.swift; sourceTree = "<group>"; };
+		8D0407CF2AFD64C10067AB17 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
+		8D0407D12AFD65FE0067AB17 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
+		8D0407D32AFD69AC0067AB17 /* TodosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosSection.swift; sourceTree = "<group>"; };
 		8D156A122AF7241300E22283 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordView.swift; sourceTree = "<group>"; };
 		8D156A162AFC2FD100E22283 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -159,6 +168,7 @@
 		8DA4E4B62AB403A400971E19 /* ProfileIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconView.swift; sourceTree = "<group>"; };
 		8DA4E4B82AB40B4200971E19 /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
 		8DA4E4BD2AB505B800971E19 /* NavbarToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarToolbarModifier.swift; sourceTree = "<group>"; };
+		8DBE06AD2AFD6D08006D445D /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		8DDC05992ABC2C0500287D4F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableAsyncImage.swift; sourceTree = "<group>"; };
 		8DDC05A82ABC3AB700287D4F /* WgerEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerEndpoints.swift; sourceTree = "<group>"; };
@@ -216,6 +226,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D0407C92AFD62C60067AB17 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				8DBE06AC2AFD6CF2006D445D /* ViewModel */,
+				8D0407CE2AFD64A60067AB17 /* View */,
+				8D0407CA2AFD62D30067AB17 /* Model */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		8D0407CA2AFD62D30067AB17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D0407D12AFD65FE0067AB17 /* Priority.swift */,
+				8D0407D32AFD69AC0067AB17 /* TodosSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D0407CE2AFD64A60067AB17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D0407CF2AFD64C10067AB17 /* TodoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8D156A182AFC364D00E22283 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +272,7 @@
 		8D2450A62AF37E3100CA248F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8D0407C92AFD62C60067AB17 /* Todo */,
 				8D2450A72AF37E3900CA248F /* Authentication */,
 				8D2450A82AF37E4200CA248F /* Profile */,
 				8D2450A92AF37E4A00CA248F /* Root */,
@@ -294,6 +332,7 @@
 				8D2450AF2AF3864500CA248F /* RegistrationView.swift */,
 				8D156A122AF7241300E22283 /* UpdateProfileView.swift */,
 				8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */,
+				8D0407C72AFD61DC0067AB17 /* ReauthenticationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +340,7 @@
 		8D34EDDC2ADEE8E400D33637 /* ContentUnavailableView */ = {
 			isa = PBXGroup;
 			children = (
+				8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */,
 				8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */,
 			);
 			path = ContentUnavailableView;
@@ -310,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */,
-				8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */,
 				8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */,
 			);
 			path = ExerciseView;
@@ -441,6 +480,14 @@
 				8DA4E4BD2AB505B800971E19 /* NavbarToolbarModifier.swift */,
 			);
 			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		8DBE06AC2AFD6CF2006D445D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8DBE06AD2AFD6D08006D445D /* TodoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8DDC05982ABC2BF000287D4F /* Constants */ = {
@@ -620,6 +667,7 @@
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
 				8D5A5E222AE37CF000AF9521 /* LikeButtonView.swift in Sources */,
 				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
+				8D0407D02AFD64C10067AB17 /* TodoView.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
 				8D2450622AF357A400CA248F /* FirebaseManager.swift in Sources */,
 				8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */,
@@ -632,6 +680,7 @@
 				8D156A132AF7241300E22283 /* UpdateProfileView.swift in Sources */,
 				8D2450B22AF38ABC00CA248F /* ProfileSettingsView.swift in Sources */,
 				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */,
+				8D0407D42AFD69AC0067AB17 /* TodosSection.swift in Sources */,
 				8DA4E4B92AB40B4200971E19 /* ProfileModalView.swift in Sources */,
 				8D156A1A2AFC365F00E22283 /* AuthenticationService.swift in Sources */,
 				8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */,
@@ -648,13 +697,16 @@
 				8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */,
 				8D156A152AF73D6300E22283 /* UpdatePasswordView.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */,
+				8DBE06AE2AFD6D08006D445D /* TodoViewModel.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
 				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
 				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
 				8D6D55762AD7CD4700B9BA7F /* PushNotificationService.swift in Sources */,
+				8D0407D22AFD65FE0067AB17 /* Priority.swift in Sources */,
 				8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */,
+				8D0407C82AFD61DC0067AB17 /* ReauthenticationView.swift in Sources */,
 				8D156A212AFC3B0F00E22283 /* AuthUserModel.swift in Sources */,
 				8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */,
 				8D2450AB2AF37E9C00CA248F /* LoginView.swift in Sources */,

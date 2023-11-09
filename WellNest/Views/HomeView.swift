@@ -6,30 +6,34 @@
 //
 
 import SwiftUI
+import SwiftData
 import MapKit
 
 // https://www.youtube.com/watch?v=gy6rp_pJmbo
 struct HomeView: View {
-    @ObservedObject var locationDataManager = LocationDataManager()
-    @ObservedObject var viewModel: GeoConnectViewModel = GeoConnectViewModel()
-    
+    @ObservedObject var viewModel = TodoViewModel()
+    //@Environment(\.modelContext) private var context
+    //@Query private var todosSection: TodosSection
     var body: some View {
-        switch locationDataManager.authorizationStatus {
-        case .authorizedWhenInUse:  // Location services are available.
-//            if let currentCoord = locationDataManager.currentCoord {
-//                GeoConnectView(vm: viewModel)
-//            }
-            GeoConnectView(vm: viewModel)
-        case .restricted, .denied:  // Location services currently unavailable.
-            //Text("Current location data was restricted or denied.")
-            NoLocationView()
-        case .notDetermined:        // Authorization not determined yet.
-            Text("Finding your location...")
-            ProgressView()
-        default:
-            ProgressView()
+        NavigationStack {
+            List{
+                ForEach(viewModel.todos) { todo in
+                    TodoView(todo: todo)
+                }
+                .onDelete(perform: viewModel.deleteTodo(indexSet:))
+                .onMove(perform: viewModel.moveTodo(indexSet:index:))
+            }
+            .navigationTitle("Todos")
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        viewModel.addTodo()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
-        
     }
 }
 
