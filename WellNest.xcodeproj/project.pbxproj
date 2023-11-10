@@ -156,6 +156,7 @@
 		8D6D55732AD7277600B9BA7F /* GeoConnectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoConnectModel.swift; sourceTree = "<group>"; };
 		8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		8D6D55772AD7D6F000B9BA7F /* WellNest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WellNest.entitlements; sourceTree = "<group>"; };
+		8D7A0A5C2AFDB625002C92F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08A2AC617D50062D566 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
@@ -386,6 +387,7 @@
 		8D4C243C2AB350260008447E /* WellNest */ = {
 			isa = PBXGroup;
 			children = (
+				8D7A0A5C2AFDB625002C92F7 /* GoogleService-Info.plist */,
 				8D2450AC2AF3810800CA248F /* Components */,
 				8D2450A62AF37E3100CA248F /* Core */,
 				8D6D55772AD7D6F000B9BA7F /* WellNest.entitlements */,
