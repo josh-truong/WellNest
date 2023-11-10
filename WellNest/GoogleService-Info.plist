@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:39713898333:ios:053faf4ccf4941173af2b4</string>
+	<key>DATABASE_URL</key>
+	<string>https://wellnest-27a07-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

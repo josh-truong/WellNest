@@ -18,7 +18,6 @@
 		8D156A1F2AFC3A0200E22283 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A1E2AFC3A0200E22283 /* User.swift */; };
 		8D156A212AFC3B0F00E22283 /* AuthUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A202AFC3B0F00E22283 /* AuthUserModel.swift */; };
 		8D156A262AFCE21000E22283 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A252AFCE21000E22283 /* FirestoreManager.swift */; };
-		8D1B0D6D2AF346B200B43D7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1B0D6C2AF346B200B43D7B /* GoogleService-Info.plist */; };
 		8D1B0D702AF349C200B43D7B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1B0D6F2AF349C200B43D7B /* FirebaseAnalytics */; };
 		8D1B0D722AF349C200B43D7B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1B0D712AF349C200B43D7B /* FirebaseAnalyticsOnDeviceConversion */; };
 		8D1B0D742AF349C200B43D7B /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1B0D732AF349C200B43D7B /* FirebaseAnalyticsSwift */; };
@@ -87,6 +86,7 @@
 		8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55712AD6660D00B9BA7F /* GeoConnectViewModel.swift */; };
 		8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55732AD7277600B9BA7F /* GeoConnectModel.swift */; };
 		8D6D55762AD7CD4700B9BA7F /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */; };
+		8D7A0A632AFDB767002C92F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D7A0A622AFDB767002C92F7 /* GoogleService-Info.plist */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF08B2AC617D50062D566 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08A2AC617D50062D566 /* MealViewModel.swift */; };
 		8D9EF08E2AC61D720062D566 /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = 8D9EF08D2AC61D720062D566 /* SHSearchBar */; };
@@ -121,7 +121,6 @@
 		8D156A1E2AFC3A0200E22283 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8D156A202AFC3B0F00E22283 /* AuthUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModel.swift; sourceTree = "<group>"; };
 		8D156A252AFCE21000E22283 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
-		8D1B0D6C2AF346B200B43D7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D207C322AC6A9AF0010954E /* DefaultIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientView.swift; sourceTree = "<group>"; };
 		8D207C342AC6AA040010954E /* DefaultIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientViewModel.swift; sourceTree = "<group>"; };
 		8D2450612AF357A400CA248F /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -156,7 +155,7 @@
 		8D6D55732AD7277600B9BA7F /* GeoConnectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoConnectModel.swift; sourceTree = "<group>"; };
 		8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		8D6D55772AD7D6F000B9BA7F /* WellNest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WellNest.entitlements; sourceTree = "<group>"; };
-		8D7A0A5C2AFDB625002C92F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8D7A0A622AFDB767002C92F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "WellNest/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08A2AC617D50062D566 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
@@ -368,7 +367,7 @@
 		8D4C24312AB350260008447E = {
 			isa = PBXGroup;
 			children = (
-				8D1B0D6C2AF346B200B43D7B /* GoogleService-Info.plist */,
+				8D7A0A622AFDB767002C92F7 /* GoogleService-Info.plist */,
 				8D5BEC4B2AD4ED5D0059A5C8 /* Manager */,
 				8DDC05982ABC2BF000287D4F /* Constants */,
 				8D4C243C2AB350260008447E /* WellNest */,
@@ -387,7 +386,6 @@
 		8D4C243C2AB350260008447E /* WellNest */ = {
 			isa = PBXGroup;
 			children = (
-				8D7A0A5C2AFDB625002C92F7 /* GoogleService-Info.plist */,
 				8D2450AC2AF3810800CA248F /* Components */,
 				8D2450A62AF37E3100CA248F /* Core */,
 				8D6D55772AD7D6F000B9BA7F /* WellNest.entitlements */,
@@ -644,7 +642,7 @@
 			files = (
 				8D4C24452AB350260008447E /* Preview Assets.xcassets in Resources */,
 				8D4C24422AB350260008447E /* Assets.xcassets in Resources */,
-				8D1B0D6D2AF346B200B43D7B /* GoogleService-Info.plist in Resources */,
+				8D7A0A632AFDB767002C92F7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
