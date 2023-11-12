@@ -20,10 +20,16 @@ struct TasksView: View {
         List {
             ForEach(tasks) { task in
                 NavigationLink(value: task) {
-                    VStack(alignment: .leading) {
-                        Text(task.title)
-                            .font(.headline)
-                        Text(task.date.formatted(date: .long, time: .shortened))
+                    HStack {
+                        Circle()
+                            .fill(Priority.color(task.priority))
+                            .frame(width: 8, height: 8)
+                            .padding(.trailing, 8)
+                        VStack(alignment: .leading) {
+                            Text(task.title)
+                                .font(.headline)
+                            Text(task.date.formatted(date: .long, time: .shortened))
+                        }
                     }
                 }
             }
