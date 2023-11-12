@@ -28,5 +28,6 @@ struct WellNestApp: App {
             ContentView()
                 .environmentObject(viewModel)
         }
+        .modelContainer(for: TaskModel.self)
     }
 }
