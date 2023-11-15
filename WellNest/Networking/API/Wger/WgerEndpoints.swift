@@ -26,7 +26,7 @@ class WgerEndpoints {
         components.path = "\(version)exercise/search/"
         components.queryItems = [
             URLQueryItem(name: "language", value: "en"),
-            URLQueryItem(name: "term", value: term)
+            URLQueryItem(name: "term", value: term.trimmed())
         ]
         
         guard let url = components.url else {
@@ -69,7 +69,7 @@ class WgerEndpoints {
         components.path = "\(version)ingredient/search/"
         components.queryItems = [
             URLQueryItem(name: "language", value: "en"),
-            URLQueryItem(name: "term", value: term)
+            URLQueryItem(name: "term", value: term.trimmed())
         ]
         
         guard let url = components.url else {

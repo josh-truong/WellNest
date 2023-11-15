@@ -26,12 +26,11 @@ struct ContentView: View {
                             Image(systemName: "bolt")
                             Text("Exercise")
                         }
-                    MealView()
+                    IngredientsView()
                         .tabItem{
                             Image(systemName: "leaf")
                             Text("Nutrition")
                         }
-                        .environmentObject(ingredientVM)
                     FriendsView()
                         .tabItem{
                             Image(systemName: "person.2.fill")
