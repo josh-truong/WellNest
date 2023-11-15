@@ -16,7 +16,7 @@ struct IngredientsView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.results, id: \.self.id) { result in
-                Text(result.data.name)
+                Text(result.data?.name ?? "")
             }
             .searchable(text: $searchTerm)
             .onChange(of: searchTerm) { oldState, newState in
@@ -30,33 +30,10 @@ struct IngredientsView: View {
             }
             .navigationTitle("Ingredients")
         }
-//        NavigationView {
-//            VStack {
-//                HStack {
-//                    TextField("Search an ingredient", text: $searchTerm)
-//                    Button("Search", systemImage: "arrow.up") {
-//                        Task {
-//                            await viewModel.searchIngredient(term: searchTerm)
-//                        }
-//                    }
-//                }
-//                .padding()
-//            
-//                Spacer()
-//                if !viewModel.ingredientSuggestions.isEmpty {
-//                    List {
-//                        ForEach(viewModel.ingredientSuggestions, id: \.self.id) { result in
-//                            HStack {
-//                                Text(result.data.name)
-//                            }
-//                        }
-//                    }
-//                }
-//                else {
-//                    DefaultIngredientView()
-//                }
-//            }
-//            .toolbarNavBar("Nutrition")
-//        }
+        .onAppear {
+            Task {
+                await viewModel.requestDefaultIngredients()
+            }
+        }
     }
 }
