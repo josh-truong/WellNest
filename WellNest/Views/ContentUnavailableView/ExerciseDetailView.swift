@@ -52,7 +52,7 @@ struct ExerciseDetailView: View {
 
 
 struct ExerciseDetail_Previews: PreviewProvider {
-    @ObservedObject static var exerciseCategoryVM = ExerciseCategoryViewModel(apiService: APIService())
+    @ObservedObject static var exerciseCategoryVM = ExerciseCategoryViewModel(apiService: APIService.shared)
     private static let exercise: WgerExerciseDetail = WgerExerciseData().getWgerExerciseDetail()
     
     static var previews: some View {
