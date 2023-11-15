@@ -21,10 +21,6 @@ struct HomeView: View {
             .navigationDestination(for: TaskModel.self, destination: EditTaskView.init)
             .toolbar {
                 ToolbarItem {
-                    Button("Add Destination", systemImage: "plus", action: addDestination)
-                }
-                
-                ToolbarItem {
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
                         Picker("Sort", selection: $sortOrder) {
                             Text("Name")
@@ -37,6 +33,10 @@ struct HomeView: View {
                         }
                         .pickerStyle(.inline)
                     }
+                }
+                
+                ToolbarItem {
+                    Button("Add Destination", systemImage: "plus", action: addDestination)
                 }
             }
         }
