@@ -10,6 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @StateObject var ingredientVM = IngredientViewModel()
     
     var body: some View {
         Group {
@@ -20,16 +21,17 @@ struct ContentView: View {
                             Image(systemName: "house")
                             Text("Home")
                         }
-                    ExerciseView(viewModel: ExerciseViewModel(apiService: APIService()))
+                    ExerciseView(viewModel: ExerciseViewModel(apiService: APIService.shared))
                         .tabItem{
                             Image(systemName: "bolt")
                             Text("Exercise")
                         }
-                    MealView(viewModel: MealViewModel(apiService: APIService()))
+                    MealView()
                         .tabItem{
                             Image(systemName: "leaf")
                             Text("Nutrition")
                         }
+                        .environmentObject(ingredientVM)
                     FriendsView()
                         .tabItem{
                             Image(systemName: "person.2.fill")
