@@ -18,7 +18,6 @@ struct EditTaskView: View {
             TextField("Details", text: $task.details, axis: .vertical)
             DatePicker("", selection: $task.date)
 
-            
             Section("Priority") {
                 Picker("Priority", selection: $task.priority) {
                     Text("Low").tag(1)
@@ -43,7 +42,9 @@ struct EditTaskView: View {
         .navigationTitle("Edit")
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+}
+
+extension EditTaskView {
     func deleteNote(_ indexSet: IndexSet) {
         for index in indexSet {
             task.notes.remove(at: index)
