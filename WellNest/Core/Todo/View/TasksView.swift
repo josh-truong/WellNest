@@ -18,20 +18,12 @@ struct TasksView: View {
     
     var body: some View {
         List {
+            HStack {
+                Spacer()
+                Button("Clear all", role: .destructive, action: clearTask)
+            }
             ForEach(tasks) { task in
-                NavigationLink(value: task) {
-                    HStack {
-                        Circle()
-                            .fill(Priority.color(task.priority))
-                            .frame(width: 8, height: 8)
-                            .padding(.trailing, 8)
-                        VStack(alignment: .leading) {
-                            Text(task.title)
-                                .font(.headline)
-                            Text(task.date.formatted(date: .long, time: .shortened))
-                        }
-                    }
-                }
+                TaskDisplayView(task: task)
             }
             .onDelete(perform: deleteTask(_:))
         }
@@ -44,6 +36,12 @@ extension TasksView {
             let destination = tasks[index]
             context.delete(destination)
         }
+    }
+    
+    func clearTask() {
+        do {
+            try context.delete(model: TaskModel.self)
+        } catch {}
     }
 }
 
