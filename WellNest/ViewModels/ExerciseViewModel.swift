@@ -19,7 +19,7 @@ class ExerciseViewModel: ObservableObject {
     func searchExercises(term: String) async {
         do {
             print("Requesting - \(term)")
-            let endpoint = WgerEndpoints.getExerciseSearchEndpoint(term: term)
+            let endpoint = try await WgerEndpoints.shared.searchExercises(term: term)
             let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerExerciseSearchResponse.self)
             exerciseDictionary = groupExerciseDataDetailsByCategory(exercises: data.suggestions)
             print("Finished - \(term)")
