@@ -31,6 +31,9 @@ class IngredientViewModel : ObservableObject {
             let endpoint = try await WgerEndpoints.shared.getIngredients()
             let data = try await api.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientResponse.self)
             defaultIngredients = data
+            self.results = defaultIngredients.results.map { value in
+                return WgerIngredientSuggestion(value: value.name, data: WgerIngredientData(name: value.name))
+            }
             print("Finished Default Ingredients")
         } catch {
             print("Error: \(error.localizedDescription)")
