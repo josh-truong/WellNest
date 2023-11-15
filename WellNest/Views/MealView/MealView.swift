@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MealView: View {
-    @ObservedObject var viewModel: MealViewModel
+    @EnvironmentObject var viewModel: IngredientViewModel
     @State private var searchTerm: String = "Ribeye"
     @State private var selectedIngredient = WgerIngredientResult()
     @State private var showModal = false
@@ -27,11 +27,11 @@ struct MealView: View {
                 .padding()
             
                 Spacer()
-                if !viewModel.ingredientSuggestions.isEmpty {
+                if !viewModel.results.isEmpty {
                     List {
-                        ForEach(viewModel.ingredientSuggestions, id: \.self.id) { result in
+                        ForEach(viewModel.results, id: \.self.id) { result in
                             HStack {
-                                Text(result.data.name)
+                                Text(result.data?.name ?? "")
                             }
                         }
                     }
@@ -47,6 +47,7 @@ struct MealView: View {
 
 struct Meals_Previews: PreviewProvider {
     static var previews: some View {
-        MealView(viewModel: MealViewModel(apiService: APIService()))
+        MealView()
+            .environmentObject(IngredientViewModel())
     }
 }
