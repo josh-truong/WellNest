@@ -11,12 +11,15 @@ struct WgerEndpoint {
     let url: URL
 }
 
-enum WgerEndpoints {
-    static let scheme = "https"
-    static let host = "wger.de"
-    static let version = "/api/v2/"
+class WgerEndpoints {
+    static let shared = WgerEndpoints()
+    let scheme = "https"
+    let host = "wger.de"
+    let version = "/api/v2/"
+    
+    private init() {}
 
-    static func getExerciseSearchEndpoint(term: String) async throws -> WgerEndpoint {
+    func searchExercises(term: String) async throws -> WgerEndpoint {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -33,7 +36,7 @@ enum WgerEndpoints {
         return WgerEndpoint(url: url)
     }
     
-    static func getExerciseBaseEndpoint(baseId: Int) async throws -> WgerEndpoint {
+    func searchExerciseBase(baseId: Int) async throws -> WgerEndpoint {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -46,7 +49,7 @@ enum WgerEndpoints {
         return WgerEndpoint(url: url)
     }
     
-    static func getIngredientsEndpoint() async throws -> WgerEndpoint {
+    func getIngredients() async throws -> WgerEndpoint {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -59,7 +62,7 @@ enum WgerEndpoints {
         return WgerEndpoint(url: url)
     }
     
-    static func getIngredientSearchEndpoint(term: String) async throws -> WgerEndpoint {
+    func searchIngredients(term: String) async throws -> WgerEndpoint {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
