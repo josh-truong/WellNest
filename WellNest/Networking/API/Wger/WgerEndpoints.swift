@@ -12,34 +12,67 @@ struct WgerEndpoint {
 }
 
 enum WgerEndpoints {
-    static let baseURL = "https://wger.de"
-    static let apiV2 = "/api/v2"
-    static func getExerciseSearchEndpoint(term: String) -> WgerEndpoint {
-        let processed = term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        let url = parseURL(string: "\(baseURL)\(apiV2)/exercise/search/?language=en&term=\(processed)")
-        return WgerEndpoint(url: url)
-    }
-    
-    static func getExerciseBaseEndpoint(baseId: Int) -> WgerEndpoint {
-        let url: URL = parseURL(string: "\(baseURL)\(apiV2)/exercise-base/\(baseId)")
-        return WgerEndpoint(url: url)
-    }
-    
-    static func getIngredientsEndpoint() -> WgerEndpoint {
-        let url: URL = parseURL(string: "\(baseURL)\(apiV2)/ingredient/")
-        return WgerEndpoint(url: url)
-    }
-    
-    static func getIngredientSearchEndpoint(term: String) -> WgerEndpoint {
-        let processed = term.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        let url: URL = parseURL(string: "\(baseURL)\(apiV2)/ingredient/search/?language=en&term=\(processed)")
-        return WgerEndpoint(url: url)
-    }
-    
-    private static func parseURL(string: String) -> URL {
-        guard let url = URL(string: string) else {
-            fatalError("Invalid URL: \(string)")
+    static let scheme = "https"
+    static let host = "wger.de"
+    static let version = "/api/v2/"
+
+    static func getExerciseSearchEndpoint(term: String) async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)exercise/search/"
+        components.queryItems = [
+            URLQueryItem(name: "language", value: "en"),
+            URLQueryItem(name: "term", value: term)
+        ]
+        
+        guard let url = components.url else {
+            throw NetworkError.badURL
         }
-        return url
+        
+        return WgerEndpoint(url: url)
+    }
+    
+    static func getExerciseBaseEndpoint(baseId: Int) async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)exercise-base/\(baseId)"
+
+        guard let url = components.url else {
+            throw NetworkError.badURL
+        }
+        
+        return WgerEndpoint(url: url)
+    }
+    
+    static func getIngredientsEndpoint() async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)ingredient/"
+        
+        guard let url = components.url else {
+            throw NetworkError.badURL
+        }
+        
+        return WgerEndpoint(url: url)
+    }
+    
+    static func getIngredientSearchEndpoint(term: String) async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)ingredient/search/"
+        components.queryItems = [
+            URLQueryItem(name: "language", value: "en"),
+            URLQueryItem(name: "term", value: term)
+        ]
+        
+        guard let url = components.url else {
+            throw NetworkError.badURL
+        }
+
+        return WgerEndpoint(url: url)
     }
 }
