@@ -21,7 +21,7 @@ class ExerciseCategoryViewModel : ObservableObject {
     func getExerciseBase() async {
         do {
             print("Requesting - \(selectedExercise.name)")
-            let endpoint = WgerEndpoints.getExerciseBaseEndpoint(baseId: selectedExercise.baseId)
+            let endpoint = try await WgerEndpoints.shared.searchExerciseBase(baseId: selectedExercise.baseId)
             let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerExerciseBaseResponse.self)
             exerciseBase = data
             print("Finished - \(selectedExercise.name)")
