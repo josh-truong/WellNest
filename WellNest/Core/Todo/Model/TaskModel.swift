@@ -14,6 +14,7 @@ class TaskModel {
     var details: String
     var date: Date
     var priority: Int
+    var pushNotificationIdentifier: String
     @Relationship(deleteRule: .cascade) var notes = [NotesModel]()
     
     init(name: String = "", details: String = "", date: Date = .now, priority: Int = 0) {
@@ -21,5 +22,6 @@ class TaskModel {
         self.details = details
         self.date = date
         self.priority = priority
+        self.pushNotificationIdentifier = ""
     }
 }

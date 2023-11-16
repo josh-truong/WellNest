@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct EditTaskView: View {
+    @EnvironmentObject var context: TodoViewModel
     @Bindable var task: TaskModel
     @State private var newNoteTitle = ""
     
