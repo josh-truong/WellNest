@@ -10,15 +10,11 @@ import SwiftUI
 struct ExerciseCategoryView: View {
     @ObservedObject var exerciseVM: ExerciseViewModel
     @ObservedObject var exerciseCategoryVM: ExerciseCategoryViewModel
-    @ObservedObject var pushService = PushNotificationService()
     
     var label: String
     var exercises: [WgerExerciseDetail]
     
     @State private var showExerciseModal = false
-    @State private var showNotificationModal = false
-    @State private var confirm = false
-    @State private var notificationTime = Date()
     
     var body: some View {
         DisclosureGroup(label) {
@@ -31,61 +27,11 @@ struct ExerciseCategoryView: View {
                         Text(exercise.name)
                             .foregroundStyle(.black)
                     }
-
-                    Spacer()
-                    
-                    Button(action: {
-                        exerciseCategoryVM.selectedExercise = exercise
-                        showNotificationModal = true
-                    }) {
-                        Image(systemName: "bell")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
-                    }
                 }
             }
         }
         .sheet(isPresented: $showExerciseModal) {
             ExerciseDetailView(viewModel: exerciseCategoryVM)
-        }
-        .sheet(isPresented: $showNotificationModal) {
-            VStack {
-                Text("Notification Permission Status:")
-                    .font(.title)
-
-                if pushService.isPushNotificationEnabled {
-                    Text("Permission Granted")
-                        .foregroundColor(.green)
-                } else {
-                    Text("Permission Denied")
-                        .foregroundColor(.red)
-                }
-
-                DatePicker("Select Notification Time", selection: $notificationTime, displayedComponents: [.date, .hourAndMinute])
-                    .labelsHidden()
-                
-                Button("Schedule Notification") {
-                    pushService.scheduleNotification(
-                        title: "\(exerciseCategoryVM.selectedExercise.category) Workout Reminder",
-                        body: exerciseCategoryVM.selectedExercise.name,
-                        time: notificationTime
-                    ) { result in
-                        switch result {
-                            case .success(let identifier):
-                                print("Notification scheduled successfully with identifier: \(identifier)")
-                                confirm = true
-                            case .failure(let error):
-                                print("Failed to schedule notification. Error: \(error)")
-                        }
-                    }
-                }
-                
-                if confirm {
-                    Text("Will notify at \(notificationTime)")
-                        .foregroundColor(.green)
-                }
-            }
         }
     }
 }

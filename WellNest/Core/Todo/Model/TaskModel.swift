@@ -12,6 +12,7 @@ import SwiftData
 class TaskModel {
     var title: String
     var details: String
+    var isNotificationEnabled: Bool
     var date: Date
     var priority: Int
     var pushNotificationIdentifier: String
@@ -22,6 +23,7 @@ class TaskModel {
         self.details = details
         self.date = date
         self.priority = priority
+        self.isNotificationEnabled = false
         self.pushNotificationIdentifier = ""
     }
 }

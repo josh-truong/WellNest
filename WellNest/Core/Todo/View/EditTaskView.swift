@@ -9,11 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct EditTaskView: View {
-    @EnvironmentObject var context: TodoViewModel
     @Bindable var task: TaskModel
     @State private var newNoteTitle = ""
-    
-    @State private var showPicker = true
+    private let service = PushNotificationService()
     
     var body: some View {
         Form {
@@ -21,19 +19,25 @@ struct EditTaskView: View {
             TextField("Details", text: $task.details, axis: .vertical)
             
             HStack {
-                Toggle("", isOn: $showPicker)
+                Toggle("", isOn: $task.isNotificationEnabled)
                     .labelsHidden()
-                    .onChange(of: showPicker) {
-                        if !showPicker {
-                            task.date = Date()
+                    .onChange(of: task.isNotificationEnabled) {
+                        if task.isNotificationEnabled {
+                            service.checkPushNotificationStatus { isAuthorized in
+                                if (!isAuthorized) {
+                                    service.requestPermission { status in
+                                        task.isNotificationEnabled = status
+                                    }
+                                }
+                            }
                         }
                     }
                 
                 Spacer()
                 
-                if showPicker {
+                if task.isNotificationEnabled {
                     DatePicker("", selection: $task.date, displayedComponents: [.date, .hourAndMinute])
-                        .disabled(!showPicker)
+                        .disabled(!task.isNotificationEnabled)
                 } else {
                     Text("Enable Push Notification")
                 }
@@ -62,6 +66,25 @@ struct EditTaskView: View {
         }
         .navigationTitle("Edit")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear {
+            if (task.isNotificationEnabled) {
+                service.checkPushNotificationStatus { isAuthorized in
+                    if !isAuthorized { return }
+                    if !task.pushNotificationIdentifier.isEmpty {
+                        service.removeNotification(task.pushNotificationIdentifier)
+                    }
+                    service.scheduleNotification(title: task.title, body: task.details, time: task.date) { result in
+                        switch result {
+                        case .success(let identifier):
+                            print("Notification scheduled successfully with identifier: \(identifier)")
+                            task.pushNotificationIdentifier = identifier
+                        case .failure(let error):
+                            print("Failed to schedule notification with error: \(error)")
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

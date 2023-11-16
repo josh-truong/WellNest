@@ -25,7 +25,6 @@ struct TasksView: View {
             }
             ForEach(tasks) { task in
                 TaskDisplayView(task: task)
-                    .environmentObject(viewModel)
             }
             .onDelete(perform: deleteTask(_:))
         }

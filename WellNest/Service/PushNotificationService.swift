@@ -8,24 +8,27 @@ import SwiftUI
 import UserNotifications
 
 protocol NotificationService {
-    var isPushNotificationEnabled: Bool { get }
 
     // Method to request permission for push notifications
     func requestPermission(completion: @escaping (Bool) -> Void)
 
     // Method to schedule a notification
     func scheduleNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void)
+    
+    func removeNotification(_ id: String)
 
     // Method to clear all scheduled notifications
     func clearNotifications()
 }
 
 class PushNotificationService: ObservableObject, NotificationService {
-    var isPushNotificationEnabled: Bool {
-        var status = false
-        UNUserNotificationCenter.current().getNotificationSettings { status = $0.authorizationStatus == .authorized }
-        return status
+    func checkPushNotificationStatus(completion: @escaping (Bool) -> Void) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            let isAuthorized = settings.authorizationStatus == .authorized
+            completion(isAuthorized)
+        }
     }
+
 
     func requestPermission(completion: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
@@ -43,6 +46,10 @@ class PushNotificationService: ObservableObject, NotificationService {
                 completion(.failure(NotificationError.permissionDenied))
             }
         }
+    }
+    
+    func removeNotification(_ id: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
     }
     
     func clearNotifications() {

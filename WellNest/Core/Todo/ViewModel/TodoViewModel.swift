@@ -8,5 +8,5 @@
 import Foundation
 
 class TodoViewModel: ObservableObject {
-    private let service = PushNotificationService()
+    
 }
