@@ -12,12 +12,32 @@ struct EditTaskView: View {
     @Bindable var task: TaskModel
     @State private var newNoteTitle = ""
     
+    @State private var showPicker = true
+    
     var body: some View {
         Form {
             TextField("Title", text: $task.title)
             TextField("Details", text: $task.details, axis: .vertical)
-            DatePicker("", selection: $task.date)
-
+            
+            HStack {
+                Toggle("", isOn: $showPicker)
+                    .labelsHidden()
+                    .onChange(of: showPicker) {
+                        if !showPicker {
+                            task.date = Date()
+                        }
+                    }
+                
+                Spacer()
+                
+                if showPicker {
+                    DatePicker("", selection: $task.date, displayedComponents: [.date, .hourAndMinute])
+                        .disabled(!showPicker)
+                } else {
+                    Text("Enable Push Notification")
+                }
+            }
+        
             Section("Priority") {
                 Picker("Priority", selection: $task.priority) {
                     Text("Low").tag(1)
