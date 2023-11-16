@@ -7,55 +7,40 @@
 import SwiftUI
 import UserNotifications
 
-class PushNotificationService: ObservableObject {
-    @Published var isPermissionGranted: Bool = false
-    @Published var notificationError: Bool = false
-    @Published var scheduledTime: Date?
+protocol NotificationService {
+    var isPushNotificationEnabled: Bool { get }
 
-    @MainActor
-    init() {
-        checkPermissionStatus()
+    // Method to request permission for push notifications
+    func requestPermission(completion: @escaping (Bool) -> Void)
+
+    // Method to schedule a notification
+    func scheduleNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void)
+
+    // Method to clear all scheduled notifications
+    func clearNotifications()
+}
+
+class PushNotificationService: ObservableObject, NotificationService {
+    var isPushNotificationEnabled: Bool {
+        var status = false
+        UNUserNotificationCenter.current().getNotificationSettings { status = $0.authorizationStatus == .authorized }
+        return status
     }
-    
-    // Check notification permission status
-    @MainActor
-    private func checkPermissionStatus() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            self.isPermissionGranted = settings.authorizationStatus == .authorized
+
+    func requestPermission(completion: @escaping (Bool) -> Void) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+            completion(granted)
         }
     }
 
-    // Request notification permission
-    @MainActor
-    private func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+    func scheduleNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void) {
+        requestPermission { [weak self] granted in
+            guard let self = self else { return }
+
             if granted {
-                self.isPermissionGranted = true
-            } else if error != nil {
-                self.notificationError = true
-            }
-        }
-    }
-
-    // Schedule a local notification
-    @MainActor
-    func scheduleNotification(title: String, body: String, time: Date) {
-        requestNotificationPermission()
-        
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = UNNotificationSound.default
-
-        let calendar = Calendar.current
-        let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: time)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if error != nil {
-                self.notificationError = true
+                self.scheduleLocalNotification(title: title, body: body, time: time, completion: completion)
+            } else {
+                completion(.failure(NotificationError.permissionDenied))
             }
         }
     }
@@ -63,4 +48,28 @@ class PushNotificationService: ObservableObject {
     func clearNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
+
+    private func scheduleLocalNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void) {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = UNNotificationSound.default
+
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: time)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(request.identifier))
+            }
+        }
+    }
+}
+
+enum NotificationError: Error {
+    case permissionDenied
 }
