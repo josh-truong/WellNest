@@ -11,7 +11,6 @@ import SwiftUI
 struct TasksView: View {
     @Environment(\.modelContext) var context
     @Query(sort: [SortDescriptor(\TaskModel.priority, order: .reverse), SortDescriptor(\TaskModel.title)]) var tasks: [TaskModel]
-    @ObservedObject var viewModel = TodoViewModel()
     
     init(sort: SortDescriptor<TaskModel>) {
         _tasks = Query(sort: [sort])

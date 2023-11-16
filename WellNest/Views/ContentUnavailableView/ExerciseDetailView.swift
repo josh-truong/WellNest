@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ExerciseCategoryViewModel
+    @Environment(\.modelContext) var context
     
     var body: some View {
         VStack (alignment: .leading) {
+            HStack {
+                Spacer()
+                Button("Add Exercise", systemImage: "plus", action: {
+                    let model = TaskModel()
+                    model.title = viewModel.selectedExercise.name
+                    context.insert(model)
+                    dismiss()
+                })
+            }
             Text("\(viewModel.selectedExercise.id)")
             Text("\(viewModel.selectedExercise.baseId)")
             Text("\(viewModel.selectedExercise.name)")

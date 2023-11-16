@@ -15,7 +15,6 @@
 		8D00F9CC2B01EA8700FFD541 /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00F9CB2B01EA8700FFD541 /* IngredientViewModel.swift */; };
 		8D00F9CF2B04AD8F00FFD541 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00F9CE2B04AD8F00FFD541 /* NetworkError.swift */; };
 		8D00F9D62B04C57400FFD541 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00F9D52B04C57400FFD541 /* String.swift */; };
-		8D00FA8F2B06406300FFD541 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00FA8E2B06406300FFD541 /* TodoViewModel.swift */; };
 		8D00FA952B064A6F00FFD541 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8D00FA942B064A6F00FFD541 /* FirebaseAnalytics */; };
 		8D00FA972B064A6F00FFD541 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8D00FA962B064A6F00FFD541 /* FirebaseAnalyticsOnDeviceConversion */; };
 		8D00FA992B064A6F00FFD541 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D00FA982B064A6F00FFD541 /* FirebaseAnalyticsSwift */; };
@@ -128,7 +127,6 @@
 		8D00F9CB2B01EA8700FFD541 /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
 		8D00F9CE2B04AD8F00FFD541 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		8D00F9D52B04C57400FFD541 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		8D00FA8E2B06406300FFD541 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		8D0407C72AFD61DC0067AB17 /* ReauthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticationView.swift; sourceTree = "<group>"; };
 		8D0407D12AFD65FE0067AB17 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		8D156A122AF7241300E22283 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
@@ -305,14 +303,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8D00FA8D2B06404100FFD541 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8D00FA8E2B06406300FFD541 /* TodoViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		8D00FA902B06481900FFD541 /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,7 +342,6 @@
 		8D0407C92AFD62C60067AB17 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
-				8D00FA8D2B06404100FFD541 /* ViewModel */,
 				8D0407CE2AFD64A60067AB17 /* View */,
 				8D0407CA2AFD62D30067AB17 /* Model */,
 			);
@@ -817,7 +806,6 @@
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
 				8D6D55762AD7CD4700B9BA7F /* PushNotificationService.swift in Sources */,
-				8D00FA8F2B06406300FFD541 /* TodoViewModel.swift in Sources */,
 				8D0407D22AFD65FE0067AB17 /* Priority.swift in Sources */,
 				8DA4E4B72AB403A400971E19 /* ProfileIconView.swift in Sources */,
 				8D0407C82AFD61DC0067AB17 /* ReauthenticationView.swift in Sources */,
