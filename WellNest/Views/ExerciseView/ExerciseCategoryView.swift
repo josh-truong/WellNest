@@ -10,7 +10,7 @@ import SwiftUI
 struct ExerciseCategoryView: View {
     @ObservedObject var exerciseVM: ExerciseViewModel
     @ObservedObject var exerciseCategoryVM: ExerciseCategoryViewModel
-    @ObservedObject var notificationViewModel = PushNotificationService()
+    @ObservedObject var pushService = PushNotificationService()
     
     var label: String
     var exercises: [WgerExerciseDetail]
@@ -54,7 +54,7 @@ struct ExerciseCategoryView: View {
                 Text("Notification Permission Status:")
                     .font(.title)
 
-                if notificationViewModel.isPermissionGranted {
+                if pushService.isPushNotificationEnabled {
                     Text("Permission Granted")
                         .foregroundColor(.green)
                 } else {
@@ -66,12 +66,19 @@ struct ExerciseCategoryView: View {
                     .labelsHidden()
                 
                 Button("Schedule Notification") {
-                    notificationViewModel.scheduleNotification(
+                    pushService.scheduleNotification(
                         title: "\(exerciseCategoryVM.selectedExercise.category) Workout Reminder",
                         body: exerciseCategoryVM.selectedExercise.name,
                         time: notificationTime
-                    )
-                    confirm = true
+                    ) { result in
+                        switch result {
+                            case .success(let identifier):
+                                print("Notification scheduled successfully with identifier: \(identifier)")
+                                confirm = true
+                            case .failure(let error):
+                                print("Failed to schedule notification. Error: \(error)")
+                        }
+                    }
                 }
                 
                 if confirm {
