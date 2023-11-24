@@ -72,6 +72,7 @@ struct EditTaskView: View {
                     if !isAuthorized { return }
                     if !task.pushNotificationIdentifier.isEmpty {
                         service.removeNotification(task.pushNotificationIdentifier)
+                        task.pushNotificationIdentifier = ""
                     }
                     service.scheduleNotification(title: task.title, body: task.details, time: task.date) { result in
                         switch result {

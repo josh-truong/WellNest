@@ -39,6 +39,14 @@ struct HomeView: View {
                     Button("Add Destination", systemImage: "plus", action: addDestination)
                 }
             }
+            .onChange(of: path) { oldValue, newValue in
+                if (newValue.isEmpty) {
+                    let title = oldValue.first?.title ?? ""
+                    if (title.isEmpty) {
+                        context.delete(oldValue.first!)
+                    }
+                }
+            }
         }
     }
 }

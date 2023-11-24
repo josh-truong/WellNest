@@ -18,9 +18,11 @@ struct TasksView: View {
     
     var body: some View {
         List {
-            HStack {
-                Spacer()
-                Button("Clear all", role: .destructive, action: clearTask)
+            if (!tasks.isEmpty) {
+                HStack {
+                    Spacer()
+                    Button("Clear all", role: .destructive, action: clearTask)
+                }
             }
             ForEach(tasks) { task in
                 TaskDisplayView(task: task)

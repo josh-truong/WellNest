@@ -8,7 +8,6 @@ import SwiftUI
 import UserNotifications
 
 protocol NotificationService {
-
     // Method to request permission for push notifications
     func requestPermission(completion: @escaping (Bool) -> Void)
 
@@ -22,6 +21,7 @@ protocol NotificationService {
 }
 
 class PushNotificationService: ObservableObject, NotificationService {
+    
     func checkPushNotificationStatus(completion: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             let isAuthorized = settings.authorizationStatus == .authorized
@@ -49,7 +49,18 @@ class PushNotificationService: ObservableObject, NotificationService {
     }
     
     func removeNotification(_ id: String) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            let isActive = requests.contains { request in
+                return request.identifier == id
+            }
+            
+            if isActive {
+                print("Removed \(id)")
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+            }
+        }
+        
+        
     }
     
     func clearNotifications() {
