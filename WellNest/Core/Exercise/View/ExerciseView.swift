@@ -13,7 +13,7 @@ struct ExerciseView: View {
     @State private var searchTerm: String = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack() {
                 if let categories = viewModel.exerciseDictionary, !categories.isEmpty {
                     List {
