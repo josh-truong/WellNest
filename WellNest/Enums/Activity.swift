@@ -37,6 +37,14 @@ struct Steps: Activity {
     let unit = "steps"
 }
 
+struct Water: Activity {
+    let name = "Glasses"
+    let image = "drop.fill"
+    let color = Color.blue
+    let unit = "glasses"
+}
+
+
 struct CaloriesBurned: Activity {
     let name = "Calories burned"
     let image = "flame"
