@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ActivityButton: View {
-    var action: (() -> Void)? = nil
-    
     var body: some View {
         ZStack {
             Color(uiColor: .systemGray6)
@@ -20,7 +18,6 @@ struct ActivityButton: View {
                 .opacity(0.8)
                 .padding(5)
         }
-        .onTapGesture { action?() }
     }
 }
 
