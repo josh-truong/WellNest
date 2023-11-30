@@ -21,6 +21,7 @@ protocol Activity {
     var image: String { get }
     var color: Color { get }
     var unit: String { get }
+    //var content: View { get }
 }
 
 struct ActivityInfo: Identifiable {
@@ -45,15 +46,8 @@ struct Water: Activity {
 }
 
 
-struct CaloriesBurned: Activity {
-    let name = "Calories burned"
-    let image = "flame"
-    let color = Color.red
-    let unit = "calories"
-}
-
-struct CaloriesGained: Activity {
-    let name = "Calories gained"
+struct Calories: Activity {
+    let name = "Calories"
     let image = "flame"
     let color = Color.red
     let unit = "calories"
