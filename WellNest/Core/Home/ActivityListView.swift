@@ -14,12 +14,13 @@ struct ActivityListView: View {
     
     var body: some View {
         VStack {
+            Button("Delete", action: { vm.clearActives() })
             ActivityCard(activity: Weight(), start: 360, end: 200, showProgress: false)
             ActivityCard(activity: Calories(), start: 0, end: 1000, showProgress: false)
             ActivityCard(activity: Water(), start: 0, end: 8, showProgress: false)
             
             LazyVGrid(columns: columns) {
-                ForEach(vm.getActivitiesInfo(), id: \.id) { info in
+                ForEach(vm.activeActivities, id: \.id) { info in
                     NavigationLink(destination: TimerView(info: info)) {
                         ActivityCard(activity: info.activity, start: info.start, end: info.end)
                     }
@@ -27,13 +28,17 @@ struct ActivityListView: View {
                 }
                 .padding(.horizontal, 1)
                 
-                NavigationLink(destination: ExerciseView(viewModel: ExerciseViewModel(apiService: APIService.shared))) {
+                NavigationLink(destination: InactiveActivitiesView(vm: vm)) {
                     ActivityButton()
                         .aspectRatio(1.0, contentMode: .fit)
                 }
                 .buttonStyle(PlainButtonStyle())
             }
         }
-        .onAppear() { vm.preload() }
+        .onAppear() {
+            vm.preload()
+            vm.getActiveActivities()
+            vm.getInactiveActivities()
+        }
     }
 }
