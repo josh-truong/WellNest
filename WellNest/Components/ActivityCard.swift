@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct ActivityCard<Content: View>: View {
-    let content: Content
+struct ActivityCard: View {
     let activity: Activity
     var start: Int
     var end: Int
@@ -17,20 +16,6 @@ struct ActivityCard<Content: View>: View {
         guard end != 0 else { return 0 }
         if (start >= end) { return CGFloat(1.0) }
         return CGFloat(start) / CGFloat(end)
-    }
-    
-    init(activity: Activity, start: Int, end: Int, @ViewBuilder redirectContent: () -> Content) {
-        self.activity = activity
-        self.start = start
-        self.end = end
-        self.content = redirectContent()
-    }
-    
-    init(activity: Activity, start: Int, end: Int) where Content == Color {
-        // Optional: ViewBuilder default type is Color
-        self.init(activity: activity, start: start, end: end) {
-            Color.clear
-        }
     }
     
     var body: some View {
