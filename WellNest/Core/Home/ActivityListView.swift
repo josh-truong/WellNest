@@ -10,7 +10,7 @@ import SwiftUI
 struct ActivityListView: View {
     let activities: [ActivityInfo] = [
         ActivityInfo(activity: Steps(), start: 6545, end: 10000),
-        ActivityInfo(activity: CaloriesBurned(), start: 6545, end: 10000),
+        ActivityInfo(activity: Calories(), start: 6545, end: 10000),
         ActivityInfo(activity: Running(), start: 6545, end: 10000),
         ActivityInfo(activity: WeightLifting(), start: 6545, end: 10000),
         ActivityInfo(activity: Cycling(), start: 6545, end: 10000),
@@ -23,7 +23,7 @@ struct ActivityListView: View {
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(activities, id: \.id) { info in
-                NavigationLink(destination: ActivityDetailView(info: info)) {
+                NavigationLink(destination: TimerView()) {
                     ActivityCard(activity: info.activity, start: info.start, end: info.end)
                 }
                 .buttonStyle(PlainButtonStyle())
