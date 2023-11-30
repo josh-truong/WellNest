@@ -9,36 +9,30 @@ import SwiftUI
 import SwiftData
 
 struct ActivityListView: View {
-    @Environment(\.modelContext) var modelContext
-    
-    private let activities: [ActivityInfo] = [
-        ActivityInfo(activity: Steps(), start: 6545, end: 10000),
-        ActivityInfo(activity: Calories(), start: 6545, end: 10000),
-        ActivityInfo(activity: Running(), start: 6545, end: 10000),
-        ActivityInfo(activity: WeightLifting(), start: 6545, end: 10000),
-        ActivityInfo(activity: Cycling(), start: 6545, end: 10000),
-        ActivityInfo(activity: Hiking(), start: 6545, end: 10000),
-        ActivityInfo(activity: Water(), start: 6545, end: 10000),
-    ]
-    
     @StateObject var vm = ActivityViewModel()
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(activities, id: \.id) { info in
-                NavigationLink(destination: TimerView(info: info)) {
-                    ActivityCard(activity: info.activity, start: info.start, end: info.end)
+        VStack {
+            ActivityCard(activity: Weight(), start: 360, end: 200, showProgress: false)
+            ActivityCard(activity: Calories(), start: 0, end: 1000, showProgress: false)
+            ActivityCard(activity: Water(), start: 0, end: 8, showProgress: false)
+            
+            LazyVGrid(columns: columns) {
+                ForEach(vm.getActivitiesInfo(), id: \.id) { info in
+                    NavigationLink(destination: TimerView(info: info)) {
+                        ActivityCard(activity: info.activity, start: info.start, end: info.end)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .padding(.horizontal, 1)
+                
+                NavigationLink(destination: ExerciseView(viewModel: ExerciseViewModel(apiService: APIService.shared))) {
+                    ActivityButton()
+                        .aspectRatio(1.0, contentMode: .fit)
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-            .padding(.horizontal, 1)
-            
-            NavigationLink(destination: ExerciseView(viewModel: ExerciseViewModel(apiService: APIService.shared))) {
-                ActivityButton()
-                    .aspectRatio(1.0, contentMode: .fit)
-            }
-            .buttonStyle(PlainButtonStyle())
         }
         .onAppear() { vm.preload() }
     }
