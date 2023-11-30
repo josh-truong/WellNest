@@ -26,7 +26,7 @@ struct ActivityListView: View {
     
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach(activities) { info in
+            ForEach(activities, id: \.id) { info in
                 NavigationLink(destination: TimerView(info: info)) {
                     ActivityCard(activity: info.activity, start: info.start, end: info.end)
                 }
