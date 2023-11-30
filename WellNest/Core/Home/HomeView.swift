@@ -14,40 +14,59 @@ struct HomeView: View {
     
     @State private var path = [TaskModel]()
     @State private var sortOrder = SortDescriptor(\TaskModel.title)
+    
     var body: some View {
-        NavigationStack(path: $path) {
-            TasksView(sort: sortOrder)
-            .navigationTitle("Todos")
-            .navigationDestination(for: TaskModel.self, destination: EditTaskView.init)
-            .toolbar {
-                ToolbarItem {
-                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
-                        Picker("Sort", selection: $sortOrder) {
-                            Text("Name")
-                                .tag(SortDescriptor(\TaskModel.title))
-                            Text("Priority")
-                                .tag(SortDescriptor(\TaskModel.priority, order: .reverse))
-                            
-                            Text("Date")
-                                .tag(SortDescriptor(\TaskModel.date))
-                        }
-                        .pickerStyle(.inline)
-                    }
-                }
-                
-                ToolbarItem {
-                    Button("Add Destination", systemImage: "plus", action: addDestination)
-                }
+        NavigationStack {
+            ScrollView {
+                ActivityListView()
             }
-            .onChange(of: path) { oldValue, newValue in
-                if (newValue.isEmpty) {
-                    let title = oldValue.first?.title ?? ""
-                    if (title.isEmpty) {
-                        context.delete(oldValue.first!)
-                    }
-                }
-            }
+            .padding()
+            .navigationTitle("Activity List")
         }
+
+//        NavigationStack(path: $path) {
+//            VStack(alignment: .leading) {
+//                
+//                LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2), content: {
+//                    ActivityCard()
+//                    ActivityCard()
+//                })
+//                .padding(.horizontal)
+//                
+////                TasksView(sort: sortOrder)
+////                .onChange(of: path) { oldValue, newValue in
+////                    if (newValue.isEmpty) {
+////                        let title = oldValue.first?.title ?? ""
+////                        if (title.isEmpty) {
+////                            context.delete(oldValue.first!)
+////                        }
+////                    }
+////                }
+//            }
+//            .navigationTitle("WellNest")
+//            .navigationDestination(for: TaskModel.self, destination: EditTaskView.init)
+//            .toolbar {
+//                ToolbarItem {
+//                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+//                        Picker("Sort", selection: $sortOrder) {
+//                            Text("Name")
+//                                .tag(SortDescriptor(\TaskModel.title))
+//                            Text("Priority")
+//                                .tag(SortDescriptor(\TaskModel.priority, order: .reverse))
+//                            
+//                            Text("Date")
+//                                .tag(SortDescriptor(\TaskModel.date))
+//                        }
+//                        .pickerStyle(.inline)
+//                    }
+//                }
+//                
+//                ToolbarItem {
+//                    Button("Add Destination", systemImage: "plus", action: addDestination)
+//                }
+//            }
+//            .padding()
+//        }
     }
 }
 
@@ -63,5 +82,16 @@ extension HomeView {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    }
+}
+
+
+struct ActivityDetailView: View {
+    let info: ActivityInfo
+
+    var body: some View {
+        Text("Detail View for \(info.activity.name)")
+            .padding()
+            .navigationTitle(info.activity.name)
     }
 }
