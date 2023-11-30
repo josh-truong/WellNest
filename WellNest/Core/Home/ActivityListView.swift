@@ -28,7 +28,7 @@ struct ActivityListView: View {
                 }
                 .padding(.horizontal, 1)
                 
-                NavigationLink(destination: InactiveActivitiesView(vm: vm)) {
+                NavigationLink(destination: MyActivityView(vm: vm)) {
                     ActivityButton()
                         .aspectRatio(1.0, contentMode: .fit)
                 }
