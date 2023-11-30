@@ -100,6 +100,13 @@
 		8D7A0A652AFF204A002C92F7 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A0A642AFF204A002C92F7 /* TaskModel.swift */; };
 		8D7A0A672AFF263F002C92F7 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A0A662AFF263F002C92F7 /* EditTaskView.swift */; };
 		8D7A510A2B15DBF700397762 /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51092B15DBF700397762 /* ActivityListView.swift */; };
+		8D7A510D2B171C5800397762 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A510C2B171C5800397762 /* TimerView.swift */; };
+		8D7A51102B17CC8500397762 /* CircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 8D7A510F2B17CC8500397762 /* CircularProgress */; };
+		8D7A51122B17D10400397762 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51112B17D10400397762 /* TimePickerView.swift */; };
+		8D7A51142B17D7D300397762 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51132B17D7D300397762 /* RangePicker.swift */; };
+		8D7A51182B18855C00397762 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51172B18855C00397762 /* TimerViewModel.swift */; };
+		8D7A511A2B18AA2000397762 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51192B18AA2000397762 /* TimerService.swift */; };
+		8D7A511C2B18BC2700397762 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */; };
 		8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */; };
@@ -175,6 +182,12 @@
 		8D7A0A642AFF204A002C92F7 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		8D7A0A662AFF263F002C92F7 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		8D7A51092B15DBF700397762 /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
+		8D7A510C2B171C5800397762 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		8D7A51112B17D10400397762 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		8D7A51132B17D7D300397762 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
+		8D7A51172B18855C00397762 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		8D7A51192B18AA2000397762 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
 		8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientData.swift; sourceTree = "<group>"; };
@@ -212,6 +225,7 @@
 				8D24506C2AF3588200CA248F /* FirebaseAppCheck in Frameworks */,
 				8D2450742AF358C700CA248F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				8D00FA972B064A6F00FFD541 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				8D7A51102B17CC8500397762 /* CircularProgress in Frameworks */,
 				8D2450842AF358C700CA248F /* FirebaseDynamicLinks in Frameworks */,
 				8D24509E2AF358C700CA248F /* FirebaseRemoteConfigSwift in Frameworks */,
 				8D2450822AF358C700CA248F /* FirebaseDatabaseSwift in Frameworks */,
@@ -253,6 +267,7 @@
 			children = (
 				8DA4E4AA2AB3F56000971E19 /* HomeView.swift */,
 				8D7A51092B15DBF700397762 /* ActivityListView.swift */,
+				8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -392,6 +407,7 @@
 		8D2450A62AF37E3100CA248F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8D7A510B2B171C4400397762 /* Timer */,
 				8D00FA902B06481900FFD541 /* Exercise */,
 				8D00F9C12B01ACB800FFD541 /* Ingredient */,
 				8D00F9BE2B0059E200FFD541 /* Home */,
@@ -439,6 +455,7 @@
 				8D00F9BF2B01976800FFD541 /* TaskDisplayView.swift */,
 				8DADB7A52B1545210070A68D /* ActivityCard.swift */,
 				8DADB7A92B15A1D70070A68D /* ActivityButton.swift */,
+				8D7A51132B17D7D300397762 /* RangePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -541,6 +558,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		8D7A510B2B171C4400397762 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				8D7A510C2B171C5800397762 /* TimerView.swift */,
+				8D7A51112B17D10400397762 /* TimePickerView.swift */,
+				8D7A51172B18855C00397762 /* TimerViewModel.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		8D9EF0912AC62CE90062D566 /* MealView */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +633,7 @@
 				8DDC05AC2ABC3E7100287D4F /* APIService.swift */,
 				8D6D55662AD65D4700B9BA7F /* LocationService.swift */,
 				8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */,
+				8D7A51192B18AA2000397762 /* TimerService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -697,6 +725,7 @@
 				8D00FA982B064A6F00FFD541 /* FirebaseAnalyticsSwift */,
 				8D00FA9A2B064A6F00FFD541 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				8D00FA9C2B064A6F00FFD541 /* FirebaseAppCheck */,
+				8D7A510F2B17CC8500397762 /* CircularProgress */,
 			);
 			productName = WellNest;
 			productReference = 8D4C243A2AB350260008447E /* WellNest.app */;
@@ -728,6 +757,7 @@
 			mainGroup = 8D4C24312AB350260008447E;
 			packageReferences = (
 				8D1B0D6E2AF349C200B43D7B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8D7A510E2B17CC8500397762 /* XCRemoteSwiftPackageReference "CircularProgressSwiftui" */,
 			);
 			productRefGroup = 8D4C243B2AB350260008447E /* Products */;
 			projectDirPath = "";
@@ -756,7 +786,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7A51182B18855C00397762 /* TimerViewModel.swift in Sources */,
 				8D156A1F2AFC3A0200E22283 /* User.swift in Sources */,
+				8D7A51142B17D7D300397762 /* RangePicker.swift in Sources */,
 				8D2450B02AF3864500CA248F /* RegistrationView.swift in Sources */,
 				8D34EDDE2ADEE95E00D33637 /* NoLocationView.swift in Sources */,
 				8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */,
@@ -789,8 +821,10 @@
 				8D2450B22AF38ABC00CA248F /* ProfileSettingsView.swift in Sources */,
 				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */,
 				8DA4E4B92AB40B4200971E19 /* ProfileModalView.swift in Sources */,
+				8D7A511C2B18BC2700397762 /* ActivityViewModel.swift in Sources */,
 				8D156A1A2AFC365F00E22283 /* AuthenticationService.swift in Sources */,
 				8D7A510A2B15DBF700397762 /* ActivityListView.swift in Sources */,
+				8D7A51122B17D10400397762 /* TimePickerView.swift in Sources */,
 				8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */,
 				8DDC059F2ABC344D00287D4F /* ResizableAsyncImage.swift in Sources */,
 				8D7A0A672AFF263F002C92F7 /* EditTaskView.swift in Sources */,
@@ -798,8 +832,10 @@
 				8D00F9BB2B002AC300FFD541 /* TasksView.swift in Sources */,
 				8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */,
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
+				8D7A511A2B18AA2000397762 /* TimerService.swift in Sources */,
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
 				8DADB7A82B154EED0070A68D /* Activity.swift in Sources */,
+				8D7A510D2B171C5800397762 /* TimerView.swift in Sources */,
 				8D156A172AFC2FD100E22283 /* ProfileView.swift in Sources */,
 				8D299EB92ADFB215004F04A3 /* SlidingButtonView.swift in Sources */,
 				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
@@ -1058,6 +1094,14 @@
 				minimumVersion = 10.17.0;
 			};
 		};
+		8D7A510E2B17CC8500397762 /* XCRemoteSwiftPackageReference "CircularProgressSwiftui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ArnavMotwani/CircularProgressSwiftui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1233,6 +1277,11 @@
 		8D2450A12AF358C700CA248F /* FirebaseStorageCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		8D7A510F2B17CC8500397762 /* CircularProgress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D7A510E2B17CC8500397762 /* XCRemoteSwiftPackageReference "CircularProgressSwiftui" */;
+			productName = CircularProgress;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
