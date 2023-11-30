@@ -24,22 +24,20 @@ struct ExerciseView: View {
                     .listStyle(GroupedListStyle())
                 }
                 else {
-                    Spacer()
                     Text("Nothing To See Here")
                 }
-                
-                Spacer()
-                HStack {
-                    TextField("Search an exercise", text: $searchTerm)
-                    Button("Search", systemImage: "arrow.up") {
-                        Task {
-                            await viewModel.searchExercises(term: searchTerm)
-                        }
+            }
+            .navigationTitle("Exercise")
+            .searchable(text: $searchTerm)
+            .onChange(of: searchTerm) { oldState, newState in
+                Task {
+                    if !newState.isEmpty && newState.count > 2 {
+                        await viewModel.searchExercises(term: newState)
+                    } else {
+                        viewModel.exerciseDictionary?.removeAll()
                     }
                 }
-                .padding()
             }
-            .toolbarNavBar("Exercise")
         }
         .onDisappear { viewModel.reset() }
     }
