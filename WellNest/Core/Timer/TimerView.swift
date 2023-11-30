@@ -9,29 +9,29 @@ import CircularProgress
 
 struct TimerView: View {
     @State private var time: (hr: Int, min: Int, sec: Int) = (0,0,0)
-    @StateObject private var viewModel = TimerViewModel()
+    @StateObject private var vm = TimerViewModel()
     
     var body: some View {
         VStack {
-            CircularProgressView(count: 0, total: 0, progress: viewModel.progress, lineWidth: 15, showText: false)
+            CircularProgressView(count: 0, total: 0, progress: vm.progress, lineWidth: 15, showText: false)
                 .overlay {
                     VStack {
                         Text("\(time.hr) h \(time.min) m \(time.sec) s")
                         Spacer()
-                        if (viewModel.mode == .setup) {
+                        if (vm.mode == .setup) {
                             TimePickerView(hour: $time.hr, minute: $time.min, second: $time.sec)
                         }
                         else {
-                            Text(viewModel.timeRemainingFormatted)
+                            Text(vm.timeRemainingFormatted)
                                 .font(.system(size: 70))
-                                .onTapGesture(count: 1) { viewModel.mode = .start }
+                                .onTapGesture(count: 1) { vm.mode = .start }
                         }
                         
                         Spacer()
-                        if (!viewModel.eta.isEmpty) {
+                        if (!vm.eta.isEmpty) {
                             HStack {
                                 Image(systemName: "bell.fill")
-                                Text(viewModel.eta)
+                                Text(vm.eta)
                             }
                         }
                     }
@@ -39,21 +39,21 @@ struct TimerView: View {
                 }
                 .padding(20)
             HStack {
-                switch(viewModel.mode) {
+                switch(vm.mode) {
                 case .setup, .start:
                     Button("Start", action: {
-                        viewModel.setupTimer(hour: time.hr, minute: time.min, second: time.sec)
+                        vm.startTimer(hour: time.hr, minute: time.min, second: time.sec)
                     })
                 case .pause:
                     Button("Pause", action: {
-                        viewModel.pauseTimer()
+                        vm.pauseTimer()
                     })
                 case .resume, .finish:
                     Button("Resume", action: {
-                        viewModel.resumeTimer()
+                        vm.resumeTimer()
                     })
                     Button("Finish", action: {
-                        viewModel.finishTimer()
+                        vm.finishTimer()
                     })
                 }
             }
