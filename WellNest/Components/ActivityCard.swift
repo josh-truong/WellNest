@@ -54,7 +54,3 @@ struct ActivityCard: View {
         }
     }
 }
-
-#Preview {
-    ActivityCard(activity: Running(), start: 6545, end: 10000)
-}
