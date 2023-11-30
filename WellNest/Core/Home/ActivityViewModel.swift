@@ -12,17 +12,30 @@ import SwiftUI
 @MainActor
 class ActivityViewModel : ObservableObject {
     private let preloadActivities: [ActivityInfo] = [
-//        ActivityInfo(activity: Steps(), start: 6545, end: 10000),
-//        ActivityInfo(activity: Calories(), start: 6545, end: 10000),
-//        ActivityInfo(activity: Running(), start: 6545, end: 10000),
-//            ActivityInfo(activity: WeightLifting(), start: 6545, end: 10000),
-//            ActivityInfo(activity: Cycling(), start: 6545, end: 10000),
-//            ActivityInfo(activity: Hiking(), start: 6545, end: 10000),
-//            ActivityInfo(activity: Water(), start: 6545, end: 10000),
+        ActivityInfo(activity: Steps(), start: 6545, end: 10000),
+        ActivityInfo(activity: Calories(), start: 6545, end: 10000),
+        ActivityInfo(activity: Running(), start: 6545, end: 10000),
+        ActivityInfo(activity: WeightLifting(), start: 6545, end: 10000),
+        ActivityInfo(activity: Cycling(), start: 6545, end: 10000),
+        ActivityInfo(activity: Hiking(), start: 6545, end: 10000),
+        ActivityInfo(activity: Water(), start: 6545, end: 10000),
     ]
     
     func preload() {
-//        do {
+        do {
+            let activitiesDS = DataService<ActivityInfo>(key: "activities")
+            activitiesDS.saveDataList(preloadActivities)
+            
+            // Retrieve and print updated list of data
+            if let loadedActivity = activitiesDS.loadListData() {
+                for info in loadedActivity {
+                    print("Name: \(info.activity.name), Start: \(info.start), End: \(info.end)")
+                }
+            }
+            
+            
+            
+            
 //            let container = try ModelContainer(for: ActivityInfo.self)
 //            
 //            var fetchDescriptor = FetchDescriptor<ActivityInfo>()
@@ -33,9 +46,9 @@ class ActivityViewModel : ObservableObject {
 //            for activity in preloadActivities {
 //                container.mainContext.insert(activity)
 //            }
-//        }
-//        catch {
-//            fatalError("Failed to preload activities.")
-//        }
+        }
+        catch {
+            fatalError("Failed to preload activities.")
+        }
     }
 }
