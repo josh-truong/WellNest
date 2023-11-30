@@ -23,12 +23,12 @@ class ActivityViewModel : ObservableObject {
     }
     
     func getActiveActivities() {
-        self.activeActivities = activeDS.loadData() ?? [ActivityInfo]()
+        self.activeActivities = activeDS.load() ?? [ActivityInfo]()
     }
     
     func getInactiveActivities() {
-        guard let loadedActivity = activitiesDS.loadData() else { return }
-        guard let loadedActive = activeDS.loadData() else { return }
+        guard let loadedActivity = activitiesDS.load() else { return }
+        guard let loadedActive = activeDS.load() else { return }
         
         let inactiveActivities = loadedActivity.filter { activity in
             !loadedActive.contains { $0.id == activity.id }
@@ -36,8 +36,14 @@ class ActivityViewModel : ObservableObject {
         self.inactiveActivities = inactiveActivities
     }
 
-    func addActivityToActive(_ item: ActivityInfo) {
-        activeDS.addItem(item)
+    func moveToActive(_ item: ActivityInfo) {
+        activeDS.add(item)
+        getInactiveActivities()
+        getActiveActivities()
+    }
+    
+    func moveToInctive(_ item: ActivityInfo) {
+        activeDS.remove(item)
         getInactiveActivities()
         getActiveActivities()
     }
@@ -49,7 +55,7 @@ class ActivityViewModel : ObservableObject {
             ActivityInfo(activity: WeightLifting(), start: 0, end: 1000),
         ]
         
-        if let loadedActivity = activeDS.loadData(), loadedActivity.isEmpty {
+        if let loadedActivity = activeDS.load(), loadedActivity.isEmpty {
             print("Preloading activities")
             activeDS.saveDataList(preloadActivities)
             getActiveActivities()
@@ -69,14 +75,26 @@ class ActivityViewModel : ObservableObject {
             ActivityInfo(activity: Hiking(), start: 0, end: 300)
         ]
         
-        if let loadedActivity = activitiesDS.loadData(), loadedActivity.isEmpty {
+        if let loadedActivity = activitiesDS.load(), loadedActivity.isEmpty {
             print("Storing activities")
             activitiesDS.saveDataList(activities)
         }
     }
     
-    func clearActives() {
-        activeDS.clearData()
+    func move(from fromOffsets: IndexSet, to toOffset: Int) {
+        activeDS.move(from: fromOffsets, to: toOffset)
         getActiveActivities()
+    }
+    
+    func clearActives() {
+        activeDS.clear()
+        getActiveActivities()
+    }
+    
+    func delete(from fromOffsets: IndexSet) {
+        var deletedItems = fromOffsets.compactMap {
+            self.inactiveActivities[$0]
+        }
+        activitiesDS.remove(deletedItems.removeFirst())
     }
 }
