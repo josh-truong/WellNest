@@ -76,6 +76,7 @@
 		8D2450BA2AF3921000CA248F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2450B92AF3921000CA248F /* AuthViewModel.swift */; };
 		8D299EB92ADFB215004F04A3 /* SlidingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D299EB82ADFB215004F04A3 /* SlidingButtonView.swift */; };
 		8D34EDDE2ADEE95E00D33637 /* NoLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */; };
+		8D43078F2B18CFB80095CBC7 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43078E2B18CFB80095CBC7 /* DataService.swift */; };
 		8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */; };
 		8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */; };
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
@@ -155,6 +156,7 @@
 		8D2450B92AF3921000CA248F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		8D299EB82ADFB215004F04A3 /* SlidingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingButtonView.swift; sourceTree = "<group>"; };
 		8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLocationView.swift; sourceTree = "<group>"; };
+		8D43078E2B18CFB80095CBC7 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseCategory.swift; sourceTree = "<group>"; };
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
@@ -634,6 +636,7 @@
 				8D6D55662AD65D4700B9BA7F /* LocationService.swift */,
 				8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */,
 				8D7A51192B18AA2000397762 /* TimerService.swift */,
+				8D43078E2B18CFB80095CBC7 /* DataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				8D2450622AF357A400CA248F /* FirebaseManager.swift in Sources */,
 				8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */,
 				8D6D55652AD63D0200B9BA7F /* GeoLocationDetailsView.swift in Sources */,
+				8D43078F2B18CFB80095CBC7 /* DataService.swift in Sources */,
 				8D2450AE2AF3815C00CA248F /* InputView.swift in Sources */,
 				8D2450B42AF38C6D00CA248F /* SettingsRowView.swift in Sources */,
 				8DA4E4BE2AB505B800971E19 /* NavbarToolbarModifier.swift in Sources */,
