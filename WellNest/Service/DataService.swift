@@ -40,6 +40,12 @@ class DataService<T: Codable & Identifiable> {
         }
     }
     
+    func addItem(_ item: T) {
+        var dataList = loadData() ?? [T]()
+        dataList.append(item)
+        saveDataList(dataList)
+    }
+    
     // Remove item from the list
     func removeItem(item: T) {
         if var dataList = loadData(),
