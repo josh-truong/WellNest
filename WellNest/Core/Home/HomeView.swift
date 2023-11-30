@@ -20,8 +20,10 @@ struct HomeView: View {
             ScrollView {
                 ActivityListView()
             }
-            .padding()
             .navigationTitle("Activity List")
+            .profileNavBar()
+            .padding()
+            
         }
 
 //        NavigationStack(path: $path) {

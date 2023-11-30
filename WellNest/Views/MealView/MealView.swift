@@ -40,7 +40,8 @@ struct MealView: View {
                     DefaultIngredientView()
                 }
             }
-            .toolbarNavBar("Nutrition")
+            .navigationTitle("Nutrition")
+            .profileNavBar()
         }
     }
 }
