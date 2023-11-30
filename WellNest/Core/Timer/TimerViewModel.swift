@@ -10,7 +10,7 @@ import Combine
 
 @MainActor
 class TimerViewModel : ObservableObject {
-    @Published var timerService: TimerService
+    private var timerService: TimerService
     
     @Published var mode: TimerMode = .setup
     @Published var isFinished: Bool = false
