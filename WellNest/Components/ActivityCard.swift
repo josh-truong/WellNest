@@ -34,7 +34,7 @@ struct ActivityCard: View {
                     Spacer()
                     
                     Image(systemName: activity.image)
-                        .foregroundStyle(activity.color)
+                        .foregroundStyle(activity.color.uiColor)
                 }
                 
                 ProgressView(value: progressPercentage) {
@@ -45,7 +45,7 @@ struct ActivityCard: View {
                             .foregroundStyle(.secondary)
                     }
                 }
-                .tint(activity.color)
+                .tint(activity.color.uiColor)
                 
                 Text("\(start) \(activity.unit)")
                     .font(.system(size: 20))
