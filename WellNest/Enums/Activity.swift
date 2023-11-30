@@ -15,20 +15,35 @@ import SwiftUI
 
 import Foundation
 import SwiftUI
+import SwiftData
+
 
 protocol Activity {
     var name: String { get }
     var image: String { get }
     var color: Color { get }
     var unit: String { get }
-    //var content: View { get }
 }
 
-struct ActivityInfo: Identifiable {
-    var id: Int { return UUID().hashValue }
+class ActivityInfo : Identifiable {
+    var id: Int
     var activity: Activity
     var start: Int
     var end: Int
+    
+    init(activity: Activity, start: Int, end: Int) {
+        self.id = UUID().hashValue
+        self.activity = activity
+        self.start = start
+        self.end = end
+    }
+}
+
+struct Custom: Activity {
+    var name: String = "Custom"
+    let image: String = "figure"
+    let color: Color = Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1))
+    let unit: String = "minutes"
 }
 
 struct Steps: Activity {
@@ -44,7 +59,6 @@ struct Water: Activity {
     let color = Color.blue
     let unit = "glasses"
 }
-
 
 struct Calories: Activity {
     let name = "Calories"
