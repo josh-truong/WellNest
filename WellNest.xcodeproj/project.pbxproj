@@ -78,6 +78,7 @@
 		8D34EDDE2ADEE95E00D33637 /* NoLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */; };
 		8D43078F2B18CFB80095CBC7 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43078E2B18CFB80095CBC7 /* DataService.swift */; };
 		8D4307912B18E2F10095CBC7 /* DSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307902B18E2F10095CBC7 /* DSKey.swift */; };
+		8D4307932B18F2590095CBC7 /* MyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307922B18F2590095CBC7 /* MyActivityView.swift */; };
 		8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */; };
 		8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */; };
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
@@ -159,6 +160,7 @@
 		8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLocationView.swift; sourceTree = "<group>"; };
 		8D43078E2B18CFB80095CBC7 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8D4307902B18E2F10095CBC7 /* DSKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSKey.swift; sourceTree = "<group>"; };
+		8D4307922B18F2590095CBC7 /* MyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivityView.swift; sourceTree = "<group>"; };
 		8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseCategory.swift; sourceTree = "<group>"; };
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				8DA4E4AA2AB3F56000971E19 /* HomeView.swift */,
 				8D7A51092B15DBF700397762 /* ActivityListView.swift */,
 				8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */,
+				8D4307922B18F2590095CBC7 /* MyActivityView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
 				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
 				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
+				8D4307932B18F2590095CBC7 /* MyActivityView.swift in Sources */,
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8DA4E4AF2AB3F6E200971E19 /* MealView.swift in Sources */,
 				8D6D55762AD7CD4700B9BA7F /* PushNotificationService.swift in Sources */,
