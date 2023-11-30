@@ -11,44 +11,46 @@ import SwiftUI
 
 @MainActor
 class ActivityViewModel : ObservableObject {
+    private let activeDS = DataService<ActivityInfo>(key: .activeActivities)
+    private let activitiesDS = DataService<ActivityInfo>(key: .activities)
+    
     private let preloadActivities: [ActivityInfo] = [
-        ActivityInfo(activity: Steps(), start: 6545, end: 10000),
-        ActivityInfo(activity: Calories(), start: 6545, end: 10000),
-        ActivityInfo(activity: Running(), start: 6545, end: 10000),
-        ActivityInfo(activity: WeightLifting(), start: 6545, end: 10000),
-        ActivityInfo(activity: Cycling(), start: 6545, end: 10000),
-        ActivityInfo(activity: Hiking(), start: 6545, end: 10000),
-        ActivityInfo(activity: Water(), start: 6545, end: 10000),
+        ActivityInfo(activity: Steps(), start: 0, end: 10000),
+        ActivityInfo(activity: Running(), start: 0, end: 10000),
+        ActivityInfo(activity: WeightLifting(), start: 0, end: 1000),
     ]
     
+    private let activities: [ActivityInfo] = [
+        ActivityInfo(activity: Steps(), start: 0, end: 10000),
+        ActivityInfo(activity: Running(), start: 0, end: 10000),
+        ActivityInfo(activity: WeightLifting(), start: 0, end: 1000),
+        ActivityInfo(activity: Soccer(), start: 0, end: 300),
+        ActivityInfo(activity: Basketball(), start: 0, end: 300),
+        ActivityInfo(activity: StairStepper(), start: 0, end: 300),
+        ActivityInfo(activity: Cycling(), start: 0, end: 300),
+        ActivityInfo(activity: Hiking(), start: 0, end: 300)
+    ]
+    
+    init() {
+        setupDS()
+    }
+    
+    func getActivitiesInfo() -> [ActivityInfo] {
+        return activeDS.loadData() ?? [ActivityInfo]()
+    }
+    
     func preload() {
-        do {
-            let activitiesDS = DataService<ActivityInfo>(key: "activities")
-            activitiesDS.saveDataList(preloadActivities)
-            
-            // Retrieve and print updated list of data
-            if let loadedActivity = activitiesDS.loadListData() {
-                for info in loadedActivity {
-                    print("Name: \(info.activity.name), Start: \(info.start), End: \(info.end)")
-                }
-            }
-            
-            
-            
-            
-//            let container = try ModelContainer(for: ActivityInfo.self)
-//            
-//            var fetchDescriptor = FetchDescriptor<ActivityInfo>()
-//            fetchDescriptor.fetchLimit = 1
-//            
-//            guard try container.mainContext.fetch(fetchDescriptor).count == 0 else { return }
-//            
-//            for activity in preloadActivities {
-//                container.mainContext.insert(activity)
-//            }
+        if let loadedActivity = activeDS.loadData(), loadedActivity.isEmpty {
+            print("Preloading activities")
+            activeDS.saveDataList(preloadActivities)
         }
-        catch {
-            fatalError("Failed to preload activities.")
+    }
+    
+    private func setupDS() {
+        preload()
+        if let loadedActivity = activitiesDS.loadData(), loadedActivity.isEmpty {
+            print("Storing activities")
+            activitiesDS.saveDataList(activities)
         }
     }
 }
