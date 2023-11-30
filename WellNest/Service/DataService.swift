@@ -23,7 +23,7 @@ class DataService<T: Codable & Identifiable> {
     }
     
     // Retrieve list of data
-    func loadData() -> [T]? {
+    func load() -> [T]? {
         if let savedData = UserDefaults.standard.data(forKey: key),
             let loadedDataList = try? JSONDecoder().decode([T].self, from: savedData) {
             return loadedDataList
@@ -32,31 +32,40 @@ class DataService<T: Codable & Identifiable> {
     }
     
     // Update item in the list
-    func updateItem(item: T) {
-        if var dataList = loadData(),
+    func update(item: T) {
+        if var dataList = load(),
             let index = dataList.firstIndex(where: { $0.id == item.id }) {
             dataList[index] = item
             saveDataList(dataList)
         }
     }
     
-    func addItem(_ item: T) {
-        var dataList = loadData() ?? [T]()
+    func add(_ item: T) {
+        var dataList = load() ?? [T]()
         dataList.append(item)
         saveDataList(dataList)
     }
     
     // Remove item from the list
-    func removeItem(item: T) {
-        if var dataList = loadData(),
+    func remove(_ item: T) {
+        if var dataList = load(),
            let index = dataList.firstIndex(where: { $0.id == item.id }) {
             dataList.remove(at: index)
             saveDataList(dataList)
         }
     }
     
+    func move(from fromOffsets: IndexSet, to toOffset: Int) {
+        guard var dataList = load() else {
+            return
+        }
+        
+        dataList.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        saveDataList(dataList)
+    }
+    
     // Clear saved data
-    func clearData() {
+    func clear() {
         UserDefaults.standard.removeObject(forKey: key)
     }
 }
