@@ -34,13 +34,14 @@ struct CodableColor: Codable {
 }
 
 class Activity: Identifiable, Codable {
-    var id: Int { return UUID().hashValue }
+    var id: Int
     var name: String
     var image: String
     var color: CodableColor
     var unit: String
 
     init(name: String, image: String, color: CodableColor, unit: String) {
+        self.id = UUID().hashValue
         self.name = name
         self.image = image
         self.color = color
@@ -50,6 +51,7 @@ class Activity: Identifiable, Codable {
     // If you have additional initialization logic after decoding, you can implement this method
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = UUID().hashValue
         name = try container.decode(String.self, forKey: .name)
         image = try container.decode(String.self, forKey: .image)
         color = try container.decode(CodableColor.self, forKey: .color)
@@ -75,7 +77,7 @@ class Activity: Identifiable, Codable {
 }
 
 
-class ActivityInfo: Codable, Identifiable {
+class ActivityInfo: Codable, Identifiable, Equatable {
     var id: Int
     var activity: Activity
     var start: Int
@@ -112,6 +114,10 @@ class ActivityInfo: Codable, Identifiable {
         try container.encode(activity, forKey: .activity)
         try container.encode(start, forKey: .start)
         try container.encode(end, forKey: .end)
+    }
+    
+    static func == (lhs: ActivityInfo, rhs: ActivityInfo) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
