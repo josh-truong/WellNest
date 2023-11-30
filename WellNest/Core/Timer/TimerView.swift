@@ -8,43 +8,58 @@ import SwiftUI
 import CircularProgress
 
 struct TimerView: View {
-    @State var count = 0
-    let total = 10
-    var progress: CGFloat {
-        return CGFloat(count)/CGFloat(total)
-    }
-    
     @State private var time: (hr: Int, min: Int, sec: Int) = (0,0,0)
-    @State private var editMode: Bool = true
+    @StateObject private var viewModel = TimerViewModel()
     
     var body: some View {
         VStack {
-            CircularProgressView(count: count, total: total, progress: progress, lineWidth: 15, showText: false)
+            CircularProgressView(count: 0, total: 0, progress: viewModel.progress, lineWidth: 15, showText: false)
                 .overlay {
                     VStack {
-                        Text("Total time: __h __ m __ s")
+                        Text("\(time.hr) h \(time.min) m \(time.sec) s")
                         Spacer()
-                        if (editMode) {
+                        if (viewModel.mode == .setup) {
                             TimePickerView(hour: $time.hr, minute: $time.min, second: $time.sec)
                         }
                         else {
-                            Text(String(format: "%02d %02d %02d", time.hr, time.min, time.sec))
-                                .font(.system(size: 40))
+                            Text(viewModel.timeRemainingFormatted)
+                                .font(.system(size: 70))
+                                .onTapGesture(count: 1) { viewModel.mode = .start }
                         }
                         
                         Spacer()
-                        HStack {
-                            Image(systemName: "bell.fill")
-                            Text("12-hr format")
+                        if (!viewModel.eta.isEmpty) {
+                            HStack {
+                                Image(systemName: "bell.fill")
+                                Text(viewModel.eta)
+                            }
                         }
                     }
                     .padding(70)
                 }
                 .padding(20)
             HStack {
+                switch(viewModel.mode) {
+                case .setup, .start:
+                    Button("Start", action: {
+                        viewModel.setupTimer(hour: time.hr, minute: time.min, second: time.sec)
+                    })
+                case .pause:
+                    Button("Pause", action: {
+                        viewModel.pauseTimer()
+                    })
+                case .resume, .finish:
+                    Button("Resume", action: {
+                        viewModel.resumeTimer()
+                    })
+                    Button("Finish", action: {
+                        viewModel.finishTimer()
+                    })
+                }
             }
             .padding(50)
         }
+        
     }
 }
 
