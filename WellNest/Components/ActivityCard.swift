@@ -11,6 +11,7 @@ struct ActivityCard: View {
     let activity: Activity
     var start: Int
     var end: Int
+    var showProgress: Bool = true
     
     var progressPercentage: CGFloat {
         guard end != 0 else { return 0 }
@@ -33,22 +34,34 @@ struct ActivityCard: View {
                     }
                     Spacer()
                     
+                    if (!showProgress) {
+                        VStack {
+                            Spacer()
+                            Text("\(start) \(activity.unit)")
+                                .font(.system(size: 20))
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                    
                     Image(systemName: activity.image)
                         .foregroundStyle(activity.color.uiColor)
                 }
                 
-                ProgressView(value: progressPercentage) {
-                    HStack {
-                        Spacer()
-                        Text(String(format: "%.0f%%", progressPercentage * 100))
-                            .font(.system(size: 16))
-                            .foregroundStyle(.secondary)
+                if showProgress {
+                    ProgressView(value: progressPercentage) {
+                        HStack {
+                            Spacer()
+                            Text(String(format: "%.0f%%", progressPercentage * 100))
+                                .font(.system(size: 16))
+                                .foregroundStyle(.secondary)
+                        }
                     }
+                    .tint(activity.color.uiColor)
+                    
+                    Text("\(start) \(activity.unit)")
+                        .font(.system(size: 20))
                 }
-                .tint(activity.color.uiColor)
-                
-                Text("\(start) \(activity.unit)")
-                    .font(.system(size: 20))
             }
             .padding()
         }
