@@ -14,7 +14,6 @@ struct ActivityListView: View {
     
     var body: some View {
         VStack {
-            Button("Delete", action: { vm.clearActives() })
             ActivityCard(activity: Weight(), start: 360, end: 200, showProgress: false)
             ActivityCard(activity: Calories(), start: 0, end: 1000, showProgress: false)
             ActivityCard(activity: Water(), start: 0, end: 8, showProgress: false)
