@@ -75,7 +75,7 @@ class Activity: Identifiable, Codable {
 }
 
 
-class ActivityInfo: Codable {
+class ActivityInfo: Codable, Identifiable {
     var id: Int
     var activity: Activity
     var start: Int
@@ -138,6 +138,16 @@ class Steps: Activity {
 class Water: Activity {
     init() {
         super.init(name: "Glasses", image: "drop.fill", color: CodableColor(Color.blue), unit: "glasses")
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+}
+
+class Weight: Activity {
+    init() {
+        super.init(name: "Weight", image: "scalemass.fill", color: CodableColor(Color.gray), unit: "lbs")
     }
     
     required init(from decoder: Decoder) throws {
