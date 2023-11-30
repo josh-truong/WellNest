@@ -7,11 +7,11 @@
 
 import Foundation
 
-class DataService<T: Codable> {
+class DataService<T: Codable & Identifiable> {
     private let key: String
     
-    init(key: String) {
-        self.key = key
+    init(key: DSKey) {
+        self.key = key.rawValue
     }
     
     // Save list of data
@@ -23,25 +23,27 @@ class DataService<T: Codable> {
     }
     
     // Retrieve list of data
-    func loadListData() -> [T]? {
+    func loadData() -> [T]? {
         if let savedData = UserDefaults.standard.data(forKey: key),
             let loadedDataList = try? JSONDecoder().decode([T].self, from: savedData) {
             return loadedDataList
         }
-        return nil
+        return [T]()
     }
     
     // Update item in the list
-    func updateItem(updatedItem: T, atIndex index: Int) {
-        if var dataList = loadListData(), index < dataList.count {
-            dataList[index] = updatedItem
+    func updateItem(item: T) {
+        if var dataList = loadData(),
+            let index = dataList.firstIndex(where: { $0.id == item.id }) {
+            dataList[index] = item
             saveDataList(dataList)
         }
     }
     
     // Remove item from the list
-    func removeItem(atIndex index: Int) {
-        if var dataList = loadListData(), index < dataList.count {
+    func removeItem(item: T) {
+        if var dataList = loadData(),
+           let index = dataList.firstIndex(where: { $0.id == item.id }) {
             dataList.remove(at: index)
             saveDataList(dataList)
         }
