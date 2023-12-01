@@ -10,4 +10,5 @@ import Foundation
 enum NetworkError: Error {
     case badURL
     case badID
+    case badData
 }
