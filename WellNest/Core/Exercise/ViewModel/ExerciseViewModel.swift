@@ -20,17 +20,22 @@ class ExerciseViewModel: ObservableObject {
         do {
             print("Requesting - \(term)")
             let endpoint = try await WgerEndpoints.shared.searchExercises(term: term)
-            let data = try await apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerExerciseSearchResponse.self)
-            exerciseDictionary = groupExerciseDataDetailsByCategory(exercises: data.suggestions)
+            apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerExerciseSearchResponse.self) { [weak self] result in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        self.exerciseDictionary = self.groupExerciseDataDetailsByCategory(exercises: data.suggestions)
+                    case .failure(let error):
+                        self.exerciseDictionary = [:]
+                        print("Error: \(error.localizedDescription)")
+                    }
+                }
+            }
             print("Finished - \(term)")
         } catch {
             print("Error: \(error.localizedDescription)")
         }
-    }
-    
-    @MainActor
-    func reset() {
-        
     }
     
     private func groupExerciseDataDetailsByCategory(exercises: [WgerExerciseSuggestion]) -> [String: WgerExerciseCategory] {

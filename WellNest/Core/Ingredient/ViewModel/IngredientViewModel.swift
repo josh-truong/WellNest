@@ -13,12 +13,23 @@ class IngredientViewModel : ObservableObject {
     @Published var results = [WgerIngredientSuggestion]()
     @Published var defaultIngredients = WgerIngredientResponse()
     
+    @MainActor
     func searchIngredient(term: String) async {
         do {
             print("Requesting - \(term)")
             let endpoint = try await WgerEndpoints.shared.searchIngredients(term: term)
-            let data = try await api.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientSearchResponse.self)
-            self.results = data.suggestions
+            api.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientSearchResponse.self) { [weak self] result in
+               guard let self = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        self.results = data.suggestions
+                    case .failure(let error):
+                        self.results = [WgerIngredientSuggestion]()
+                        print("Error: \(error.localizedDescription)")
+                    }
+                }
+           }
             print("Finished - \(term)")
         } catch {
             print("Error: \(error.localizedDescription)")
@@ -29,10 +40,20 @@ class IngredientViewModel : ObservableObject {
         do {
             print("Requesting Default Ingredients")
             let endpoint = try await WgerEndpoints.shared.getIngredients()
-            let data = try await api.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientResponse.self)
-            defaultIngredients = data
-            self.results = defaultIngredients.results.map { value in
-                return WgerIngredientSuggestion(value: value.name, data: WgerIngredientData(name: value.name))
+            api.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientResponse.self) { [weak self] result in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        self.defaultIngredients = data
+                        self.results = self.defaultIngredients.results.map { value in
+                            return WgerIngredientSuggestion(value: value.name, data: WgerIngredientData(name: value.name))
+                        }
+                    case .failure(let error):
+                        self.results = [WgerIngredientSuggestion]()
+                        print("Error: \(error.localizedDescription)")
+                    }
+                }
             }
             print("Finished Default Ingredients")
         } catch {
