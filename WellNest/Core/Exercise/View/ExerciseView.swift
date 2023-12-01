@@ -39,7 +39,6 @@ struct ExerciseView: View {
                 }
             }
         }
-        .onDisappear { viewModel.reset() }
     }
 }
 
