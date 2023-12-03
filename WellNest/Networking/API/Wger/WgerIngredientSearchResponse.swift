@@ -14,7 +14,7 @@ struct WgerIngredientSearchResponse: Codable {
 struct WgerIngredientSuggestion: Codable, Hashable {
     var id: Int { return UUID().hashValue }
     let value: String?
-    let data: WgerIngredientData?
+    let data: WgerIngredientPreview?
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -26,13 +26,14 @@ struct WgerIngredientSuggestion: Codable, Hashable {
     }
 }
 
-struct WgerIngredientData: Codable {
-    var id: Int { return UUID().hashValue }
+struct WgerIngredientPreview: Codable {
+    let id: Int
     let name: String
     let image: String? = nil
     let imageThumbnail: String? = nil
     
     private enum CodingKeys: String, CodingKey {
+        case id
         case name
         case image
         case imageThumbnail = "image_thumbnail"
