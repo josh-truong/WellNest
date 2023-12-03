@@ -8,12 +8,7 @@ import Foundation
 
 class ExerciseViewModel: ObservableObject {
     @Published var exerciseDictionary: [String: WgerExerciseCategory]? = nil
-    
-    private let apiService: APIService
-    
-    init(apiService: APIService) {
-        self.apiService = apiService
-    }
+    private let apiService: APIService = .shared
     
     @MainActor
     func searchExercises(term: String) async {

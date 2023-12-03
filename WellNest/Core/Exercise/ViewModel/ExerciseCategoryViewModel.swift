@@ -11,11 +11,7 @@ class ExerciseCategoryViewModel : ObservableObject {
     @Published var selectedExercise: WgerExerciseDetail = WgerExerciseDetail()
     @Published var exerciseBase: WgerExerciseBaseResponse?
     
-    private let apiService: APIService
-    
-    init(apiService: APIService) {
-        self.apiService = apiService
-    }
+    private let apiService: APIService = .shared
     
     @MainActor
     func getExerciseBase() async {

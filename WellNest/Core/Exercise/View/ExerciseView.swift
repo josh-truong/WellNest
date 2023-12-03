@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 struct ExerciseView: View {
-    @ObservedObject var viewModel: ExerciseViewModel
+    @ObservedObject private var viewModel: ExerciseViewModel = .init()
     @State private var searchTerm: String = ""
     
     var body: some View {
@@ -18,7 +18,7 @@ struct ExerciseView: View {
                 if let categories = viewModel.exerciseDictionary, !categories.isEmpty {
                     List {
                         ForEach(categories.keys.sorted(), id: \.self) { key in
-                            ExerciseCategoryView(exerciseVM: viewModel, exerciseCategoryVM: ExerciseCategoryViewModel(apiService: APIService.shared),label: key, exercises: categories[key]!.exercises)
+                            ExerciseCategoryView(label: key, exercises: categories[key]!.exercises)
                         }
                     }
                     .listStyle(GroupedListStyle())
@@ -44,7 +44,7 @@ struct ExerciseView: View {
 
 struct Exercise_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(viewModel: ExerciseViewModel(apiService: APIService.shared))
+        ExerciseView()
     }
 }
 

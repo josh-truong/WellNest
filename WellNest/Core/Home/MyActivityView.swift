@@ -41,7 +41,7 @@ struct MyActivityView: View {
             .navigationTitle("My Exercises")
             .toolbar {
                 ToolbarItem {
-                    NavigationLink(destination: ExerciseView(viewModel: ExerciseViewModel(apiService: APIService.shared))) {
+                    NavigationLink(destination: ExerciseView()) {
                         Image(systemName: "plus")
                     }
                 }
