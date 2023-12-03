@@ -62,7 +62,7 @@ struct WgerIngredientResult: Codable, Hashable {
     }
     
     init() {
-        self.id = UUID().hashValue
+        self.id = 0
         self.uuid = UUID()
         self.code = nil
         self.name = ""
