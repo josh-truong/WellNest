@@ -78,4 +78,17 @@ class WgerEndpoints {
 
         return WgerEndpoint(url: url)
     }
+    
+    func getIngredientInfo(id: Int) async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)ingredient/\(id)/"
+        
+        guard let url = components.url else {
+            throw NetworkError.badURL
+        }
+
+        return WgerEndpoint(url: url)
+    }
 }
