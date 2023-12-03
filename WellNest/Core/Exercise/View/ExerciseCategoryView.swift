@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ExerciseCategoryView: View {
-    @ObservedObject var exerciseVM: ExerciseViewModel
-    @ObservedObject var exerciseCategoryVM: ExerciseCategoryViewModel
+    @ObservedObject private var exerciseVM: ExerciseViewModel = .init()
+    @ObservedObject private var exerciseCategoryVM: ExerciseCategoryViewModel = .init()
     
     var label: String
     var exercises: [WgerExerciseDetail]
@@ -33,18 +33,5 @@ struct ExerciseCategoryView: View {
         .sheet(isPresented: $showExerciseModal) {
             ExerciseDetailView(viewModel: exerciseCategoryVM)
         }
-    }
-}
-
-
-
-struct ExerciseCategory_Previews: PreviewProvider {
-    @ObservedObject static var exerciseVM = ExerciseViewModel(apiService: APIService.shared)
-    @ObservedObject static var exerciseCategoryVM = ExerciseCategoryViewModel(apiService: APIService.shared)
-    private static let exercise: WgerExerciseDetail = WgerExerciseData().getWgerExerciseDetail()
-    
-    static var previews: some View {
-        exerciseCategoryVM.selectedExercise = exercise
-        return ExerciseCategoryView(exerciseVM: exerciseVM, exerciseCategoryVM: exerciseCategoryVM, label: "Chest", exercises: [exercise])
     }
 }
