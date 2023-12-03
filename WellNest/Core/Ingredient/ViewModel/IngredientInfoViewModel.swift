@@ -14,8 +14,8 @@ class IngredientInfoViewModel: ObservableObject {
     
     func getIngredientInfo(_ ingredient: WgerIngredientResult) async {
         do {
-            print("Requesting - 63359")
-            let endpoint = try await WgerEndpoints.shared.getIngredientInfo(id: 63359)
+            print("Requesting - \(ingredient.id)")
+            let endpoint = try await WgerEndpoints.shared.getIngredientInfo(id: ingredient.id)
             apiService.makeWgerGETRequest(endpoint: endpoint, responseType: WgerIngredientResult.self) { [weak self] result in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
@@ -29,7 +29,7 @@ class IngredientInfoViewModel: ObservableObject {
                     }
                 }
             }
-            print("Finished - 63359")
+            print("Finished - \(ingredient.id)")
         } catch {
             print("Error: \(error.localizedDescription)")
         }
