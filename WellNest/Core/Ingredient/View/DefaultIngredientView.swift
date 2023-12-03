@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct DefaultIngredientView: View {
-    @EnvironmentObject var viewModel: IngredientViewModel
-    @State private var selectedIngredient = WgerIngredientResult()
-    @State private var displaySheet = false
+    @StateObject var vm: DefaultIngredientSuggestionViewModel = .init()
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.defaultIngredients.results, id: \.self) { result in
-                    NavigationLink(result.name, destination: IngredientView(ingredient: result))
+                ForEach(vm.suggestions, id: \.self) { result in
+                    NavigationLink(destination: IngredientInfoView(ingredient: result)) {
+                        Text(result.name)
+                    }
                 }
             }
             .navigationDestination(for: TaskModel.self, destination: EditTaskView.init)
+            .onAppear { Task { await vm.getDefaultIngredients() } }
         }
-        .onAppear { Task { await viewModel.requestDefaultIngredients() } }
     }
 }
 
