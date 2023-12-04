@@ -16,7 +16,7 @@ struct ContentView: View {
         Group {
             if (viewModel.userSession != nil) {
                 TabView(selection: .constant(1)) {
-                    IngredientsView()
+                    FoodView()
                         .tabItem{
                             Image(systemName: "leaf")
                             Text("Nutrition")
