@@ -11,6 +11,7 @@ struct TimerView: View {
     let info: ActivityInfo
     @State private var time: (hr: Int, min: Int, sec: Int) = (0,0,0)
     @StateObject private var vm = TimerViewModel()
+    private let service = PushNotificationService()
     
     var body: some View {
         NavigationStack {
@@ -86,6 +87,13 @@ struct TimerView: View {
                 }
                 .padding(50)
                 .navigationTitle(info.activity.name)
+                .toolbar {
+                    ToolbarItem {
+                        NavigationLink(destination: ReminderView(info: info)) {
+                                Image(systemName: "bell")
+                        }
+                    }
+                }
             }
         }
         
