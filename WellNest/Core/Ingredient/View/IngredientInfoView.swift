@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct IngredientInfoView: View {
-    let ingredient: WgerIngredientResult
+    private var ingredient: WgerIngredientResult
     @StateObject private var vm = IngredientInfoViewModel()
+    
+    init(_ info: WgerIngredientResult) {
+        self.ingredient = info
+    }
+    
+    init(_ suggestion: WgerIngredientSuggestion) {
+        self.ingredient = WgerIngredientResult(id: suggestion.data?.id ?? 0)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -32,7 +40,7 @@ struct IngredientInfoView: View {
         .padding()
         .onAppear() {
             Task {
-                await vm.getIngredientInfo(ingredient)
+                await vm.getIngredientInfo(self.ingredient)
             }
         }
     }
