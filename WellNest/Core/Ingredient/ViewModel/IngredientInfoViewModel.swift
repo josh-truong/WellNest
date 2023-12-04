@@ -21,7 +21,6 @@ class IngredientInfoViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let data):
-                        print(data)
                         self.info = data
                     case .failure(let error):
                         self.info = .init()
