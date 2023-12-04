@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ExerciseCategoryViewModel
-    @Environment(\.modelContext) var context
-    
+   
     var body: some View {
         VStack (alignment: .leading) {
             HStack {
@@ -57,17 +57,5 @@ struct ExerciseDetailView: View {
         }
         .onDisappear { viewModel.reset() }
         .padding()
-    }
-}
-
-
-
-struct ExerciseDetail_Previews: PreviewProvider {
-    @ObservedObject static var exerciseCategoryVM = ExerciseCategoryViewModel(apiService: APIService.shared)
-    private static let exercise: WgerExerciseDetail = WgerExerciseData().getWgerExerciseDetail()
-    
-    static var previews: some View {
-        exerciseCategoryVM.selectedExercise = exercise
-        return ExerciseDetailView(viewModel: exerciseCategoryVM)
     }
 }
