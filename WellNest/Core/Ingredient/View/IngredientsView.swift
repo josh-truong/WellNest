@@ -8,31 +8,43 @@
 import SwiftUI
 
 struct IngredientsView: View {
-    @StateObject var viewModel = IngredientViewModel()
+    @StateObject var vm: IngredientViewModel = .init()
     @State private var searchTerm: String = ""
-    @State private var selectedIngredient: WgerIngredientResult?
-    @State private var showModal = false
      
     var body: some View {
         NavigationStack {
-            List(viewModel.results, id: \.self.id) { result in
-                Text(result.data?.name ?? "")
-            }
-            .searchable(text: $searchTerm)
-            .onChange(of: searchTerm) { oldState, newState in
-                Task {
-                    if !newState.isEmpty && newState.count > 2 {
-                        await viewModel.searchIngredient(term: newState)
-                    } else {
-                        viewModel.results.removeAll()
+            VStack {
+                if (searchTerm.isEmpty) {
+                    DefaultIngredientView()
+                } else {
+                    List {
+                        ForEach(vm.results, id: \.id) { result in
+                            NavigationLink(destination: IngredientInfoView(result)) {
+                                Text(result.data?.name ?? "")
+                            }
+                        }
+                        HStack{
+                            Spacer()
+                            ProgressView("Loading ...")
+                                .progressViewStyle(CircularProgressViewStyle())
+                                .onAppear() {
+                                    
+                                }
+                            Spacer()
+                        }
                     }
                 }
             }
             .navigationTitle("Ingredients")
-        }
-        .onAppear {
-            Task {
-                await viewModel.requestDefaultIngredients()
+            .searchable(text: $searchTerm)
+            .onChange(of: searchTerm) { oldState, newState in
+                Task {
+                    if !newState.isEmpty && newState.count > 2 {
+                        await vm.searchIngredient(term: newState)
+                    } else {
+                        vm.results.removeAll()
+                    }
+                }
             }
         }
     }
