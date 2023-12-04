@@ -11,12 +11,21 @@ struct DefaultIngredientView: View {
     @StateObject var vm: DefaultIngredientSuggestionViewModel = .init()
     
     var body: some View {
-        NavigationStack {
+        VStack {
             List {
                 ForEach(vm.suggestions, id: \.self) { result in
-                    NavigationLink(destination: IngredientInfoView(ingredient: result)) {
+                    NavigationLink(destination: IngredientInfoView(result)) {
                         Text(result.name)
                     }
+                }
+                HStack{
+                    Spacer()
+                    ProgressView("Loading ...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .onAppear() {
+                            
+                        }
+                    Spacer()
                 }
             }
             .navigationDestination(for: TaskModel.self, destination: EditTaskView.init)
