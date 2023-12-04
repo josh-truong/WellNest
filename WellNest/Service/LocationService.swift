@@ -9,7 +9,10 @@ import Foundation
 import MapKit
 
 class LocationService {
-    static func searchLocations(_ searchText: String, region: MKCoordinateRegion) async -> [MKMapItem] {
+    static let shared = LocationService()
+    private init() {}
+    
+    func searchLocations(_ searchText: String, region: MKCoordinateRegion) async -> [MKMapItem] {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchText
         request.region = region
@@ -18,7 +21,7 @@ class LocationService {
         return results?.mapItems ?? []
     }
     
-    static func fetchRoute(from origin: MKMapItem, to destination: MKMapItem) async -> MKRoute? {
+    func fetchRoute(from origin: MKMapItem, to destination: MKMapItem) async -> MKRoute? {
         let request = MKDirections.Request()
         request.source = origin
         request.destination = destination

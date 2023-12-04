@@ -12,13 +12,15 @@ class GeoConnectViewModel : ObservableObject {
     @Published var publishedResults = [MKMapItem]()
     @Published var publishedRoute: MKRoute?
     
+    let locationService = LocationService.shared
+    
     @MainActor
     func searchLocation(_ searchText: String) async {
-        publishedResults = await LocationService.searchLocations(searchText, region: .userRegion)
+        publishedResults = await locationService.searchLocations(searchText, region: .userRegion)
     }
     
     @MainActor
     func fetchRoute(from origin: MKMapItem, to destination: MKMapItem) async {
-        publishedRoute = await LocationService.fetchRoute(from: origin, to: destination)
+        publishedRoute = await locationService.fetchRoute(from: origin, to: destination)
     }
 }
