@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-// https://www.youtube.com/watch?v=gy6rp_pJmbo
+
 struct HomeView: View {
     @Environment(\.modelContext) var context
     
@@ -28,12 +28,6 @@ struct HomeView: View {
 
 //        NavigationStack(path: $path) {
 //            VStack(alignment: .leading) {
-//                
-//                LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2), content: {
-//                    ActivityCard()
-//                    ActivityCard()
-//                })
-//                .padding(.horizontal)
 //                
 ////                TasksView(sort: sortOrder)
 ////                .onChange(of: path) { oldValue, newValue in
