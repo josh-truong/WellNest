@@ -14,7 +14,7 @@ struct ExerciseView: View {
     
     var body: some View {
         NavigationStack {
-            VStack() {
+            VStack {
                 if let categories = viewModel.exerciseDictionary, !categories.isEmpty {
                     List {
                         ForEach(categories.keys.sorted(), id: \.self) { key in
