@@ -19,7 +19,7 @@ struct IngredientsView: View {
                 } else {
                     List {
                         ForEach(vm.results, id: \.id) { result in
-                            NavigationLink(destination: IngredientInfoView(result)) {
+                            NavigationLink(destination: IngredientInfoView(result).navigationBarBackButtonHidden(true)) {
                                 Text(result.data?.name ?? "")
                             }
                         }
