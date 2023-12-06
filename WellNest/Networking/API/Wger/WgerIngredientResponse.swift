@@ -19,7 +19,7 @@ struct WgerIngredientResult: Codable, Hashable {
     let uuid: UUID
     let code: String?
     let name: String
-    let created: String
+    var created: String
     let lastUpdate: String
     let energy: Int
     let protein: String
@@ -61,27 +61,31 @@ struct WgerIngredientResult: Codable, Hashable {
         case language
     }
     
-    init(id: Int = -1, uuid: UUID = UUID(), code: String? = nil, name: String = "", created: String = "", lastUpdate: String = "", energy: Int = 0, protein: String = "", carbohydrates: String = "", carbohydratesSugar: String? = nil, fat: String = "", fatSaturated: String? = nil, fibres: String? = nil, sodium: String? = nil, license: Int? = nil, licenseTitle: String? = nil, licenseObjectURL: String? = nil, licenseAuthor: String? = nil, licenseAuthorURL: String? = nil, licenseDerivativeSourceURL: String? = nil, language: Int = 0) {
+    init() {
+        self.init(id: 0)
+    }
+    
+    init(id: Int) {
         self.id = id
-        self.uuid = uuid
-        self.code = code
-        self.name = name
-        self.created = created
-        self.lastUpdate = lastUpdate
-        self.energy = energy
-        self.protein = protein
-        self.carbohydrates = carbohydrates
-        self.carbohydratesSugar = carbohydratesSugar
-        self.fat = fat
-        self.fatSaturated = fatSaturated
-        self.fibres = fibres
-        self.sodium = sodium
-        self.license = license
-        self.licenseTitle = licenseTitle
-        self.licenseObjectURL = licenseObjectURL
-        self.licenseAuthor = licenseAuthor
-        self.licenseAuthorURL = licenseAuthorURL
-        self.licenseDerivativeSourceURL = licenseDerivativeSourceURL
-        self.language = language
+        self.uuid = UUID()
+        self.code = nil
+        self.name = ""
+        self.created = ""
+        self.lastUpdate = ""
+        self.energy = 0
+        self.protein = ""
+        self.carbohydrates = ""
+        self.carbohydratesSugar = nil
+        self.fat = ""
+        self.fatSaturated = nil
+        self.fibres = nil
+        self.sodium = nil
+        self.license = nil
+        self.licenseTitle = nil
+        self.licenseObjectURL = nil
+        self.licenseAuthor = nil
+        self.licenseAuthorURL = nil
+        self.licenseDerivativeSourceURL = nil
+        self.language = 0
     }
 }
