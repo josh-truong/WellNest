@@ -14,7 +14,7 @@ struct DefaultIngredientView: View {
         VStack {
             List {
                 ForEach(vm.suggestions, id: \.self) { result in
-                    NavigationLink(destination: IngredientInfoView(result)) {
+                    NavigationLink(destination: IngredientInfoView(result).navigationBarBackButtonHidden(true)) {
                         Text(result.name)
                     }
                 }
