@@ -11,8 +11,17 @@ import Foundation
 class IngredientInfoViewModel: ObservableObject {
     @Published var info: WgerIngredientResult = .init()
     private let apiService: APIService = .shared
+    private var ingredient: WgerIngredientResult
     
-    func getIngredientInfo(_ ingredient: WgerIngredientResult) async {
+    init(_ info: WgerIngredientResult) {
+        self.ingredient = info
+    }
+    
+    init(_ suggestion: WgerIngredientSuggestion) {
+        self.ingredient = WgerIngredientResult(id: suggestion.data?.id ?? 0)
+    }
+    
+    func getIngredientInfo(completion: @escaping (Bool) -> Void) async {
         do {
             print("Requesting - \(ingredient.id)")
             let endpoint = try await WgerEndpoints.shared.getIngredientInfo(id: ingredient.id)
@@ -22,8 +31,10 @@ class IngredientInfoViewModel: ObservableObject {
                     switch result {
                     case .success(let data):
                         self.info = data
+                        completion(true)
                     case .failure(let error):
                         self.info = .init()
+                        completion(false)
                         print("Error: \(error.localizedDescription)")
                     }
                 }
@@ -31,6 +42,7 @@ class IngredientInfoViewModel: ObservableObject {
             print("Finished - \(ingredient.id)")
         } catch {
             print("Error: \(error.localizedDescription)")
+            completion(false)
         }
     }
 }
