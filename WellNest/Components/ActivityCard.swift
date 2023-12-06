@@ -8,15 +8,31 @@
 import SwiftUI
 
 struct ActivityCard: View {
-    let activity: Activity
-    var start: Int
-    var end: Int
-    var showProgress: Bool = true
+    private var activity: Activity
+    private var start: Int
+    private var end: Int
+    private var showProgress: Bool
     
     var progressPercentage: CGFloat {
         guard end != 0 else { return 0 }
         if (start >= end) { return CGFloat(1.0) }
         return CGFloat(start) / CGFloat(end)
+    }
+    
+    private init(activity: Activity, start: Int, end: Int, showProgress: Bool) {
+        self.activity = activity
+        self.start = start
+        self.end = end
+        self.showProgress = showProgress
+    }
+    
+    init(_ entity: FetchedResults<ActivityEntity>.Element, start: Int, end: Int, showProgress: Bool = true) {
+        let activity = Activity(name: entity.name ?? "", image: entity.image ?? "", color: entity.color?.uiColor ?? .clear, unit: entity.unit ?? "")
+        self.init(activity: activity, start: start, end: end, showProgress: showProgress)
+    }
+    
+    init(_ activity: Activity, start: Int, end: Int, showProgress: Bool = true) {
+        self.init(activity: activity, start: start, end: end, showProgress: showProgress)
     }
     
     var body: some View {
@@ -45,7 +61,7 @@ struct ActivityCard: View {
                     }
                     
                     Image(systemName: activity.image)
-                        .foregroundStyle(activity.color.uiColor)
+                        .foregroundStyle(activity.color)
                 }
                 
                 if showProgress {
@@ -57,7 +73,7 @@ struct ActivityCard: View {
                                 .foregroundStyle(.secondary)
                         }
                     }
-                    .tint(activity.color.uiColor)
+                    .tint(activity.color)
                     
                     Text("\(start) \(activity.unit)")
                         .font(.system(size: 20))
