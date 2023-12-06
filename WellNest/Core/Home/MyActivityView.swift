@@ -23,6 +23,7 @@ struct MyActivityView: View {
                         }
                         .onMove { vm.move(from: $0, to: $1) }
                     }
+                    .listRowSeparator(.hidden)
                 }
                 
                 if (!vm.inactiveActivities.isEmpty) {
@@ -35,8 +36,10 @@ struct MyActivityView: View {
                         }
                         .onDelete { vm.delete(from: $0) }
                     }
+                    .listRowSeparator(.hidden)
                 }
             }
+            .listRowSeparator(.hidden)
             .listStyle(PlainListStyle()) // Apply custom list style to remove default styling
             .navigationTitle("My Exercises")
             .toolbar {
