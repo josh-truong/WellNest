@@ -20,13 +20,14 @@ class AppDelegate : NSObject, UIApplicationDelegate {
 @main
 struct WellNestApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
     @StateObject var viewModel = AuthViewModel()
+    @StateObject private var recordManager = RecordManager()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environment(\.managedObjectContext, recordManager.container.viewContext)
         }
         .modelContainer(for: TaskModel.self)
     }
