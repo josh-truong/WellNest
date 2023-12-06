@@ -15,8 +15,8 @@ class ActivityViewModel : ObservableObject {
     @Published var inactiveActivities = [ActivityInfo]()
     @Published var activities = [ActivityInfo]()
     
-    private let activeDS = DataService<ActivityInfo>(key: .activeActivities)
-    private let activitiesDS = DataService<ActivityInfo>(key: .activities)
+    private let activeDS = UserDefaultService<ActivityInfo>(key: .activeActivities)
+    private let activitiesDS = UserDefaultService<ActivityInfo>(key: .activities)
     
     init() {
         setupDS()
