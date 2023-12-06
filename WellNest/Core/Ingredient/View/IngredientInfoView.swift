@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct IngredientInfoView: View {
-    private var ingredient: WgerIngredientResult
-    @StateObject private var vm = IngredientInfoViewModel()
+    @Environment(\.managedObjectContext) var managedObjContext
+    @Environment(\.dismiss) var dismiss
+    @StateObject private var vm: IngredientInfoViewModel
+    @State private var showAdd: Bool = false
     
     init(_ info: WgerIngredientResult) {
-        self.ingredient = info
+        _vm = StateObject(wrappedValue: IngredientInfoViewModel(info))
     }
     
     init(_ suggestion: WgerIngredientSuggestion) {
-        self.ingredient = WgerIngredientResult(id: suggestion.data?.id ?? 0)
+        _vm = StateObject(wrappedValue: IngredientInfoViewModel(suggestion))
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Ingredient Detail").font(.largeTitle)
-            Text("ID: \(vm.info.id)")
-            Text("Name: \(vm.info.name)")
-            Text("Code: \(vm.info.code ?? "N/A")")
+        VStack(alignment: .leading) {
+            Text(vm.info.name)
             Text("Energy: \(vm.info.energy)")
             Text("Protein: \(vm.info.protein)")
             Text("Carbohydrates: \(vm.info.carbohydrates)")
@@ -33,15 +32,19 @@ struct IngredientInfoView: View {
             Text("Fat Saturated: \(vm.info.fatSaturated ?? "N/A")")
             Text("Fibres: \(vm.info.fibres ?? "N/A")")
             Text("Sodium: \(vm.info.sodium ?? "N/A")")
-            Text("License Title: \(vm.info.licenseTitle ?? "N/A")")
-            Text("License Author: \(vm.info.licenseAuthor ?? "N/A")")
-            Text("Language: \(vm.info.language)")
+            
+            Spacer()
         }
-        .padding()
-        .onAppear() {
-            Task {
-                await vm.getIngredientInfo(self.ingredient)
+        .toolbar {
+            if showAdd {
+                ToolbarItem {
+                    Button {
+                        RecordManager().addFood(item: vm.info, context: managedObjContext)
+                        dismiss()
+                    } label: { Image(systemName: "plus") }
+                }
             }
         }
+        .task { await vm.getIngredientInfo { status in self.showAdd = status } }
     }
 }
