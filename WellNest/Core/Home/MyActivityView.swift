@@ -8,39 +8,40 @@
 import SwiftUI
 
 struct MyActivityView: View {
+    @Environment(\.managedObjectContext) var managedObjContext
+    @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "active == true")) var active: FetchedResults<ActivityEntity>
+    @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "active == false")) var inactive: FetchedResults<ActivityEntity>
     @StateObject var vm: ActivityViewModel
     
     var body: some View {
         NavigationStack {
             List {
-                if (!vm.activeActivities.isEmpty) {
+                if (!active.isEmpty) {
                     Section(header: Text("Favorites").font(.title).padding()) {
-                        ForEach(vm.activeActivities, id: \.id) { info in
-                            ActivityCard(activity: info.activity, start: info.start, end: info.end, showProgress: false)
-                                .onTapGesture {
-                                    vm.moveToInctive(info)
-                                }
+                        ForEach(active, id: \.id) { info in
+                            ActivityCard(info.activity, start: 0, end: 1000, showProgress: false)
+                                .onTapGesture { info.toggle(context: managedObjContext) }
                         }
-                        .onMove { vm.move(from: $0, to: $1) }
+                        .onMove { fromOffsets, toOffset in
+                            
+                        }
                     }
                     .listRowSeparator(.hidden)
                 }
                 
-                if (!vm.inactiveActivities.isEmpty) {
+                if !inactive.isEmpty {
                     Section(header: Text("My exercises").font(.title).padding()) {
-                        ForEach(vm.inactiveActivities, id: \.id) { info in
-                            ActivityCard(activity: info.activity, start: info.start, end: info.end, showProgress: false)
-                                .onTapGesture {
-                                    vm.moveToActive(info)
-                                }
+                        ForEach(inactive, id: \.id) { info in
+                            ActivityCard(info.activity, start: 0, end: 1000, showProgress: false)
+                                .onTapGesture { info.toggle(context: managedObjContext) }
                         }
-                        .onDelete { vm.delete(from: $0) }
+                        .onDelete { $0.map { inactive[$0].delete(context: managedObjContext) }}
                     }
                     .listRowSeparator(.hidden)
                 }
             }
             .listRowSeparator(.hidden)
-            .listStyle(PlainListStyle()) // Apply custom list style to remove default styling
+            .listStyle(PlainListStyle())
             .navigationTitle("My Exercises")
             .toolbar {
                 ToolbarItem {
@@ -51,9 +52,6 @@ struct MyActivityView: View {
                 ToolbarItem {
                     Button("", systemImage: "ellipsis", action: {  })
                 }
-            }
-            .onAppear() {
-                vm.getInactiveActivities()
             }
         }
     }
