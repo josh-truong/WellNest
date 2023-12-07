@@ -11,6 +11,8 @@ import CoreData
 struct NutritionView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @FetchRequest(sortDescriptors: [SortDescriptor(\.timestamp, order: .reverse)]) var food: FetchedResults<FoodEntity>
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    @State private var currentDate: Date = Date()
     
     var body: some View {
         NavigationView {
@@ -18,7 +20,7 @@ struct NutritionView: View {
                 Text("\(Int(totalCaloriesToday())) kcal (Today)")
                 List {
                     ForEach(food) { food in
-                        NavigationLink(destination: Text("\(food.timestamp ?? Date())")) {
+                        NavigationLink(destination: NutritionDetailView(food: food)) {
                             VStack(alignment: .leading, spacing: 6) {
                                 Text(food.name ?? "")
                                     .lineLimit(2)
@@ -28,7 +30,7 @@ struct NutritionView: View {
                                     Text("\(food.energy)") +
                                     Text(" kcal").foregroundStyle(.red)
                                     Spacer()
-                                    Text(timeSinceNow(date: food.timestamp ?? Date()))
+                                    Text(currentDate.timeAgo(date: food.timestamp ?? Date()))
                                         .foregroundStyle(.gray)
                                         .italic()
                                 }
@@ -39,6 +41,7 @@ struct NutritionView: View {
                 }
                 .listStyle(.plain)
             }
+            .onReceive(timer) { _ in currentDate = Date() }
             .toolbar {
                 ToolbarItem {
                     NavigationLink(destination: IngredientsView()) {
