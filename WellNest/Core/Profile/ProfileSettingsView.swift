@@ -9,13 +9,12 @@ import SwiftUI
 
 struct ProfileSettingView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var profileEditMode: Bool = false
     
     var body: some View {
         if let user = viewModel.currentUser {
             List {
                 Section {
-                    ProfileView(user: user, editMode: $profileEditMode)
+                    ProfileView(user: user)
                 }
                 
                 Section("General") {
@@ -48,9 +47,4 @@ struct ProfileSettingView: View {
             }
         }
     }
-}
-
-#Preview {
-    ProfileSettingView()
-        .environmentObject(AuthViewModel())
 }
