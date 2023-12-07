@@ -13,17 +13,17 @@ import CoreData
 class ActivityViewModel : ObservableObject {
     func preload(context: NSManagedObjectContext) {
         let preloadActiveActivities: [ActivityInfo] = [
-            ActivityInfo(activity: Steps(), start: 0, end: 10000),
-            ActivityInfo(activity: Running(), start: 0, end: 10000),
-            ActivityInfo(activity: WeightLifting(), start: 0, end: 1000),
+            ActivityInfo(activity: Steps(), goal: 10000),
+            ActivityInfo(activity: Running(), goal: 10000),
+            ActivityInfo(activity: WeightLifting(), goal: 1000),
         ]
         
         let preloadInactiveActivities: [ActivityInfo] = [
-            ActivityInfo(activity: Soccer(), start: 0, end: 300),
-            ActivityInfo(activity: Basketball(), start: 0, end: 300),
-            ActivityInfo(activity: StairStepper(), start: 0, end: 300),
-            ActivityInfo(activity: Cycling(), start: 0, end: 300),
-            ActivityInfo(activity: Hiking(), start: 0, end: 300)
+            ActivityInfo(activity: Soccer(), goal: 300),
+            ActivityInfo(activity: Basketball(), goal: 300),
+            ActivityInfo(activity: StairStepper(), goal: 300),
+            ActivityInfo(activity: Cycling(), goal: 300),
+            ActivityInfo(activity: Hiking(), goal: 300)
         ]
         
         if (UserDefaultService().getExecutedPreload()) {
@@ -54,6 +54,6 @@ class ActivityViewModel : ObservableObject {
     
     func createActivityEntity(from activityInfo: ActivityInfo, active: Bool, context: NSManagedObjectContext) {
         let activity = activityInfo.activity
-        ActivityEntity().add(name: activity.name, image: activity.image, unit: activity.unit, uiColor: activity.color, active: active, context: context)
+        ActivityEntity().add(activity, active: active, context: context)
     }
 }
