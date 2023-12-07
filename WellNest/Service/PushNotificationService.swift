@@ -25,7 +25,9 @@ class PushNotificationService: ObservableObject, NotificationService {
     func checkPushNotificationStatus(completion: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             let isAuthorized = settings.authorizationStatus == .authorized
-            completion(isAuthorized)
+            self.requestPermission { status in
+                completion(isAuthorized)
+            }
         }
     }
 
@@ -50,17 +52,11 @@ class PushNotificationService: ObservableObject, NotificationService {
     
     func removeNotification(_ id: String) {
         UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-            let isActive = requests.contains { request in
-                return request.identifier == id
-            }
-            
-            if isActive {
+            if requests.contains(where: { $0.identifier == id }) {
                 print("Removed \(id)")
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
             }
         }
-        
-        
     }
     
     func clearNotifications() {
