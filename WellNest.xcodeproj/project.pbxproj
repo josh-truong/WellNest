@@ -88,7 +88,6 @@
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
 		8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */; };
 		8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */; };
-		8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */; };
 		8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */; };
 		8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243D2AB350260008447E /* WellNestApp.swift */; };
 		8D4C24402AB350260008447E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243F2AB350260008447E /* ContentView.swift */; };
@@ -131,6 +130,7 @@
 		8DC05EFF2B1D6ADD0070A117 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */; };
 		8DD6AD792B20F33800C8364E /* RecordModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6AD772B20F33800C8364E /* RecordModel.xcdatamodeld */; };
 		8DD6AD7B2B21EA7000C8364E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6AD7A2B21EA7000C8364E /* Date+Ext.swift */; };
+		8DD6AD7D2B221F5800C8364E /* ExerciseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6AD7C2B221F5800C8364E /* ExerciseDetailViewModel.swift */; };
 		8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05992ABC2C0500287D4F /* Constants.swift */; };
 		8DDC059F2ABC344D00287D4F /* ResizableAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */; };
 		8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC05A82ABC3AB700287D4F /* WgerEndpoints.swift */; };
@@ -178,7 +178,6 @@
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
 		8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseBaseResponse.swift; sourceTree = "<group>"; };
-		8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryViewModel.swift; sourceTree = "<group>"; };
 		8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseData.swift; sourceTree = "<group>"; };
 		8D4C243A2AB350260008447E /* WellNest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WellNest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4C243D2AB350260008447E /* WellNestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellNestApp.swift; sourceTree = "<group>"; };
@@ -223,6 +222,7 @@
 		8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		8DD6AD782B20F33800C8364E /* RecordModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecordModel.xcdatamodel; sourceTree = "<group>"; };
 		8DD6AD7A2B21EA7000C8364E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		8DD6AD7C2B221F5800C8364E /* ExerciseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewModel.swift; sourceTree = "<group>"; };
 		8DDC05992ABC2C0500287D4F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8DDC059E2ABC344D00287D4F /* ResizableAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableAsyncImage.swift; sourceTree = "<group>"; };
 		8DDC05A82ABC3AB700287D4F /* WgerEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerEndpoints.swift; sourceTree = "<group>"; };
@@ -361,6 +361,7 @@
 			children = (
 				8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */,
 				8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */,
+				8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */,
-				8D43D7BE2ABE96980022F711 /* ExerciseCategoryViewModel.swift */,
+				8DD6AD7C2B221F5800C8364E /* ExerciseDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -505,7 +506,6 @@
 		8D34EDDC2ADEE8E400D33637 /* ContentUnavailableView */ = {
 			isa = PBXGroup;
 			children = (
-				8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */,
 				8D34EDDD2ADEE95E00D33637 /* NoLocationView.swift */,
 			);
 			path = ContentUnavailableView;
@@ -817,7 +817,6 @@
 				8D7A51142B17D7D300397762 /* RangePicker.swift in Sources */,
 				8D2450B02AF3864500CA248F /* RegistrationView.swift in Sources */,
 				8D34EDDE2ADEE95E00D33637 /* NoLocationView.swift in Sources */,
-				8D43D7BF2ABE96980022F711 /* ExerciseCategoryViewModel.swift in Sources */,
 				8D00F9D62B04C57400FFD541 /* String.swift in Sources */,
 				8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */,
 				8D4C24402AB350260008447E /* ContentView.swift in Sources */,
@@ -874,6 +873,7 @@
 				8D299EB92ADFB215004F04A3 /* SlidingButtonView.swift in Sources */,
 				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
 				8D156A262AFCE21000E22283 /* FirestoreManager.swift in Sources */,
+				8DD6AD7D2B221F5800C8364E /* ExerciseDetailViewModel.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8DD6AD7B2B21EA7000C8364E /* Date+Ext.swift in Sources */,
 				8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */,
