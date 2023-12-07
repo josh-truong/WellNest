@@ -10,7 +10,8 @@ import SwiftUI
 struct ExerciseDetailView: View {
     @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: ExerciseCategoryViewModel
+    @ObservedObject private var vm: ExerciseDetailViewModel = .init()
+    @Binding var exercise: WgerExerciseDetail
    
     var body: some View {
         VStack (alignment: .leading) {
@@ -18,21 +19,22 @@ struct ExerciseDetailView: View {
                 Spacer()
                 Button("Add Exercise", systemImage: "plus", action: {
                     let model = TaskModel()
-                    model.title = viewModel.selectedExercise.name
+                    model.title = exercise.name
                     context.insert(model)
                     dismiss()
                 })
             }
-            Text("\(viewModel.selectedExercise.id)")
-            Text("\(viewModel.selectedExercise.baseId)")
-            Text("\(viewModel.selectedExercise.name)")
-            Text("\(viewModel.selectedExercise.category)")
-            Text("\(viewModel.selectedExercise.image ?? "")")
-            Text("\(viewModel.selectedExercise.imageThumbnail ?? "")")
+            
+            Text("\(exercise.id)")
+            Text("\(exercise.baseId)")
+            Text("\(exercise.name)")
+            Text("\(exercise.category)")
+            Text("\(exercise.image ?? "")")
+            Text("\(exercise.imageThumbnail ?? "")")
             
             Spacer()
 
-            if let base = viewModel.exerciseBase {
+            if let base = vm.result {
                 Text("Exercise ID: \(base.id)")
                 Text("Exercise UUID: \(base.uuid)")
                 Text("Created: \(base.created)")
@@ -49,13 +51,12 @@ struct ExerciseDetailView: View {
                     Text("Loading exercise details...")
                         .onAppear {
                             Task {
-                                await viewModel.getExerciseBase()
+                                await vm.getExerciseBase(exercise)
                             }
                         }
                 }
             }
         }
-        .onDisappear { viewModel.reset() }
         .padding()
     }
 }
