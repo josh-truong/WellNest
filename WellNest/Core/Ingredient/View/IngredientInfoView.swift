@@ -39,7 +39,7 @@ struct IngredientInfoView: View {
             if showAdd {
                 ToolbarItem {
                     Button {
-                        RecordManager().addFood(item: vm.info, context: managedObjContext)
+                        FoodEntity().add(item: vm.info, context: managedObjContext)
                         dismiss()
                     } label: { Image(systemName: "plus") }
                 }
