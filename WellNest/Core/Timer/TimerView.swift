@@ -8,7 +8,9 @@ import SwiftUI
 import CircularProgress
 
 struct TimerView: View {
-    let info: ActivityInfo
+    @Environment(\.managedObjectContext) var managedObjContext
+    
+    @State var entity: FetchedResults<ActivityEntity>.Element
     @State private var time: (hr: Int, min: Int, sec: Int) = (0,0,0)
     @StateObject private var vm = TimerViewModel()
     private let service = PushNotificationService()
@@ -76,6 +78,7 @@ struct TimerView: View {
                         }
                         Button(action: {
                             vm.finishTimer()
+                            entity.addToRecords(elaspedTime: Date(), context: managedObjContext)
                         }) {
                             Text("Finish")
                                 .foregroundStyle(.white)
@@ -86,10 +89,10 @@ struct TimerView: View {
                     }
                 }
                 .padding(50)
-                .navigationTitle(info.activity.name)
+                .navigationTitle(entity.activity.name)
                 .toolbar {
                     ToolbarItem {
-                        NavigationLink(destination: ReminderView(info: info)) {
+                        NavigationLink(destination: ReminderView(entity: entity)) {
                                 Image(systemName: "bell")
                         }
                     }
