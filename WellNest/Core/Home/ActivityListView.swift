@@ -25,7 +25,7 @@ struct ActivityListView: View {
             LazyVGrid(columns: columns) {
                 ForEach(activities) { info in
                     NavigationLink(destination: TimerView(entity: info)) {
-                        ActivityCard(info, start: 0, end: 100)
+                        ActivityCard(info)
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
