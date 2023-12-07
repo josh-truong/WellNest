@@ -6,11 +6,28 @@
 //
 
 import Foundation
-import SwiftData
 import CoreData
 
 @MainActor
 class ActivityViewModel : ObservableObject {
+    @Published var todaysCalories: Int = 0
+    
+    func getTodaysCalories(context: NSManagedObjectContext) {
+        let request: NSFetchRequest<FoodEntity> = FoodEntity.fetchRequest()
+        let calendar = Calendar.current
+        let startDate = calendar.startOfDay(for: Date())
+        let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)
+
+        let datePredicate = NSPredicate(format: "(timestamp >= %@) AND (timestamp < %@)", startDate as CVarArg, endDate! as CVarArg)
+        request.predicate = datePredicate
+        do {
+            let total = try context.fetch(request).reduce(0) { $0 + Int($1.energy) }
+            self.todaysCalories = total
+        } catch {
+            print("Could not get total calories. \(error.localizedDescription)")
+        }
+    }
+
     func preload(context: NSManagedObjectContext) {
         let preloadActiveActivities: [ActivityInfo] = [
             ActivityInfo(activity: Steps(), goal: 10000),
