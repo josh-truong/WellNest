@@ -21,6 +21,8 @@ struct IngredientInfoView: View {
         _vm = StateObject(wrappedValue: IngredientInfoViewModel(suggestion))
     }
     
+
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(vm.info.name)
