@@ -10,7 +10,7 @@ import UserNotifications
 
 struct ReminderView: View {
     @Environment(\.dismiss) var dismiss
-    let info: ActivityInfo
+    @State var entity: FetchedResults<ActivityEntity>.Element
     @State private var selectedDate = Date()
     @State private var permissionDenied = false
     private let service = PushNotificationService()
@@ -35,7 +35,7 @@ struct ReminderView: View {
                 }
                 
                 if (!self.permissionDenied) {
-                    service.scheduleNotification(title: "Time to Crush It 💪", body: "Your workout awaits!\n\(info.activity.name)", time: selectedDate) { result in
+                    service.scheduleNotification(title: "Time to Crush It 💪", body: "Your workout awaits!\n\(entity.activity.name)", time: selectedDate) { result in
                         switch result {
                         case .success(let identifier):
                             print("Notification scheduled successfully with identifier: \(identifier)")
