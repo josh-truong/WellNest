@@ -84,22 +84,46 @@ extension ActivityEntity {
         return Activity(name: name ?? "", image: image ?? "", color: color?.uiColor ?? .clear, unit: unit ?? "")
     }
     
-    func add(name: String, image: String, unit: String, uiColor: Color, context: NSManagedObjectContext) {
-        let colorEntity = ColorEntity(context: context)
-        let rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = colorEntity.rgba(color: uiColor)
-        colorEntity.red = rgba.red
-        colorEntity.green = rgba.green
-        colorEntity.blue = rgba.blue
-        colorEntity.alpha = rgba.alpha
-        
+    func add(name: String, image: String, unit: String, uiColor: Color, active: Bool, context: NSManagedObjectContext) {
         let entity = ActivityEntity(context: context)
         entity.uuid = UUID()
         entity.name = name
         entity.image = image
         entity.unit = unit
-        entity.color = colorEntity
+        entity.color = getColorEntity(uiColor, context: context)
+        entity.active = active
         
         save(context: context)
+    }
+    
+    func delete(_ item: ActivityEntity, context: NSManagedObjectContext) {
+        context.delete(item)
+        save(context: context)
+    }
+    
+    func delete(context: NSManagedObjectContext) {
+        context.delete(self)
+        save(context: context)
+    }
+    
+    func toggle(context: NSManagedObjectContext) {
+        active = !active
+        save(context: context)
+    }
+    
+    func toggle(_ set: Bool, context: NSManagedObjectContext) {
+        active = set
+        save(context: context)
+    }
+    
+    func getColorEntity(_ color: Color, context: NSManagedObjectContext) -> ColorEntity {
+        let colorEntity = ColorEntity(context: context)
+        let rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = colorEntity.rgba(color: color)
+        colorEntity.red = rgba.red
+        colorEntity.green = rgba.green
+        colorEntity.blue = rgba.blue
+        colorEntity.alpha = rgba.alpha
+        return colorEntity
     }
     
     func addToRecords(elaspedTime: Date, context: NSManagedObjectContext) {
