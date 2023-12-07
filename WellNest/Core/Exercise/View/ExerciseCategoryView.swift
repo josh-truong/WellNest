@@ -9,20 +9,19 @@ import SwiftUI
 
 struct ExerciseCategoryView: View {
     @ObservedObject private var exerciseVM: ExerciseViewModel = .init()
-    @ObservedObject private var exerciseCategoryVM: ExerciseCategoryViewModel = .init()
+    @State private var selectedExercise: WgerExerciseDetail = .init()
+    @State private var showModal = false
     
     var label: String
     var exercises: [WgerExerciseDetail]
-    
-    @State private var showExerciseModal = false
     
     var body: some View {
         DisclosureGroup(label) {
             ForEach(exercises) { exercise in
                 HStack {
                     Button(action: {
-                        exerciseCategoryVM.selectedExercise = exercise
-                        showExerciseModal = true
+                        selectedExercise = exercise
+                        showModal.toggle()
                     }) {
                         Text(exercise.name)
                             .foregroundStyle(.black)
@@ -30,8 +29,8 @@ struct ExerciseCategoryView: View {
                 }
             }
         }
-        .sheet(isPresented: $showExerciseModal) {
-            ExerciseDetailView(viewModel: exerciseCategoryVM)
+        .sheet(isPresented: $showModal) {
+            ExerciseDetailView(exercise: $selectedExercise)
         }
     }
 }
