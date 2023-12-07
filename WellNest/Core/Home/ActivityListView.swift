@@ -12,6 +12,7 @@ import CoreData
 struct ActivityListView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "active == true")) var activities: FetchedResults<ActivityEntity>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.timestamp, order: .reverse)]) var food: FetchedResults<FoodEntity>
     
     @StateObject var vm = ActivityViewModel()
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
@@ -19,7 +20,8 @@ struct ActivityListView: View {
     var body: some View {
         VStack {
             ActivityCard(Weight(), start: 360, end: 200, showProgress: false)
-            ActivityCard(Calories(), start: 0, end: 1000, showProgress: false)
+            ActivityCard(Calories(), start: vm.todaysCalories, end: 1000, showProgress: false)
+                .onAppear { vm.getTodaysCalories(context: managedObjContext) }
             ActivityCard(Water(), start: 0, end: 8, showProgress: false)
             
             LazyVGrid(columns: columns) {
