@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ActivityCard: View {
+    @Environment(\.managedObjectContext) var managedObjContext
     private var activity: Activity
     private var start: Int
     private var end: Int
     private var showProgress: Bool
+    private var entity: FetchedResults<ActivityEntity>.Element?
     
     var progressPercentage: CGFloat {
         guard end != 0 else { return 0 }
@@ -26,9 +29,18 @@ struct ActivityCard: View {
         self.showProgress = showProgress
     }
     
-    init(_ entity: FetchedResults<ActivityEntity>.Element, start: Int, end: Int, showProgress: Bool = true) {
-        let activity = Activity(name: entity.name ?? "", image: entity.image ?? "", color: entity.color?.uiColor ?? .clear, unit: entity.unit ?? "")
-        self.init(activity: activity, start: start, end: end, showProgress: showProgress)
+    init(_ entity: FetchedResults<ActivityEntity>.Element, showProgress: Bool = true) {
+        let activity = Activity(name: entity.name ?? "", image: entity.image ?? "", color: entity.color?.uiColor ?? .clear, unit: entity.unit ?? "", goal: 60)
+        var start = 0
+        entity.records?.forEach { record in
+            let record = record as? ActivityInfoEntity
+            if (Calendar.current.isDateInToday(record?.timestamp ?? Date())) {
+                start += Int(record?.elapsedSeconds ?? 0) / 60
+            }
+        }
+        
+        self.init(activity: activity, start: start, end: Int(entity.goal), showProgress: showProgress)
+        self.entity = entity
     }
     
     init(_ activity: Activity, start: Int, end: Int, showProgress: Bool = true) {
