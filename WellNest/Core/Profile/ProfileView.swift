@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     let user: User
-    @Binding var editMode: Bool
     
     var body: some View {
         HStack {
@@ -32,16 +31,6 @@ struct ProfileView: View {
             }
             
             Spacer()
-            
-            Button {
-                editMode = !editMode
-            } label: {
-                Image(systemName: "square.and.pencil")
-            }
         }
     }
 }
-
-//#Preview {
-//    ProfileView()
-//}
