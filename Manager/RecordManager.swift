@@ -49,7 +49,7 @@ extension FoodEntity {
         food.code = item.code
         food.name = item.name
         food.energy = Int64(item.energy)
-        food.protein = Int16(Int(item.protein) ?? 0)
+        food.protein = Float(item.protein) ?? 0
         food.carbohydrates = Float(item.carbohydrates) ?? 0
         food.sugarCarbContent = Float(item.carbohydratesSugar ?? "") ?? 0
         food.fat = Float(item.fat) ?? 0
@@ -104,6 +104,11 @@ extension ActivityEntity {
     
     func delete(context: NSManagedObjectContext) {
         context.delete(self)
+        save(context: context)
+    }
+    
+    func setPushNotificationId(_ id: String, context: NSManagedObjectContext) {
+        pushID = id
         save(context: context)
     }
     
