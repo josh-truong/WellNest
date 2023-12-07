@@ -81,16 +81,17 @@ extension FoodEntity {
 
 extension ActivityEntity {
     var activity: Activity {
-        return Activity(name: name ?? "", image: image ?? "", color: color?.uiColor ?? .clear, unit: unit ?? "")
+        return Activity(name: name ?? "", image: image ?? "", color: color?.uiColor ?? .clear, unit: unit ?? "", goal: 6000)
     }
     
-    func add(name: String, image: String, unit: String, uiColor: Color, active: Bool, context: NSManagedObjectContext) {
+    func add(_ activity: Activity, active: Bool, context: NSManagedObjectContext) {
         let entity = ActivityEntity(context: context)
         entity.uuid = UUID()
-        entity.name = name
-        entity.image = image
-        entity.unit = unit
-        entity.color = getColorEntity(uiColor, context: context)
+        entity.name = activity.name
+        entity.image = activity.image
+        entity.unit = activity.unit
+        entity.goal = Int32(activity.goal)
+        entity.color = getColorEntity(activity.color, context: context)
         entity.active = active
         
         save(context: context)
@@ -126,11 +127,11 @@ extension ActivityEntity {
         return colorEntity
     }
     
-    func addToRecords(elaspedTime: Date, context: NSManagedObjectContext) {
+    func addToRecords(elapsedSeconds: Int, context: NSManagedObjectContext) {
         let entity = ActivityInfoEntity(context: context)
         entity.uuid = UUID()
         entity.timestamp = Date()
-        entity.elapsedTime = elaspedTime
+        entity.elapsedSeconds = Int64(elapsedSeconds)
         
         addToRecords(entity)
         save(context: context)
