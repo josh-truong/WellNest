@@ -23,13 +23,13 @@ struct TimerView: View {
                         VStack {
                             Text("\(time.hr) h \(time.min) m \(time.sec) s")
                             Spacer()
-                            if (vm.mode == .setup) {
+                            if (vm.displayMode == .setup) {
                                 TimePickerView(hour: $time.hr, minute: $time.min, second: $time.sec)
                             }
                             else {
                                 Text(vm.timeRemainingFormatted)
-                                    .font(.system(size: 70))
-                                    .onTapGesture(count: 1) { vm.mode = .start }
+                                    .font(.system(size: 50))
+                                    .onTapGesture(count: 1) { vm.displayMode = .start }
                             }
                             
                             Spacer()
@@ -44,7 +44,7 @@ struct TimerView: View {
                     }
                     .padding(20)
                 HStack {
-                    switch(vm.mode) {
+                    switch(vm.displayMode) {
                     case .setup, .start:
                         Button(action: {
                             vm.startTimer(hour: time.hr, minute: time.min, second: time.sec)
@@ -77,8 +77,7 @@ struct TimerView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 25))
                         }
                         Button(action: {
-                            vm.finishTimer()
-                            entity.addToRecords(elaspedTime: Date(), context: managedObjContext)
+                            vm.finishTimer(entity, context: managedObjContext)
                         }) {
                             Text("Finish")
                                 .foregroundStyle(.white)
@@ -86,6 +85,11 @@ struct TimerView: View {
                                 .background(.red)
                                 .clipShape(RoundedRectangle(cornerRadius: 25))
                         }
+                    }
+                }
+                .onChange(of: vm.mode) { _, newValue in
+                    if newValue == TimerMode.finish {
+                        vm.finishTimer(entity, context: managedObjContext)
                     }
                 }
                 .padding(50)
