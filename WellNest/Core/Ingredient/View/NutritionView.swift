@@ -52,7 +52,7 @@ struct NutritionView: View {
     
     private func deleteFood(offsets: IndexSet) {
         withAnimation {
-            offsets.map { food[$0] }.forEach { RecordManager().deleteFood(food: $0, context: managedObjContext) }
+            offsets.map { food[$0] }.forEach { FoodEntity().delete(item: $0, context: managedObjContext) }
         }
     }
     
