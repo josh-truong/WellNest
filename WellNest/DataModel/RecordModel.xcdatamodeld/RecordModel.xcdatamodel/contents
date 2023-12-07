@@ -2,15 +2,16 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="ActivityEntity" representedClassName="ActivityEntity" syncable="YES" codeGenerationType="class">
         <attribute name="active" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="goal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="color" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ColorEntity"/>
-        <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityInfoEntity"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ActivityInfoEntity"/>
     </entity>
     <entity name="ActivityInfoEntity" representedClassName="ActivityInfoEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="elapsedTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="elapsedSeconds" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
