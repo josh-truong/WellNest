@@ -20,11 +20,12 @@ struct ProfileIconView: View {
                 .clipShape(Circle())
                 .frame(width:40, height:40)
         }
-        .padding()
         .sheet(isPresented: $enableProfileModal) {
-            //ProfileModalView()
             ProfileSettingView()
+                .background(.ultraThinMaterial)
         }
+        .padding()
+        
     }
 }
 
