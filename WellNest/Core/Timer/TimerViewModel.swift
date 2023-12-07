@@ -7,11 +7,14 @@
 
 import Foundation
 import Combine
+import CoreData
+import SwiftUI
 
 @MainActor
 class TimerViewModel : ObservableObject {
     private var timerService: TimerService
     
+    @Published var displayMode: TimerMode = .setup
     @Published var mode: TimerMode = .setup
     @Published var isFinished: Bool = false
     @Published var timeRemainingFormatted: String = ""
@@ -26,18 +29,24 @@ class TimerViewModel : ObservableObject {
     }
 
     func startTimer(hour: Int, minute: Int, second: Int) {
+        displayMode = .pause
         timerService.setupTimer(hour: hour, minute: minute, second: second)
     }
 
-    func finishTimer() {
+    func finishTimer(_ entity: FetchedResults<ActivityEntity>.Element, context: NSManagedObjectContext) {
+        displayMode = .setup
         timerService.finishTimer()
+        let elapsedSeconds = timerService.calculateElapsedSeconds()
+        entity.addToRecords(elapsedSeconds: elapsedSeconds, context: context)
     }
 
     func pauseTimer() {
+        displayMode = .resume
         timerService.pauseTimer()
     }
 
     func resumeTimer() {
+        displayMode = .pause
         timerService.resumeTimer()
     }
     
