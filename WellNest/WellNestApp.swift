@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 import SwiftData
 import FirebaseCore
 
@@ -27,7 +28,7 @@ struct WellNestApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
-                .environment(\.managedObjectContext, recordManager.container.viewContext)
+                .environment(\.managedObjectContext, recordManager.persistentContainer.viewContext)
         }
         .modelContainer(for: TaskModel.self)
     }
