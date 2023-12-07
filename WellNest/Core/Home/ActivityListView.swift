@@ -11,7 +11,7 @@ import CoreData
 
 struct ActivityListView: View {
     @Environment(\.managedObjectContext) var managedObjContext
-    @FetchRequest(sortDescriptors: []) var activities: FetchedResults<ActivityEntity>
+    @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "active == true")) var activities: FetchedResults<ActivityEntity>
     
     @StateObject var vm = ActivityViewModel()
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
@@ -24,8 +24,7 @@ struct ActivityListView: View {
             
             LazyVGrid(columns: columns) {
                 ForEach(activities) { info in
-//                    NavigationLink(destination: TimerView(info: info)) {
-                    NavigationLink(destination: Text("")) {
+                    NavigationLink(destination: TimerView(entity: info)) {
                         ActivityCard(info, start: 0, end: 100)
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -41,8 +40,6 @@ struct ActivityListView: View {
         }
         .onAppear() {
             vm.preload(context: managedObjContext)
-            vm.getActiveActivities()
-            vm.getInactiveActivities()
         }
     }
 }
