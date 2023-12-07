@@ -19,7 +19,7 @@ struct MyActivityView: View {
                 if (!active.isEmpty) {
                     Section(header: Text("Favorites").font(.title).padding()) {
                         ForEach(active, id: \.id) { info in
-                            ActivityCard(info.activity, start: 0, end: 1000, showProgress: false)
+                            ActivityCard(info, showProgress: false)
                                 .onTapGesture { info.toggle(context: managedObjContext) }
                         }
                         .onMove { fromOffsets, toOffset in
@@ -32,10 +32,10 @@ struct MyActivityView: View {
                 if !inactive.isEmpty {
                     Section(header: Text("My exercises").font(.title).padding()) {
                         ForEach(inactive, id: \.id) { info in
-                            ActivityCard(info.activity, start: 0, end: 1000, showProgress: false)
+                            ActivityCard(info, showProgress: false)
                                 .onTapGesture { info.toggle(context: managedObjContext) }
                         }
-                        .onDelete { $0.map { inactive[$0].delete(context: managedObjContext) }}
+                        .onDelete { $0.forEach { inactive[$0].delete(context: managedObjContext) }}
                     }
                     .listRowSeparator(.hidden)
                 }
