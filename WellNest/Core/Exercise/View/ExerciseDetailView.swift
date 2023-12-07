@@ -50,9 +50,7 @@ struct ExerciseDetailView: View {
                     ProgressView()
                     Text("Loading exercise details...")
                         .onAppear {
-                            Task {
-                                await vm.getExerciseBase(exercise)
-                            }
+                            Task { await vm.getExerciseBase(exercise) }
                         }
                 }
             }
