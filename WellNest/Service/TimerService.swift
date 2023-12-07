@@ -20,7 +20,8 @@ class TimerService : ObservableObject {
     private var startTime: Date?
     private var pauseTime: Date?
     private var endTime: Date?
-
+    private var countdown: (hour: Int, minute: Int, second: Int) = (0,0,0)
+    
     @Published var mode: TimerMode = .setup
     @Published var isFinished: Bool = false
     @Published var timeRemainingFormatted: String = ""
@@ -28,7 +29,8 @@ class TimerService : ObservableObject {
     @Published var progress: CGFloat = 0.0
 
     func setupTimer(hour: Int, minute: Int, second: Int) {
-        mode = .pause
+        mode = .setup
+        countdown = (hour, minute, second)
         let currentDate = Date()
         startTime = currentDate
         endTime = currentDate.addingTimeInterval(TimeInterval(hour * 3600 + minute * 60 + second))
@@ -43,9 +45,17 @@ class TimerService : ObservableObject {
             finishTimer()
         }
     }
+    
+    func calculateElapsedSeconds() -> Int {
+        let remaining = extractComponents(from: timeRemainingFormatted)
+        let remainingSeconds = remaining.hour * 3600 + remaining.minute * 60 + remaining.second
+        let countdownSeconds = countdown.hour * 3600 + countdown.minute * 60 + countdown.second
+        let elapsedSeconds = countdownSeconds - remainingSeconds
+        return (elapsedSeconds >= 0) ? elapsedSeconds : countdownSeconds
+    }
 
     private func startTimer(timeInterval: TimeInterval) {
-        mode = .pause
+        mode = .start
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
 
@@ -62,13 +72,13 @@ class TimerService : ObservableObject {
     }
 
     func finishTimer() {
-        mode = .setup
+        mode = .finish
         timer?.invalidate()
         isFinished = true
     }
 
     func pauseTimer() {
-        mode = .resume
+        mode = .pause
         timer?.invalidate()
         pauseTime = Date()
     }
@@ -76,7 +86,7 @@ class TimerService : ObservableObject {
     func resumeTimer() {
         guard let startTime = startTime else { return }
         guard let pauseTime = pauseTime else { return }
-        mode = .pause
+        mode = .resume
 
         let currentDate = Date()
         let elapsedTimePaused = currentDate.timeIntervalSince(pauseTime)
@@ -130,5 +140,24 @@ class TimerService : ObservableObject {
                 timeRemainingFormatted = formattedString
             }
         }
+    }
+    
+    private func extractComponents(from formattedString: String) -> (hour: Int, minute: Int, second: Int) {
+        let components = formattedString.components(separatedBy: ":")
+        var time: (hour: Int, minute: Int, second: Int) = (0,0,0)
+        switch (components.count) {
+        case 1:
+            time.second = Int(components[0]) ?? 0
+        case 2:
+            time.minute = Int(components[0]) ?? 0
+            time.second = Int(components[1]) ?? 0
+        case 3:
+            time.hour = Int(components[0]) ?? 0
+            time.minute = Int(components[1]) ?? 0
+            time.second = Int(components[2]) ?? 0
+        default:
+            fatalError("Invalid time format!")
+        }
+        return time
     }
 }
