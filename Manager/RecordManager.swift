@@ -40,6 +40,23 @@ class RecordManager: ObservableObject {
     }
 }
 
+extension RecordEntity {
+    func add(name: String, quantity: Int, context: NSManagedObjectContext) {
+        let entity = RecordEntity(context: context)
+        
+        entity.timestamp = Date()
+        entity.name = name
+        entity.quantity = Int32(quantity)
+        
+        save(context: context)
+    }
+    
+    private func save(context: NSManagedObjectContext) {
+        do { try context.save() }
+        catch { print("Data not saved! \(error.localizedDescription)") }
+    }
+}
+
 extension FoodEntity {
     func add(item: WgerIngredientResult, context: NSManagedObjectContext) {
         let food = FoodEntity(context: context)
