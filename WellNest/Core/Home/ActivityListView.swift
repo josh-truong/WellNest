@@ -51,12 +51,14 @@ struct ActivityListView: View {
                 ActivityCard(Weight(), start: Int(weight.first?.quantity ?? 0), end: 200, showProgress: false)
             }
             .buttonStyle(PlainButtonStyle())
-            ActivityCard(Calories(), start: vm.todaysCalories, end: 1000, showProgress: false)
-                .onAppear { vm.getTodaysCalories(context: managedObjContext) }
+            
             NavigationLink(destination: EditActivityView(activity: Water())) {
                 ActivityCard(Water(), start: water.reduce(0) { (result, record) in return result + Int(record.quantity) }, end: 8, showProgress: false)
             }
             .buttonStyle(PlainButtonStyle())
+            
+            ActivityCard(Calories(), start: vm.todaysCalories, end: 1000, showProgress: false)
+                .onAppear { vm.getTodaysCalories(context: managedObjContext) }
             
             LazyVGrid(columns: columns) {
                 ForEach(activities) { info in
