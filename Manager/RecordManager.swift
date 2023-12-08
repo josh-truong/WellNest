@@ -51,6 +51,11 @@ extension RecordEntity {
         save(context: context)
     }
     
+    func delete(context: NSManagedObjectContext) {
+        context.delete(self)
+        save(context: context)
+    }
+    
     private func save(context: NSManagedObjectContext) {
         do { try context.save() }
         catch { print("Data not saved! \(error.localizedDescription)") }
