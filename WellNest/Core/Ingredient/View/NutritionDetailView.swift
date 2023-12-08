@@ -12,7 +12,7 @@ struct NutritionDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Name: \(food.name ?? "")")
+            Text(food.name ?? "")
                 .font(.title)
                 .fontWeight(.bold)
             
