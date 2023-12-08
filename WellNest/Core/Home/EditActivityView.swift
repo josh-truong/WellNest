@@ -8,12 +8,6 @@
 import SwiftUI
 import CoreData
 
-struct Entry: Codable, Identifiable {
-    var id = UUID()
-    var timestamp: Date
-    var input: Int
-}
-
 struct EditActivityView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.dismiss) var dismiss
@@ -34,25 +28,48 @@ struct EditActivityView: View {
     var body: some View {
         VStack {
             TextField("Enter value", text: $input)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .padding(.horizontal)
+                .padding(.top, 12)
                 .keyboardType(.numberPad)
-
-            Button {
-                RecordEntity().add(name: activity.name, quantity: Int(input) ?? 0, context: managedObjContext)
-                dismiss()
-            } label: {
-                Text("Record")
+                .onChange(of: input) { input = input.filter { "0123456789".contains($0) } }
+            
+            HStack {
+                Spacer()
+                Button {
+                    Task {
+                        RecordEntity().add(name: activity.name, quantity: Int(input) ?? 0, context: managedObjContext)
+                        dismiss()
+                    }
+                } label: {
+                    Text("RECORD")
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width-200, height: 48)
+                }
+                .background(Color(.systemBlue))
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1.0 : 0.5)
+                .cornerRadius(10)
+                .padding(.top, 24)
+                Spacer()
             }
 
             // Display the entries
-            List(entries) { entry in
-                if let timestamp = entry.timestamp {
-                    Text("Timestamp: \(timestamp.formatted()), Input: \(entry.quantity)")
-                } else {
-                    Text("Invalid Timestamp")
+            List {
+                ForEach(entries) { entry in
+                    if let timestamp = entry.timestamp {
+                        Text("Timestamp: \(timestamp.formatted()), Input: \(entry.quantity)")
+                    }
                 }
             }
         }
+        .navigationTitle("Record \(activity.name)")
+    }
+}
+
+extension EditActivityView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !input.isEmpty
     }
 }
