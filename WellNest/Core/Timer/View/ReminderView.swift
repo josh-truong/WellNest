@@ -11,50 +11,37 @@ import UserNotifications
 struct ReminderView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.dismiss) var dismiss
-    @State var entity: FetchedResults<ActivityEntity>.Element
-    @State private var selectedDate = Date()
-    @State private var permissionDenied = false
-    private let service = PushNotificationService()
+    @ObservedObject var service: PushNotificationService = .init()
+    let entity: FetchedResults<ActivityEntity>.Element
+    @State var selectedDate: Date = Date()
+    
 
     var body: some View {
         VStack {
-            if (!permissionDenied) {
-                DatePicker("", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
-                    .disabled(permissionDenied)
-                    .labelsHidden()
-            }
+            DatePicker("", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                .labelsHidden()
 
             Button("Notify") {
-                do {
-                    // Schedule notification if permission is granted
-                    service.checkPushNotificationStatus { isAuthorized in
-                        permissionDenied = !isAuthorized
-                        if (isAuthorized) {
-                            service.scheduleNotification(title: "Time to Crush It 💪", body: "Your workout awaits!\n\(entity.activity.name)", time: selectedDate) { result in
-                                switch result {
-                                case .success(let identifier):
-                                    print("Notification scheduled successfully for \(selectedDate) with identifier: \(identifier)")
-                                    
-                                    if let pushId = entity.pushID, !pushId.isEmpty {
-                                        service.removeNotification(pushId)
-                                    }
-                                    entity.setPushNotificationId(identifier, context: managedObjContext)
-                                    
-                                case .failure(let error):
-                                    print("Failed to schedule notification with error: \(error)")
-                                }
-                            }
+                service.checkPushNotificationStatus()
+                if (service.permissionStatus == .authorized) {
+                    service.scheduleNotification(title: "Time to Crush It 💪", body: "Your workout awaits!\n\(entity.activity.name)", time: selectedDate) { result in
+                        switch result {
+                        case .success(let identifier):
+                            print("Notification scheduled successfully for \(selectedDate) with identifier: \(identifier)")
+                            
+                            if let pushId = entity.pushID, !pushId.isEmpty { service.removeNotification(pushId) }
+                            entity.setPushNotificationId(identifier, context: managedObjContext)
+                        case .failure(let error):
+                            print("Failed to schedule notification with error: \(error)")
                         }
                     }
-                } catch {
-                    print("Error with push notification: \(error.localizedDescription)")
                 }
             }
             .padding()
         }
         .navigationTitle("Workout Reminder")
         .padding()
-        .alert(isPresented: $permissionDenied) {
+        .alert(isPresented: .constant(false)) {
             Alert(
                 title: Text("Permission Denied"),
                 message: Text("Please enable notifications in Settings to receive reminders."),
