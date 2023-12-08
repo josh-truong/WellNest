@@ -7,47 +7,30 @@
 import SwiftUI
 import UserNotifications
 
-protocol NotificationService {
-    // Method to request permission for push notifications
-    func requestPermission(completion: @escaping (Bool) -> Void)
-
-    // Method to schedule a notification
-    func scheduleNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void)
+class PushNotificationService: ObservableObject {
+    @Published var permissionStatus: UNAuthorizationStatus = .denied
     
-    func removeNotification(_ id: String)
-
-    // Method to clear all scheduled notifications
-    func clearNotifications()
-}
-
-class PushNotificationService: ObservableObject, NotificationService {
-    
-    func checkPushNotificationStatus(completion: @escaping (Bool) -> Void) {
+    func checkPushNotificationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            let isAuthorized = settings.authorizationStatus == .authorized
-            self.requestPermission { status in
-                completion(isAuthorized)
+            DispatchQueue.main.async {
+                self.permissionStatus = settings.authorizationStatus
+
+                if self.permissionStatus == .notDetermined {
+                    self.requestPermission()
+                }
             }
         }
     }
 
 
-    func requestPermission(completion: @escaping (Bool) -> Void) {
+    private func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-            completion(granted)
+            self.permissionStatus = granted ? .authorized : .denied
         }
     }
-
+    
     func scheduleNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void) {
-        requestPermission { [weak self] granted in
-            guard let self = self else { return }
-
-            if granted {
-                self.scheduleLocalNotification(title: title, body: body, time: time, completion: completion)
-            } else {
-                completion(.failure(NotificationError.permissionDenied))
-            }
-        }
+        scheduleLocalNotification(title: title, body: body, time: time, completion: completion)
     }
     
     func removeNotification(_ id: String) {
@@ -58,7 +41,7 @@ class PushNotificationService: ObservableObject, NotificationService {
             }
         }
     }
-    
+
     func clearNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
