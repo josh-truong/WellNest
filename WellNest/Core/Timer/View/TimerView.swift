@@ -14,8 +14,7 @@ struct TimerView: View {
     @State var entity: FetchedResults<ActivityEntity>.Element
     @State private var time: (hr: Int, min: Int, sec: Int) = (0,0,0)
     @StateObject private var vm = TimerViewModel()
-    @State private var enablePush: Bool = true
-    private let service = PushNotificationService()
+    @State private var showModal: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -99,14 +98,11 @@ struct TimerView: View {
                 .navigationTitle(entity.activity.name)
                 .toolbar {
                     ToolbarItem {
-                        NavigationLink(destination: ReminderView(entity: entity)) {
-                            Image(systemName: "bell")
-                        }
-                        .disabled(!enablePush)
-                        .onTapGesture {
-                            service.checkPushNotificationStatus { isAuthorized in self.enablePush = isAuthorized }
-                        }
+                        Button("", systemImage: "bell", action: {showModal.toggle()})
                     }
+                }
+                .sheet(isPresented: $showModal) {
+                    ReminderView(entity: entity)
                 }
                 .onDisappear { dismiss() }
             }
