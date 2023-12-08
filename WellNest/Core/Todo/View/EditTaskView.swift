@@ -11,7 +11,7 @@ import SwiftData
 struct EditTaskView: View {
     @Bindable var task: TaskModel
     @State private var newNoteTitle = ""
-    private let service = PushNotificationService()
+    @StateObject private var service = PushNotificationService()
     
     var body: some View {
         Form {

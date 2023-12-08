@@ -7,8 +7,10 @@
 import SwiftUI
 import UserNotifications
 
+@MainActor
 class PushNotificationService: ObservableObject {
-    @Published var permissionStatus: UNAuthorizationStatus = .denied
+    @Published var permissionStatus: UNAuthorizationStatus = .notDetermined
+    @Published var isDenied: Bool = false
     
     func checkPushNotificationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -18,6 +20,7 @@ class PushNotificationService: ObservableObject {
                 if self.permissionStatus == .notDetermined {
                     self.requestPermission()
                 }
+                self.isDenied = self.permissionStatus == .denied
             }
         }
     }
@@ -25,28 +28,14 @@ class PushNotificationService: ObservableObject {
 
     private func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-            self.permissionStatus = granted ? .authorized : .denied
+            DispatchQueue.main.async {
+                self.permissionStatus = granted ? .authorized : .denied
+                self.isDenied = !granted
+            }
         }
     }
     
     func scheduleNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void) {
-        scheduleLocalNotification(title: title, body: body, time: time, completion: completion)
-    }
-    
-    func removeNotification(_ id: String) {
-        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-            if requests.contains(where: { $0.identifier == id }) {
-                print("Removed \(id)")
-                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
-            }
-        }
-    }
-
-    func clearNotifications() {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-    }
-
-    private func scheduleLocalNotification(title: String, body: String, time: Date, completion: @escaping (Result<String, Error>) -> Void) {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -64,6 +53,19 @@ class PushNotificationService: ObservableObject {
                 completion(.success(request.identifier))
             }
         }
+    }
+    
+    func removeNotification(_ id: String) {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            if requests.contains(where: { $0.identifier == id }) {
+                print("Removed \(id)")
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+            }
+        }
+    }
+
+    func clearNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 }
 

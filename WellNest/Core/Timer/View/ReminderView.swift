@@ -11,11 +11,10 @@ import UserNotifications
 struct ReminderView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var service: PushNotificationService = .init()
+    @StateObject var service: PushNotificationService = .init()
     let entity: FetchedResults<ActivityEntity>.Element
     @State var selectedDate: Date = Date()
     
-
     var body: some View {
         VStack {
             DatePicker("", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
@@ -36,11 +35,11 @@ struct ReminderView: View {
         .onAppear { service.checkPushNotificationStatus() }
         .navigationTitle("Workout Reminder")
         .padding()
-        .alert(isPresented: .constant(false)) {
+        .alert(isPresented: $service.isDenied) {
             Alert(
                 title: Text("Permission Denied"),
                 message: Text("Please enable notifications in Settings to receive reminders."),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text("OK"), action: { dismiss() })
             )
         }
     }
