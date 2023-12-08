@@ -122,6 +122,9 @@
 		8DADB7A82B154EED0070A68D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A72B154EED0070A68D /* Activity.swift */; };
 		8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A92B15A1D70070A68D /* ActivityButton.swift */; };
 		8DAE9AE02B225DD800FA1365 /* NutritionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */; };
+		8DAE9AE22B22D0C900FA1365 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AE12B22D0C900FA1365 /* ChartView.swift */; };
+		8DAE9AE52B22D16200FA1365 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8DAE9AE42B22D16200FA1365 /* SwiftUICharts */; };
+		8DAE9AE72B22D17B00FA1365 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8DAE9AE62B22D17B00FA1365 /* SwiftUICharts */; };
 		8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */; };
 		8DC05EFD2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */; };
 		8DC05EFF2B1D6ADD0070A117 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */; };
@@ -210,6 +213,7 @@
 		8DADB7A72B154EED0070A68D /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8DADB7A92B15A1D70070A68D /* ActivityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityButton.swift; sourceTree = "<group>"; };
 		8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailView.swift; sourceTree = "<group>"; };
+		8DAE9AE12B22D0C900FA1365 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientSuggestionViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				8D24506E2AF358C700CA248F /* FirebaseAnalytics in Frameworks */,
 				8D2450A02AF358C700CA248F /* FirebaseStorage in Frameworks */,
 				8D2450802AF358C700CA248F /* FirebaseDatabase in Frameworks */,
+				8DAE9AE72B22D17B00FA1365 /* SwiftUICharts in Frameworks */,
 				8D24506C2AF3588200CA248F /* FirebaseAppCheck in Frameworks */,
 				8D2450742AF358C700CA248F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				8D00FA972B064A6F00FFD541 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -256,6 +261,7 @@
 				8D2450922AF358C700CA248F /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				8D24508A2AF358C700CA248F /* FirebaseFirestoreSwift in Frameworks */,
 				8D2450662AF3588200CA248F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				8DAE9AE52B22D16200FA1365 /* SwiftUICharts in Frameworks */,
 				8D24507A2AF358C700CA248F /* FirebaseAuth in Frameworks */,
 				8D1B0D702AF349C200B43D7B /* FirebaseAnalytics in Frameworks */,
 				8D00FA9D2B064A6F00FFD541 /* FirebaseAppCheck in Frameworks */,
@@ -471,6 +477,7 @@
 				8DADB7A52B1545210070A68D /* ActivityCard.swift */,
 				8DADB7A92B15A1D70070A68D /* ActivityButton.swift */,
 				8D7A51132B17D7D300397762 /* RangePicker.swift */,
+				8DAE9AE12B22D0C900FA1365 /* ChartView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -755,6 +762,8 @@
 				8D00FA9A2B064A6F00FFD541 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				8D00FA9C2B064A6F00FFD541 /* FirebaseAppCheck */,
 				8D7A510F2B17CC8500397762 /* CircularProgress */,
+				8DAE9AE42B22D16200FA1365 /* SwiftUICharts */,
+				8DAE9AE62B22D17B00FA1365 /* SwiftUICharts */,
 			);
 			productName = WellNest;
 			productReference = 8D4C243A2AB350260008447E /* WellNest.app */;
@@ -787,6 +796,7 @@
 			packageReferences = (
 				8D1B0D6E2AF349C200B43D7B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				8D7A510E2B17CC8500397762 /* XCRemoteSwiftPackageReference "CircularProgressSwiftui" */,
+				8DAE9AE32B22D16200FA1365 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = 8D4C243B2AB350260008447E /* Products */;
 			projectDirPath = "";
@@ -838,6 +848,7 @@
 				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
 				8D00F9C02B01976800FFD541 /* TaskDisplayView.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
+				8DAE9AE22B22D0C900FA1365 /* ChartView.swift in Sources */,
 				8D2450622AF357A400CA248F /* FirebaseManager.swift in Sources */,
 				8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */,
 				8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */,
@@ -1138,6 +1149,14 @@
 				minimumVersion = 1.2.1;
 			};
 		};
+		8DAE9AE32B22D16200FA1365 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1318,6 +1337,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8D7A510E2B17CC8500397762 /* XCRemoteSwiftPackageReference "CircularProgressSwiftui" */;
 			productName = CircularProgress;
+		};
+		8DAE9AE42B22D16200FA1365 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8DAE9AE32B22D16200FA1365 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
+		8DAE9AE62B22D17B00FA1365 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8DAE9AE32B22D16200FA1365 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
