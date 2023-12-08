@@ -55,7 +55,6 @@ struct EditActivityView: View {
                 Spacer()
             }
 
-            // Display the entries
             List {
                 ForEach(entries) { entry in
                     if let timestamp = entry.timestamp {
