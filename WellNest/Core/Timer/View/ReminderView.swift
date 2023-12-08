@@ -22,23 +22,18 @@ struct ReminderView: View {
                 .labelsHidden()
 
             Button("Notify") {
-                service.checkPushNotificationStatus()
-                if (service.permissionStatus == .authorized) {
-                    service.scheduleNotification(title: "Time to Crush It 💪", body: "Your workout awaits!\n\(entity.activity.name)", time: selectedDate) { result in
-                        switch result {
-                        case .success(let identifier):
-                            print("Notification scheduled successfully for \(selectedDate) with identifier: \(identifier)")
-                            
-                            if let pushId = entity.pushID, !pushId.isEmpty { service.removeNotification(pushId) }
-                            entity.setPushNotificationId(identifier, context: managedObjContext)
-                        case .failure(let error):
-                            print("Failed to schedule notification with error: \(error)")
-                        }
+                service.scheduleNotification(title: "Test", body: "This is a test notification", time: Date()) { result in
+                    switch result {
+                    case .success(let identifier):
+                        print("Notification scheduled with identifier: \(identifier)")
+                    case .failure(let error):
+                        print("Failed to schedule notification. Error: \(error.localizedDescription)")
                     }
                 }
             }
             .padding()
         }
+        .onAppear { service.checkPushNotificationStatus() }
         .navigationTitle("Workout Reminder")
         .padding()
         .alert(isPresented: .constant(false)) {
