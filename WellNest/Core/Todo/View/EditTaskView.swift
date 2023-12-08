@@ -23,12 +23,12 @@ struct EditTaskView: View {
                     .labelsHidden()
                     .onChange(of: task.isNotificationEnabled) {
                         if task.isNotificationEnabled {
-                            service.checkPushNotificationStatus { isAuthorized in
-                                if (!isAuthorized) {
-                                    service.requestPermission { status in
-                                        task.isNotificationEnabled = status
-                                    }
-                                }
+                            service.checkPushNotificationStatus()
+                            if (service.permissionStatus == .authorized) {
+                                task.isNotificationEnabled = true
+                            } else {
+                                
+                                
                             }
                         }
                     }
@@ -68,8 +68,8 @@ struct EditTaskView: View {
         .navigationBarTitleDisplayMode(.inline)
         .onDisappear {
             if (task.isNotificationEnabled) {
-                service.checkPushNotificationStatus { isAuthorized in
-                    if !isAuthorized { return }
+                service.checkPushNotificationStatus()
+                if (service.permissionStatus == .authorized) {
                     if !task.pushNotificationIdentifier.isEmpty {
                         service.removeNotification(task.pushNotificationIdentifier)
                         task.pushNotificationIdentifier = ""
