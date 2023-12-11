@@ -15,7 +15,7 @@ struct DefaultIngredientView: View {
             List {
                 ForEach(vm.suggestions, id: \.self) { result in
                     NavigationLink(destination: IngredientInfoView(result).navigationBarBackButtonHidden(true)) {
-                        Text(result.name)
+                        Text(result.name.htmlAttributedString)
                     }
                 }
                 HStack{
@@ -32,8 +32,4 @@ struct DefaultIngredientView: View {
             .onAppear { Task { await vm.getDefaultIngredients() } }
         }
     }
-}
-
-#Preview {
-    DefaultIngredientView()
 }
