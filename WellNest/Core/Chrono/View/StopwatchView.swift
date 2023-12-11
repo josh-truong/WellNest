@@ -64,7 +64,7 @@ struct StopwatchView: View {
                     }
                 }
             }
-            .padding()
+            .padding(50)
         }
         .onChange(of: vm.mode) { _, newValue in
             if newValue == TimerMode.finish {

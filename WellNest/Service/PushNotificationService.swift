@@ -17,6 +17,7 @@ class PushNotificationService: ObservableObject {
     func getPendingNotificationRequests() {
         UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
             DispatchQueue.main.async {
+                print("\(requests.count) pending notification")
                 self.pendingNotificationRequests = requests
             }
         }

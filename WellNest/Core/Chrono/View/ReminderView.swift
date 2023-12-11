@@ -29,13 +29,14 @@ struct ReminderView: View {
                                 service.removeNotification(identifier)
                             }
                             entity.setPushNotificationId(identifier, context: managedObjContext)
+                            service.getPendingNotificationRequests()
                             print("Notification scheduled with identifier: \(identifier)")
                         case .failure(let error):
                             print("Failed to schedule notification. Error: \(error.localizedDescription)")
                         }
                     }
                 }
-                .padding()
+                .padding(10)
                 
                 if (!service.pendingNotificationRequests.isEmpty) {
                     VStack(alignment: .leading) {
@@ -55,6 +56,8 @@ struct ReminderView: View {
                         .listStyle(PlainListStyle())
                     }
                 }
+                
+                Spacer()
             }
             .navigationTitle("Set a reminder")
         }
