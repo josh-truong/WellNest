@@ -25,7 +25,7 @@ struct IngredientInfoView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(vm.info.name)
+            Text(vm.info.name.htmlAttributedString)
             Text("Energy: \(vm.info.energy)")
             Text("Protein: \(vm.info.protein)")
             Text("Carbohydrates: \(vm.info.carbohydrates)")
