@@ -44,14 +44,14 @@ class ActivityInfo: Identifiable, Equatable {
 }
 
 class Custom: Activity {
-    init() {
-        super.init(name: "Custom", image: "figure", color: Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1)), unit: "minutes", goal: 6000)
+    init(name: String, goal: Int = 6000) {
+        super.init(name: name, image: "figure", color: Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1)), unit: "minutes", goal: goal)
     }
 }
 
 class Steps: Activity {
     init() {
-        super.init(name: "Today steps", image: "figure.walk", color: Color.green, unit: "minutes", goal: 10000)
+        super.init(name: "Today steps", image: "figure.walk", color: Color.green, unit: "steps", goal: 10000)
     }
 }
 
