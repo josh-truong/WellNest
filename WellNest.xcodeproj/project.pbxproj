@@ -130,6 +130,7 @@
 		8DAE9B012B26D22A00FA1365 /* ReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9B002B26D22900FA1365 /* ReminderCard.swift */; };
 		8DAE9B042B26F18A00FA1365 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 8DAE9B032B26F18A00FA1365 /* SwiftSoup */; };
 		8DAE9B062B2703BC00FA1365 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9B052B2703BC00FA1365 /* ItemRow.swift */; };
+		8DAE9B082B277FF900FA1365 /* SearchIngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9B072B277FF900FA1365 /* SearchIngredientsView.swift */; };
 		8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */; };
 		8DC05EFD2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */; };
 		8DC05EFF2B1D6ADD0070A117 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */; };
@@ -225,6 +226,7 @@
 		8DAE9AFE2B26A8FC00FA1365 /* ChronoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoView.swift; sourceTree = "<group>"; };
 		8DAE9B002B26D22900FA1365 /* ReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCard.swift; sourceTree = "<group>"; };
 		8DAE9B052B2703BC00FA1365 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		8DAE9B072B277FF900FA1365 /* SearchIngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIngredientsView.swift; sourceTree = "<group>"; };
 		8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientSuggestionViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				8D00F9C72B01ADAC00FFD541 /* IngredientInfoView.swift */,
 				8D4307A12B197F630095CBC7 /* NutritionView.swift */,
 				8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */,
+				8DAE9B072B277FF900FA1365 /* SearchIngredientsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				8D2450B42AF38C6D00CA248F /* SettingsRowView.swift in Sources */,
 				8DA4E4BE2AB505B800971E19 /* NavbarToolbarModifier.swift in Sources */,
 				8D00F9C82B01ADAC00FFD541 /* IngredientInfoView.swift in Sources */,
+				8DAE9B082B277FF900FA1365 /* SearchIngredientsView.swift in Sources */,
 				8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */,
 				8D6D55702AD665FB00B9BA7F /* GeoConnectView.swift in Sources */,
 				8D156A132AF7241300E22283 /* UpdateProfileView.swift in Sources */,
