@@ -10,6 +10,8 @@ import SwiftUI
 struct IngredientsView: View {
     @StateObject var vm: IngredientViewModel = .init()
     @State private var searchTerm: String = ""
+    @State private var showSheet: Bool = false
+    @State private var selectedIngredient: WgerIngredientSuggestion?
      
     var body: some View {
         NavigationStack {
@@ -19,9 +21,11 @@ struct IngredientsView: View {
                 } else {
                     List {
                         ForEach(vm.results, id: \.id) { result in
-                            NavigationLink(destination: IngredientInfoView(result).navigationBarBackButtonHidden(true)) {
-                                Text(result.data?.name ?? "")
-                            }
+                            Text(result.data?.name ?? "")
+                                .onTapGesture {
+                                    selectedIngredient = result
+                                    showSheet.toggle()
+                                }
                         }
                         HStack{
                             Spacer()
@@ -37,6 +41,11 @@ struct IngredientsView: View {
             }
             .navigationTitle("Ingredients")
             .searchable(text: $searchTerm)
+            .sheet(isPresented: $showSheet) {
+                if let selectedIngredient = selectedIngredient {
+                    IngredientInfoView(selectedIngredient)
+                }
+            }
             .onChange(of: searchTerm) { oldState, newState in
                 Task {
                     if !newState.isEmpty && newState.count > 2 {

@@ -21,22 +21,30 @@ struct IngredientInfoView: View {
         _vm = StateObject(wrappedValue: IngredientInfoViewModel(suggestion))
     }
     
-
-    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(vm.info.name.htmlAttributedString)
-            Text("Energy: \(vm.info.energy)")
-            Text("Protein: \(vm.info.protein)")
-            Text("Carbohydrates: \(vm.info.carbohydrates)")
-            Text("Carbohydrates Sugar: \(vm.info.carbohydratesSugar ?? "N/A")")
-            Text("Fat: \(vm.info.fat)")
-            Text("Fat Saturated: \(vm.info.fatSaturated ?? "N/A")")
-            Text("Fibres: \(vm.info.fibres ?? "N/A")")
-            Text("Sodium: \(vm.info.sodium ?? "N/A")")
-            
-            Spacer()
+        NavigationStack {
+            VStack(alignment: .leading) {
+                ItemRow(key: "Energy", value: "\(vm.info.energy) kcal")
+                ItemRow(key: "Protein", value: " \(vm.info.protein) g")
+                ItemRow(key: "Carbohydrates", value: "\(vm.info.carbohydrates) g")
+                if let carbohydratesSugar = vm.info.carbohydratesSugar{
+                    ItemRow(key: "Carbohydrates Sugar", value: "\(carbohydratesSugar) g")
+                }
+                ItemRow(key: "Fat", value: "\(vm.info.fat) g")
+                if let fatSaturated = vm.info.fatSaturated {
+                    ItemRow(key: "Fat Saturated", value: "\(fatSaturated) g")
+                }
+                if let fibres = vm.info.fibres {
+                    ItemRow(key: "Fibres", value: "\(fibres) g")
+                }
+                if let sodium = vm.info.sodium {
+                    ItemRow(key: "Sodium", value: "\(sodium) g")
+                }
+                Spacer()
+            }
         }
+        .navigationTitle(vm.info.name.htmlAttributedString)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if showAdd {
                 ToolbarItem {
