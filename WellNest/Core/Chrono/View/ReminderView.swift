@@ -42,6 +42,7 @@ struct ReminderView: View {
                     VStack(alignment: .leading) {
                         Text("Pending Notifications")
                             .font(.headline)
+                            .padding()
                         List {
                             ForEach(service.pendingNotificationRequests, id: \.identifier) { request in
                                 ReminderCard(request: request)
@@ -65,8 +66,6 @@ struct ReminderView: View {
             service.checkPushNotificationStatus()
             service.getPendingNotificationRequests()
         }
-        .navigationTitle("Workout Reminder")
-        .padding()
         .alert(isPresented: $service.isDenied) {
             Alert(
                 title: Text("Permission Denied"),
