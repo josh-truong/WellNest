@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StopwatchView: View {
     @Environment(\.managedObjectContext) var managedObjContext
+    @Environment(\.dismiss) var dismiss
     @State var entity: FetchedResults<ActivityEntity>.Element
     @StateObject private var vm = StopwatchViewModel()
     
@@ -54,7 +55,6 @@ struct StopwatchView: View {
                     }
                     Button(action: {
                         vm.finish()
-                        vm.addRecord(entity, context: managedObjContext)
                     }) {
                         Text("Finish")
                             .foregroundStyle(.white)
@@ -68,8 +68,8 @@ struct StopwatchView: View {
         }
         .onChange(of: vm.mode) { _, newValue in
             if newValue == TimerMode.finish {
-                vm.finish()
                 vm.addRecord(entity, context: managedObjContext)
+                dismiss()
             }
         }
     }
