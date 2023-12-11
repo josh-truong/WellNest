@@ -39,4 +39,14 @@ extension Date {
             return "\(days) day\(days == 1 ? "" : "s") ago"
         }
     }
+    
+    func toStringCivilian() -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "h:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+
+        return formatter.string(from: self)
+    }
 }
