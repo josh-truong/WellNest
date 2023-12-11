@@ -34,6 +34,4 @@ class IngredientViewModel : ObservableObject {
             print("Error: \(error.localizedDescription)")
         }
     }
-    
-    
 }
