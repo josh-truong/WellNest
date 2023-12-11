@@ -5,12 +5,22 @@
 //  Created by Joshua Truong on 10/12/23.
 //
 import SwiftUI
+import Combine
 import UserNotifications
 
 @MainActor
 class PushNotificationService: ObservableObject {
     @Published var permissionStatus: UNAuthorizationStatus = .notDetermined
     @Published var isDenied: Bool = false
+    @Published var pendingNotificationRequests: [UNNotificationRequest] = []
+
+    func getPendingNotificationRequests() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            DispatchQueue.main.async {
+                self.pendingNotificationRequests = requests
+            }
+        }
+    }
     
     func checkPushNotificationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -24,7 +34,6 @@ class PushNotificationService: ObservableObject {
             }
         }
     }
-
 
     private func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
