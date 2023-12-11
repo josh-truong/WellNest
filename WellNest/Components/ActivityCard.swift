@@ -15,6 +15,7 @@ struct ActivityCard: View {
     private var end: Int
     private var showProgress: Bool
     private var entity: FetchedResults<ActivityEntity>.Element?
+    private var disableName: Bool
     
     var progressPercentage: CGFloat {
         guard end != 0 else { return 0 }
@@ -22,14 +23,15 @@ struct ActivityCard: View {
         return CGFloat(start) / CGFloat(end)
     }
     
-    private init(activity: Activity, start: Int, end: Int, showProgress: Bool) {
+    private init(activity: Activity, start: Int, end: Int, showProgress: Bool, disableName: Bool) {
         self.activity = activity
         self.start = start
         self.end = end
         self.showProgress = showProgress
+        self.disableName = disableName
     }
     
-    init(_ entity: FetchedResults<ActivityEntity>.Element, showProgress: Bool = true) {
+    init(_ entity: FetchedResults<ActivityEntity>.Element, showProgress: Bool = true, disableName: Bool = false) {
         let activity = Activity(name: entity.name ?? "", image: entity.image ?? "", color: entity.color?.uiColor ?? .clear, unit: entity.unit ?? "", goal: 60)
         var start = 0
         entity.records?.forEach { record in
@@ -39,12 +41,12 @@ struct ActivityCard: View {
             }
         }
         
-        self.init(activity: activity, start: start, end: Int(entity.goal), showProgress: showProgress)
+        self.init(activity: activity, start: start, end: Int(entity.goal), showProgress: showProgress, disableName: disableName)
         self.entity = entity
     }
     
-    init(_ activity: Activity, start: Int, end: Int, showProgress: Bool = true) {
-        self.init(activity: activity, start: start, end: end, showProgress: showProgress)
+    init(_ activity: Activity, start: Int, end: Int, showProgress: Bool = true, disableName: Bool = false) {
+        self.init(activity: activity, start: start, end: end, showProgress: showProgress, disableName: disableName)
     }
     
     var body: some View {
@@ -54,12 +56,15 @@ struct ActivityCard: View {
             VStack(spacing: 10) {
                 HStack(alignment: .top) {
                     VStack(alignment:  .leading, spacing: 5) {
-                        Text(activity.name)
-                            .font(.system(size: 18))
+                        if !disableName {
+                            Text(activity.name)
+                                .font(.system(size: 18))
+                        }
                         if showProgress {
                             Text("Goal: \(end)")
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
+                                .padding(.top, 5)
                         }
                     }
                     Spacer()
