@@ -19,11 +19,10 @@ class UserDefaultService {
         return UserDefaults.standard.bool(forKey: UDKey.executePreload.rawValue)
     }
     
-    func setExecutedPreload(_ set: Bool? = true) -> Bool {
+    func setExecutedPreload(_ set: Bool? = true) {
         if (isKeyPresent(key: .executePreload)) {
             UserDefaults.standard.set(set, forKey: UDKey.executePreload.rawValue)
         }
-        return UserDefaults.standard.bool(forKey: UDKey.executePreload.rawValue)
     }
     
 //    
