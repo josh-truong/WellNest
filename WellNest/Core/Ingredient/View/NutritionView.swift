@@ -41,6 +41,7 @@ struct NutritionView: View {
                 }
                 .listStyle(.plain)
             }
+            .navigationTitle("Nutrition")
             .onReceive(timer) { _ in currentDate = Date() }
             .toolbar {
                 ToolbarItem {
@@ -50,7 +51,7 @@ struct NutritionView: View {
                 }
             }
             .padding()
-            .navigationTitle("Nutrition")
+            
         }
     }
     
