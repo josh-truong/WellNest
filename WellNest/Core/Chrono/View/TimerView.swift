@@ -9,6 +9,8 @@ import CircularProgress
 
 struct TimerView: View {
     @Environment(\.managedObjectContext) var managedObjContext
+    @Environment(\.dismiss) var dismiss
+    
     @State var entity: FetchedResults<ActivityEntity>.Element
     @State private var time: (hr: Int, min: Int, sec: Int) = (0,0,0)
     @StateObject private var vm = TimerViewModel()
@@ -76,7 +78,6 @@ struct TimerView: View {
                     }
                     Button(action: {
                         vm.finish()
-                        vm.addRecord(entity, context: managedObjContext)
                     }) {
                         Text("Finish")
                             .foregroundStyle(.white)
@@ -88,8 +89,8 @@ struct TimerView: View {
             }
             .onChange(of: vm.mode) { _, newValue in
                 if newValue == TimerMode.finish {
-                    vm.finish()
                     vm.addRecord(entity, context: managedObjContext)
+                    dismiss()
                 }
             }
             .padding(50)
