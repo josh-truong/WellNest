@@ -62,10 +62,11 @@ struct ActivityListView: View {
             
             LazyVGrid(columns: columns) {
                 ForEach(activities) { info in
-                    NavigationLink(destination: TimerView(entity: info)) {
+                    NavigationLink(destination: ChronoView(entity: info)) {
                         ActivityCard(info)
                     }
                     .buttonStyle(PlainButtonStyle())
+                    
                 }
                 .padding(.horizontal, 1)
                 
