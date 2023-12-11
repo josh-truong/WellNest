@@ -18,7 +18,7 @@ struct ActivityCard: View {
     
     var progressPercentage: CGFloat {
         guard end != 0 else { return 0 }
-        if (start >= end) { return CGFloat(1.0) }
+        if start >= end { return CGFloat(1.0) }
         return CGFloat(start) / CGFloat(end)
     }
     
@@ -34,7 +34,7 @@ struct ActivityCard: View {
         var start = 0
         entity.records?.forEach { record in
             let record = record as? ActivityInfoEntity
-            if (Calendar.current.isDateInToday(record?.timestamp ?? Date())) {
+            if Calendar.current.isDateInToday(record?.timestamp ?? Date()) {
                 start += Int(record?.elapsedSeconds ?? 0) / 60
             }
         }
@@ -56,19 +56,18 @@ struct ActivityCard: View {
                     VStack(alignment:  .leading, spacing: 5) {
                         Text(activity.name)
                             .font(.system(size: 18))
-                        Text("Goal: \(end)")
-                            .font(.system(size: 14))
-                            .foregroundStyle(Color.gray)
+                        if showProgress {
+                            Text("Goal: \(end)")
+                                .font(.system(size: 14))
+                                .foregroundStyle(Color.gray)
+                        }
                     }
                     Spacer()
                     
-                    if (!showProgress) {
-                        VStack {
-                            Spacer()
-                            Text("\(start) \(activity.unit)")
-                                .font(.system(size: 20))
-                            Spacer()
-                        }
+                    if !showProgress {
+                        Text("\(start) \\ \(end) \(activity.unit)")
+                            .font(.system(size: 16))
+                            .foregroundStyle(Color.gray)
                         Spacer()
                     }
                     
@@ -86,7 +85,9 @@ struct ActivityCard: View {
                         }
                     }
                     .tint(activity.color)
-                    
+                }
+                
+                if showProgress {
                     Text("\(start) \(activity.unit)")
                         .font(.system(size: 20))
                 }
