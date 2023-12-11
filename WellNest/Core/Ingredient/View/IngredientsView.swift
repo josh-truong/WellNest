@@ -10,49 +10,25 @@ import SwiftUI
 struct IngredientsView: View {
     @StateObject var vm: IngredientViewModel = .init()
     @State private var searchTerm: String = ""
-    @State private var showSheet: Bool = false
-    @State private var selectedIngredient: WgerIngredientSuggestion?
      
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 if (searchTerm.isEmpty) {
                     DefaultIngredientView()
                 } else {
-                    List {
-                        ForEach(vm.results, id: \.id) { result in
-                            Text(result.data?.name ?? "")
-                                .onTapGesture {
-                                    selectedIngredient = result
-                                    showSheet.toggle()
-                                }
-                        }
-                        HStack{
-                            Spacer()
-                            ProgressView("Loading ...")
-                                .progressViewStyle(CircularProgressViewStyle())
-                                .onAppear() {
-                                    
-                                }
-                            Spacer()
-                        }
-                    }
+                    SearchIngredientsView(results: $vm.results)
                 }
             }
-            .navigationTitle("Ingredients")
-            .searchable(text: $searchTerm)
-            .sheet(isPresented: $showSheet) {
-                if let selectedIngredient = selectedIngredient {
-                    IngredientInfoView(selectedIngredient)
-                }
-            }
-            .onChange(of: searchTerm) { oldState, newState in
-                Task {
-                    if !newState.isEmpty && newState.count > 2 {
-                        await vm.searchIngredient(term: newState)
-                    } else {
-                        vm.results.removeAll()
-                    }
+        }
+        .navigationTitle("Ingredients")
+        .searchable(text: $searchTerm)
+        .onChange(of: searchTerm) { oldState, newState in
+            Task {
+                if !newState.isEmpty && newState.count > 2 {
+                    await vm.searchIngredient(term: newState)
+                } else {
+                    vm.results.removeAll()
                 }
             }
         }
