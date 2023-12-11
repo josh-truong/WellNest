@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
-    @Environment(\.modelContext) var context
+    @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.dismiss) var dismiss
     @ObservedObject private var vm: ExerciseDetailViewModel = .init()
     @Binding var exercise: WgerExerciseDetail
@@ -18,9 +18,7 @@ struct ExerciseDetailView: View {
             HStack {
                 Spacer()
                 Button("Add Exercise", systemImage: "plus", action: {
-                    let model = TaskModel()
-                    model.title = exercise.name
-                    context.insert(model)
+                    ActivityEntity().add(Custom(name: exercise.name), active: true, context: managedObjContext)
                     dismiss()
                 })
             }
