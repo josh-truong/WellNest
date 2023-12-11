@@ -9,9 +9,10 @@ import SwiftUI
 import MapKit
 
 struct GeoConnectView: View {
+    @Namespace var mapScope
     @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
     
-    @ObservedObject var vm: GeoConnectViewModel
+    @ObservedObject private var vm: GeoConnectViewModel = .init()
     
     @State private var searchText = ""
     @State private var selectedLocation: MKMapItem?
@@ -55,10 +56,11 @@ struct GeoConnectView: View {
             }
         }
         .overlay(alignment: .top) {
-            TextField("Search for a location", text: $searchText)
+            TextField("", text: $searchText)
                 .font(.subheadline)
                 .padding(12)
                 .background(.white)
+                .foregroundStyle(.black)
                 .padding()
                 .shadow(radius:10)
         }
@@ -94,6 +96,7 @@ struct GeoConnectView: View {
             MapCompass()
             MapPitchToggle()
             MapUserLocationButton()
+            MapScaleView()
         }
     }
 }
@@ -108,8 +111,4 @@ extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
         return .init(center: .userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
     }
-}
-
-#Preview {
-    GeoConnectView(vm: GeoConnectViewModel())
 }

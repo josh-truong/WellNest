@@ -10,11 +10,10 @@ import SwiftUI
 struct FriendsView: View {
     var db: FirebaseManager = FirebaseManager()
     @ObservedObject var locationDataManager = LocationDataManager()
-    @ObservedObject var viewModel: GeoConnectViewModel = GeoConnectViewModel()
     
     var body: some View {
         NavigationStack {
-            GeoConnectView(vm: viewModel)
+            GeoConnectView()
 //            ScrollView {
 //                switch locationDataManager.authorizationStatus {
 //                    case .authorizedWhenInUse:  // Location services are available.
