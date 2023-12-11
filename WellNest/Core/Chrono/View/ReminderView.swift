@@ -16,23 +16,52 @@ struct ReminderView: View {
     @State var selectedDate: Date = Date()
     
     var body: some View {
-        VStack {
-            DatePicker("", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
-                .labelsHidden()
+        NavigationStack {
+            VStack {
+                DatePicker("", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                    .labelsHidden()
 
-            Button("Notify") {
-                service.scheduleNotification(title: "Test", body: "This is a test notification", time: Date()) { result in
-                    switch result {
-                    case .success(let identifier):
-                        print("Notification scheduled with identifier: \(identifier)")
-                    case .failure(let error):
-                        print("Failed to schedule notification. Error: \(error.localizedDescription)")
+                Button("Notify") {
+                    service.scheduleNotification(title: "Get Moving! It's Workout Time 💪", body: "🏋️‍♂️ Let's crush \(entity.name ?? "") together! 🏋️‍♀️\n#FitLife #YouGotThis #WorkoutReminder", time: selectedDate) { result in
+                        switch result {
+                        case .success(let identifier):
+                            if let pushId = entity.pushID, !pushId.isEmpty {
+                                service.removeNotification(identifier)
+                            }
+                            entity.setPushNotificationId(identifier, context: managedObjContext)
+                            print("Notification scheduled with identifier: \(identifier)")
+                        case .failure(let error):
+                            print("Failed to schedule notification. Error: \(error.localizedDescription)")
+                        }
+                    }
+                }
+                .padding()
+                
+                if (!service.pendingNotificationRequests.isEmpty) {
+                    VStack(alignment: .leading) {
+                        Text("Pending Notifications")
+                            .font(.headline)
+                        List {
+                            ForEach(service.pendingNotificationRequests, id: \.identifier) { request in
+                                ReminderCard(request: request)
+                                    .listRowSeparator(.hidden)
+                            }
+                            .onDelete(perform: { indexSet in
+                                for index in indexSet {
+                                    service.removeNotification(service.pendingNotificationRequests[index].identifier)
+                                }
+                            })
+                        }
+                        .listStyle(PlainListStyle())
                     }
                 }
             }
-            .padding()
+            .navigationTitle("Set a reminder")
         }
-        .onAppear { service.checkPushNotificationStatus() }
+        .onAppear {
+            service.checkPushNotificationStatus()
+            service.getPendingNotificationRequests()
+        }
         .navigationTitle("Workout Reminder")
         .padding()
         .alert(isPresented: $service.isDenied) {
