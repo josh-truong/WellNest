@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ChronoView: View {
+    @Environment(\.dismiss) var dismiss
     @State var entity: FetchedResults<ActivityEntity>.Element
     @State private var viewTag: Int = 1
+    @State private var showModal: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -29,6 +31,19 @@ struct ChronoView: View {
                     StopwatchView(entity: entity)
                 }
                 Spacer()
+            }
+            .navigationTitle(entity.activity.name)
+            .toolbar {
+                ToolbarItem {
+                    Button("", systemImage: "bell", action: {showModal.toggle()})
+                }
+            }
+            .sheet(isPresented: $showModal) {
+                ReminderView(entity: entity)
+            }
+            .onDisappear {
+                viewTag = 0
+                dismiss()
             }
         }
     }
