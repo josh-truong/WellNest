@@ -107,8 +107,6 @@
 		8D7A51102B17CC8500397762 /* CircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 8D7A510F2B17CC8500397762 /* CircularProgress */; };
 		8D7A51122B17D10400397762 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51112B17D10400397762 /* TimePickerView.swift */; };
 		8D7A51142B17D7D300397762 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51132B17D7D300397762 /* RangePicker.swift */; };
-		8D7A51182B18855C00397762 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51172B18855C00397762 /* TimerViewModel.swift */; };
-		8D7A511A2B18AA2000397762 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51192B18AA2000397762 /* TimerService.swift */; };
 		8D7A511C2B18BC2700397762 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */; };
@@ -125,6 +123,9 @@
 		8DAE9AE22B22D0C900FA1365 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AE12B22D0C900FA1365 /* ChartView.swift */; };
 		8DAE9AE52B22D16200FA1365 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8DAE9AE42B22D16200FA1365 /* SwiftUICharts */; };
 		8DAE9AE72B22D17B00FA1365 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8DAE9AE62B22D17B00FA1365 /* SwiftUICharts */; };
+		8DAE9AF52B26916000FA1365 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */; };
+		8DAE9AF72B2699F700FA1365 /* TimeInterval+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */; };
+		8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF82B269E5700FA1365 /* TimerMode.swift */; };
 		8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */; };
 		8DC05EFD2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */; };
 		8DC05EFF2B1D6ADD0070A117 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */; };
@@ -198,8 +199,6 @@
 		8D7A510C2B171C5800397762 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		8D7A51112B17D10400397762 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		8D7A51132B17D7D300397762 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
-		8D7A51172B18855C00397762 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		8D7A51192B18AA2000397762 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
@@ -214,6 +213,9 @@
 		8DADB7A92B15A1D70070A68D /* ActivityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityButton.swift; sourceTree = "<group>"; };
 		8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailView.swift; sourceTree = "<group>"; };
 		8DAE9AE12B22D0C900FA1365 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Ext.swift"; sourceTree = "<group>"; };
+		8DAE9AF82B269E5700FA1365 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
 		8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientSuggestionViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				8D00F9CE2B04AD8F00FFD541 /* NetworkError.swift */,
 				8DADB7A72B154EED0070A68D /* Activity.swift */,
 				8D4307902B18E2F10095CBC7 /* UDKey.swift */,
+				8DAE9AF82B269E5700FA1365 /* TimerMode.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			children = (
 				8D00F9D52B04C57400FFD541 /* String.swift */,
 				8DD6AD7A2B21EA7000C8364E /* Date+Ext.swift */,
+				8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,7 +432,7 @@
 		8D2450A62AF37E3100CA248F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				8D7A510B2B171C4400397762 /* Timer */,
+				8D7A510B2B171C4400397762 /* Chrono */,
 				8D00FA902B06481900FFD541 /* Exercise */,
 				8D00F9C12B01ACB800FFD541 /* Ingredient */,
 				8D00F9BE2B0059E200FFD541 /* Home */,
@@ -589,13 +593,13 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		8D7A510B2B171C4400397762 /* Timer */ = {
+		8D7A510B2B171C4400397762 /* Chrono */ = {
 			isa = PBXGroup;
 			children = (
 				8DD6AD7F2B2225A200C8364E /* View */,
 				8DD6AD7E2B22258600C8364E /* ViewModel */,
 			);
-			path = Timer;
+			path = Chrono;
 			sourceTree = "<group>";
 		};
 		8DA4E4A72AB3F3E300971E19 /* Views */ = {
@@ -639,7 +643,7 @@
 		8DD6AD7E2B22258600C8364E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8D7A51172B18855C00397762 /* TimerViewModel.swift */,
+				8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -668,7 +672,6 @@
 				8DDC05AC2ABC3E7100287D4F /* APIService.swift */,
 				8D6D55662AD65D4700B9BA7F /* LocationService.swift */,
 				8D6D55752AD7CD4700B9BA7F /* PushNotificationService.swift */,
-				8D7A51192B18AA2000397762 /* TimerService.swift */,
 				8D43078E2B18CFB80095CBC7 /* UserDefaultService.swift */,
 			);
 			path = Service;
@@ -826,7 +829,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD6AD792B20F33800C8364E /* RecordModel.xcdatamodeld in Sources */,
-				8D7A51182B18855C00397762 /* TimerViewModel.swift in Sources */,
 				8D156A1F2AFC3A0200E22283 /* User.swift in Sources */,
 				8D7A51142B17D7D300397762 /* RangePicker.swift in Sources */,
 				8D2450B02AF3864500CA248F /* RegistrationView.swift in Sources */,
@@ -872,12 +874,12 @@
 				8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */,
 				8D7A0A672AFF263F002C92F7 /* EditTaskView.swift in Sources */,
 				8D4307952B1930D80095CBC7 /* EditActivityView.swift in Sources */,
+				8DAE9AF52B26916000FA1365 /* TimerViewModel.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D00F9BB2B002AC300FFD541 /* TasksView.swift in Sources */,
 				8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */,
 				8D4307912B18E2F10095CBC7 /* UDKey.swift in Sources */,
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
-				8D7A511A2B18AA2000397762 /* TimerService.swift in Sources */,
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
 				8DADB7A82B154EED0070A68D /* Activity.swift in Sources */,
 				8D7A510D2B171C5800397762 /* TimerView.swift in Sources */,
@@ -891,10 +893,12 @@
 				8D156A152AF73D6300E22283 /* UpdatePasswordView.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */,
 				8D4307972B1932920095CBC7 /* RecordManager.swift in Sources */,
+				8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
 				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
 				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
 				8D4307932B18F2590095CBC7 /* MyActivityView.swift in Sources */,
+				8DAE9AF72B2699F700FA1365 /* TimeInterval+Ext.swift in Sources */,
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
 				8D6D55762AD7CD4700B9BA7F /* PushNotificationService.swift in Sources */,
 				8D0407D22AFD65FE0067AB17 /* Priority.swift in Sources */,
