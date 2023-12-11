@@ -15,6 +15,7 @@ struct ActivityListView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.timestamp, order: .reverse)]) var food: FetchedResults<FoodEntity>
     @FetchRequest var water: FetchedResults<RecordEntity>
     @FetchRequest var weight: FetchedResults<RecordEntity>
+    @FetchRequest var steps: FetchedResults<RecordEntity>
     
     @StateObject var vm = ActivityViewModel()
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
@@ -43,19 +44,37 @@ struct ActivityListView: View {
         fetchRequest.sortDescriptors = [ NSSortDescriptor(keyPath: \RecordEntity.timestamp, ascending: false) ]
         fetchRequest.fetchLimit = 0
         _water = FetchRequest(fetchRequest: fetchRequest)
+        
+        predicate = NSPredicate(
+            format: "name CONTAINS[cd] %@ AND timestamp >= %@ AND timestamp <= %@",
+            Steps().name,
+            Date().startOfDay as NSDate,
+            Date().endOfDay as NSDate
+        )
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = [ NSSortDescriptor(keyPath: \RecordEntity.timestamp, ascending: false) ]
+        fetchRequest.fetchLimit = 0
+        _steps = FetchRequest(fetchRequest: fetchRequest)
     }
     
     var body: some View {
         VStack {
-            NavigationLink(destination: EditActivityView(activity: Weight())) {
-                ActivityCard(Weight(), start: Int(weight.first?.quantity ?? 0), end: 200, showProgress: false)
+            NavigationLink(destination: GeoConnectView().navigationBarTitleDisplayMode(.inline)) {
+                ActivityCard(Steps(), start: Int(steps.first?.quantity ?? 0), end: 200, showProgress: false)
             }
             .buttonStyle(PlainButtonStyle())
             
-            NavigationLink(destination: EditActivityView(activity: Water())) {
-                ActivityCard(Water(), start: water.reduce(0) { (result, record) in return result + Int(record.quantity) }, end: 8, showProgress: false)
+            HStack {
+                NavigationLink(destination: EditActivityView(activity: Weight())) {
+                    ActivityCard(Weight(), start: Int(weight.first?.quantity ?? 0), end: 200, showProgress: false, disableName: true)
+                }
+                .buttonStyle(PlainButtonStyle())
+                
+                NavigationLink(destination: EditActivityView(activity: Water())) {
+                    ActivityCard(Water(), start: water.reduce(0) { (result, record) in return result + Int(record.quantity) }, end: 8, showProgress: false, disableName: true)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
-            .buttonStyle(PlainButtonStyle())
             
             ActivityCard(Calories(), start: vm.todaysCalories, end: 1000, showProgress: false)
                 .onAppear { vm.getTodaysCalories(context: managedObjContext) }
