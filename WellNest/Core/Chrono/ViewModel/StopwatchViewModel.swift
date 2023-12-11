@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
+@MainActor
 class StopwatchViewModel : ObservableObject {
     @Published var elapsedTime: TimeInterval = 0
     @Published var displayMode: TimerMode = .setup
@@ -22,7 +23,9 @@ class StopwatchViewModel : ObservableObject {
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            self.elapsedTime += 1
+            DispatchQueue.main.async {
+                self.elapsedTime += 1
+            }
         }
     }
     
@@ -46,7 +49,6 @@ class StopwatchViewModel : ObservableObject {
         
         timer?.invalidate()
         timer = nil
-        elapsedTime = 0
     }
     
     func addRecord(_ entity: FetchedResults<ActivityEntity>.Element, context: NSManagedObjectContext) {
