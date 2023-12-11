@@ -127,12 +127,12 @@
       }
     },
     {
-      "identity" : "swiftuicharts",
+      "identity" : "swiftsoup",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/willdale/SwiftUICharts.git",
+      "location" : "https://github.com/scinfu/SwiftSoup.git",
       "state" : {
-        "revision" : "53a3a2f16730af6709283f83a9dc75a3dde252ff",
-        "version" : "2.10.2"
+        "revision" : "8b6cf29eead8841a1fa7822481cb3af4ddaadba6",
+        "version" : "2.6.1"
       }
     }
   ],
