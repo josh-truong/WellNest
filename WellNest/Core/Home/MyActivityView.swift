@@ -23,7 +23,7 @@ struct MyActivityView: View {
                                 .onTapGesture { info.toggle(context: managedObjContext) }
                         }
                         .onMove { fromOffsets, toOffset in
-                            
+                            print("\(fromOffsets) \(toOffset)")
                         }
                     }
                     .listRowSeparator(.hidden)
