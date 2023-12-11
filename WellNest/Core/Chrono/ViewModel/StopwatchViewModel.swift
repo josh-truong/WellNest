@@ -18,10 +18,10 @@ class StopwatchViewModel : ObservableObject {
     private var timer: Timer?
     
     func start() {
-        mode = .start
-        displayMode = .pause
+        self.mode = .start
+        self.displayMode = .pause
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.elapsedTime += 1
