@@ -10,7 +10,7 @@ import SwiftUI
 struct ChronoView: View {
     @Environment(\.dismiss) var dismiss
     @State var entity: FetchedResults<ActivityEntity>.Element
-    @State private var viewTag: Int = 1
+    @State private var viewTag: Int = 0
     @State private var showModal: Bool = false
     
     var body: some View {
@@ -40,11 +40,10 @@ struct ChronoView: View {
             }
             .sheet(isPresented: $showModal) {
                 ReminderView(entity: entity)
+                    .presentationDetents([.height(600)])
+                    .presentationCornerRadius(20)
             }
-            .onDisappear {
-                viewTag = 0
-                dismiss()
-            }
+            .onDisappear { dismiss() }
         }
     }
 }
