@@ -14,6 +14,7 @@ class PushNotificationService: ObservableObject {
     @Published var isDenied: Bool = false
     @Published var pendingNotificationRequests: [UNNotificationRequest] = []
 
+    @MainActor
     func getPendingNotificationRequests() {
         UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
             DispatchQueue.main.async {
