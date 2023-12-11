@@ -23,35 +23,48 @@ struct IngredientInfoView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                ItemRow(key: "Energy", value: "\(vm.info.energy) kcal")
-                ItemRow(key: "Protein", value: " \(vm.info.protein) g")
-                ItemRow(key: "Carbohydrates", value: "\(vm.info.carbohydrates) g")
-                if let carbohydratesSugar = vm.info.carbohydratesSugar{
-                    ItemRow(key: "Carbohydrates Sugar", value: "\(carbohydratesSugar) g")
-                }
-                ItemRow(key: "Fat", value: "\(vm.info.fat) g")
-                if let fatSaturated = vm.info.fatSaturated {
-                    ItemRow(key: "Fat Saturated", value: "\(fatSaturated) g")
-                }
-                if let fibres = vm.info.fibres {
-                    ItemRow(key: "Fibres", value: "\(fibres) g")
-                }
-                if let sodium = vm.info.sodium {
-                    ItemRow(key: "Sodium", value: "\(sodium) g")
-                }
-                Spacer()
-            }
-        }
-        .navigationTitle(vm.info.name.htmlAttributedString)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            if showAdd {
-                ToolbarItem {
-                    Button {
-                        FoodEntity().add(item: vm.info, context: managedObjContext)
-                        dismiss()
-                    } label: { Image(systemName: "plus") }
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Spacer()
+                    
+                    Text(vm.info.name.htmlAttributedString)
+                        .font(.headline)
+                        .padding()
+                
+                    ItemRow(key: "Energy", value: "\(vm.info.energy) kcal")
+                    ItemRow(key: "Protein", value: " \(vm.info.protein) g")
+                    ItemRow(key: "Carbohydrates", value: "\(vm.info.carbohydrates) g")
+                    if let carbohydratesSugar = vm.info.carbohydratesSugar{
+                        ItemRow(key: "Carbohydrates Sugar", value: "\(carbohydratesSugar) g")
+                    }
+                    ItemRow(key: "Fat", value: "\(vm.info.fat) g")
+                    if let fatSaturated = vm.info.fatSaturated {
+                        ItemRow(key: "Fat Saturated", value: "\(fatSaturated) g")
+                    }
+                    if let fibres = vm.info.fibres {
+                        ItemRow(key: "Fibres", value: "\(fibres) g")
+                    }
+                    if let sodium = vm.info.sodium {
+                        ItemRow(key: "Sodium", value: "\(sodium) g")
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        Button {
+                            FoodEntity().add(item: vm.info, context: managedObjContext)
+                            dismiss()
+                        } label: {
+                            Text("Add")
+                                .foregroundColor(.white)
+                                .frame(width: UIScreen.main.bounds.width-200, height: 48)
+                        }
+                        .background(Color(.systemBlue))
+                        .disabled(!showAdd)
+                        .opacity(showAdd ? 1.0 : 0.5)
+                        .cornerRadius(10)
+                        .padding(.top, 24)
+                        Spacer()
+                    }
                 }
             }
         }
