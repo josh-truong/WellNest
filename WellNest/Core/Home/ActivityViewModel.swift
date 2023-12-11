@@ -30,8 +30,8 @@ class ActivityViewModel : ObservableObject {
 
     func preload(context: NSManagedObjectContext) {
         let preloadActiveActivities: [ActivityInfo] = [
-            ActivityInfo(activity: Steps(), goal: 10000),
             ActivityInfo(activity: Running(), goal: 10000),
+            ActivityInfo(activity: Cycling(), goal: 300),
             ActivityInfo(activity: WeightLifting(), goal: 1000),
         ]
         
@@ -39,7 +39,6 @@ class ActivityViewModel : ObservableObject {
             ActivityInfo(activity: Soccer(), goal: 300),
             ActivityInfo(activity: Basketball(), goal: 300),
             ActivityInfo(activity: StairStepper(), goal: 300),
-            ActivityInfo(activity: Cycling(), goal: 300),
             ActivityInfo(activity: Hiking(), goal: 300)
         ]
         
