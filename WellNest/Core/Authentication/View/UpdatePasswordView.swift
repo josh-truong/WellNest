@@ -64,7 +64,7 @@ struct UpdatePasswordView: View {
                 
                 Button {
                     Task {
-                        try await viewModel.updatePassword(password: password)
+                        await viewModel.updatePassword(password: password)
                     }
                 } label: {
                     HStack {
