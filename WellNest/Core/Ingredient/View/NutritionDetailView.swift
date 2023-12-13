@@ -27,7 +27,7 @@ struct NutritionDetailView: View {
             
             Spacer()
         }
-        .padding()
         .navigationBarTitle("Food Details", displayMode: .inline)
+        .padding()
     }
 }
