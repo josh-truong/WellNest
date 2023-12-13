@@ -21,9 +21,8 @@ struct HomeView: View {
                 ActivityListView()
             }
             .navigationTitle("Activity List")
-            .profileNavBar()
+            .profile()
             .padding()
-            
         }
 
 //        NavigationStack(path: $path) {
