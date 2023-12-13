@@ -11,17 +11,16 @@ import Foundation
 class IngredientInfoViewModel: ObservableObject {
     @Published var info: WgerIngredientResult = .init()
     private let apiService: APIService = .shared
-    private var ingredient: WgerIngredientResult
     
-    init(_ info: WgerIngredientResult) {
-        self.ingredient = info
-    }
+//    init(_ info: WgerIngredientResult) {
+//        self.ingredient = info
+//    }
+//    
+//    init(_ suggestion: WgerIngredientSuggestion) {
+//        self.ingredient = WgerIngredientResult(id: suggestion.data?.id ?? 0)
+//    }
     
-    init(_ suggestion: WgerIngredientSuggestion) {
-        self.ingredient = WgerIngredientResult(id: suggestion.data?.id ?? 0)
-    }
-    
-    func getIngredientInfo(completion: @escaping (Bool) -> Void) async {
+    func getIngredientInfo(ingredient: WgerIngredientResult, completion: @escaping (Bool) -> Void) async {
         do {
             print("Requesting - \(ingredient.id)")
             let endpoint = try await WgerEndpoints.shared.getIngredientInfo(id: ingredient.id)
