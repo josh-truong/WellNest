@@ -13,19 +13,13 @@ struct DefaultIngredientView: View {
     @State private var showDetails: Bool = false
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(vm.suggestions, id: \.self)  { result in
-                    Button(result.name.htmlAttributedString, action: {
-                        selectedResult = result
-                        showDetails.toggle()
-                        print(selectedResult)
-                    })
-                }
+        List {
+            ForEach(vm.suggestions, id: \.self)  { result in
+                Button(result.name.htmlAttributedString, action: {
+                    selectedResult = result
+                    showDetails.toggle()
+                })
             }
-            .listStyle(.plain)
-            .onAppear { Task { await vm.getDefaultIngredients() } }
-            
             HStack{
                 Spacer()
                 ProgressView("Loading ...")

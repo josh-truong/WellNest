@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IngredientsView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var vm: IngredientViewModel = .init()
     @State private var searchTerm: String = ""
     @State private var isViewSearch: Bool = true
@@ -47,5 +48,6 @@ struct IngredientsView: View {
                 }
             }
         }
+        .onDisappear { dismiss() }
     }
 }
