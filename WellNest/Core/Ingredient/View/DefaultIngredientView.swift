@@ -9,27 +9,37 @@ import SwiftUI
 
 struct DefaultIngredientView: View {
     @StateObject var vm: DefaultIngredientSuggestionViewModel = .init()
+    @State private var selectedResult: WgerIngredientResult = .init()
+    @State private var showDetails: Bool = false
     
     var body: some View {
         VStack {
             List {
-                ForEach(vm.suggestions, id: \.self) { result in
-                    NavigationLink(destination: IngredientInfoView(result).navigationBarBackButtonHidden(true)) {
-                        Text(result.name.htmlAttributedString)
-                    }
-                }
-                HStack{
-                    Spacer()
-                    ProgressView("Loading ...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .onAppear() {
-                            
-                        }
-                    Spacer()
+                ForEach(vm.suggestions, id: \.self)  { result in
+                    Button(result.name.htmlAttributedString, action: {
+                        selectedResult = result
+                        showDetails.toggle()
+                        print(selectedResult)
+                    })
                 }
             }
-            .navigationDestination(for: TaskModel.self, destination: EditTaskView.init)
+            .listStyle(.plain)
             .onAppear { Task { await vm.getDefaultIngredients() } }
+            
+            HStack{
+                Spacer()
+                ProgressView("Loading ...")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .onAppear() {
+                        
+                    }
+                Spacer()
+            }
+        }
+        .listStyle(.plain)
+        .onAppear { Task { await vm.getDefaultIngredients() } }
+        .sheet(isPresented: $showDetails) {
+            IngredientInfoView(result: $selectedResult)
         }
     }
 }
