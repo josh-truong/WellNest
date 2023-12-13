@@ -8,27 +8,20 @@
 import SwiftUI
 
 struct UserProfileView: View {
-    var imageName: String?
-    var userName: String
+    let name: String
 
     var body: some View {
         VStack {
-            Image(systemName: "person.circle.fill") // Use the name of your profile image
+            Image(systemName: "person.circle.fill")
                 .resizable()
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 2))
                 .shadow(radius: 5)
 
-            Text(userName)
+            Text(name)
                 .font(.title)
                 .padding()
         }
-    }
-}
-
-struct UserProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserProfileView(imageName: "profile_image", userName: "John Doe")
     }
 }
