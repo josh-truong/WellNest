@@ -98,7 +98,3 @@ extension GeoLocationDetailsView {
         }
     }
 }
-
-#Preview {
-    GeoLocationDetailsView(mapSelection: .constant(nil), show: .constant(false), getDirections: .constant(false))
-}
