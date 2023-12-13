@@ -29,7 +29,7 @@ struct IngredientsView: View {
                     SearchIngredientsView(results: $vm.results)
                 }
             } else {
-                Text("Custom View")
+                CustomIngredientView()
             }
             Spacer()
         }
