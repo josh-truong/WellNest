@@ -12,14 +12,6 @@ class IngredientInfoViewModel: ObservableObject {
     @Published var info: WgerIngredientResult = .init()
     private let apiService: APIService = .shared
     
-//    init(_ info: WgerIngredientResult) {
-//        self.ingredient = info
-//    }
-//    
-//    init(_ suggestion: WgerIngredientSuggestion) {
-//        self.ingredient = WgerIngredientResult(id: suggestion.data?.id ?? 0)
-//    }
-    
     func getIngredientInfo(ingredient: WgerIngredientResult, completion: @escaping (Bool) -> Void) async {
         do {
             print("Requesting - \(ingredient.id)")
