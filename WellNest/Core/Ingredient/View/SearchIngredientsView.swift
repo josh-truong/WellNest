@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchIngredientsView: View {
     @Binding var results: [WgerIngredientSuggestion]
     
-    @State private var selectedIngredient: WgerIngredientSuggestion?
+    @State private var selectedIngredient: WgerIngredientResult = .init()
     @State private var showSheet: Bool = false
     
     var body: some View {
@@ -18,7 +18,7 @@ struct SearchIngredientsView: View {
             List {
                 ForEach(results, id: \.id) { result in
                     Button(result.data?.name ?? "", action: {
-                        selectedIngredient = result
+                        selectedIngredient = WgerIngredientResult(id: result.data?.id ?? 0)
                         showSheet.toggle()
                     })
                 }
@@ -28,11 +28,10 @@ struct SearchIngredientsView: View {
                 }
                 Spacer()
             }
+            .listStyle(.plain)
         }
         .sheet(isPresented: $showSheet) {
-            if let selectedIngredient = selectedIngredient {
-                IngredientInfoView(selectedIngredient)
-            }
+            IngredientInfoView(result: $selectedIngredient)
         }
     }
 }
