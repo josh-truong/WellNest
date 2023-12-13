@@ -55,8 +55,9 @@ struct GeoConnectView: View {
                     .stroke(.blue, lineWidth: 6)
             }
         }
+        
         .overlay(alignment: .top) {
-            TextField("", text: $searchText)
+            TextField("", text: $searchText, prompt: Text("Search here").foregroundStyle(.gray))
                 .font(.subheadline)
                 .padding(12)
                 .background(.white)
