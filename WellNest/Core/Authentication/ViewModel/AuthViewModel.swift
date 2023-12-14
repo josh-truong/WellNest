@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 
 protocol AuthenticationFormProtocol {
     var formIsValid: Bool { get }
