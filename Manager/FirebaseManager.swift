@@ -44,6 +44,41 @@ class FirebaseManager: ObservableObject {
     func stopListening() {
         listener?.remove()
     }
+    
+    func sendRequest(email: String, user: User, completion: @escaping (Bool) -> Void) async {
+        let users = Firestore.firestore().collection("users")
+        do {
+            let snapshot = try await users.whereField("email", isEqualTo: email).getDocuments()
+            for document in snapshot.documents {
+                if var friend = try? document.data(as: User.self) {
+                    if (!friend.requests.contains(user.id)) {
+                        friend.requests.append(user.id)
+                        try users.document(friend.id).setData(from: friend, merge: true)
+                        completion(true)
+                    }
+                }
+            }
+        } catch {
+            completion(false)
+        }
+    }
+    
+    func acceptRequest(id: String, user: User) async {
+        let users = Firestore.firestore().collection("users")
+        
+        var updatedUser = user
+        updatedUser.requests.removeAll { $0 == id }
+        updatedUser.friends.append(id)
+
+        do {
+            let userData = try JSONEncoder().encode(updatedUser)
+            let userDictionary = try JSONSerialization.jsonObject(with: userData) as? [String: Any]
+
+            try await users.document(user.id).setData(userDictionary ?? [:])
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 
     func addActivity(user: User, activity: FriendActivity) async {
         var activities = self.activities.reduce(into: [String: Any]()) { result, activity in

@@ -42,8 +42,26 @@ struct FriendsView: View {
                     Button("", systemImage: "plus", action: {
                         if let user = auth.currentUser {
                             Task {
-                                await firebase.addActivity(user: user, activity: FriendActivity(name: "Activity \(count)", image: "figure.walk", start: 10, end: 100, unit: "minutes"))
-                                count+=1
+                                await firebase.sendRequest(email: "joshktruong@gmail.com", user: user, completion: { status in
+                                    if (status) {
+                                        print("Request sent")
+                                    } else {
+                                        print("Request not sent")
+                                    }
+                                })
+                            }
+//                                await firebase.acceptRequest(id: user.requests.first ?? "", user: user)
+//                                await firebase.addActivity(user: user, activity: FriendActivity(name: "Activity \(count)", image: "figure.walk", start: 10, end: 100, unit: "minutes"))
+//                                count+=1
+                        }
+                    })
+                }
+                
+                ToolbarItem {
+                    Button("", systemImage: "circle", action: {
+                        if let user = auth.currentUser {
+                            Task {
+                                await firebase.acceptRequest(id: user.requests.first ?? "", user: user)
                             }
                         }
                     })
