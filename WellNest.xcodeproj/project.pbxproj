@@ -118,7 +118,6 @@
 		8DADB7A82B154EED0070A68D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A72B154EED0070A68D /* Activity.swift */; };
 		8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A92B15A1D70070A68D /* ActivityButton.swift */; };
 		8DAE9AE02B225DD800FA1365 /* NutritionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */; };
-		8DAE9AE22B22D0C900FA1365 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AE12B22D0C900FA1365 /* ChartView.swift */; };
 		8DAE9AF52B26916000FA1365 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */; };
 		8DAE9AF72B2699F700FA1365 /* TimeInterval+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */; };
 		8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF82B269E5700FA1365 /* TimerMode.swift */; };
@@ -217,7 +216,6 @@
 		8DADB7A72B154EED0070A68D /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8DADB7A92B15A1D70070A68D /* ActivityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityButton.swift; sourceTree = "<group>"; };
 		8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailView.swift; sourceTree = "<group>"; };
-		8DAE9AE12B22D0C900FA1365 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Ext.swift"; sourceTree = "<group>"; };
 		8DAE9AF82B269E5700FA1365 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 				8DADB7A52B1545210070A68D /* ActivityCard.swift */,
 				8DADB7A92B15A1D70070A68D /* ActivityButton.swift */,
 				8D7A51132B17D7D300397762 /* RangePicker.swift */,
-				8DAE9AE12B22D0C900FA1365 /* ChartView.swift */,
 				8DAE9B002B26D22900FA1365 /* ReminderCard.swift */,
 				8DAE9B052B2703BC00FA1365 /* ItemRow.swift */,
 				8DBE5E342B2A47B6000ECAC9 /* NumericInputView.swift */,
@@ -873,7 +870,6 @@
 				8D00F9C02B01976800FFD541 /* TaskDisplayView.swift in Sources */,
 				8DBE5E352B2A47B6000ECAC9 /* NumericInputView.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
-				8DAE9AE22B22D0C900FA1365 /* ChartView.swift in Sources */,
 				8D2450622AF357A400CA248F /* FirebaseManager.swift in Sources */,
 				8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */,
 				8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */,
