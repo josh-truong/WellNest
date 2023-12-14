@@ -73,7 +73,9 @@ struct ActivityCard: View {
                         Text("\(start) \\ \(end) \(activity.unit)")
                             .font(.system(size: 16))
                             .foregroundStyle(Color.gray)
-                        Spacer()
+                        if disableName {
+                            Spacer()
+                        }
                     }
                     
                     Image(systemName: activity.image)
