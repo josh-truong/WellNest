@@ -8,12 +8,48 @@
 import SwiftUI
 
 struct FriendsView: View {
-    var db: FirebaseManager = FirebaseManager()
-    @ObservedObject var locationDataManager = LocationDataManager()
-    
+//    var db: FirebaseManager = FirebaseManager()
+//    @ObservedObject var locationDataManager = LocationDataManager()
+    @EnvironmentObject var auth: AuthViewModel
+    @EnvironmentObject var firebase: FirebaseManager
+    @State var count = 0
     var body: some View {
         NavigationStack {
-            GeoConnectView()
+            List {
+                DisclosureGroup("Friend name", isExpanded: .constant(true)) {
+                    ForEach(firebase.activities, id: \.id) { activity in
+                        FriendActivityCard(name: activity.name, image: activity.image, start: activity.start, end: activity.end, unit: activity.name)
+                    }
+                }
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 16))
+            }
+            .padding()
+            .listStyle(.plain)
+            .onAppear {
+                if let user = auth.currentUser {
+                    firebase.startListening(user: user)
+                    Task {
+                        await firebase.fetchActivities(user: user)
+                    }
+                }
+            }
+            .onDisappear {
+                firebase.stopListening()
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button("", systemImage: "plus", action: {
+                        if let user = auth.currentUser {
+                            Task {
+                                await firebase.addActivity(user: user, activity: FriendActivity(name: "Activity \(count)", image: "figure.walk", start: 10, end: 100, unit: "minutes"))
+                                count+=1
+                            }
+                        }
+                    })
+                }
+            }
+            
 //            ScrollView {
 //                switch locationDataManager.authorizationStatus {
 //                    case .authorizedWhenInUse:  // Location services are available.
@@ -33,11 +69,5 @@ struct FriendsView: View {
 //            }
 //            .toolbarNavBar("Friends")
         }
-    }
-}
-
-struct MusicView_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendsView()
     }
 }
