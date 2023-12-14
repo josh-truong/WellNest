@@ -21,13 +21,15 @@ class AppDelegate : NSObject, UIApplicationDelegate {
 @main
 struct WellNestApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var auth: AuthViewModel = .init()
+    @StateObject var firebase: FirebaseManager = .init()
     @StateObject private var recordManager = RecordManager()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
+                .environmentObject(auth)
+                .environmentObject(firebase)
                 .environment(\.managedObjectContext, recordManager.persistentContainer.viewContext)
         }
         .modelContainer(for: TaskModel.self)
