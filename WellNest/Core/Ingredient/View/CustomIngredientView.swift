@@ -37,15 +37,15 @@ struct CustomIngredientView: View {
             ToolbarItem {
                 Button("add") {
                     var item: WgerIngredientResult = .init()
-//                    item.name = name
-//                    item.energy = energy
-//                    item.protein = String(protein) + ".00"
-//                    item.carbohydrates = String(carbohydrates) + ".00"
-//                    item.carbohydratesSugar = String(carbohydratesSugar) + ".00"
-//                    item.fat = String(fat) + ".00"
-//                    item.fatSaturated = String(fatSaturated) + ".00"
-//                    item.fibres = String(fibres) + ".00"
-//                    item.sodium = String(sodium) + ".00"
+                    item.name = name
+                    item.energy = energy
+                    item.protein = String(protein)
+                    item.carbohydrates = String(carbohydrates)
+                    item.carbohydratesSugar = String(carbohydratesSugar)
+                    item.fat = String(fat)
+                    item.fatSaturated = String(fatSaturated)
+                    item.fibres = String(fibres)
+                    item.sodium = String(sodium)
                     FoodEntity().add(item: item, context: managedObjContext)
                     dismiss()
                 }
