@@ -38,7 +38,7 @@ struct EditActivityView: View {
                     .keyboardType(.numberPad)
                     .onChange(of: input) { input = input.filter { "0123456789".contains($0) } }
             }
-            .background(activity.color.opacity(0.4))
+            .background(activity.color.opacity(0.3))
 
             List {
                 ForEach(entries) { entry in
