@@ -43,19 +43,4 @@ final class AuthenticationService {
     func deleteAccount(user: FirebaseAuth.User) async throws {
         try await user.delete()
     }
-    
-    func updateEmail(user: FirebaseAuth.User, to: String) {
-        //try await user.updateEmail(to: to)
-        user.sendEmailVerification(beforeUpdatingEmail: to) { error in
-            if let error = error {
-                print("\(error.localizedDescription)")
-            } else {
-                print("Verification link sent")
-            }
-        }
-    }
-    
-    func updatePassword(user: FirebaseAuth.User, to: String) async throws {
-        try await user.updatePassword(to: to)
-    }
 }
