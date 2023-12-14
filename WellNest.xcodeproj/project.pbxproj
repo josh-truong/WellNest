@@ -22,8 +22,6 @@
 		8D00FA9D2B064A6F00FFD541 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8D00FA9C2B064A6F00FFD541 /* FirebaseAppCheck */; };
 		8D0407C82AFD61DC0067AB17 /* ReauthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0407C72AFD61DC0067AB17 /* ReauthenticationView.swift */; };
 		8D0407D22AFD65FE0067AB17 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0407D12AFD65FE0067AB17 /* Priority.swift */; };
-		8D156A132AF7241300E22283 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A122AF7241300E22283 /* UpdateProfileView.swift */; };
-		8D156A152AF73D6300E22283 /* UpdatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */; };
 		8D156A172AFC2FD100E22283 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A162AFC2FD100E22283 /* ProfileView.swift */; };
 		8D156A1A2AFC365F00E22283 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A192AFC365F00E22283 /* AuthenticationService.swift */; };
 		8D156A1F2AFC3A0200E22283 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D156A1E2AFC3A0200E22283 /* User.swift */; };
@@ -156,8 +154,6 @@
 		8D00F9D52B04C57400FFD541 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		8D0407C72AFD61DC0067AB17 /* ReauthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticationView.swift; sourceTree = "<group>"; };
 		8D0407D12AFD65FE0067AB17 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
-		8D156A122AF7241300E22283 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
-		8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordView.swift; sourceTree = "<group>"; };
 		8D156A162AFC2FD100E22283 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8D156A192AFC365F00E22283 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		8D156A1E2AFC3A0200E22283 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -519,8 +515,6 @@
 			children = (
 				8D2450AA2AF37E9C00CA248F /* LoginView.swift */,
 				8D2450AF2AF3864500CA248F /* RegistrationView.swift */,
-				8D156A122AF7241300E22283 /* UpdateProfileView.swift */,
-				8D156A142AF73D6300E22283 /* UpdatePasswordView.swift */,
 				8D0407C72AFD61DC0067AB17 /* ReauthenticationView.swift */,
 			);
 			path = View;
@@ -884,7 +878,6 @@
 				8DAE9B082B277FF900FA1365 /* SearchIngredientsView.swift in Sources */,
 				8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */,
 				8D6D55702AD665FB00B9BA7F /* GeoConnectView.swift in Sources */,
-				8D156A132AF7241300E22283 /* UpdateProfileView.swift in Sources */,
 				8DBE5E2F2B2A2117000ECAC9 /* ProfileToolbarModifier.swift in Sources */,
 				8DC05EFF2B1D6ADD0070A117 /* ReminderView.swift in Sources */,
 				8D2450B22AF38ABC00CA248F /* ProfileSettingsView.swift in Sources */,
@@ -917,7 +910,6 @@
 				8DD6AD7B2B21EA7000C8364E /* Date+Ext.swift in Sources */,
 				8DAE9B062B2703BC00FA1365 /* ItemRow.swift in Sources */,
 				8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */,
-				8D156A152AF73D6300E22283 /* UpdatePasswordView.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */,
 				8D4307972B1932920095CBC7 /* RecordManager.swift in Sources */,
 				8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */,
