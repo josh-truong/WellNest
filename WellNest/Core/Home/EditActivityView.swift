@@ -29,6 +29,7 @@ struct EditActivityView: View {
         VStack {
             VStack {
                 TextField("Enter value", text: $input)
+                    .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
                     .font(.title)
                     .padding(.horizontal)
