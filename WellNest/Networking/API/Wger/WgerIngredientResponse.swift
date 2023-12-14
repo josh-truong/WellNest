@@ -18,17 +18,17 @@ struct WgerIngredientResult: Codable, Hashable {
     var id: Int
     let uuid: UUID
     let code: String?
-    let name: String
+    var name: String
     var created: String
     let lastUpdate: String
-    let energy: Int
-    let protein: String
-    let carbohydrates: String
-    let carbohydratesSugar: String?
-    let fat: String
-    let fatSaturated: String?
-    let fibres: String?
-    let sodium: String?
+    var energy: Int
+    var protein: String
+    var carbohydrates: String
+    var carbohydratesSugar: String?
+    var fat: String
+    var fatSaturated: String?
+    var fibres: String?
+    var sodium: String?
     let license: Int?
     let licenseTitle: String?
     let licenseObjectURL: String?
