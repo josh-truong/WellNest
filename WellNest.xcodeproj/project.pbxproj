@@ -132,6 +132,7 @@
 		8DBE5E2F2B2A2117000ECAC9 /* ProfileToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBE5E2E2B2A2117000ECAC9 /* ProfileToolbarModifier.swift */; };
 		8DBE5E332B2A448E000ECAC9 /* CustomIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBE5E322B2A448E000ECAC9 /* CustomIngredientView.swift */; };
 		8DBE5E352B2A47B6000ECAC9 /* NumericInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBE5E342B2A47B6000ECAC9 /* NumericInputView.swift */; };
+		8DBE5E372B2AD398000ECAC9 /* PermActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBE5E362B2AD398000ECAC9 /* PermActivityView.swift */; };
 		8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */; };
 		8DC05EFD2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */; };
 		8DC05EFF2B1D6ADD0070A117 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */; };
@@ -229,6 +230,7 @@
 		8DBE5E2E2B2A2117000ECAC9 /* ProfileToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileToolbarModifier.swift; sourceTree = "<group>"; };
 		8DBE5E322B2A448E000ECAC9 /* CustomIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIngredientView.swift; sourceTree = "<group>"; };
 		8DBE5E342B2A47B6000ECAC9 /* NumericInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputView.swift; sourceTree = "<group>"; };
+		8DBE5E362B2AD398000ECAC9 /* PermActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermActivityView.swift; sourceTree = "<group>"; };
 		8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIngredientSuggestionViewModel.swift; sourceTree = "<group>"; };
 		8DC05EFE2B1D6ADD0070A117 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */,
 				8D4307922B18F2590095CBC7 /* MyActivityView.swift */,
 				8D4307942B1930D80095CBC7 /* EditActivityView.swift */,
+				8DBE5E362B2AD398000ECAC9 /* PermActivityView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -921,6 +924,7 @@
 				8DAE9AFD2B26A23D00FA1365 /* StopwatchViewModel.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
 				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
+				8DBE5E372B2AD398000ECAC9 /* PermActivityView.swift in Sources */,
 				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
 				8D4307932B18F2590095CBC7 /* MyActivityView.swift in Sources */,
 				8DAE9AF72B2699F700FA1365 /* TimeInterval+Ext.swift in Sources */,
