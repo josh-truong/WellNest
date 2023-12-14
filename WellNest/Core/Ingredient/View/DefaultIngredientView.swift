@@ -31,7 +31,7 @@ struct DefaultIngredientView: View {
             }
         }
         .listStyle(.plain)
-        .onAppear { Task { await vm.getDefaultIngredients() } }
+        .task{ await vm.getDefaultIngredients() }
         .sheet(isPresented: $showDetails) {
             IngredientInfoView(result: $selectedResult)
         }
