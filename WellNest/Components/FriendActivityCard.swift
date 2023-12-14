@@ -14,11 +14,6 @@ struct FriendActivityCard: View {
     let end: Int
     let unit: String
     private let color: Color = Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1))
-    private var progressPercentage: CGFloat {
-        guard end != 0 else { return 0 }
-        if start >= end { return CGFloat(1.0) }
-        return CGFloat(start) / CGFloat(end)
-    }
     
     var body: some View {
         ZStack {
@@ -36,9 +31,6 @@ struct FriendActivityCard: View {
                     Image(systemName: image)
                         .foregroundStyle(color)
                 }
-                
-                ProgressView(value: progressPercentage)
-                    .tint(color)
             }
             .padding()
         }

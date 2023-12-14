@@ -12,6 +12,7 @@ struct FriendActivity: Identifiable, Encodable, Decodable {
     var unit: String = ""
 }
 
+@MainActor
 class FirebaseManager: ObservableObject {
     private var db = Firestore.firestore()
     @Published var activities: [FriendActivity] = []
@@ -26,11 +27,15 @@ class FirebaseManager: ObservableObject {
                     return
                 }
 
-                if let activity = try? snapshot.data(as: FriendActivity.self) {
-                    if let index = self.activities.firstIndex(where: { $0.id == activity.id }) {
-                        self.activities[index] = activity
-                    } else {
-                        self.activities.append(activity)
+                if let data = snapshot.data() {
+                    let activitiesData = data["activities"] as? [String: Any] ?? [:]
+
+                    let activities = activitiesData.compactMap { key, value in
+                        try? Firestore.Decoder().decode(FriendActivity.self, from: value)
+                    }
+
+                    DispatchQueue.main.async {
+                        self.activities = activities
                     }
                 }
             }
@@ -41,24 +46,42 @@ class FirebaseManager: ObservableObject {
     }
 
     func addActivity(user: User, activity: FriendActivity) async {
-        if let activity = activity.toDictionary {
-            do {
-                try await Firestore.firestore().collection("activities").document(user.id).setData(activity)
-            } catch {
-                print("\(error.localizedDescription)")
-            }
+        var activities = self.activities.reduce(into: [String: Any]()) { result, activity in
+            result[activity.name] = try? Firestore.Encoder().encode(activity)
+        }
+        activities[activity.name] = try? Firestore.Encoder().encode(activity)
+
+        do {
+            try await Firestore.firestore().collection("activities").document(user.id).setData(["activities": activities])
+        } catch {
+            print("\(error.localizedDescription)")
         }
     }
 
     func deleteActivity(user: User, activityID: String) async {
-        try? await Firestore.firestore().collection("activities").document(user.id).delete()
+        var activities = self.activities.reduce(into: [String: Any]()) { result, activity in
+            result[activity.name] = try? Firestore.Encoder().encode(activity)
+        }
+        activities[activityID] = nil
+
+        do {
+            try await Firestore.firestore().collection("activities").document(user.id).setData(["activities": activities])
+        } catch {
+            print("\(error.localizedDescription)")
+        }
     }
 
     func fetchActivities(user: User) async {
         do {
             let snapshot = try await Firestore.firestore().collection("activities").document(user.id).getDocument()
-            let activity = try snapshot.data(as: FriendActivity.self)
-            self.activities = [activity]
+            let data = snapshot.data() ?? [:]
+            let activitiesData = data["activities"] as? [String: Any] ?? [:]
+
+            let activities = activitiesData.compactMap { key, value in
+                try? Firestore.Decoder().decode(FriendActivity.self, from: value)
+            }
+
+            self.activities = activities
         } catch {
             self.activities = []
             print("Error fetching activities: \(error.localizedDescription)")
