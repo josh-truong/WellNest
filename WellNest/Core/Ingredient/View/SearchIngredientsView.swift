@@ -16,11 +16,13 @@ struct SearchIngredientsView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(results, id: \.id) { result in
-                    Button(result.data?.name ?? "", action: {
-                        selectedIngredient = WgerIngredientResult(id: result.data?.id ?? 0)
-                        showSheet.toggle()
-                    })
+                ForEach(results, id: \.self) { result in
+                    if let data = result.data {
+                        Button(data.name, action: {
+                            selectedIngredient = WgerIngredientResult(id: data.id)
+                            showSheet.toggle()
+                        })
+                    }
                 }
                 HStack(alignment: .center) {
                     ProgressView("Loading ...")
