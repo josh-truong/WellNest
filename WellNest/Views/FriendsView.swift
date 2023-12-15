@@ -33,6 +33,9 @@ struct FriendsView: View {
                     .padding()
                 }
                 List {
+                    ForEach(firebase.currentUser.friends, id: \.self) { friend in
+                        Text(friend)
+                    }
                     DisclosureGroup("Friend name", isExpanded: .constant(true)) {
                         ForEach(firebase.activities, id: \.id) { activity in
                             FriendActivityCard(name: activity.name, image: activity.image, start: activity.start, end: activity.end, unit: activity.name)
