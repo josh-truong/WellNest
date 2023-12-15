@@ -10,6 +10,7 @@ import SwiftData
 import CoreData
 
 struct ActivityListView: View {
+    @EnvironmentObject var firebase: FirebaseManager
     @Environment(\.managedObjectContext) var managedObjContext
     @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "active == true")) var activities: FetchedResults<ActivityEntity>
     @FetchRequest(sortDescriptors: [SortDescriptor(\.timestamp, order: .reverse)]) var food: FetchedResults<FoodEntity>
@@ -38,6 +39,7 @@ struct ActivityListView: View {
         }
         .onAppear() {
             vm.preload(context: managedObjContext)
+            
         }
     }
 }

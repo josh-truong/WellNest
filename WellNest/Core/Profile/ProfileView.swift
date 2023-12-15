@@ -12,7 +12,7 @@ struct ProfileView: View {
     
     var body: some View {
         HStack {
-            Text(user.initials)
+            Text(user.fullname.initals)
                 .font(.title)
                 .fontWeight(.semibold)
                 .foregroundStyle(.white)

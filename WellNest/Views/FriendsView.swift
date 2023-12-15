@@ -6,86 +6,89 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct FriendsView: View {
-//    var db: FirebaseManager = FirebaseManager()
-//    @ObservedObject var locationDataManager = LocationDataManager()
-    @EnvironmentObject var auth: AuthViewModel
     @EnvironmentObject var firebase: FirebaseManager
-    @State var count = 0
+    @State private var showAdd: Bool = false
+    @State private var friendEmail: String = ""
+    
     var body: some View {
         NavigationStack {
-            List {
-                DisclosureGroup("Friend name", isExpanded: .constant(true)) {
-                    ForEach(firebase.activities, id: \.id) { activity in
-                        FriendActivityCard(name: activity.name, image: activity.image, start: activity.start, end: activity.end, unit: activity.name)
+            VStack {
+                if showAdd {
+                    HStack {
+                        TextField("Search by email", text: $friendEmail)
+                            .textFieldStyle(.roundedBorder)
+                            .autocorrectionDisabled(true)
+                            .textInputAutocapitalization(.never)
+                        Spacer()
+                        Button("", systemImage: "arrow.right", action: {
+                            Task {
+                                await firebase.sendRequest(email: friendEmail)
+                            }
+                            showAdd.toggle()
+                        })
                     }
+                    .padding()
                 }
-                .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 16))
+                List {
+                    DisclosureGroup("Friend name", isExpanded: .constant(true)) {
+                        ForEach(firebase.activities, id: \.id) { activity in
+                            FriendActivityCard(name: activity.name, image: activity.image, start: activity.start, end: activity.end, unit: activity.name)
+                        }
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 16))
+                }
+                .padding()
+                .listStyle(.plain)
             }
-            .padding()
-            .listStyle(.plain)
             .onAppear {
-                if let user = auth.currentUser {
-                    firebase.startListening(user: user)
-                    Task {
-                        await firebase.fetchActivities(user: user)
-                    }
-                }
+                firebase.startListening()
             }
             .onDisappear {
                 firebase.stopListening()
             }
+            .task {
+//                await firebase.fetchActivities()
+            }
             .toolbar {
                 ToolbarItem {
-                    Button("", systemImage: "plus", action: {
-                        if let user = auth.currentUser {
-                            Task {
-                                await firebase.sendRequest(email: "joshktruong@gmail.com", user: user, completion: { status in
-                                    if (status) {
-                                        print("Request sent")
-                                    } else {
-                                        print("Request not sent")
-                                    }
-                                })
-                            }
-//                                await firebase.acceptRequest(id: user.requests.first ?? "", user: user)
-//                                await firebase.addActivity(user: user, activity: FriendActivity(name: "Activity \(count)", image: "figure.walk", start: 10, end: 100, unit: "minutes"))
-//                                count+=1
-                        }
-                    })
+                    Button("\(firebase.currentUser.requests.count)", systemImage: "person.badge.plus", action: { showAdd.toggle() })
                 }
-                
                 ToolbarItem {
-                    Button("", systemImage: "circle", action: {
-                        if let user = auth.currentUser {
-                            Task {
-                                await firebase.acceptRequest(id: user.requests.first ?? "", user: user)
+                    Button {
+                        Task {
+                            if let id = firebase.currentUser.requests.first {
+                                await firebase.acceptRequest(id: id)
                             }
                         }
-                    })
+                        print(firebase.currentUser.requests)
+                    } label: {
+                        Image(systemName: "bell")
+                    }
+                    .foregroundStyle(firebase.currentUser.requests.isEmpty ? Color.blue : Color.green)
                 }
             }
-            
-//            ScrollView {
-//                switch locationDataManager.authorizationStatus {
-//                    case .authorizedWhenInUse:  // Location services are available.
-//            //            if let currentCoord = locationDataManager.currentCoord {
-//            //                GeoConnectView(vm: viewModel)
-//            //            }
-//                        
-//                    case .restricted, .denied:  // Location services currently unavailable.
-//                        //Text("Current location data was restricted or denied.")
-//                        NoLocationView()
-//                    case .notDetermined:        // Authorization not determined yet.
-//                        Text("Finding your location...")
-//                        ProgressView()
-//                    default:
-//                        ProgressView()
-//                }
-//            }
-//            .toolbarNavBar("Friends")
         }
     }
 }
+
+//await firebase.addActivity(user: user, activity: FriendActivity(name: "Activity \(count)", image: "figure.walk", start: 10, end: 100, unit: "minutes"))
+
+//switch locationDataManager.authorizationStatus {
+//    case .authorizedWhenInUse:  // Location services are available.
+////            if let currentCoord = locationDataManager.currentCoord {
+////                GeoConnectView(vm: viewModel)
+////            }
+//
+//    case .restricted, .denied:  // Location services currently unavailable.
+//        //Text("Current location data was restricted or denied.")
+//        NoLocationView()
+//    case .notDetermined:        // Authorization not determined yet.
+//        Text("Finding your location...")
+//        ProgressView()
+//    default:
+//        ProgressView()
+//}

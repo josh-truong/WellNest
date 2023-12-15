@@ -2,6 +2,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseAuth
 
 struct FriendActivity: Identifiable, Encodable, Decodable {
     var id: Int { return UUID().hashValue }
@@ -14,13 +15,17 @@ struct FriendActivity: Identifiable, Encodable, Decodable {
 
 @MainActor
 class FirebaseManager: ObservableObject {
-    private var db = Firestore.firestore()
     @Published var activities: [FriendActivity] = []
+    @Published var currentUser: User = .init()
+    
+    private var db = Firestore.firestore()
+    private var activityListener: ListenerRegistration?
+    private var userListener: ListenerRegistration?
 
-    private var listener: ListenerRegistration?
-
-    func startListening(user: User) {
-        listener = Firestore.firestore().collection("activities").document(user.id)
+    func startListening() {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        activityListener = Firestore.firestore().collection("activities").document(user.uid)
             .addSnapshotListener { snapshot, error in
                 guard let snapshot = snapshot else {
                     print("Error fetching snapshot: \(error?.localizedDescription ?? "Unknown error")")
@@ -39,42 +44,74 @@ class FirebaseManager: ObservableObject {
                     }
                 }
             }
+        
+        userListener = Firestore.firestore().collection("users").document(user.uid)
+            .addSnapshotListener { snapshot, error in
+                guard let snapshot = snapshot else {
+                    print("Error fetching snapshot: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+
+                do {
+                    let data = try snapshot.data(as: User.self)
+                    DispatchQueue.main.async {
+                        self.currentUser = data
+                    }
+                } catch {
+                    print("Error decoding activity data: \(error.localizedDescription)")
+                }
+            }
     }
 
     func stopListening() {
-        listener?.remove()
+        activityListener?.remove()
     }
     
-    func sendRequest(email: String, user: User, completion: @escaping (Bool) -> Void) async {
+    func findUserByEmail(_ email: String) async -> User? {
         let users = Firestore.firestore().collection("users")
+
         do {
             let snapshot = try await users.whereField("email", isEqualTo: email).getDocuments()
+
             for document in snapshot.documents {
-                if var friend = try? document.data(as: User.self) {
-                    if (!friend.requests.contains(user.id)) {
-                        friend.requests.append(user.id)
-                        try users.document(friend.id).setData(from: friend, merge: true)
-                        completion(true)
-                    }
+                if let user = try? document.data(as: User.self) {
+                    return user
                 }
             }
+            return nil
         } catch {
-            completion(false)
+            return nil
         }
     }
     
-    func acceptRequest(id: String, user: User) async {
+    func sendRequest(email: String) async {
+        let users = Firestore.firestore().collection("users")
+        do {
+            if var friend = await findUserByEmail(email) {
+                if (!friend.requests.contains(currentUser.id) && !friend.friends.contains(currentUser.id)) {
+                    friend.requests.append(currentUser.id)
+                    try users.document(friend.id).setData(from: friend, merge: true)
+                }
+            }
+        } catch {
+            print("Friend request failed! \(error.localizedDescription)")
+        }
+    }
+    
+    func acceptRequest(id: String) async {
         let users = Firestore.firestore().collection("users")
         
-        var updatedUser = user
+        var updatedUser = currentUser
         updatedUser.requests.removeAll { $0 == id }
         updatedUser.friends.append(id)
 
         do {
             let userData = try JSONEncoder().encode(updatedUser)
             let userDictionary = try JSONSerialization.jsonObject(with: userData) as? [String: Any]
-
-            try await users.document(user.id).setData(userDictionary ?? [:])
+            
+            if !currentUser.friends.contains(id) {
+                try await users.document(currentUser.id).setData(userDictionary ?? [:])
+            }
         } catch {
             print(error.localizedDescription)
         }
@@ -106,9 +143,9 @@ class FirebaseManager: ObservableObject {
         }
     }
 
-    func fetchActivities(user: User) async {
+    func fetchActivities() async {
         do {
-            let snapshot = try await Firestore.firestore().collection("activities").document(user.id).getDocument()
+            let snapshot = try await Firestore.firestore().collection("activities").document(currentUser.id).getDocument()
             let data = snapshot.data() ?? [:]
             let activitiesData = data["activities"] as? [String: Any] ?? [:]
 
