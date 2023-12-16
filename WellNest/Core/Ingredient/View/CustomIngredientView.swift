@@ -22,16 +22,22 @@ struct CustomIngredientView: View {
     @State private var sodium: Int = 0
     
     var body: some View {
-        VStack {
-            InputView(text: $name, title: "Food", placeholder: "Enter food name")
-            NumericInputView(input: $energy, title: "Energy", placeholder: "Enter energy")
-            NumericInputView(input: $protein, title: "Protein", placeholder: "Enter protein")
-            NumericInputView(input: $carbohydrates, title: "Carbohydrates", placeholder: "Enter carbohydrates")
-            NumericInputView(input: $carbohydratesSugar, title: "Carbohydrates (Sugar)", placeholder: "Enter sugar content")
-            NumericInputView(input: $fat, title: "Fat", placeholder: "Enter fat")
-            NumericInputView(input: $fatSaturated, title: "Saturated Fat", placeholder: "Enter saturated fat")
-            NumericInputView(input: $fibres, title: "Fibres", placeholder: "Enter fibres")
-            NumericInputView(input: $sodium, title: "Sodium", placeholder: "Enter sodium")
+        ScrollView {
+            VStack {
+                InputView(text: $name, title: "Food *", placeholder: "Enter food name")
+                    .textFieldStyle(.roundedBorder)
+                NumericInputView(input: $energy, title: "Calories", placeholder: "Enter calories")
+                DisclosureGroup("Add nutrients") {
+                    NumericInputView(input: $protein, title: "Protein", placeholder: "Enter protein")
+                    NumericInputView(input: $carbohydrates, title: "Carbohydrates", placeholder: "Enter carbohydrates")
+                    NumericInputView(input: $carbohydratesSugar, title: "Carbohydrates (Sugar)", placeholder: "Enter sugar content")
+                    NumericInputView(input: $fat, title: "Fat", placeholder: "Enter fat")
+                    NumericInputView(input: $fatSaturated, title: "Saturated Fat", placeholder: "Enter saturated fat")
+                    NumericInputView(input: $fibres, title: "Fibres", placeholder: "Enter fibres")
+                    NumericInputView(input: $sodium, title: "Sodium", placeholder: "Enter sodium")
+                }
+                .padding(.top)
+            }
         }
         .toolbar {
             ToolbarItem {
@@ -49,8 +55,16 @@ struct CustomIngredientView: View {
                     FoodEntity().add(item: item, context: managedObjContext)
                     dismiss()
                 }
+                .disabled(!formIsValid)
             }
         }
         .padding()
+    }
+}
+
+extension CustomIngredientView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !name.isEmpty
+        && energy >= 0
     }
 }
