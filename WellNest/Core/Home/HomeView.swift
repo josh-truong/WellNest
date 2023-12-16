@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
+    @EnvironmentObject var chrono: ChronoViewModel
     @StateObject var vm = ActivityViewModel()
     
     
@@ -16,7 +17,12 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 PermActivityView(vm: vm)
-                ActivityListView(vm: vm)
+                
+                if !chrono.isRunning {
+                    ActivityListView(vm: vm)
+                } else {
+                    TimerCard()
+                }
             }
             .navigationTitle("Activity List")
             .profile()
