@@ -82,7 +82,6 @@
 		8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */; };
 		8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */; };
 		8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */; };
-		8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */; };
 		8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243D2AB350260008447E /* WellNestApp.swift */; };
 		8D4C24402AB350260008447E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C243F2AB350260008447E /* ContentView.swift */; };
 		8D4C24422AB350260008447E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C24412AB350260008447E /* Assets.xcassets */; };
@@ -106,13 +105,18 @@
 		8D7A511C2B18BC2700397762 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */; };
-		8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */; };
 		8DA4160A2B2D727100AC2E43 /* ChronoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416092B2D727100AC2E43 /* ChronoModel.swift */; };
 		8DA4160C2B2D760F00AC2E43 /* ChronoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4160B2B2D760F00AC2E43 /* ChronoViewModel.swift */; };
 		8DA416132B2D7E2600AC2E43 /* ChronoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416122B2D7E2600AC2E43 /* ChronoProtocol.swift */; };
 		8DA416152B2D806700AC2E43 /* ChronoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416142B2D806700AC2E43 /* ChronoType.swift */; };
 		8DA416172B2D930400AC2E43 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416162B2D930400AC2E43 /* TimeModel.swift */; };
 		8DA416192B2DA04600AC2E43 /* TimerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416182B2DA04600AC2E43 /* TimerCard.swift */; };
+		8DA4161B2B2E110400AC2E43 /* MealtimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4161A2B2E110400AC2E43 /* MealtimeCard.swift */; };
+		8DA4161D2B2E164200AC2E43 /* MealtimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4161C2B2E164200AC2E43 /* MealtimeType.swift */; };
+		8DA4161F2B2E19AD00AC2E43 /* SubtitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4161E2B2E19AD00AC2E43 /* SubtitleModifier.swift */; };
+		8DA416212B2E1A4A00AC2E43 /* TitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416202B2E1A4A00AC2E43 /* TitleStyle.swift */; };
+		8DA416242B2E1B5700AC2E43 /* MealtimeNutrientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416232B2E1B5700AC2E43 /* MealtimeNutrientModel.swift */; };
+		8DA416262B2E1D1F00AC2E43 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416252B2E1D1F00AC2E43 /* CGFloat+Ext.swift */; };
 		8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AA2AB3F56000971E19 /* HomeView.swift */; };
 		8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */; };
 		8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */; };
@@ -182,7 +186,6 @@
 		8D43D7B72ABD353F0022F711 /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
 		8D43D7B92ABD3EFA0022F711 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseBaseResponse.swift; sourceTree = "<group>"; };
-		8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseData.swift; sourceTree = "<group>"; };
 		8D4C243A2AB350260008447E /* WellNest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WellNest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4C243D2AB350260008447E /* WellNestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellNestApp.swift; sourceTree = "<group>"; };
 		8D4C243F2AB350260008447E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -208,13 +211,18 @@
 		8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
-		8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientData.swift; sourceTree = "<group>"; };
 		8DA416092B2D727100AC2E43 /* ChronoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoModel.swift; sourceTree = "<group>"; };
 		8DA4160B2B2D760F00AC2E43 /* ChronoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoViewModel.swift; sourceTree = "<group>"; };
 		8DA416122B2D7E2600AC2E43 /* ChronoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoProtocol.swift; sourceTree = "<group>"; };
 		8DA416142B2D806700AC2E43 /* ChronoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoType.swift; sourceTree = "<group>"; };
 		8DA416162B2D930400AC2E43 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		8DA416182B2DA04600AC2E43 /* TimerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCard.swift; sourceTree = "<group>"; };
+		8DA4161A2B2E110400AC2E43 /* MealtimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealtimeCard.swift; sourceTree = "<group>"; };
+		8DA4161C2B2E164200AC2E43 /* MealtimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealtimeType.swift; sourceTree = "<group>"; };
+		8DA4161E2B2E19AD00AC2E43 /* SubtitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleModifier.swift; sourceTree = "<group>"; };
+		8DA416202B2E1A4A00AC2E43 /* TitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleStyle.swift; sourceTree = "<group>"; };
+		8DA416232B2E1B5700AC2E43 /* MealtimeNutrientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealtimeNutrientModel.swift; sourceTree = "<group>"; };
+		8DA416252B2E1D1F00AC2E43 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		8DA4E4AA2AB3F56000971E19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
@@ -320,6 +328,7 @@
 		8D00F9C12B01ACB800FFD541 /* Ingredient */ = {
 			isa = PBXGroup;
 			children = (
+				8DA416222B2E1B2C00AC2E43 /* Model */,
 				8D00F9CA2B01EA6000FFD541 /* ViewModel */,
 				8D00F9C22B01ACC200FFD541 /* View */,
 			);
@@ -358,6 +367,7 @@
 				8D4307902B18E2F10095CBC7 /* UDKey.swift */,
 				8DAE9AF82B269E5700FA1365 /* TimerMode.swift */,
 				8DA416142B2D806700AC2E43 /* ChronoType.swift */,
+				8DA4161C2B2E164200AC2E43 /* MealtimeType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -370,6 +380,7 @@
 				8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */,
 				8DBE5E2B2B2A17D4000ECAC9 /* View+Ext.swift */,
 				8DBE5E3B2B2B5F5B000ECAC9 /* Encodable+Ext.swift */,
+				8DA416252B2E1D1F00AC2E43 /* CGFloat+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +524,7 @@
 				8DBE5E342B2A47B6000ECAC9 /* NumericInputView.swift */,
 				8DBE5E392B2B55B7000ECAC9 /* FriendActivityCard.swift */,
 				8DA416182B2DA04600AC2E43 /* TimerCard.swift */,
+				8DA4161A2B2E110400AC2E43 /* MealtimeCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -551,15 +563,6 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
-		8D43D7C02ABEAD720022F711 /* TestData */ = {
-			isa = PBXGroup;
-			children = (
-				8D43D7C62ABEB1F70022F711 /* WgerExerciseData.swift */,
-				8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */,
-			);
-			path = TestData;
-			sourceTree = "<group>";
-		};
 		8D4C24312AB350260008447E = {
 			isa = PBXGroup;
 			children = (
@@ -590,7 +593,6 @@
 				8D2450A62AF37E3100CA248F /* Core */,
 				8D6D55772AD7D6F000B9BA7F /* WellNest.entitlements */,
 				8D5BEC4E2AD5050C0059A5C8 /* Info.plist */,
-				8D43D7C02ABEAD720022F711 /* TestData */,
 				8DDC05A12ABC396400287D4F /* Networking */,
 				8DDC05A02ABC392A00287D4F /* Service */,
 				8DA4E4A92AB3F40400971E19 /* ViewModels */,
@@ -649,6 +651,14 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		8DA416222B2E1B2C00AC2E43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8DA416232B2E1B5700AC2E43 /* MealtimeNutrientModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8DA4E4A72AB3F3E300971E19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,6 +692,8 @@
 			isa = PBXGroup;
 			children = (
 				8DBE5E2E2B2A2117000ECAC9 /* ProfileToolbarModifier.swift */,
+				8DA4161E2B2E19AD00AC2E43 /* SubtitleModifier.swift */,
+				8DA416202B2E1A4A00AC2E43 /* TitleStyle.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -887,9 +899,9 @@
 				8D7A51142B17D7D300397762 /* RangePicker.swift in Sources */,
 				8D2450B02AF3864500CA248F /* RegistrationView.swift in Sources */,
 				8DBE5E3E2B2B74DF000ECAC9 /* FirebaseManager.swift in Sources */,
+				8DA4161D2B2E164200AC2E43 /* MealtimeType.swift in Sources */,
 				8D34EDDE2ADEE95E00D33637 /* NoLocationView.swift in Sources */,
 				8D00F9D62B04C57400FFD541 /* String+Ext.swift in Sources */,
-				8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */,
 				8D4C24402AB350260008447E /* ContentView.swift in Sources */,
 				8D00F9C42B01ACDA00FFD541 /* IngredientsView.swift in Sources */,
 				8D00F9CC2B01EA8700FFD541 /* IngredientViewModel.swift in Sources */,
@@ -904,13 +916,14 @@
 				8DA416132B2D7E2600AC2E43 /* ChronoProtocol.swift in Sources */,
 				8DC05EFD2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift in Sources */,
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
-				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
 				8DBE5E332B2A448E000ECAC9 /* CustomIngredientView.swift in Sources */,
 				8D00F9C02B01976800FFD541 /* TaskDisplayView.swift in Sources */,
 				8DBE5E352B2A47B6000ECAC9 /* NumericInputView.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
+				8DA416212B2E1A4A00AC2E43 /* TitleStyle.swift in Sources */,
 				8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */,
 				8D6D55742AD7277600B9BA7F /* GeoConnectModel.swift in Sources */,
+				8DA416242B2E1B5700AC2E43 /* MealtimeNutrientModel.swift in Sources */,
 				8D6D55652AD63D0200B9BA7F /* GeoLocationDetailsView.swift in Sources */,
 				8D43078F2B18CFB80095CBC7 /* UserDefaultService.swift in Sources */,
 				8D2450AE2AF3815C00CA248F /* InputView.swift in Sources */,
@@ -947,11 +960,13 @@
 				8D7A510D2B171C5800397762 /* TimerView.swift in Sources */,
 				8D156A172AFC2FD100E22283 /* ProfileView.swift in Sources */,
 				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
+				8DA4161B2B2E110400AC2E43 /* MealtimeCard.swift in Sources */,
 				8DD6AD7D2B221F5800C8364E /* ExerciseDetailViewModel.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8DD6AD7B2B21EA7000C8364E /* Date+Ext.swift in Sources */,
 				8DAE9B062B2703BC00FA1365 /* ItemRow.swift in Sources */,
 				8DA416192B2DA04600AC2E43 /* TimerCard.swift in Sources */,
+				8DA416262B2E1D1F00AC2E43 /* CGFloat+Ext.swift in Sources */,
 				8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */,
 				8DA4160A2B2D727100AC2E43 /* ChronoModel.swift in Sources */,
@@ -973,6 +988,7 @@
 				8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */,
 				8D00F9CF2B04AD8F00FFD541 /* NetworkError.swift in Sources */,
 				8D2450AB2AF37E9C00CA248F /* LoginView.swift in Sources */,
+				8DA4161F2B2E19AD00AC2E43 /* SubtitleModifier.swift in Sources */,
 				8D6D55672AD65D4700B9BA7F /* LocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
