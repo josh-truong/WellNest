@@ -13,7 +13,7 @@ struct StopwatchView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text(chrono.model.elapsed.toString())
+            Text(chrono.model.elapsed.toStringPadded())
                 .font(.system(size: 50))
             Spacer()
         }
