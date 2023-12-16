@@ -11,6 +11,7 @@ import CoreData
 
 @MainActor
 class StopwatchViewModel : ObservableObject {
+    @Published var isRunning: Bool = false
     @Published var elapsedTime: TimeInterval = 0
     @Published var displayMode: TimerMode = .setup
     @Published var mode: TimerMode = .setup
@@ -18,6 +19,7 @@ class StopwatchViewModel : ObservableObject {
     private var timer: Timer?
     
     func start() {
+        isRunning = true
         self.mode = .start
         self.displayMode = .pause
         
@@ -44,8 +46,10 @@ class StopwatchViewModel : ObservableObject {
     }
     
     func finish() {
+        isRunning = false
         mode = .finish
         displayMode = .start
+        elapsedTime = 0
         
         timer?.invalidate()
         timer = nil
