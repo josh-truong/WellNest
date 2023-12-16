@@ -21,10 +21,10 @@ struct ChronoView: View {
         NavigationStack {
             VStack {
                 Picker("", selection: $viewTag) {
-                    //                    if (!timer.isRunning && !stopwatch.isRunning) {
-                    Text("Timer").tag(ChronoType.timer)
-                    Text("Stopwatch").tag(ChronoType.stopwatch)
-                    //                    }
+                    if !chrono.isRunning {
+                        Text("Timer").tag(ChronoType.timer)
+                        Text("Stopwatch").tag(ChronoType.stopwatch)
+                    }
                 }
                 .pickerStyle(.segmented)
                 .onChange(of: viewTag) { _, new in chrono.setType(new) }
