@@ -24,12 +24,16 @@ struct WellNestApp: App {
     @StateObject var auth: AuthViewModel = .init()
     @StateObject var firebase: FirebaseManager = .init()
     @StateObject private var recordManager = RecordManager()
+    @StateObject var timerVM = TimerViewModel()
+    @StateObject var stopwatchVM = StopwatchViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(auth)
                 .environmentObject(firebase)
+                .environmentObject(timerVM)
+                .environmentObject(stopwatchVM)
                 .environment(\.managedObjectContext, recordManager.persistentContainer.viewContext)
         }
         .modelContainer(for: TaskModel.self)
