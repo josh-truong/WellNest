@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct ChronoModel {
+    var started: Date = Date()
     var elapsed: TimeInterval = 0
     var progress: CGFloat { duration == 0 ? 1.0 : elapsed / duration }
-    var remaining: TimeInterval { return max(0, duration - elapsed) }
+    var remaining: TimeInterval { max(0, duration - elapsed) }
     var duration: TimeInterval = 0
-    var eta: Date = Date()
-    var started: Date = Date()
+    var eta: Date { started.addingTimeInterval(duration) }
 }
