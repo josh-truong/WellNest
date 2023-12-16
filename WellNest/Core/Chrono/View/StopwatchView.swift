@@ -10,8 +10,8 @@ import SwiftUI
 struct StopwatchView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var vm: StopwatchViewModel
     @State var entity: FetchedResults<ActivityEntity>.Element
-    @StateObject private var vm = StopwatchViewModel()
     
     var body: some View {
         VStack {
