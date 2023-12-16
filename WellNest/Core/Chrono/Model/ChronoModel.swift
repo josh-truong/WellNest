@@ -14,4 +14,5 @@ struct ChronoModel {
     var remaining: TimeInterval { return max(0, duration - elapsed) }
     var duration: TimeInterval = 0
     var eta: Date = Date()
+    var started: Date = Date()
 }
