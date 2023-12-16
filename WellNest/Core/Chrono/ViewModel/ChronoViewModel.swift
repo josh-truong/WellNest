@@ -42,7 +42,6 @@ class ChronoViewModel : ObservableObject, ChronoProtocol {
         displayMode = .pause
         
         model.started = Date()
-        model.eta = Date().addingTimeInterval(model.duration)
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
