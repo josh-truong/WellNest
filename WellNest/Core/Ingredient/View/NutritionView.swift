@@ -21,6 +21,12 @@ struct NutritionView: View {
             VStack(alignment: .leading) {
                 Text("\(Int(totalCaloriesToday())) kcal (Today)")
                 List {
+                    MealtimeCard(type: Breakfast(), info: .init(), action: {  })
+                    MealtimeCard(type: Lunch(), info: .init(), action: {  })
+                    MealtimeCard(type: Dinner(), info: .init(), action: {  })
+                }
+                .listStyle(.plain)
+                List {
                     ForEach(entities) { entity in
                         VStack(alignment: .leading, spacing: 6) {
                             Text(entity.name ?? "")
