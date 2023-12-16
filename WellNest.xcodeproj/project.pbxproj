@@ -107,6 +107,11 @@
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */; };
 		8D9EF0972AC633E70062D566 /* WgerIngredientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */; };
+		8DA4160A2B2D727100AC2E43 /* ChronoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416092B2D727100AC2E43 /* ChronoModel.swift */; };
+		8DA4160C2B2D760F00AC2E43 /* ChronoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4160B2B2D760F00AC2E43 /* ChronoViewModel.swift */; };
+		8DA416132B2D7E2600AC2E43 /* ChronoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416122B2D7E2600AC2E43 /* ChronoProtocol.swift */; };
+		8DA416152B2D806700AC2E43 /* ChronoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416142B2D806700AC2E43 /* ChronoType.swift */; };
+		8DA416172B2D930400AC2E43 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416162B2D930400AC2E43 /* TimeModel.swift */; };
 		8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AA2AB3F56000971E19 /* HomeView.swift */; };
 		8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */; };
 		8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */; };
@@ -114,11 +119,9 @@
 		8DADB7A82B154EED0070A68D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A72B154EED0070A68D /* Activity.swift */; };
 		8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A92B15A1D70070A68D /* ActivityButton.swift */; };
 		8DAE9AE02B225DD800FA1365 /* NutritionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */; };
-		8DAE9AF52B26916000FA1365 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */; };
 		8DAE9AF72B2699F700FA1365 /* TimeInterval+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */; };
 		8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF82B269E5700FA1365 /* TimerMode.swift */; };
 		8DAE9AFB2B26A22600FA1365 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AFA2B26A22600FA1365 /* StopwatchView.swift */; };
-		8DAE9AFD2B26A23D00FA1365 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AFC2B26A23D00FA1365 /* StopwatchViewModel.swift */; };
 		8DAE9AFF2B26A8FC00FA1365 /* ChronoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AFE2B26A8FC00FA1365 /* ChronoView.swift */; };
 		8DAE9B012B26D22A00FA1365 /* ReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9B002B26D22900FA1365 /* ReminderCard.swift */; };
 		8DAE9B042B26F18A00FA1365 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 8DAE9B032B26F18A00FA1365 /* SwiftSoup */; };
@@ -205,6 +208,11 @@
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
 		8D9EF0962AC633E70062D566 /* WgerIngredientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientData.swift; sourceTree = "<group>"; };
+		8DA416092B2D727100AC2E43 /* ChronoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoModel.swift; sourceTree = "<group>"; };
+		8DA4160B2B2D760F00AC2E43 /* ChronoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoViewModel.swift; sourceTree = "<group>"; };
+		8DA416122B2D7E2600AC2E43 /* ChronoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoProtocol.swift; sourceTree = "<group>"; };
+		8DA416142B2D806700AC2E43 /* ChronoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoType.swift; sourceTree = "<group>"; };
+		8DA416162B2D930400AC2E43 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		8DA4E4AA2AB3F56000971E19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
@@ -212,11 +220,9 @@
 		8DADB7A72B154EED0070A68D /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8DADB7A92B15A1D70070A68D /* ActivityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityButton.swift; sourceTree = "<group>"; };
 		8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailView.swift; sourceTree = "<group>"; };
-		8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Ext.swift"; sourceTree = "<group>"; };
 		8DAE9AF82B269E5700FA1365 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
 		8DAE9AFA2B26A22600FA1365 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
-		8DAE9AFC2B26A23D00FA1365 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 		8DAE9AFE2B26A8FC00FA1365 /* ChronoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoView.swift; sourceTree = "<group>"; };
 		8DAE9B002B26D22900FA1365 /* ReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCard.swift; sourceTree = "<group>"; };
 		8DAE9B052B2703BC00FA1365 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
@@ -349,6 +355,7 @@
 				8DADB7A72B154EED0070A68D /* Activity.swift */,
 				8D4307902B18E2F10095CBC7 /* UDKey.swift */,
 				8DAE9AF82B269E5700FA1365 /* TimerMode.swift */,
+				8DA416142B2D806700AC2E43 /* ChronoType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -614,10 +621,29 @@
 		8D7A510B2B171C4400397762 /* Chrono */ = {
 			isa = PBXGroup;
 			children = (
+				8DA416112B2D7E0F00AC2E43 /* Interface */,
+				8DA416082B2D726300AC2E43 /* Model */,
 				8DD6AD7F2B2225A200C8364E /* View */,
 				8DD6AD7E2B22258600C8364E /* ViewModel */,
 			);
 			path = Chrono;
+			sourceTree = "<group>";
+		};
+		8DA416082B2D726300AC2E43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8DA416092B2D727100AC2E43 /* ChronoModel.swift */,
+				8DA416162B2D930400AC2E43 /* TimeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8DA416112B2D7E0F00AC2E43 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8DA416122B2D7E2600AC2E43 /* ChronoProtocol.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		8DA4E4A72AB3F3E300971E19 /* Views */ = {
@@ -667,8 +693,7 @@
 		8DD6AD7E2B22258600C8364E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8DAE9AF42B26916000FA1365 /* TimerViewModel.swift */,
-				8DAE9AFC2B26A23D00FA1365 /* StopwatchViewModel.swift */,
+				8DA4160B2B2D760F00AC2E43 /* ChronoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -866,12 +891,14 @@
 				8D00F9C42B01ACDA00FFD541 /* IngredientsView.swift in Sources */,
 				8D00F9CC2B01EA8700FFD541 /* IngredientViewModel.swift in Sources */,
 				8D5BEC4D2AD4ED980059A5C8 /* LocationDataManager.swift in Sources */,
+				8DA416152B2D806700AC2E43 /* ChronoType.swift in Sources */,
 				8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */,
 				8D00F9BD2B004FE200FFD541 /* NotesModel.swift in Sources */,
 				8D2450BA2AF3921000CA248F /* AuthViewModel.swift in Sources */,
 				8D7A0A652AFF204A002C92F7 /* TaskModel.swift in Sources */,
 				8DDC059A2ABC2C0500287D4F /* Constants.swift in Sources */,
 				8D4307A22B197F630095CBC7 /* NutritionView.swift in Sources */,
+				8DA416132B2D7E2600AC2E43 /* ChronoProtocol.swift in Sources */,
 				8DC05EFD2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift in Sources */,
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
 				8D43D7C72ABEB1F70022F711 /* WgerExerciseData.swift in Sources */,
@@ -902,10 +929,11 @@
 				8DAE9AFB2B26A22600FA1365 /* StopwatchView.swift in Sources */,
 				8D7A51122B17D10400397762 /* TimePickerView.swift in Sources */,
 				8DBE5E3C2B2B5F5B000ECAC9 /* Encodable+Ext.swift in Sources */,
+				8DA416172B2D930400AC2E43 /* TimeModel.swift in Sources */,
 				8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */,
 				8D7A0A672AFF263F002C92F7 /* EditTaskView.swift in Sources */,
 				8D4307952B1930D80095CBC7 /* EditActivityView.swift in Sources */,
-				8DAE9AF52B26916000FA1365 /* TimerViewModel.swift in Sources */,
+				8DA4160C2B2D760F00AC2E43 /* ChronoViewModel.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D00F9BB2B002AC300FFD541 /* TasksView.swift in Sources */,
 				8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */,
@@ -922,9 +950,9 @@
 				8DAE9B062B2703BC00FA1365 /* ItemRow.swift in Sources */,
 				8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */,
 				8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */,
+				8DA4160A2B2D727100AC2E43 /* ChronoModel.swift in Sources */,
 				8D4307972B1932920095CBC7 /* RecordManager.swift in Sources */,
 				8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */,
-				8DAE9AFD2B26A23D00FA1365 /* StopwatchViewModel.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
 				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
 				8DBE5E372B2AD398000ECAC9 /* PermActivityView.swift in Sources */,
