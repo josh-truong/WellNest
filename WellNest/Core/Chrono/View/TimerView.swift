@@ -10,10 +10,10 @@ import CircularProgress
 struct TimerView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var vm: TimerViewModel
     
     @State var entity: FetchedResults<ActivityEntity>.Element
     @State private var time: (hr: Int, min: Int, sec: Int) = (0,0,0)
-    @StateObject private var vm = TimerViewModel()
     
     var body: some View {
         VStack {
@@ -33,7 +33,7 @@ struct TimerView: View {
                         
                         Spacer()
                         
-                        if (vm.mode != .setup) {
+                        if (vm.displayMode != .setup) {
                             HStack {
                                 Image(systemName: "bell.fill")
                                 Text(vm.eta.toStringCivilian())
