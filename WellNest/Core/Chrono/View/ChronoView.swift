@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChronoView: View {
+    @EnvironmentObject var timer: TimerViewModel
+    @EnvironmentObject var stopwatch: StopwatchViewModel
     @Environment(\.dismiss) var dismiss
     @State var entity: FetchedResults<ActivityEntity>.Element
     @State private var viewTag: Int = 0
@@ -17,8 +19,10 @@ struct ChronoView: View {
         NavigationStack {
             VStack {
                 Picker("", selection: $viewTag) {
-                    Text("Timer").tag(0)
-                    Text("Stopwatch").tag(1)
+                    if (!timer.isRunning && !stopwatch.isRunning) {
+                        Text("Timer").tag(0)
+                        Text("Stopwatch").tag(1)
+                    }
                 }
                 .pickerStyle(.segmented)
                 .padding()
