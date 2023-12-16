@@ -10,6 +10,7 @@ import CoreData
 import SwiftUI
 
 class TimerViewModel : ObservableObject {
+    @Published var isRunning: Bool = false
     @Published var displayMode: TimerMode = .setup
     @Published var mode: TimerMode = .setup
     @Published var eta: Date = Date()
@@ -28,6 +29,7 @@ class TimerViewModel : ObservableObject {
     }
     
     func start() {
+        isRunning = true
         mode = .start
         displayMode = .pause
         
@@ -60,8 +62,14 @@ class TimerViewModel : ObservableObject {
     }
     
     func finish() {
+        isRunning = false
         mode = .finish
         displayMode = .setup
+        eta = Date()
+        progress = 0.0
+        remainingDuration = 0.0
+        duration = 0
+        elapsed = 0
         
         timer?.invalidate()
         timer = nil
