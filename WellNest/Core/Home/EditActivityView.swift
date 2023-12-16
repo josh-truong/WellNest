@@ -34,7 +34,7 @@ struct EditActivityView: View {
                     .font(.title)
                     .padding(.horizontal)
                     .padding(.top, 12)
-                    .padding(.bottom, 12) // Add bottom padding here
+                    .padding(.bottom, 12)
                     .keyboardType(.numberPad)
                     .onChange(of: input) { input = input.filter { "0123456789".contains($0) } }
             }
