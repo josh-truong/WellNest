@@ -14,10 +14,11 @@ class ChronoViewModel : ObservableObject, ChronoProtocol {
     @Published var mode: TimerMode = .setup
     @Published var isRunning: Bool = false
     @Published var model: ChronoModel = .init()
+    @Published var type: ChronoType = .timer
     
     private var timer: Timer?
     private var context: NSManagedObjectContext?
-    private var type: ChronoType = .timer
+    
     
     public var entity: FetchedResults<ActivityEntity>.Element?
     
@@ -40,7 +41,9 @@ class ChronoViewModel : ObservableObject, ChronoProtocol {
         mode = .start
         displayMode = .pause
         
+        model.started = Date()
         model.eta = Date().addingTimeInterval(model.duration)
+        
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -71,7 +74,7 @@ class ChronoViewModel : ObservableObject, ChronoProtocol {
     func finish() {
         guard let entity = entity else { fatalError("Entity was not initialized.") }
         guard let context = context else { fatalError("NSManagedObjectContext was not initialized.") }
-        print("finished")
+        
         entity.addToRecords(elapsedSeconds: Int(model.elapsed), context: context)
         reset()
     }
