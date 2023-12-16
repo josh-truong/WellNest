@@ -15,4 +15,13 @@ extension TimeInterval {
 
         return formatter.string(from: self) ?? ""
     }
+    
+    func toStringPadded() -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+
+        return formatter.string(from: self) ?? ""
+    }
 }
