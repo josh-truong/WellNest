@@ -117,6 +117,10 @@
 		8DA416212B2E1A4A00AC2E43 /* TitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416202B2E1A4A00AC2E43 /* TitleStyle.swift */; };
 		8DA416242B2E1B5700AC2E43 /* MealtimeNutrientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416232B2E1B5700AC2E43 /* MealtimeNutrientModel.swift */; };
 		8DA416262B2E1D1F00AC2E43 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416252B2E1D1F00AC2E43 /* CGFloat+Ext.swift */; };
+		8DA416282B2E351400AC2E43 /* SimpleWgerIngredientResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416272B2E351400AC2E43 /* SimpleWgerIngredientResult.swift */; };
+		8DA4162A2B2E6FBA00AC2E43 /* NutritionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416292B2E6FBA00AC2E43 /* NutritionViewModel.swift */; };
+		8DA4162C2B2EC7A600AC2E43 /* DayCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4162B2B2EC7A600AC2E43 /* DayCapsule.swift */; };
+		8DA4162E2B2ED02700AC2E43 /* DayCapsulePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */; };
 		8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AA2AB3F56000971E19 /* HomeView.swift */; };
 		8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */; };
 		8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */; };
@@ -223,6 +227,10 @@
 		8DA416202B2E1A4A00AC2E43 /* TitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleStyle.swift; sourceTree = "<group>"; };
 		8DA416232B2E1B5700AC2E43 /* MealtimeNutrientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealtimeNutrientModel.swift; sourceTree = "<group>"; };
 		8DA416252B2E1D1F00AC2E43 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		8DA416272B2E351400AC2E43 /* SimpleWgerIngredientResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWgerIngredientResult.swift; sourceTree = "<group>"; };
+		8DA416292B2E6FBA00AC2E43 /* NutritionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewModel.swift; sourceTree = "<group>"; };
+		8DA4162B2B2EC7A600AC2E43 /* DayCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCapsule.swift; sourceTree = "<group>"; };
+		8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCapsulePicker.swift; sourceTree = "<group>"; };
 		8DA4E4AA2AB3F56000971E19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
@@ -355,6 +363,7 @@
 				8D00F9CB2B01EA8700FFD541 /* IngredientViewModel.swift */,
 				8DC05EFA2B1C38190070A117 /* IngredientInfoViewModel.swift */,
 				8DC05EFC2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift */,
+				8DA416292B2E6FBA00AC2E43 /* NutritionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -525,6 +534,8 @@
 				8DBE5E392B2B55B7000ECAC9 /* FriendActivityCard.swift */,
 				8DA416182B2DA04600AC2E43 /* TimerCard.swift */,
 				8DA4161A2B2E110400AC2E43 /* MealtimeCard.swift */,
+				8DA4162B2B2EC7A600AC2E43 /* DayCapsule.swift */,
+				8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -655,6 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				8DA416232B2E1B5700AC2E43 /* MealtimeNutrientModel.swift */,
+				8DA416272B2E351400AC2E43 /* SimpleWgerIngredientResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -915,6 +927,7 @@
 				8D4307A22B197F630095CBC7 /* NutritionView.swift in Sources */,
 				8DA416132B2D7E2600AC2E43 /* ChronoProtocol.swift in Sources */,
 				8DC05EFD2B1C46A10070A117 /* DefaultIngredientSuggestionViewModel.swift in Sources */,
+				8DA4162A2B2E6FBA00AC2E43 /* NutritionViewModel.swift in Sources */,
 				8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */,
 				8DBE5E332B2A448E000ECAC9 /* CustomIngredientView.swift in Sources */,
 				8D00F9C02B01976800FFD541 /* TaskDisplayView.swift in Sources */,
@@ -950,6 +963,7 @@
 				8D7A0A672AFF263F002C92F7 /* EditTaskView.swift in Sources */,
 				8D4307952B1930D80095CBC7 /* EditActivityView.swift in Sources */,
 				8DA4160C2B2D760F00AC2E43 /* ChronoViewModel.swift in Sources */,
+				8DA4162C2B2EC7A600AC2E43 /* DayCapsule.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D00F9BB2B002AC300FFD541 /* TasksView.swift in Sources */,
 				8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */,
@@ -962,6 +976,7 @@
 				8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */,
 				8DA4161B2B2E110400AC2E43 /* MealtimeCard.swift in Sources */,
 				8DD6AD7D2B221F5800C8364E /* ExerciseDetailViewModel.swift in Sources */,
+				8DA4162E2B2ED02700AC2E43 /* DayCapsulePicker.swift in Sources */,
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8DD6AD7B2B21EA7000C8364E /* Date+Ext.swift in Sources */,
 				8DAE9B062B2703BC00FA1365 /* ItemRow.swift in Sources */,
@@ -977,6 +992,7 @@
 				8DBE5E372B2AD398000ECAC9 /* PermActivityView.swift in Sources */,
 				8DBE5E3A2B2B55B7000ECAC9 /* FriendActivityCard.swift in Sources */,
 				8D207C332AC6A9AF0010954E /* DefaultIngredientView.swift in Sources */,
+				8DA416282B2E351400AC2E43 /* SimpleWgerIngredientResult.swift in Sources */,
 				8D4307932B18F2590095CBC7 /* MyActivityView.swift in Sources */,
 				8DAE9AF72B2699F700FA1365 /* TimeInterval+Ext.swift in Sources */,
 				8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */,
