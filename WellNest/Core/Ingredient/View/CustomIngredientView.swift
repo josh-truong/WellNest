@@ -20,10 +20,25 @@ struct CustomIngredientView: View {
     @State private var fatSaturated: Int = 0
     @State private var fibres: Int = 0
     @State private var sodium: Int = 0
+    @State private var selectedDate: Date = Date()
+    @State private var selectedMealtime: MealtimeType = .breakfast
     
     var body: some View {
         ScrollView {
             VStack {
+                HStack {
+                    DatePicker("", selection: $selectedDate, in: Date().oneWeekAgo, displayedComponents: [.date])
+                        .labelsHidden()
+                    
+                    Picker("", selection: $selectedMealtime) {
+                        ForEach(MealtimeType.allCases, id: \.self) { type in
+                            Text(type.rawValue)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .labelsHidden()
+                }
+                .padding()
                 InputView(text: $name, title: "Food *", placeholder: "Enter food name")
                     .textFieldStyle(.roundedBorder)
                 NumericInputView(input: $energy, title: "Calories", placeholder: "Enter calories")
@@ -42,7 +57,10 @@ struct CustomIngredientView: View {
         .toolbar {
             ToolbarItem {
                 Button("add") {
-                    var item: WgerIngredientResult = .init()
+                    var item: SimpleWgerIngredientResult = .init()
+                    print(selectedDate)
+                    item.timestamp = selectedDate
+                    item.mealtime = selectedMealtime
                     item.name = name
                     item.energy = energy
                     item.protein = String(protein)
