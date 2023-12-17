@@ -24,7 +24,21 @@ struct ExerciseView: View {
                     .listStyle(GroupedListStyle())
                 }
                 else {
-                    Text("Nothing To See Here")
+                    VStack {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .foregroundStyle(.gray)
+                        Text("No Results")
+                            .opacity(0.8)
+                            .bold()
+                        Text("Search for exercises")
+                            .foregroundStyle(.gray)
+                            .font(.subheadline)
+                        Text("via the search bar above")
+                            .foregroundStyle(.gray)
+                            .font(.subheadline)
+                    }
                 }
             }
             .navigationTitle("Exercise")
