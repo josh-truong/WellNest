@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct MealtimeCard<Content: View>: View {
+    @Environment(\.managedObjectContext) private var managedObjContext
     let type: MealtimeProtocol
-    let info: MealtimeNutrientModel
+    @Binding var info: MealtimeNutrientModel
     let destination: Content
     @State private var showMore: Bool = false
     
@@ -70,19 +71,54 @@ struct MealtimeCard<Content: View>: View {
                             .title()
                     }
                 }
-                .onTapGesture(count: 1) { showMore.toggle() }
+                .onTapGesture(count: 1) { 
+                    withAnimation {
+                        if !info.entities.isEmpty {
+                            showMore.toggle()
+                        }
+                    }
+                }
                 .padding(.top, 5)
                 
                 if showMore {
-                    Divider()
-                    HStack {
-                        
-                        
+                    VStack {
+                        Divider()
+                        ForEach(info.entities, id: \.self) { entity in
+                            HStack {
+                                VStack(alignment: .leading, spacing: 6) {
+                                    Text(entity.name ?? "")
+                                        .lineLimit(2)
+                                        .truncationMode(.tail)
+                                        .bold()
+                                    Text("\(entity.energy)") +
+                                    Text(" kcal").foregroundStyle(.red)
+                                }
+                                Spacer()
+                                Button("", systemImage: "minus.circle", role: .destructive, action: { withAnimation { info.delete(entity, context: managedObjContext) } })
+                            }
+                            VStack {
+                                
+                                HStack {
+                                    
+                                    Spacer()
+                                    Text(entity.timestamp ?? Date(), style: .time)
+                                        .foregroundStyle(.gray)
+                                        .italic()
+                                }
+                            }
+                        }
                     }
+                    .onChange(of: info.entities) { _, _ in withAnimation { showMore = !info.entities.isEmpty } }
+                    .onDisappear() { showMore = false }
+                    .onTapGesture(count: 2) { withAnimation { showMore.toggle() } }
                     .padding(.top, 5)
                 }
             }
             .padding()
         }
     }
+}
+
+extension MealtimeCard {
+    
 }
