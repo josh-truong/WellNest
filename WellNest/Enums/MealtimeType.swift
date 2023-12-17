@@ -14,7 +14,7 @@ protocol MealtimeProtocol {
     var color: Color { get }
 }
 
-enum MealtimeType : String {
+enum MealtimeType : String, CaseIterable {
     case breakfast = "Breakfast"
     case lunch = "Lunch"
     case dinner = "Dinner"
