@@ -10,9 +10,7 @@ import SwiftUI
 
 class NutritionViewModel : ObservableObject {
     @Published var sortedDates: [Date] = []
-    @Published var breakfastEntities: [FetchedResults<FoodEntity>.Element] = []
-    @Published var lunchEntities: [FetchedResults<FoodEntity>.Element] = []
-    @Published var dinnerEntities: [FetchedResults<FoodEntity>.Element] = []
+    @Published var selectedDate: Date = Date()
     
     @Published var breakfast: MealtimeNutrientModel = .init()
     @Published var lunch: MealtimeNutrientModel = .init()
@@ -21,25 +19,37 @@ class NutritionViewModel : ObservableObject {
     private var results: [Date: [FetchedResults<FoodEntity>.Element]] = [:]
     
     func organizeMeals(_ entities: FetchedResults<FoodEntity>) {
+        results = groupEntitiesByDate(entities)
+        sortedDates = getSortedDates()
+        if sortedDates.isEmpty || (sortedDates.last != nil && !Calendar.current.isDateInToday(sortedDates.last!)) {
+            sortedDates.append(Date().startOfDay)
+        }
+    }
+
+    private func groupEntitiesByDate(_ entities: FetchedResults<FoodEntity>) -> [Date: [FetchedResults<FoodEntity>.Element]] {
+        var groupedResults: [Date: [FetchedResults<FoodEntity>.Element]] = [:]
+
         for entity in entities {
             guard let timestamp = entity.timestamp else { continue }
             let dateKey = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: timestamp)) ?? Date()
-            results[dateKey, default: []].append(entity)
+            groupedResults[dateKey, default: []].append(entity)
         }
-        
-        sortedDates = results.keys.sorted()
+
+        return groupedResults
     }
+
+    private func getSortedDates() -> [Date] {
+        return results.keys.sorted()
+    }
+
     
     func setDate(_ key: Date) {
+        breakfast.clear()
+        lunch.clear()
+        dinner.clear()
+        
+        selectedDate = results.keys.contains(key) ? key : sortedDates.last ?? Date()
         guard let records = results[key] else { return }
-        
-        breakfastEntities.removeAll()
-        lunchEntities.removeAll()
-        dinnerEntities.removeAll()
-        
-        breakfast = .init()
-        lunch = .init()
-        dinner = .init()
         
         for record in records {
             guard let mealtime = record.mealtime else { continue }
@@ -47,14 +57,11 @@ class NutritionViewModel : ObservableObject {
             
             switch mealtime {
             case .breakfast:
-                breakfast.accumulate(record)
-                breakfastEntities.append(record)
+                breakfast.add(record)
             case .lunch:
-                lunch.accumulate(record)
-                lunchEntities.append(record)
+                lunch.add(record)
             case .dinner:
-                dinner.accumulate(record)
-                dinnerEntities.append(record)
+                dinner.add(record)
             }
         }
     }
