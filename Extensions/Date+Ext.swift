@@ -22,6 +22,23 @@ extension Date {
         return formatter.localizedString(for: self, relativeTo: Date())
     }
     
+    var oneWeekAgo : ClosedRange<Date> {
+        let oneWeekAgo = Calendar.current.date(byAdding: .day, value: -6, to: self) ?? self
+        return oneWeekAgo...self
+    }
+    
+    var shortDayName : String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E"
+        return formatter.string(from: self)
+    }
+    
+    var dayNumber: Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: self)
+        return components.day ?? 1
+    }
+    
     func timeAgo(date: Date) -> String {
         let minutes = Int(Date().timeIntervalSince(date)) / 60
         
