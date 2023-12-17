@@ -13,6 +13,8 @@ struct IngredientInfoView: View {
     @StateObject private var vm: IngredientInfoViewModel = .init()
     @State private var showAdd: Bool = false
     @Binding var result: WgerIngredientResult
+    @State private var selectedDate: Date = Date()
+    @State private var selectedMealtime: MealtimeType = .breakfast
     
     var body: some View {
         NavigationStack {
@@ -21,7 +23,20 @@ struct IngredientInfoView: View {
                     Text(vm.info.name.htmlAttributedString)
                         .font(.headline)
                         .padding()
-                
+                    HStack {
+                        DatePicker("", selection: $selectedDate, in: Date().oneWeekAgo, displayedComponents: [.date])
+                            .labelsHidden()
+                        
+                        Picker("", selection: $selectedMealtime) {
+                            ForEach(MealtimeType.allCases, id: \.self) { type in
+                                Text(type.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .labelsHidden()
+                    }
+                    .padding()
+                    
                     ItemRow(key: "Energy", value: "\(vm.info.energy) kcal")
                     ItemRow(key: "Protein", value: " \(vm.info.protein) g")
                     ItemRow(key: "Carbohydrates", value: "\(vm.info.carbohydrates) g")
@@ -49,7 +64,11 @@ struct IngredientInfoView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add", action: {
-                        FoodEntity().add(item: vm.info, context: managedObjContext)
+                        var item = SimpleWgerIngredientResult(vm.info)
+                        item.timestamp = selectedDate
+                        item.mealtime = selectedMealtime
+                        
+                        FoodEntity().add(item: item, context: managedObjContext)
                         dismiss()
                     })
                     .tint(.blue)
