@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct MealtimeCard: View {
+struct MealtimeCard<Content: View>: View {
     let type: MealtimeProtocol
     let info: MealtimeNutrientModel
-    let action: () -> Void
+    let destination: Content
+    @State private var showMore: Bool = false
     
     var body: some View {
         ZStack {
@@ -31,7 +32,7 @@ struct MealtimeCard: View {
                             .subtitle()
                     }
                     Spacer()
-                    Button(action: { action() }, label: {
+                    NavigationLink(destination: destination, label: {
                         Image(systemName: "plus.circle")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -68,9 +69,18 @@ struct MealtimeCard: View {
                         Text(info.fat.formattedString)
                             .title()
                     }
-                    .padding(.trailing, 10)
                 }
+                .onTapGesture(count: 1) { showMore.toggle() }
                 .padding(.top, 5)
+                
+                if showMore {
+                    Divider()
+                    HStack {
+                        
+                        
+                    }
+                    .padding(.top, 5)
+                }
             }
             .padding()
         }
