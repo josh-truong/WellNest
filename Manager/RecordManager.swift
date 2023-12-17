@@ -63,12 +63,11 @@ extension RecordEntity {
 }
 
 extension FoodEntity {
-    func add(item: WgerIngredientResult, context: NSManagedObjectContext) {
+    func add(item: SimpleWgerIngredientResult, context: NSManagedObjectContext) {
         let food = FoodEntity(context: context)
-        food.timestamp = Date()
+        food.timestamp = item.timestamp
+        food.mealtime = item.mealtime.rawValue
         food.id = Int64(item.id)
-        food.uuid = item.uuid
-        food.code = item.code
         food.name = item.name.htmlAttributedString
         food.energy = Int64(item.energy)
         food.protein = Float(item.protein) ?? 0
