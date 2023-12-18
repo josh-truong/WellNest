@@ -12,6 +12,7 @@ struct MyActivityView: View {
     @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "active == true")) var active: FetchedResults<ActivityEntity>
     @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "active == false")) var inactive: FetchedResults<ActivityEntity>
     @StateObject var vm: ActivityViewModel
+    @State private var showEdit: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -21,9 +22,6 @@ struct MyActivityView: View {
                         ForEach(active, id: \.id) { info in
                             ActivityCard(info, showProgress: false)
                                 .onTapGesture { info.toggle(context: managedObjContext) }
-                        }
-                        .onMove { fromOffsets, toOffset in
-                            print("\(fromOffsets) \(toOffset)")
                         }
                     }
                     .listRowSeparator(.hidden)
@@ -50,8 +48,11 @@ struct MyActivityView: View {
                     }
                 }
                 ToolbarItem {
-                    Button("", systemImage: "ellipsis", action: {  })
+                    Button("", systemImage: "ellipsis", action: { showEdit.toggle() })
                 }
+            }
+            .sheet(isPresented: $showEdit) {
+                EditActivitiesView(entities: active)
             }
         }
     }
