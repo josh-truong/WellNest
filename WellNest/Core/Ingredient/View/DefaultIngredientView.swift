@@ -8,32 +8,22 @@
 import SwiftUI
 
 struct DefaultIngredientView: View {
-    @StateObject var vm: DefaultIngredientSuggestionViewModel = .init()
-    @State private var selectedResult: WgerIngredientResult = .init()
-    @State private var showDetails: Bool = false
+    @StateObject private var vm: DefaultIngredientSuggestionViewModel = .init()
+    @Binding var selection: WgerIngredientResult
     
     var body: some View {
         List {
             ForEach(vm.suggestions, id: \.self)  { result in
-                Button(result.name.htmlAttributedString, action: {
-                    selectedResult = result
-                    showDetails.toggle()
-                })
+                Button(result.name.htmlAttributedString, action: { selection = result })
             }
             HStack{
                 Spacer()
                 ProgressView("Loading ...")
                     .progressViewStyle(CircularProgressViewStyle())
-                    .onAppear() {
-                        
-                    }
                 Spacer()
             }
         }
         .listStyle(.plain)
         .task{ await vm.getDefaultIngredients() }
-        .sheet(isPresented: $showDetails) {
-            IngredientInfoView(result: $selectedResult)
-        }
     }
 }
