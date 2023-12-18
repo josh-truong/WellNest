@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RegistrationView: View {
     @State private var email = ""
-    @State private var fullname = ""
+    @State private var firstname = ""
+    @State private var lastname = ""
     @State private var password = ""
     @State private var confirmPassword = ""
     @Environment(\.dismiss) var dismiss
@@ -30,19 +31,57 @@ struct RegistrationView: View {
                 
                 
                 VStack(spacing: 24) {
-                    InputView(text: $email,
-                              title: "Email Address",
-                              placeholder: "name@example.com")
-                    .autocapitalization(.none)
+                    VStack(alignment: .leading) {
+                        InputView(text: $email,
+                                  title: "Email Address",
+                                  placeholder: "name@example.com")
+                        .autocapitalization(.none)
+                        if email.isEmpty || !email.contains("@") {
+                            Text("Invalid email")
+                                .font(.caption2)
+                                .foregroundStyle(.red)
+                        }
+                    }
                     
-                    InputView(text: $fullname,
-                              title: "Full Name",
-                              placeholder: "Enter your name")
+                    HStack {
+                        VStack(alignment: .leading) {
+                            InputView(text: $firstname,
+                                      title: "First Name",
+                                      placeholder: "Enter here")
+                            if firstname.isEmpty {
+                                Text("Missing first name")
+                                    .font(.caption2)
+                                    .foregroundStyle(.red)
+                            }
+                        }
+                        VStack(alignment: .leading) {
+                            InputView(text: $lastname,
+                                      title: "Last Name",
+                                      placeholder: "Enter here")
+                            if lastname.isEmpty {
+                                Text("Missing last name")
+                                    .font(.caption2)
+                                    .foregroundStyle(.red)
+                            }
+                        }
+                    }
+                
                     
-                    InputView(text: $password,
-                              title: "Password",
-                              placeholder: "Enter your password",
-                              isSecureField: true)
+                    VStack(alignment: .leading) {
+                        InputView(text: $password,
+                                  title: "Password",
+                                  placeholder: "Enter your password",
+                                  isSecureField: true)
+                        if password.isEmpty {
+                            Text("Password is missing")
+                                .font(.caption2)
+                                .foregroundStyle(.red)
+                        } else if password.count < 5 {
+                            Text("Password must be greater than 5 characters")
+                                .font(.caption2)
+                                .foregroundStyle(.red)
+                        }
+                    }
                     
                     ZStack(alignment: .trailing) {
                         InputView(text: $confirmPassword,
@@ -70,7 +109,7 @@ struct RegistrationView: View {
                 Button {
                     Task {
                         await viewModel.createUser(withEmail: email,
-                                                       fullname: fullname,
+                                                       fullname: "\(firstname) \(lastname)",
                                                        password: password)
                     }
                 } label: {
@@ -109,7 +148,8 @@ extension RegistrationView : AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty
         && email.contains("@")
-        && !fullname.isEmpty
+        && !firstname.isEmpty
+        && !lastname.isEmpty
         && !password.isEmpty
         && password.count > 5
         && password == confirmPassword

@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @State private var message = ""
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
@@ -25,11 +26,18 @@ struct LoginView: View {
                     .font(.system(size:40))
                 
                 VStack(spacing: 24) {
-                    InputView(text: $email, 
-                              title: "Email Address",
-                              placeholder: "name@example.com")
+                    VStack(alignment: .leading) {
+                        InputView(text: $email,
+                                  title: "Email Address",
+                                  placeholder: "name@example.com")
                         .autocapitalization(.none)
-                    InputView(text: $password, 
+                        if email.isEmpty || !email.contains("@") {
+                            Text("Invalid email")
+                                .font(.caption2)
+                                .foregroundStyle(.red)
+                        }
+                    }
+                    InputView(text: $password,
                               title: "Password",
                               placeholder: "Enter your password",
                               isSecureField: true)
@@ -40,7 +48,9 @@ struct LoginView: View {
                 
                 Button {
                     Task {
-                        await viewModel.signIn(withEmail: email, password: password)
+                        await viewModel.signIn(withEmail: email, password: password, completion: { (status, message) in
+                            self.message = message
+                        })
                     }
                 } label: {
                     HStack {
@@ -55,6 +65,11 @@ struct LoginView: View {
                 .opacity(formIsValid ? 1.0 : 0.5)
                 .cornerRadius(10)
                 .padding(.top, 24)
+                if !message.isEmpty {
+                    Text(message)
+                        .font(.caption)
+                        .foregroundStyle(.red)
+                }
                 
                 Spacer()
                 
@@ -78,8 +93,6 @@ extension LoginView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty
         && email.contains("@")
-        && !password.isEmpty
-        && password.count > 5
     }
 }
 
