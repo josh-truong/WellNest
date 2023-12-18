@@ -36,7 +36,7 @@ struct FriendsView: View {
                 }
                 List {
                     ForEach(firebase.activities.sorted(by: { $0.key < $1.key }), id: \.key) { friend, activities in
-                        DisclosureGroup(friend, isExpanded: .constant(true)) {
+                        DisclosureGroup(friend) {
                             ForEach(activities, id: \.id) { activity in
                                 FriendActivityCard(name: activity.name, image: activity.image, start: activity.start, end: activity.end, unit: activity.name)
                             }
@@ -68,6 +68,9 @@ struct FriendsView: View {
                 }
             }
             .sheet(isPresented: $showRequest) {
+                Text("Friend Request")
+                    .font(.title)
+                    .padding()
                 ScrollView {
                     VStack {
                         ForEach(firebase.requests, id: \.id) { request in
