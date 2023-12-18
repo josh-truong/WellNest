@@ -11,14 +11,15 @@ import CoreData
 struct NutritionView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.timestamp, order: .reverse)]) var entities: FetchedResults<FoodEntity>
     @StateObject private var vm: NutritionViewModel = .init()
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var showSettings: Bool = false
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
                 DayCapsulePicker(dateRange: vm.sortedDates, selection: $vm.selectedDate)
                     .onChange(of: vm.selectedDate) { vm.setDate(vm.selectedDate) }
-                Text("\(Int(totalCaloriesToday())) kcal (Today)")
+                Text("\(Int(totalCaloriesToday())) cal (Today)")
                 ScrollView {
                     MealtimeCard(type: Breakfast(), info: $vm.breakfast, destination: IngredientsView())
                     MealtimeCard(type: Lunch(), info: $vm.lunch, destination: IngredientsView())
@@ -33,11 +34,24 @@ struct NutritionView: View {
             .onChange(of: vm.sortedDates) { vm.setDate(vm.selectedDate) }
             .onDisappear() { vm.selectedDate = Date() }
             .navigationTitle("Nutrition")
+            .sheet(isPresented: $showSettings, content: {
+                NutrientSettingsView()
+            })
             .toolbar {
                 ToolbarItem {
-                    NavigationLink(destination: IngredientsView()) {
-                        Image(systemName: "plus")
-                    }
+                    Button("", systemImage: "calendar", action: {
+                        withAnimation {
+                            vm.setDate(Date())
+                            vm.organizeMeals(entities)
+                        }
+                    })
+                }
+                ToolbarItem {
+                    Button("", systemImage: "gearshape", action: {
+                        withAnimation {
+                            showSettings.toggle()
+                        }
+                    })
                 }
             }
             .padding()
