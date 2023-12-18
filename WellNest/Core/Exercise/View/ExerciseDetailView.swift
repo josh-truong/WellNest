@@ -15,44 +15,25 @@ struct ExerciseDetailView: View {
    
     var body: some View {
         VStack (alignment: .leading) {
+            Text("\(exercise.name)")
+                .font(.title)
+                .padding(.horizontal, 30)
+            
             HStack {
                 Spacer()
-                Button("Add Exercise", systemImage: "plus", action: {
+                Button {
                     ActivityEntity().add(Custom(name: exercise.name), active: true, context: managedObjContext)
                     dismiss()
-                })
-            }
-            
-            Text("\(exercise.id)")
-            Text("\(exercise.baseId)")
-            Text("\(exercise.name)")
-            Text("\(exercise.category)")
-            Text("\(exercise.image ?? "")")
-            Text("\(exercise.imageThumbnail ?? "")")
-            
-            Spacer()
-
-            if let base = vm.result {
-                Text("Exercise ID: \(base.id)")
-                Text("Exercise UUID: \(base.uuid)")
-                Text("Created: \(base.created)")
-                Text("Last Update: \(base.lastUpdate)")
-                Text("Category: \(base.category)")
-                Text("Muscles: \(base.muscles.map { String($0) }.joined(separator: ", "))")
-                Text("Secondary Muscles: \(base.musclesSecondary.map { String($0) }.joined(separator: ", "))")
-                Text("Equipment: \(base.equipment.map { String($0) }.joined(separator: ", "))")
-                Text("Variations: \(base.variations ?? 0)")
-                Text("License Author: \(base.licenseAuthor ?? "")")
-            } else {
-                VStack(alignment: .center) {
-                    ProgressView()
-                    Text("Loading exercise details...")
-                        .onAppear {
-                            Task { await vm.getExerciseBase(exercise) }
-                        }
+                } label: {
+                    Text("Add Exercise")
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width-32, height: 48)
                 }
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
+                .padding()
+                Spacer()
             }
         }
-        .padding()
     }
 }

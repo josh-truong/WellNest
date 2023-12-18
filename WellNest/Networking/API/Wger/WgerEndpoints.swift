@@ -36,6 +36,45 @@ class WgerEndpoints {
         return WgerEndpoint(url: url)
     }
     
+    func searchExerciseCategory(_ id: Int) async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)exercisecategory/\(id)"
+
+        guard let url = components.url else {
+            throw NetworkError.badURL
+        }
+        
+        return WgerEndpoint(url: url)
+    }
+    
+    func searchMuscle(_ id: Int) async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)muscle/\(id)"
+
+        guard let url = components.url else {
+            throw NetworkError.badURL
+        }
+        
+        return WgerEndpoint(url: url)
+    }
+    
+    func searchEquipment(_ id: Int) async throws -> WgerEndpoint {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = "\(version)equipment/\(id)"
+
+        guard let url = components.url else {
+            throw NetworkError.badURL
+        }
+        
+        return WgerEndpoint(url: url)
+    }
+    
     func searchExerciseBase(baseId: Int) async throws -> WgerEndpoint {
         var components = URLComponents()
         components.scheme = scheme

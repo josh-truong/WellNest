@@ -31,6 +31,8 @@ struct ExerciseCategoryView: View {
         }
         .sheet(isPresented: $showModal) {
             ExerciseDetailView(exercise: $selectedExercise)
+                .presentationDetents([.height(200)])
+                .presentationCornerRadius(12)
         }
     }
 }

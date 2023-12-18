@@ -9,9 +9,11 @@ import SwiftUI
 import FirebaseAuth
 
 struct FriendsView: View {
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var firebase: FirebaseManager
     @State private var showAdd: Bool = false
     @State private var friendEmail: String = ""
+    @State private var showRequest: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -33,16 +35,15 @@ struct FriendsView: View {
                     .padding()
                 }
                 List {
-                    ForEach(firebase.currentUser.friends, id: \.self) { friend in
-                        Text(friend)
-                    }
-                    DisclosureGroup("Friend name", isExpanded: .constant(true)) {
-                        ForEach(firebase.activities, id: \.id) { activity in
-                            FriendActivityCard(name: activity.name, image: activity.image, start: activity.start, end: activity.end, unit: activity.name)
+                    ForEach(firebase.activities.sorted(by: { $0.key < $1.key }), id: \.key) { friend, activities in
+                        DisclosureGroup(friend, isExpanded: .constant(true)) {
+                            ForEach(activities, id: \.id) { activity in
+                                FriendActivityCard(name: activity.name, image: activity.image, start: activity.start, end: activity.end, unit: activity.name)
+                            }
                         }
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 16))
                     }
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 16))
                 }
                 .padding()
                 .listStyle(.plain)
@@ -54,31 +55,55 @@ struct FriendsView: View {
                 firebase.stopListening()
             }
             .task {
-//                await firebase.fetchActivities()
+                await firebase.fetchActivities()
             }
             .toolbar {
                 ToolbarItem {
                     Button("\(firebase.currentUser.requests.count)", systemImage: "person.badge.plus", action: { showAdd.toggle() })
                 }
                 ToolbarItem {
-                    Button {
-                        Task {
-                            if let id = firebase.currentUser.requests.first {
-                                await firebase.acceptRequest(id: id)
+                    Button("", systemImage: "bell", action: { showRequest.toggle() })
+                        .foregroundStyle(Color.blue)
+                        .disabled(firebase.currentUser.requests.isEmpty)
+                }
+            }
+            .sheet(isPresented: $showRequest) {
+                ScrollView {
+                    VStack {
+                        ForEach(firebase.requests, id: \.id) { request in
+                            HStack {
+                                Text(request.fullname)
+                                Spacer()
+                                Button(action: {
+                                    Task {
+                                        await firebase.acceptRequest(fid: request.id)
+                                    }
+                                    showRequest.toggle()
+                                }) {
+                                    Label("", systemImage: "checkmark")
+                                }
+                                Button(action: {
+                                    Task {
+                                        await firebase.declineRequest(fid: request.id)
+                                    }
+                                    showRequest.toggle()
+                                }) {
+                                    Label("", systemImage: "xmark")
+                                }
                             }
+                            .padding()
                         }
-                        print(firebase.currentUser.requests)
-                    } label: {
-                        Image(systemName: "bell")
                     }
-                    .foregroundStyle(firebase.currentUser.requests.isEmpty ? Color.blue : Color.green)
+                }
+                .onAppear() {
+                    Task {
+                        await firebase.getUserRequests()
+                    }
                 }
             }
         }
     }
 }
-
-//await firebase.addActivity(user: user, activity: FriendActivity(name: "Activity \(count)", image: "figure.walk", start: 10, end: 100, unit: "minutes"))
 
 //switch locationDataManager.authorizationStatus {
 //    case .authorizedWhenInUse:  // Location services are available.

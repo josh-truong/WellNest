@@ -105,6 +105,10 @@
 		8D83A2652B2FD9A9001AA04E /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A2642B2FD9A9001AA04E /* ProgressBar.swift */; };
 		8D83A2672B2FFE59001AA04E /* EditActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A2662B2FFE59001AA04E /* EditActivitiesView.swift */; };
 		8D83A2692B301A7C001AA04E /* RecordEntitySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A2682B301A7C001AA04E /* RecordEntitySlider.swift */; };
+		8D83A26B2B3050E9001AA04E /* WgerMuscleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A26A2B3050E9001AA04E /* WgerMuscleResponse.swift */; };
+		8D83A26D2B3051EF001AA04E /* WgerEquipmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A26C2B3051EF001AA04E /* WgerEquipmentResponse.swift */; };
+		8D83A26F2B305238001AA04E /* WgerExerciseCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A26E2B305238001AA04E /* WgerExerciseCategoryResponse.swift */; };
+		8D83A2712B30534B001AA04E /* WgerExpandedExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A2702B30534B001AA04E /* WgerExpandedExercise.swift */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */; };
 		8DA4160A2B2D727100AC2E43 /* ChronoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416092B2D727100AC2E43 /* ChronoModel.swift */; };
@@ -220,6 +224,10 @@
 		8D83A2642B2FD9A9001AA04E /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		8D83A2662B2FFE59001AA04E /* EditActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActivitiesView.swift; sourceTree = "<group>"; };
 		8D83A2682B301A7C001AA04E /* RecordEntitySlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntitySlider.swift; sourceTree = "<group>"; };
+		8D83A26A2B3050E9001AA04E /* WgerMuscleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerMuscleResponse.swift; sourceTree = "<group>"; };
+		8D83A26C2B3051EF001AA04E /* WgerEquipmentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerEquipmentResponse.swift; sourceTree = "<group>"; };
+		8D83A26E2B305238001AA04E /* WgerExerciseCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExerciseCategoryResponse.swift; sourceTree = "<group>"; };
+		8D83A2702B30534B001AA04E /* WgerExpandedExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerExpandedExercise.swift; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
 		8DA416092B2D727100AC2E43 /* ChronoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoModel.swift; sourceTree = "<group>"; };
@@ -437,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				8D43D7B52ABD11580022F711 /* WgerExerciseCategory.swift */,
+				8D83A2702B30534B001AA04E /* WgerExpandedExercise.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -795,6 +804,9 @@
 				8D43D7BB2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift */,
 				8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */,
 				8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */,
+				8D83A26A2B3050E9001AA04E /* WgerMuscleResponse.swift */,
+				8D83A26C2B3051EF001AA04E /* WgerEquipmentResponse.swift */,
+				8D83A26E2B305238001AA04E /* WgerExerciseCategoryResponse.swift */,
 			);
 			path = Wger;
 			sourceTree = "<group>";
@@ -981,6 +993,7 @@
 				8DA4162C2B2EC7A600AC2E43 /* DayCapsule.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D00F9BB2B002AC300FFD541 /* TasksView.swift in Sources */,
+				8D83A26B2B3050E9001AA04E /* WgerMuscleResponse.swift in Sources */,
 				8DA416322B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift in Sources */,
 				8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */,
 				8D4307912B18E2F10095CBC7 /* UDKey.swift in Sources */,
@@ -1005,6 +1018,7 @@
 				8DA4160A2B2D727100AC2E43 /* ChronoModel.swift in Sources */,
 				8D4307972B1932920095CBC7 /* RecordManager.swift in Sources */,
 				8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */,
+				8D83A26D2B3051EF001AA04E /* WgerEquipmentResponse.swift in Sources */,
 				8DDC05AB2ABC3E0E00287D4F /* WgerExerciseSearchResponse.swift in Sources */,
 				8D5A5E242AE385A700AF9521 /* UserProfileView.swift in Sources */,
 				8DBE5E372B2AD398000ECAC9 /* PermActivityView.swift in Sources */,
@@ -1022,10 +1036,12 @@
 				8DA416362B2FC77200AC2E43 /* NutrientsSettingsView.swift in Sources */,
 				8DA416302B2FA0D900AC2E43 /* NutrientCard.swift in Sources */,
 				8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */,
+				8D83A2712B30534B001AA04E /* WgerExpandedExercise.swift in Sources */,
 				8D00F9CF2B04AD8F00FFD541 /* NetworkError.swift in Sources */,
 				8D2450AB2AF37E9C00CA248F /* LoginView.swift in Sources */,
 				8DA4161F2B2E19AD00AC2E43 /* SubtitleModifier.swift in Sources */,
 				8D6D55672AD65D4700B9BA7F /* LocationService.swift in Sources */,
+				8D83A26F2B305238001AA04E /* WgerExerciseCategoryResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

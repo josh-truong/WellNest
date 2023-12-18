@@ -14,3 +14,13 @@ struct User: Identifiable, Codable {
     var requests: [String] = []
     var friends: [String] = []
 }
+
+extension User {
+    func toJson() -> [String : Any] {
+        do {
+            let userData = try JSONEncoder().encode(self)
+            return try JSONSerialization.jsonObject(with: userData) as? [String: Any] ?? [:]
+        } catch { print("[DEBUG] \(error.localizedDescription)") }
+        return [:]
+    }
+}
