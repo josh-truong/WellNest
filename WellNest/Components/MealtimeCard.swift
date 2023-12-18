@@ -29,7 +29,7 @@ struct MealtimeCard<Content: View>: View {
                     VStack(alignment: .leading) {
                         Text(type.name.rawValue)
                             .title()
-                        Text("Goal: \(info.goal) calories")
+                        Text("Goal: \(type.goal) calories")
                             .subtitle()
                     }
                     Spacer()
@@ -43,33 +43,13 @@ struct MealtimeCard<Content: View>: View {
                 }
                 Divider()
                 HStack(alignment: .center) {
-                    VStack{
-                        Text("Calories")
-                            .subtitle()
-                        Text("\(info.calories)")
-                            .title()
-                    }
+                    NutrientCard(name: "Calories", value: "\(info.calories)")
                     Spacer()
-                    VStack {
-                        Text("Protein")
-                            .subtitle()
-                        Text(info.protein.formattedString)
-                            .title()
-                    }
+                    NutrientCard(name: "Protein", value: info.protein.formattedString)
                     Spacer()
-                    VStack {
-                        Text("Carbs")
-                            .subtitle()
-                        Text(info.carbs.formattedString)
-                            .title()
-                    }
+                    NutrientCard(name: "Carbs", value: info.carbs.formattedString)
                     Spacer()
-                    VStack {
-                        Text("Fat")
-                            .subtitle()
-                        Text(info.fat.formattedString)
-                            .title()
-                    }
+                    NutrientCard(name: "Fat", value: info.fat.formattedString)
                 }
                 .onTapGesture(count: 1) { 
                     withAnimation {
