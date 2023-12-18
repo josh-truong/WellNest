@@ -19,6 +19,7 @@ struct GeoConnectView: View {
     @State private var showDetails: Bool = false
     @State private var getDirections = false
     @State private var routeDisplaying = false
+    @State private var showEdit: Bool = false
     
     
     var body: some View {
@@ -98,6 +99,16 @@ struct GeoConnectView: View {
             MapPitchToggle()
             MapUserLocationButton()
             MapScaleView()
+        }
+        .toolbar {
+            ToolbarItem {
+                Button("edit", action: { showEdit.toggle() })
+            }
+        }
+        .sheet(isPresented: $showEdit) {
+            RecordEntitySlider(activity: Steps(), min: 0, max: 20000)
+                .presentationDetents([.height(200)])
+                .presentationCornerRadius(12)
         }
     }
 }
