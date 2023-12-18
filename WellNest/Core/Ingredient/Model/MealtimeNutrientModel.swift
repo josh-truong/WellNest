@@ -10,7 +10,6 @@ import SwiftUI
 import CoreData
 
 struct MealtimeNutrientModel {
-    var goal : Int = 0
     var calories: Int = 0
     var protein: CGFloat = 0.0
     var carbs: CGFloat = 0.0
@@ -37,7 +36,6 @@ struct MealtimeNutrientModel {
     }
     
     mutating func clear() {
-        self.goal = 0
         self.calories = 0
         self.protein = 0.0
         self.carbs = 0.0
