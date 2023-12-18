@@ -121,13 +121,17 @@
 		8DA4162A2B2E6FBA00AC2E43 /* NutritionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416292B2E6FBA00AC2E43 /* NutritionViewModel.swift */; };
 		8DA4162C2B2EC7A600AC2E43 /* DayCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4162B2B2EC7A600AC2E43 /* DayCapsule.swift */; };
 		8DA4162E2B2ED02700AC2E43 /* DayCapsulePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */; };
+		8DA416302B2FA0D900AC2E43 /* NutrientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4162F2B2FA0D900AC2E43 /* NutrientCard.swift */; };
+		8DA416322B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416312B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift */; };
+		8DA416342B2FAFD000AC2E43 /* NutrientSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416332B2FAFD000AC2E43 /* NutrientSettingsView.swift */; };
+		8DA416362B2FC77200AC2E43 /* NutrientsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416352B2FC77200AC2E43 /* NutrientsSettingsView.swift */; };
+		8DA416382B2FC9ED00AC2E43 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416372B2FC9ED00AC2E43 /* CustomSlider.swift */; };
 		8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AA2AB3F56000971E19 /* HomeView.swift */; };
 		8DA4E4AD2AB3F66A00971E19 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */; };
 		8DA4E4B12AB3F89D00971E19 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */; };
 		8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A52B1545210070A68D /* ActivityCard.swift */; };
 		8DADB7A82B154EED0070A68D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A72B154EED0070A68D /* Activity.swift */; };
 		8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DADB7A92B15A1D70070A68D /* ActivityButton.swift */; };
-		8DAE9AE02B225DD800FA1365 /* NutritionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */; };
 		8DAE9AF72B2699F700FA1365 /* TimeInterval+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */; };
 		8DAE9AF92B269E5700FA1365 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AF82B269E5700FA1365 /* TimerMode.swift */; };
 		8DAE9AFB2B26A22600FA1365 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE9AFA2B26A22600FA1365 /* StopwatchView.swift */; };
@@ -231,13 +235,17 @@
 		8DA416292B2E6FBA00AC2E43 /* NutritionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewModel.swift; sourceTree = "<group>"; };
 		8DA4162B2B2EC7A600AC2E43 /* DayCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCapsule.swift; sourceTree = "<group>"; };
 		8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCapsulePicker.swift; sourceTree = "<group>"; };
+		8DA4162F2B2FA0D900AC2E43 /* NutrientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCard.swift; sourceTree = "<group>"; };
+		8DA416312B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientGoalsSettingsManager.swift; sourceTree = "<group>"; };
+		8DA416332B2FAFD000AC2E43 /* NutrientSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientSettingsView.swift; sourceTree = "<group>"; };
+		8DA416352B2FC77200AC2E43 /* NutrientsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsSettingsView.swift; sourceTree = "<group>"; };
+		8DA416372B2FC9ED00AC2E43 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		8DA4E4AA2AB3F56000971E19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8DA4E4AC2AB3F66A00971E19 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		8DA4E4B02AB3F89D00971E19 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		8DADB7A52B1545210070A68D /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		8DADB7A72B154EED0070A68D /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8DADB7A92B15A1D70070A68D /* ActivityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityButton.swift; sourceTree = "<group>"; };
-		8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailView.swift; sourceTree = "<group>"; };
 		8DAE9AF62B2699F700FA1365 /* TimeInterval+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Ext.swift"; sourceTree = "<group>"; };
 		8DAE9AF82B269E5700FA1365 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
 		8DAE9AFA2B26A22600FA1365 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
@@ -350,9 +358,10 @@
 				8D00F9C32B01ACDA00FFD541 /* IngredientsView.swift */,
 				8D00F9C72B01ADAC00FFD541 /* IngredientInfoView.swift */,
 				8D4307A12B197F630095CBC7 /* NutritionView.swift */,
-				8DAE9ADF2B225DD800FA1365 /* NutritionDetailView.swift */,
 				8DAE9B072B277FF900FA1365 /* SearchIngredientsView.swift */,
 				8DBE5E322B2A448E000ECAC9 /* CustomIngredientView.swift */,
+				8DA416332B2FAFD000AC2E43 /* NutrientSettingsView.swift */,
+				8DA416352B2FC77200AC2E43 /* NutrientsSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,6 +545,8 @@
 				8DA4161A2B2E110400AC2E43 /* MealtimeCard.swift */,
 				8DA4162B2B2EC7A600AC2E43 /* DayCapsule.swift */,
 				8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */,
+				8DA4162F2B2FA0D900AC2E43 /* NutrientCard.swift */,
+				8DA416372B2FC9ED00AC2E43 /* CustomSlider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -627,6 +638,7 @@
 		8D5BEC4B2AD4ED5D0059A5C8 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				8DA416312B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift */,
 				8D5BEC4C2AD4ED980059A5C8 /* LocationDataManager.swift */,
 				8D4307962B1932920095CBC7 /* RecordManager.swift */,
 				8DBE5E3D2B2B74DF000ECAC9 /* FirebaseManager.swift */,
@@ -952,7 +964,7 @@
 				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */,
 				8DBE5E2C2B2A17D4000ECAC9 /* View+Ext.swift in Sources */,
 				8D7A511C2B18BC2700397762 /* ActivityViewModel.swift in Sources */,
-				8DAE9AE02B225DD800FA1365 /* NutritionDetailView.swift in Sources */,
+				8DA416342B2FAFD000AC2E43 /* NutrientSettingsView.swift in Sources */,
 				8D156A1A2AFC365F00E22283 /* AuthenticationService.swift in Sources */,
 				8D7A510A2B15DBF700397762 /* ActivityListView.swift in Sources */,
 				8DAE9AFB2B26A22600FA1365 /* StopwatchView.swift in Sources */,
@@ -966,6 +978,7 @@
 				8DA4162C2B2EC7A600AC2E43 /* DayCapsule.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
 				8D00F9BB2B002AC300FFD541 /* TasksView.swift in Sources */,
+				8DA416322B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift in Sources */,
 				8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */,
 				8D4307912B18E2F10095CBC7 /* UDKey.swift in Sources */,
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
@@ -980,6 +993,7 @@
 				8DDC05AD2ABC3E7100287D4F /* APIService.swift in Sources */,
 				8DD6AD7B2B21EA7000C8364E /* Date+Ext.swift in Sources */,
 				8DAE9B062B2703BC00FA1365 /* ItemRow.swift in Sources */,
+				8DA416382B2FC9ED00AC2E43 /* CustomSlider.swift in Sources */,
 				8DA416192B2DA04600AC2E43 /* TimerCard.swift in Sources */,
 				8DA416262B2E1D1F00AC2E43 /* CGFloat+Ext.swift in Sources */,
 				8DADB7AA2B15A1D70070A68D /* ActivityButton.swift in Sources */,
@@ -1001,6 +1015,8 @@
 				8D0407C82AFD61DC0067AB17 /* ReauthenticationView.swift in Sources */,
 				8D156A212AFC3B0F00E22283 /* AuthUserModel.swift in Sources */,
 				8DAE9AFF2B26A8FC00FA1365 /* ChronoView.swift in Sources */,
+				8DA416362B2FC77200AC2E43 /* NutrientsSettingsView.swift in Sources */,
+				8DA416302B2FA0D900AC2E43 /* NutrientCard.swift in Sources */,
 				8DDC05A92ABC3AB700287D4F /* WgerEndpoints.swift in Sources */,
 				8D00F9CF2B04AD8F00FFD541 /* NetworkError.swift in Sources */,
 				8D2450AB2AF37E9C00CA248F /* LoginView.swift in Sources */,
