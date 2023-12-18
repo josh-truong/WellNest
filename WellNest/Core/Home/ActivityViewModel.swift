@@ -7,10 +7,25 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 @MainActor
 class ActivityViewModel : ObservableObject {
     @Published var todaysCalories: Int = 0
+    @Published var calories: Float = 0
+    
+    func getEntity(_ activity: Activity) -> FetchRequest<RecordEntity> {
+        let fetchRequest: NSFetchRequest<RecordEntity> = RecordEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[cd] %@", activity.name)
+        fetchRequest.sortDescriptors = [ NSSortDescriptor(keyPath: \RecordEntity.timestamp, ascending: false) ]
+        return FetchRequest(fetchRequest: fetchRequest)
+    }
+    
+    func getTotalCalories() {
+        calories += Float(NutrientGoalsSettingsManager.getNutrientGoal(nutrient: .breakfastCal))
+        calories += Float(NutrientGoalsSettingsManager.getNutrientGoal(nutrient: .lunchCal))
+        calories += Float(NutrientGoalsSettingsManager.getNutrientGoal(nutrient: .dinnerCal))
+    }
     
     func getTodaysCalories(context: NSManagedObjectContext) {
         let request: NSFetchRequest<FoodEntity> = FoodEntity.fetchRequest()
