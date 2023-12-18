@@ -18,65 +18,97 @@ struct IngredientInfoView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading) {
+            VStack(alignment: .center) {
+                HStack {
                     Text(vm.info.name.htmlAttributedString)
                         .font(.headline)
-                        .padding()
-                    HStack {
-                        DatePicker("", selection: $selectedDate, in: Date().oneWeekAgo, displayedComponents: [.date])
-                            .labelsHidden()
-                        
-                        Picker("", selection: $selectedMealtime) {
-                            ForEach(MealtimeType.allCases, id: \.self) { type in
-                                Text(type.rawValue)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                        .labelsHidden()
-                    }
-                    .padding()
-                    
-                    ItemRow(key: "Energy", value: "\(vm.info.energy) kcal")
-                    ItemRow(key: "Protein", value: " \(vm.info.protein) g")
-                    ItemRow(key: "Carbohydrates", value: "\(vm.info.carbohydrates) g")
-                    if let carbohydratesSugar = vm.info.carbohydratesSugar{
-                        ItemRow(key: "Carbohydrates Sugar", value: "\(carbohydratesSugar) g")
-                    }
-                    ItemRow(key: "Fat", value: "\(vm.info.fat) g")
-                    if let fatSaturated = vm.info.fatSaturated {
-                        ItemRow(key: "Fat Saturated", value: "\(fatSaturated) g")
-                    }
-                    if let fibres = vm.info.fibres {
-                        ItemRow(key: "Fibres", value: "\(fibres) g")
-                    }
-                    if let sodium = vm.info.sodium {
-                        ItemRow(key: "Sodium", value: "\(sodium) g")
-                    }
+                    Spacer()
                 }
-            }
-            .navigationTitle("Add Food")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel", role: .cancel, action: { dismiss() })
+                Spacer()
+                HStack {
+                    VStack {
+                        Text("\(vm.info.energy)")
+                            .font(.title)
+                        Text("Calories")
+                            .font(.subheadline)
+                    }
+                    Spacer()
+                    ZStack {
+                        Color(uiColor: .systemGray6)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .frame(height: 100)
+                        HStack {
+                            Spacer()
+                            NutrientCard(name: "Carbohydrates", value: "\(vm.info.carbohydrates) g")
+                            Spacer()
+                            NutrientCard(name: "Protein", value: "\(vm.info.protein) g")
+                            Spacer()
+                            NutrientCard(name: "Fat", value: "\(vm.info.fat) g")
+                            Spacer()
+                        }
+                        .padding()
+                    }
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Add", action: {
+                ZStack {
+                    Color(uiColor: .systemGray6)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .frame(height: 100)
+                    HStack {
+                        Spacer()
+                        NutrientCard(name: "Sodium", value: "\(vm.info.sodium ?? "0") g")
+                        Spacer()
+                        NutrientCard(name: "Fibres", value: "\(vm.info.fibres ?? "0") g")
+                        Spacer()
+                        NutrientCard(name: "Carbohydrates Sugar", value: "\(vm.info.carbohydratesSugar ?? "0") g")
+                        Spacer()
+                    }
+                    .padding()
+                }
+                Spacer()
+                HStack {
+                    Spacer()
+                    DatePicker("", selection: $selectedDate, in: Date().oneWeekAgo, displayedComponents: [.date])
+                        .labelsHidden()
+                    
+                    Picker("", selection: $selectedMealtime) {
+                        ForEach(MealtimeType.allCases, id: \.self) { type in
+                            Text(type.rawValue)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .labelsHidden()
+                    Spacer()
+                }
+                .padding(.top)
+                
+                HStack {
+                    Spacer()
+                    Button {
                         var item = SimpleWgerIngredientResult(vm.info)
                         item.timestamp = selectedDate
                         item.mealtime = selectedMealtime
                         
                         FoodEntity().add(item: item, context: managedObjContext)
                         dismiss()
-                    })
-                    .tint(.blue)
+                    } label: {
+                        Text("Add Item")
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width-32, height: 48)
+                    }
+                    .background(Color(.systemBlue))
                     .disabled(!showAdd)
                     .opacity(showAdd ? 1.0 : 0.5)
+                    .cornerRadius(10)
+                    .padding()
+                    Spacer()
                 }
+                Spacer()
             }
+            .navigationTitle("Add Food")
+            .navigationBarTitleDisplayMode(.inline)
             .task { await vm.getIngredientInfo(ingredient: result) { status in self.showAdd = status } }
+            .padding(.horizontal)
         }
     }
 }
