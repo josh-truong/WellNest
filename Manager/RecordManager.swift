@@ -143,6 +143,11 @@ extension ActivityEntity {
         save(context: context)
     }
     
+    func updateGoal(_ goal: Int, context: NSManagedObjectContext) {
+        self.goal = Int32(goal)
+        save(context: context)
+    }
+    
     func getColorEntity(_ color: Color, context: NSManagedObjectContext) -> ColorEntity {
         let colorEntity = ColorEntity(context: context)
         let rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = colorEntity.rgba(color: color)
