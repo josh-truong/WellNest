@@ -12,6 +12,8 @@ struct IngredientsView: View {
     @StateObject var vm: IngredientViewModel = .init()
     @State private var searchTerm: String = ""
     @State private var isViewSearch: Bool = true
+    @State private var selection: WgerIngredientResult = .init()
+    @State var showDetails: Bool = false
      
     var body: some View {
         VStack {
@@ -24,9 +26,9 @@ struct IngredientsView: View {
             .padding(.bottom)
             if (isViewSearch) {
                 if searchTerm.isEmpty {
-                    DefaultIngredientView()
+                    DefaultIngredientView(selection: $selection)
                 } else {
-                    SearchIngredientsView(results: $vm.results)
+                    SearchIngredientsView(results: $vm.results, selection: $selection)
                 }
             } else {
                 CustomIngredientView()
@@ -39,14 +41,20 @@ struct IngredientsView: View {
             if !isViewSearch { searchTerm.removeAll() }
         }
         .onChange(of: searchTerm) { oldState, newState in
+            vm.results.removeAll()
+            
             Task {
                 if !newState.isEmpty && newState.count > 2 {
                     isViewSearch = true
                     await vm.searchIngredient(term: newState)
-                } else {
-                    vm.results.removeAll()
                 }
             }
+        }
+        .onChange(of: selection) { showDetails.toggle() }
+        .sheet(isPresented: $showDetails) {
+            IngredientInfoView(result: $selection)
+                .presentationDetents([.height(500)])
+                .presentationCornerRadius(12)
         }
         .onDisappear { dismiss() }
     }
