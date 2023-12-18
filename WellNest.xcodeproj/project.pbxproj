@@ -74,7 +74,7 @@
 		8D43078F2B18CFB80095CBC7 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43078E2B18CFB80095CBC7 /* UserDefaultService.swift */; };
 		8D4307912B18E2F10095CBC7 /* UDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307902B18E2F10095CBC7 /* UDKey.swift */; };
 		8D4307932B18F2590095CBC7 /* MyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307922B18F2590095CBC7 /* MyActivityView.swift */; };
-		8D4307952B1930D80095CBC7 /* EditActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307942B1930D80095CBC7 /* EditActivityView.swift */; };
+		8D4307952B1930D80095CBC7 /* LogActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307942B1930D80095CBC7 /* LogActivityView.swift */; };
 		8D4307972B1932920095CBC7 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307962B1932920095CBC7 /* RecordManager.swift */; };
 		8D4307A22B197F630095CBC7 /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4307A12B197F630095CBC7 /* NutritionView.swift */; };
 		8D43D7B22ABCF1BE0022F711 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */; };
@@ -103,6 +103,9 @@
 		8D7A51122B17D10400397762 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51112B17D10400397762 /* TimePickerView.swift */; };
 		8D7A51142B17D7D300397762 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A51132B17D7D300397762 /* RangePicker.swift */; };
 		8D7A511C2B18BC2700397762 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */; };
+		8D83A2652B2FD9A9001AA04E /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A2642B2FD9A9001AA04E /* ProgressBar.swift */; };
+		8D83A2672B2FFE59001AA04E /* EditActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A2662B2FFE59001AA04E /* EditActivitiesView.swift */; };
+		8D83A2692B301A7C001AA04E /* RecordEntitySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D83A2682B301A7C001AA04E /* RecordEntitySlider.swift */; };
 		8D9EF0892AC612C50062D566 /* WgerIngredientSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */; };
 		8D9EF0902AC626C20062D566 /* WgerIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */; };
 		8DA4160A2B2D727100AC2E43 /* ChronoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416092B2D727100AC2E43 /* ChronoModel.swift */; };
@@ -123,7 +126,6 @@
 		8DA4162E2B2ED02700AC2E43 /* DayCapsulePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */; };
 		8DA416302B2FA0D900AC2E43 /* NutrientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4162F2B2FA0D900AC2E43 /* NutrientCard.swift */; };
 		8DA416322B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416312B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift */; };
-		8DA416342B2FAFD000AC2E43 /* NutrientSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416332B2FAFD000AC2E43 /* NutrientSettingsView.swift */; };
 		8DA416362B2FC77200AC2E43 /* NutrientsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416352B2FC77200AC2E43 /* NutrientsSettingsView.swift */; };
 		8DA416382B2FC9ED00AC2E43 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA416372B2FC9ED00AC2E43 /* CustomSlider.swift */; };
 		8DA4E4AB2AB3F56000971E19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4E4AA2AB3F56000971E19 /* HomeView.swift */; };
@@ -186,7 +188,7 @@
 		8D43078E2B18CFB80095CBC7 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		8D4307902B18E2F10095CBC7 /* UDKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDKey.swift; sourceTree = "<group>"; };
 		8D4307922B18F2590095CBC7 /* MyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivityView.swift; sourceTree = "<group>"; };
-		8D4307942B1930D80095CBC7 /* EditActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActivityView.swift; sourceTree = "<group>"; };
+		8D4307942B1930D80095CBC7 /* LogActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogActivityView.swift; sourceTree = "<group>"; };
 		8D4307962B1932920095CBC7 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		8D4307A12B197F630095CBC7 /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
 		8D43D7B12ABCF1BE0022F711 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
@@ -217,6 +219,9 @@
 		8D7A51112B17D10400397762 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		8D7A51132B17D7D300397762 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
 		8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		8D83A2642B2FD9A9001AA04E /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		8D83A2662B2FFE59001AA04E /* EditActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActivitiesView.swift; sourceTree = "<group>"; };
+		8D83A2682B301A7C001AA04E /* RecordEntitySlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntitySlider.swift; sourceTree = "<group>"; };
 		8D9EF0882AC612C50062D566 /* WgerIngredientSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientSearchResponse.swift; sourceTree = "<group>"; };
 		8D9EF08F2AC626C20062D566 /* WgerIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WgerIngredientResponse.swift; sourceTree = "<group>"; };
 		8DA416092B2D727100AC2E43 /* ChronoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoModel.swift; sourceTree = "<group>"; };
@@ -237,7 +242,6 @@
 		8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCapsulePicker.swift; sourceTree = "<group>"; };
 		8DA4162F2B2FA0D900AC2E43 /* NutrientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCard.swift; sourceTree = "<group>"; };
 		8DA416312B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientGoalsSettingsManager.swift; sourceTree = "<group>"; };
-		8DA416332B2FAFD000AC2E43 /* NutrientSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientSettingsView.swift; sourceTree = "<group>"; };
 		8DA416352B2FC77200AC2E43 /* NutrientsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsSettingsView.swift; sourceTree = "<group>"; };
 		8DA416372B2FC9ED00AC2E43 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		8DA4E4AA2AB3F56000971E19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -335,8 +339,9 @@
 				8D7A51092B15DBF700397762 /* ActivityListView.swift */,
 				8D7A511B2B18BC2700397762 /* ActivityViewModel.swift */,
 				8D4307922B18F2590095CBC7 /* MyActivityView.swift */,
-				8D4307942B1930D80095CBC7 /* EditActivityView.swift */,
+				8D4307942B1930D80095CBC7 /* LogActivityView.swift */,
 				8DBE5E362B2AD398000ECAC9 /* PermActivityView.swift */,
+				8D83A2662B2FFE59001AA04E /* EditActivitiesView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -360,7 +365,6 @@
 				8D4307A12B197F630095CBC7 /* NutritionView.swift */,
 				8DAE9B072B277FF900FA1365 /* SearchIngredientsView.swift */,
 				8DBE5E322B2A448E000ECAC9 /* CustomIngredientView.swift */,
-				8DA416332B2FAFD000AC2E43 /* NutrientSettingsView.swift */,
 				8DA416352B2FC77200AC2E43 /* NutrientsSettingsView.swift */,
 			);
 			path = View;
@@ -547,6 +551,8 @@
 				8DA4162D2B2ED02700AC2E43 /* DayCapsulePicker.swift */,
 				8DA4162F2B2FA0D900AC2E43 /* NutrientCard.swift */,
 				8DA416372B2FC9ED00AC2E43 /* CustomSlider.swift */,
+				8D83A2642B2FD9A9001AA04E /* ProgressBar.swift */,
+				8D83A2682B301A7C001AA04E /* RecordEntitySlider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -944,6 +950,7 @@
 				8DBE5E332B2A448E000ECAC9 /* CustomIngredientView.swift in Sources */,
 				8D00F9C02B01976800FFD541 /* TaskDisplayView.swift in Sources */,
 				8DBE5E352B2A47B6000ECAC9 /* NumericInputView.swift in Sources */,
+				8D83A2672B2FFE59001AA04E /* EditActivitiesView.swift in Sources */,
 				8D43D7B82ABD353F0022F711 /* ExerciseCategoryView.swift in Sources */,
 				8DA416212B2E1A4A00AC2E43 /* TitleStyle.swift in Sources */,
 				8DC05EFB2B1C38190070A117 /* IngredientInfoViewModel.swift in Sources */,
@@ -964,16 +971,16 @@
 				8D43D7BC2ABE3DB60022F711 /* WgerExerciseBaseResponse.swift in Sources */,
 				8DBE5E2C2B2A17D4000ECAC9 /* View+Ext.swift in Sources */,
 				8D7A511C2B18BC2700397762 /* ActivityViewModel.swift in Sources */,
-				8DA416342B2FAFD000AC2E43 /* NutrientSettingsView.swift in Sources */,
 				8D156A1A2AFC365F00E22283 /* AuthenticationService.swift in Sources */,
 				8D7A510A2B15DBF700397762 /* ActivityListView.swift in Sources */,
 				8DAE9AFB2B26A22600FA1365 /* StopwatchView.swift in Sources */,
 				8D7A51122B17D10400397762 /* TimePickerView.swift in Sources */,
+				8D83A2692B301A7C001AA04E /* RecordEntitySlider.swift in Sources */,
 				8DBE5E3C2B2B5F5B000ECAC9 /* Encodable+Ext.swift in Sources */,
 				8DA416172B2D930400AC2E43 /* TimeModel.swift in Sources */,
 				8D6D55722AD6660D00B9BA7F /* GeoConnectViewModel.swift in Sources */,
 				8D7A0A672AFF263F002C92F7 /* EditTaskView.swift in Sources */,
-				8D4307952B1930D80095CBC7 /* EditActivityView.swift in Sources */,
+				8D4307952B1930D80095CBC7 /* LogActivityView.swift in Sources */,
 				8DA4160C2B2D760F00AC2E43 /* ChronoViewModel.swift in Sources */,
 				8DA4162C2B2EC7A600AC2E43 /* DayCapsule.swift in Sources */,
 				8D43D7BA2ABD3EFA0022F711 /* ExerciseDetailView.swift in Sources */,
@@ -981,6 +988,7 @@
 				8DA416322B2FA40D00AC2E43 /* NutrientGoalsSettingsManager.swift in Sources */,
 				8DADB7A62B1545210070A68D /* ActivityCard.swift in Sources */,
 				8D4307912B18E2F10095CBC7 /* UDKey.swift in Sources */,
+				8D83A2652B2FD9A9001AA04E /* ProgressBar.swift in Sources */,
 				8D43D7B62ABD11580022F711 /* WgerExerciseCategory.swift in Sources */,
 				8D4C243E2AB350260008447E /* WellNestApp.swift in Sources */,
 				8DADB7A82B154EED0070A68D /* Activity.swift in Sources */,
