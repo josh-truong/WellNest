@@ -9,31 +9,25 @@ import SwiftUI
 
 struct SearchIngredientsView: View {
     @Binding var results: [WgerIngredientSuggestion]
-    
-    @State private var selectedIngredient: WgerIngredientResult = .init()
-    @State private var showSheet: Bool = false
+    @Binding var selection: WgerIngredientResult
     
     var body: some View {
         VStack {
             List {
                 ForEach(results, id: \.self) { result in
                     if let data = result.data {
-                        Button(data.name, action: {
-                            selectedIngredient = WgerIngredientResult(id: data.id)
-                            showSheet.toggle()
-                        })
+                        Button(data.name, action: { selection = WgerIngredientResult(id: data.id) })
                     }
                 }
                 HStack(alignment: .center) {
+                    Spacer()
                     ProgressView("Loading ...")
                         .progressViewStyle(CircularProgressViewStyle())
+                    Spacer()
                 }
                 Spacer()
             }
             .listStyle(.plain)
-        }
-        .sheet(isPresented: $showSheet) {
-            IngredientInfoView(result: $selectedIngredient)
         }
     }
 }
