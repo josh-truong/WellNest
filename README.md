@@ -2,6 +2,7 @@
 
 WellNest is an application project that seeks to create a comprehensive health and fitness platform. The primary goal is to encourage social engagement and data sharing among users. Users can connect with friends to synchronize various health metrics such as location, heart rate, and workout plans. The app also features a comprehensive database for exercises and food, as well as a calorie calculator for dietary intake. It aims to provide a one-stop solution for individuals seeking to maintain a healthier lifestyle by promoting social interaction, data tracking, and access to a wide array of health and fitness resources. 
 
+![](https://github.com/josh-truong/WellNest/blob/main/demo.png)
 [Figma Design](https://www.figma.com/file/HZnqSRKRffYaVZnmeBd0kf/WellNest?type=design&node-id=1%3A3&mode=design&t=1M0NNmpNYTWOchdH-1)
 
 ## Upcoming App Enhancements:
